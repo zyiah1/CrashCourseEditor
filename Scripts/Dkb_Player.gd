@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 var drag = false
 var data = [
@@ -29,7 +29,7 @@ var data = [
 			"            scale_x: 1.00000",
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
-onready var id
+@onready var id
 
 func _ready():
 	data[21] = "            pos_x: " + str(position.x)
@@ -41,14 +41,14 @@ func _process(delta):
 	id = get_parent().nodes.find(self)
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
-			modulate = Color.red
+			modulate = Color.RED
 		else:
-			modulate = Color.white
+			modulate = Color.WHITE
 	else:
-		modulate = Color.white
+		modulate = Color.WHITE
 	if drag == true:
 		if get_parent().item == "delete":
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			get_parent().playerunstore()
 			queue_free()
 		if get_parent().item == "proporties":

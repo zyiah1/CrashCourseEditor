@@ -1,6 +1,6 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 var trackvisible = null
 var speed = null
 var reset = null
@@ -62,17 +62,17 @@ func _ready():
 	text.erase(0,22)
 	$Speed.text = text
 	if trackvisible.text.begins_with("              param1: 0"):
-		$visible.pressed = false
+		$visible.button_pressed = false
 	
 	if reset.text.begins_with("              param3: -1"):
-		$reset.pressed = false
+		$reset.button_pressed = false
 	
 	if id.text.begins_with("              param0: 2300") or id.text.begins_with("              param0: 2000") :
-		$returns.pressed = false
+		$returns.button_pressed = false
 	
 	if id.text.begins_with("              param0: 4300"):
-		$camera/check.pressed = true
-		$AnimationPlayer.play("Move Camera On")
+		$camera/check.button_pressed = true
+		$AnimationPlayer.play("Move Camera3D On")
 		$camera/CamY.text = cameramoveY.text.lstrip("              param6:")
 
 
@@ -147,11 +147,11 @@ func _on_returns_pressed():
 func _on_camera_pressed():
 	if $camera/check.pressed:
 		id.text = "              param0: 4300.00000"
-		$AnimationPlayer.play("Move Camera On")
+		$AnimationPlayer.play("Move Camera3D On")
 	else:
 		id.text = "              param0: 2300.00000"
-		$returns.pressed = false
-		$AnimationPlayer.play("Move Camera Off")
+		$returns.button_pressed = false
+		$AnimationPlayer.play("Move Camera3D Off")
 		cameramoveY.text = "              param6: -1.00000"
 		$camera/CamY.text = ""
 

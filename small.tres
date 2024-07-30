@@ -1,184 +1,211 @@
-[gd_resource type="Theme" load_steps=53 format=2]
+[gd_resource type="Theme" load_steps=53 format=3 uid="uid://byp0imswcta2n"]
 
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://UI/panel.png" type="Texture" id=2]
-[ext_resource path="res://fonts/wii/contb.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://UI/selected.png" type="Texture" id=4]
-[ext_resource path="res://UI/checkon.png" type="Texture" id=5]
-[ext_resource path="res://UI/checkoff.png" type="Texture" id=6]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://UI/checkoffsmall.png" type="Texture" id=8]
-[ext_resource path="res://UI/checkonsmall.png" type="Texture" id=9]
-[ext_resource path="res://UI/buttonsmall.png" type="Texture" id=10]
-[ext_resource path="res://UI/panelred.png" type="Texture" id=11]
-[ext_resource path="res://UI/smallpanel.png" type="Texture" id=12]
-[ext_resource path="res://UI/LineEdit.png" type="Texture" id=13]
-[ext_resource path="res://UI/LineEditFocus.png" type="Texture" id=14]
-[ext_resource path="res://UI/darkerpanel.png" type="Texture" id=15]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=16]
-[ext_resource path="res://UI/scroll.png" type="Texture" id=17]
-[ext_resource path="res://UI/scrollpress.png" type="Texture" id=18]
-[ext_resource path="res://UI/scrollhover.png" type="Texture" id=19]
-[ext_resource path="res://UI/slidetick.png" type="Texture" id=20]
-[ext_resource path="res://UI/slider.png" type="Texture" id=21]
-[ext_resource path="res://UI/grabpoint.png" type="Texture" id=22]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
+[ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="2"]
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://bnsnh3eyvubc5" path="res://UI/selected.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://d4ay3kplo8n45" path="res://UI/checkon.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cln12jfhftxmr" path="res://UI/checkoff.png" id="6"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="7"]
+[ext_resource type="Texture2D" uid="uid://fxkeysuhd5i4" path="res://UI/checkoffsmall.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bjg2qj8lmkvj1" path="res://UI/checkonsmall.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttonsmall.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dsud6jwp7hdhd" path="res://UI/panelred.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://b2pv8t2mmyih8" path="res://UI/smallpanel.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://f5qjuhu8jbm5" path="res://UI/darkerpanel.png" id="15"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="16"]
+[ext_resource type="Texture2D" uid="uid://cn44dq7t7eghd" path="res://UI/scroll.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://5flelucgj6xi" path="res://UI/scrollpress.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://y156pvrvg8hv" path="res://UI/scrollhover.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://8dlqyd22tn01" path="res://UI/slidetick.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://bhoqcy8emqme" path="res://UI/grabpoint.png" id="22"]
 
-[sub_resource type="DynamicFont" id=11]
-size = 17
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=26]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="26"]
+texture = ExtResource("11")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxEmpty" id=27]
+[sub_resource type="StyleBoxEmpty" id="27"]
 
-[sub_resource type="StyleBoxTexture" id=28]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 905, 492 )
+[sub_resource type="StyleBoxTexture" id="28"]
+texture = ExtResource("12")
+region_rect = Rect2(0, 0, 905, 492)
 
-[sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 62, 50 )
+[sub_resource type="StyleBoxTexture" id="17"]
+texture = ExtResource("6")
+region_rect = Rect2(0, 0, 62, 50)
 
-[sub_resource type="StyleBoxTexture" id=18]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 62, 50 )
+[sub_resource type="StyleBoxTexture" id="18"]
+texture = ExtResource("5")
+region_rect = Rect2(0, 0, 62, 50)
 
-[sub_resource type="StyleBoxEmpty" id=39]
+[sub_resource type="StyleBoxEmpty" id="39"]
 
-[sub_resource type="StyleBoxTexture" id=40]
-texture = ExtResource( 21 )
-region_rect = Rect2( 0, 0, 100, 10 )
+[sub_resource type="StyleBoxTexture" id="40"]
+texture = ExtResource("21")
+region_rect = Rect2(0, 0, 100, 10)
 
-[sub_resource type="StyleBoxTexture" id=30]
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="30"]
+texture = ExtResource("14")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="StyleBoxTexture" id=31]
-texture = ExtResource( 13 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="31"]
+texture = ExtResource("13")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="ImageTexture" id=20]
+[sub_resource type="ImageTexture" id="20"]
 
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0.380392, 0.168627, 0.168627, 1 )
+[sub_resource type="StyleBoxFlat" id="13"]
+bg_color = Color(0.380392, 0.168627, 0.168627, 1)
 
-[sub_resource type="StyleBoxTexture" id=22]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="22"]
+texture = ExtResource("11")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="DynamicFont" id=19]
-size = 12
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="19"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=16]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 128, 64 )
+[sub_resource type="StyleBoxTexture" id="16"]
+texture = ExtResource("4")
+region_rect = Rect2(0, 0, 128, 64)
 
-[sub_resource type="StyleBoxTexture" id=15]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="15"]
+texture = ExtResource("2")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.309804, 0.12549, 0.12549, 1 )
+[sub_resource type="StyleBoxFlat" id="14"]
+bg_color = Color(0.309804, 0.12549, 0.12549, 1)
 
-[sub_resource type="DynamicFont" id=4]
-size = 64
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+[sub_resource type="FontFile" id="4"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="DynamicFont" id=12]
-size = 49
-extra_spacing_top = 30
-font_data = ExtResource( 3 )
+[sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=21]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="21"]
+texture = ExtResource("10")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="DynamicFont" id=38]
-size = 13
-use_filter = true
-font_data = ExtResource( 16 )
+[sub_resource type="FontFile" id="38"]
+fallbacks = Array[Font]([ExtResource("16")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=32]
-texture = ExtResource( 15 )
-region_rect = Rect2( 0, 0, 100, 100 )
+[sub_resource type="StyleBoxTexture" id="32"]
+texture = ExtResource("15")
+region_rect = Rect2(0, 0, 100, 100)
 
-[sub_resource type="StyleBoxTexture" id=33]
-texture = ExtResource( 13 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="33"]
+texture = ExtResource("13")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="StyleBoxTexture" id=34]
-texture = ExtResource( 13 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="34"]
+texture = ExtResource("13")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="StyleBoxTexture" id=35]
-texture = ExtResource( 17 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxTexture" id="35"]
+texture = ExtResource("17")
+region_rect = Rect2(0, 0, 32, 32)
 
-[sub_resource type="StyleBoxTexture" id=36]
-texture = ExtResource( 19 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxTexture" id="36"]
+texture = ExtResource("19")
+region_rect = Rect2(0, 0, 32, 32)
 
-[sub_resource type="StyleBoxTexture" id=37]
-texture = ExtResource( 18 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxTexture" id="37"]
+texture = ExtResource("18")
+region_rect = Rect2(0, 0, 32, 32)
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="FontFile" id="23"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="LargeTexture" id=29]
+[sub_resource type="ImageTexture" id="29"]
 
-[sub_resource type="StyleBoxTexture" id=25]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="25"]
+texture = ExtResource("11")
+region_rect = Rect2(0, 0, 733, 320)
 
 [resource]
-Button/fonts/font = SubResource( 11 )
-Button/styles/disabled = SubResource( 26 )
-Button/styles/focus = SubResource( 27 )
-Button/styles/hover = SubResource( 28 )
-Button/styles/normal = SubResource( 28 )
-Button/styles/pressed = SubResource( 26 )
+Button/fonts/font = SubResource("11")
+Button/styles/disabled = SubResource("26")
+Button/styles/focus = SubResource("27")
+Button/styles/hover = SubResource("28")
+Button/styles/normal = SubResource("28")
+Button/styles/pressed = SubResource("26")
 CheckBox/styles/focus = null
-CheckBox/styles/hover = SubResource( 17 )
-CheckBox/styles/hover_pressed = SubResource( 18 )
-CheckBox/styles/normal = SubResource( 17 )
-CheckBox/styles/pressed = SubResource( 18 )
-HSlider/icons/grabber = ExtResource( 22 )
-HSlider/icons/grabber_highlight = ExtResource( 22 )
-HSlider/icons/tick = ExtResource( 20 )
-HSlider/styles/grabber_area = SubResource( 39 )
-HSlider/styles/grabber_area_highlight = SubResource( 39 )
-HSlider/styles/slider = SubResource( 40 )
-LineEdit/styles/focus = SubResource( 30 )
-LineEdit/styles/normal = SubResource( 31 )
-OptionButton/icons/arrow = SubResource( 20 )
-Panel/styles/panel = SubResource( 13 )
-PopupDialog/styles/panel = SubResource( 22 )
-PopupMenu/fonts/font = SubResource( 19 )
-PopupMenu/icons/checked = ExtResource( 9 )
-PopupMenu/icons/radio_checked = ExtResource( 9 )
-PopupMenu/icons/radio_unchecked = ExtResource( 8 )
+CheckBox/styles/hover = SubResource("17")
+CheckBox/styles/hover_pressed = SubResource("18")
+CheckBox/styles/normal = SubResource("17")
+CheckBox/styles/pressed = SubResource("18")
+HSlider/icons/grabber = ExtResource("22")
+HSlider/icons/grabber_highlight = ExtResource("22")
+HSlider/icons/tick = ExtResource("20")
+HSlider/styles/grabber_area = SubResource("39")
+HSlider/styles/grabber_area_highlight = SubResource("39")
+HSlider/styles/slider = SubResource("40")
+LineEdit/styles/focus = SubResource("30")
+LineEdit/styles/normal = SubResource("31")
+OptionButton/icons/arrow = SubResource("20")
+Panel/styles/panel = SubResource("13")
+Popup/styles/panel = SubResource("22")
+PopupMenu/fonts/font = SubResource("19")
+PopupMenu/icons/checked = ExtResource("9")
+PopupMenu/icons/radio_checked = ExtResource("9")
+PopupMenu/icons/radio_unchecked = ExtResource("8")
 PopupMenu/icons/submenu = null
-PopupMenu/icons/unchecked = ExtResource( 8 )
-PopupMenu/styles/hover = SubResource( 16 )
-PopupMenu/styles/panel = SubResource( 15 )
-PopupPanel/styles/panel = SubResource( 14 )
-RichTextLabel/fonts/normal_font = SubResource( 4 )
-TextEdit/fonts/font = SubResource( 12 )
-TextEdit/styles/normal = SubResource( 21 )
-Tree/fonts/font = SubResource( 38 )
-Tree/fonts/title_button_font = SubResource( 38 )
-Tree/styles/bg = SubResource( 32 )
-Tree/styles/selected = SubResource( 33 )
-Tree/styles/selected_focus = SubResource( 34 )
-VScrollBar/styles/grabber = SubResource( 35 )
-VScrollBar/styles/grabber_highlight = SubResource( 36 )
-VScrollBar/styles/grabber_pressed = SubResource( 37 )
-WindowDialog/fonts/title_font = SubResource( 23 )
-WindowDialog/icons/close = SubResource( 29 )
-WindowDialog/icons/close_highlight = SubResource( 29 )
-WindowDialog/styles/panel = SubResource( 25 )
+PopupMenu/icons/unchecked = ExtResource("8")
+PopupMenu/styles/hover = SubResource("16")
+PopupMenu/styles/panel = SubResource("15")
+PopupPanel/styles/panel = SubResource("14")
+RichTextLabel/fonts/normal_font = SubResource("4")
+TextEdit/fonts/font = SubResource("12")
+TextEdit/styles/normal = SubResource("21")
+Tree/fonts/font = SubResource("38")
+Tree/fonts/title_button_font = SubResource("38")
+Tree/styles/bg = SubResource("32")
+Tree/styles/selected = SubResource("33")
+Tree/styles/selected_focus = SubResource("34")
+VScrollBar/styles/grabber = SubResource("35")
+VScrollBar/styles/grabber_highlight = SubResource("36")
+VScrollBar/styles/grabber_pressed = SubResource("37")
+Window/fonts/title_font = SubResource("23")
+Window/icons/close = SubResource("29")
+Window/icons/close_highlight = SubResource("29")
+Window/styles/panel = SubResource("25")

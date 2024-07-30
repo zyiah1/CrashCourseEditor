@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 const object = preload("res://Function Presets/Object.tscn")
 const check = preload("res://Function Presets/Checkpoint.tscn")
@@ -19,31 +19,31 @@ func _on_Functions_pressed():
 		
 		
 		if get_parent().get_parent().editednode.is_in_group("bridge"):
-			$FunctionContainer.add_child(bridge.instance())
+			$FunctionContainer.add_child(bridge.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("music"):
-			$FunctionContainer.add_child(bridge.instance())
+			$FunctionContainer.add_child(bridge.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("fan"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Rrail"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Lrail"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Auto"):
-			$FunctionContainer.add_child(auto.instance())
+			$FunctionContainer.add_child(auto.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Autospin"):
-			$FunctionContainer.add_child(apivot.instance())
+			$FunctionContainer.add_child(apivot.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("LCrankrail"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("RCrankrail"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("EndMove"):
-			$FunctionContainer.add_child(moving.instance())
+			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Spin"):
-			$FunctionContainer.add_child(rotate.instance())
+			$FunctionContainer.add_child(rotate.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("checkpoint"):
-			$FunctionContainer.add_child(check.instance())
+			$FunctionContainer.add_child(check.instantiate())
 		if $FunctionContainer.get_child_count() == 0:
-			var instance = object.instance()
+			var instance = object.instantiate()
 			$FunctionContainer.add_child(instance)
 			if get_parent().get_parent().editednode.scalable == true:
 				for node in instance.get_children():

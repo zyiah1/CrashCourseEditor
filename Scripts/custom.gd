@@ -12,7 +12,7 @@ func _on_custom_pressed():
 
 func _process(delta):
 	if custom == true:
-		color = str(stepify($ColorPicker.color.r,0.1))+ "," +str(stepify($ColorPicker.color.g,.1)) +"," + str(stepify($ColorPicker.color.b,.1))
+		color = str(snapped($ColorPicker.color.r,0.1))+ "," +str(snapped($ColorPicker.color.g,.1)) +"," + str(snapped($ColorPicker.color.b,.1))
 		
 		
 		"1.0,1.0,1."

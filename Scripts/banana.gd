@@ -1,8 +1,8 @@
-extends Sprite
+extends Sprite2D
 var drag
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 
-onready var data = [
+@onready var data = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -32,7 +32,7 @@ onready var data = [
 			"            scale_z: 1.00000"]
 
 func _ready():
-	$RichTextLabel.bbcode_text = "[center]" + data[4]
+	$RichTextLabel.text = "[center]" + data[4]
 	get_parent().idnum += 1
 
 
@@ -48,14 +48,14 @@ func _process(delta):
 	
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
-			modulate = Color.red
+			modulate = Color.RED
 		else:
-			modulate = Color.white
+			modulate = Color.WHITE
 	else:
-		modulate = Color.white
+		modulate = Color.WHITE
 	if drag == true:
 		if get_parent().item == "delete":
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		if get_parent().item == "proporties":
 			if get_parent().propertypanel == false:

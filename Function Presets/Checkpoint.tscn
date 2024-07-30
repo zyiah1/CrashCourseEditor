@@ -1,23 +1,23 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://LineEdit.tscn" type="PackedScene" id=1]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://UI/HugePanel.png" type="Texture" id=3]
-[ext_resource path="res://UI/buttonsmall.png" type="Texture" id=4]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=6]
+[ext_resource path="res://fonts/ARIALBD 1.TTF" type="FontFile" id=2]
+[ext_resource path="res://UI/HugePanel.png" type="Texture2D" id=3]
+[ext_resource path="res://UI/buttonsmall.png" type="Texture2D" id=4]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="FontFile" id=5]
+[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture2D" id=6]
 [ext_resource path="res://small.tres" type="Theme" id=7]
 [ext_resource path="res://Function Presets/Checkpoint.gd" type="Script" id=8]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 40
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="FontFile" id=5]
 size = 64
 font_data = ExtResource( 5 )
 
@@ -42,142 +42,142 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 8 )
 
-[node name="HugePanel" type="Sprite" parent="."]
+[node name="HugePanel" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource( 3 )
 
 [node name="X" parent="." instance=ExtResource( 1 )]
-margin_left = 146.0
-margin_top = 84.0
-margin_right = -1294.0
-margin_bottom = -731.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 146.0
+offset_top = 84.0
+offset_right = -1294.0
+offset_bottom = -731.0
+theme_override_fonts/font = SubResource( 1 )
 align = 1
 
 [node name="Y" parent="." instance=ExtResource( 1 )]
-margin_left = 341.0
-margin_top = 84.0
-margin_right = -1099.0
-margin_bottom = -728.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 341.0
+offset_top = 84.0
+offset_right = -1099.0
+offset_bottom = -728.0
+theme_override_fonts/font = SubResource( 1 )
 align = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 145.0
-margin_top = 46.0
-margin_right = 483.0
-margin_bottom = 82.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+offset_left = 145.0
+offset_top = 46.0
+offset_right = 483.0
+offset_bottom = 82.0
+pivot_offset = Vector2( 189, 14 )
+theme_override_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Position"
+text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
-margin_left = 107.0
-margin_top = 89.0
-margin_right = 146.0
-margin_bottom = 125.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+offset_left = 107.0
+offset_top = 89.0
+offset_right = 146.0
+offset_bottom = 125.0
+pivot_offset = Vector2( 189, 14 )
+theme_override_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]X:"
+text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
-margin_left = 302.0
-margin_top = 89.0
-margin_right = 341.0
-margin_bottom = 125.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+offset_left = 302.0
+offset_top = 89.0
+offset_right = 341.0
+offset_bottom = 125.0
+pivot_offset = Vector2( 189, 14 )
+theme_override_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Y:"
+text = "[center]Y:"
 text = "Y:"
 
 [node name="point" parent="." instance=ExtResource( 1 )]
-margin_left = 81.0
-margin_top = 257.0
-margin_right = -1359.0
-margin_bottom = -555.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 81.0
+offset_top = 257.0
+offset_right = -1359.0
+offset_bottom = -555.0
+theme_override_fonts/font = SubResource( 1 )
 align = 1
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
-margin_left = 37.0
-margin_top = 217.0
-margin_right = 284.0
-margin_bottom = 341.0
-rect_pivot_offset = Vector2( 189, 14 )
+offset_left = 37.0
+offset_top = 217.0
+offset_right = 284.0
+offset_bottom = 341.0
+pivot_offset = Vector2( 189, 14 )
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 2 )
+theme_override_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Points rewarded:
+text = "[center]Points rewarded:
 "
 text = "Points rewarded:
 "
 
 [node name="area" parent="." instance=ExtResource( 1 )]
-margin_left = 372.0
-margin_top = 260.0
-margin_right = -1068.0
-margin_bottom = -552.0
-custom_fonts/font = SubResource( 1 )
+offset_left = 372.0
+offset_top = 260.0
+offset_right = -1068.0
+offset_bottom = -552.0
+theme_override_fonts/font = SubResource( 1 )
 align = 1
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
-margin_left = 328.0
-margin_top = 220.0
-margin_right = 575.0
-margin_bottom = 344.0
-rect_pivot_offset = Vector2( 189, 14 )
+offset_left = 328.0
+offset_top = 220.0
+offset_right = 575.0
+offset_bottom = 344.0
+pivot_offset = Vector2( 189, 14 )
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 2 )
+theme_override_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[center]Area
+text = "[center]Area3D
 "
-text = "Area
+text = "Area3D
 "
 
 [node name="type" type="OptionButton" parent="."]
-margin_left = 119.0
-margin_top = 533.0
-margin_right = 554.0
-margin_bottom = 659.0
+offset_left = 119.0
+offset_top = 533.0
+offset_right = 554.0
+offset_bottom = 659.0
 theme = ExtResource( 7 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0.839216, 0.188235, 0.188235, 1 )
-custom_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
-custom_colors/font_color_hover = Color( 0.866667, 0.333333, 0.333333, 1 )
-custom_colors/font_color_pressed = Color( 0.431373, 0.121569, 0.121569, 1 )
-custom_fonts/font = SubResource( 5 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+theme_override_colors/font_disabled_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_focus_color = Color( 0.839216, 0.188235, 0.188235, 1 )
+theme_override_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
+theme_override_colors/font_hover_color = Color( 0.866667, 0.333333, 0.333333, 1 )
+theme_override_colors/font_pressed_color = Color( 0.431373, 0.121569, 0.121569, 1 )
+theme_override_fonts/font = SubResource( 5 )
+theme_override_styles/hover = SubResource( 6 )
+theme_override_styles/pressed = SubResource( 7 )
+theme_override_styles/focus = SubResource( 8 )
+theme_override_styles/disabled = SubResource( 9 )
+theme_override_styles/normal = SubResource( 10 )
 align = 1
-icon_align = 1
+icon_alignment = 1
 
 [node name="face" type="OptionButton" parent="."]
-margin_left = 184.0
-margin_top = 393.0
-margin_right = 489.0
-margin_bottom = 519.0
+offset_left = 184.0
+offset_top = 393.0
+offset_right = 489.0
+offset_bottom = 519.0
 theme = ExtResource( 7 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0.839216, 0.188235, 0.188235, 1 )
-custom_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
-custom_colors/font_color_hover = Color( 0.866667, 0.333333, 0.333333, 1 )
-custom_colors/font_color_pressed = Color( 0.431373, 0.121569, 0.121569, 1 )
-custom_fonts/font = SubResource( 5 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+theme_override_colors/font_disabled_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_focus_color = Color( 0.839216, 0.188235, 0.188235, 1 )
+theme_override_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
+theme_override_colors/font_hover_color = Color( 0.866667, 0.333333, 0.333333, 1 )
+theme_override_colors/font_pressed_color = Color( 0.431373, 0.121569, 0.121569, 1 )
+theme_override_fonts/font = SubResource( 5 )
+theme_override_styles/hover = SubResource( 6 )
+theme_override_styles/pressed = SubResource( 7 )
+theme_override_styles/focus = SubResource( 8 )
+theme_override_styles/disabled = SubResource( 9 )
+theme_override_styles/normal = SubResource( 10 )
 align = 1
-icon_align = 1
+icon_alignment = 1
 
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]

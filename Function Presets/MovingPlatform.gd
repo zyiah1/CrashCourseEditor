@@ -1,6 +1,6 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 var trackvisible = null
 var speed = null
 var reset = null
@@ -55,10 +55,10 @@ func _ready():
 	text.erase(0,22)
 	$Speed.text = text
 	if trackvisible.text.begins_with("              param1: 0"):
-		$visible.pressed = false
+		$visible.button_pressed = false
 	
 	if reset.text.begins_with("              param3: -1"):
-		$reset.pressed = false
+		$reset.button_pressed = false
 
 
 #-1               param3:  == no reset on spawn

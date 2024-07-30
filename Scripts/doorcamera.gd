@@ -1,7 +1,7 @@
-extends Sprite
+extends Sprite2D
 
 
-onready var data = [
+@onready var data = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -31,7 +31,7 @@ onready var data = [
 			"            scale_z: 1.00000"]
 
 func _ready():
-	$RichTextLabel.bbcode_text = "[center]" + data[4]
+	$RichTextLabel.text = "[center]" + data[4]
 	get_parent().idnum += 1
 	get_parent().objects += data
 

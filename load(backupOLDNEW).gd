@@ -1,6 +1,6 @@
 extends Button
 
-onready var file = get_parent().get_node("FileDialog")
+@onready var file = get_parent().get_node("FileDialog")
 var path = null
 var content
 var loaded = false
@@ -14,7 +14,7 @@ func _on_load_pressed():
 func _process(delta):
 	if loaded == false:
 		if Input.is_action_just_pressed("Paste"):
-			content = OS.clipboard
+			content = DisplayServer.clipboard_get()
 			$AnimationPlayer.play("transition")
 			Load("untitled")
 
@@ -32,7 +32,7 @@ func Load(data):
 	var timer = Timer.new()
 	add_child(timer)
 	timer.start(.05)
-	yield(timer,"timeout");
+	await timer.timeout;
 	
 	
 	
@@ -54,9 +54,9 @@ func Load(data):
 		node.hide()
 	
 	
-	var scene = preload("res://Creator.tscn").instance()
+	var scene = preload("res://Creator.tscn").instantiate()
 	get_parent().add_child(scene)
-	scene.get_node("Cam").current = true
+	scene.get_node("Cam").enabled = true
 	scene.get_node("nonmoving/name").text = name
 	get_parent().scale = Vector2(1,1)
 	var railtype = "normal"
@@ -88,10 +88,10 @@ func Load(data):
 			trackedinfo.append(content[0])
 			if trackedinfo[trackedinfo.size()-1].begins_with("                - dir_x:"):
 				if trackedinfo[trackedinfo.size()-2].begins_with("                - dir_x:"):
-					trackedinfo.remove(trackedinfo.size()-1)
+					trackedinfo.remove_at(trackedinfo.size()-1)
 			if trackedinfo[trackedinfo.size()-1].begins_with("                - comment: !l -1"):
 				if trackedinfo[trackedinfo.size()-2].begins_with("                - comment: !l -1"):
-					trackedinfo.remove(trackedinfo.size()-1)
+					trackedinfo.remove_at(trackedinfo.size()-1)
 			#end of that BS
 			
 			
@@ -99,7 +99,7 @@ func Load(data):
 			#this keeps the data that has all the points
 			if railinterested == true:
 				var keepthis = trackedinfo[trackedinfo.size()-1]
-				trackedinfo.remove(trackedinfo.size()-1)
+				trackedinfo.remove_at(trackedinfo.size()-1)
 				actualrail = rail
 				if railtype == "turn":
 					actualrail = rail.get_node("Spin")
@@ -112,7 +112,7 @@ func Load(data):
 				if trackedinfo[1] == "            - Points:":
 					
 					
-					actualrail.data.remove(1)
+					actualrail.data.remove_at(1)
 				trackedinfo = []
 				trackedinfo.append(keepthis)
 		if content[0].begins_with("              unit_name: "):
@@ -144,13 +144,13 @@ func Load(data):
 				objinterested = false
 				if instance != null:
 					if trackedinfo[1] == "          - comment: !l -1":
-						trackedinfo.remove(0)
+						trackedinfo.remove_at(0)
 					instance.data = trackedinfo
 					trackedinfo = []
 		
 		
 		if cycle + 1 > 0:#remove whatever amount the cycle is (CHANGE THIS TO A SIMPLE ERASE COMMAND PLEASE)
-			content.remove(0)
+			content.remove_at(0)
 		else:
 			
 			
@@ -185,7 +185,7 @@ func Load(data):
 										break #if it's not gonna be a moving rail stop
 							if id != 0:
 								#print("pathrail detexted")
-								rail = preload("res://fan.tscn").instance()
+								rail = preload("res://fan.tscn").instantiate()
 								railtype = "fan"
 								#get the next id so we can actually index it
 								if line2.begins_with("                  type: Rail_Rail"):
@@ -200,26 +200,26 @@ func Load(data):
 						if nextid < content.size():
 							
 							if content[nextid] == "              param0: 2141.00000":
-								rail = preload("res://R.tscn").instance()
+								rail = preload("res://R.tscn").instantiate()
 							if content[nextid] == "              param0: 2392.00000":
-								rail = preload("res://EndMove.tscn").instance()
+								rail = preload("res://EndMove.tscn").instantiate()
 								
 							if content[nextid] == "              param0: 2200.00000":
-								rail = preload("res://Auto.tscn").instance()
+								rail = preload("res://Auto.tscn").instantiate()
 							if content[nextid] == "              param0: 2300.00000":
-								rail = preload("res://Auto.tscn").instance()
+								rail = preload("res://Auto.tscn").instantiate()
 							if content[nextid] == "              param0: 2000.00000":
-								rail = preload("res://Auto.tscn").instance()
+								rail = preload("res://Auto.tscn").instantiate()
 							if content[nextid] == "              param0: 4300.00000":
-								rail = preload("res://Auto.tscn").instance()
+								rail = preload("res://Auto.tscn").instantiate()
 							if content[nextid] == "              param0: 2110.00000":
-								rail = preload("res://lcrankrail.tscn").instance()
+								rail = preload("res://lcrankrail.tscn").instantiate()
 							if content[nextid] == "              param0: 2111.00000":
-								rail = preload("res://RCrankRail.tscn").instance()
+								rail = preload("res://RCrankRail.tscn").instantiate()
 							if content[nextid] == "              param0: 2150.00000":
-								rail = preload("res://fan.tscn").instance()
+								rail = preload("res://fan.tscn").instantiate()
 							if content[nextid] == "              param0: 2140.00000":
-								rail = preload("res://L.tscn").instance()
+								rail = preload("res://L.tscn").instantiate()
 							if content[nextid].begins_with("              param0: 2"):
 								if not rail in scene.nodes:
 									rail.speed = float(str(content[nextid + 2]).replace("              param2: ",""))
@@ -230,38 +230,38 @@ func Load(data):
 							#print(content[nextid])
 							
 						if content[id] == "              param0: 1000.00000" or content[id] == "              param0: 1100.00000"  or content[id] == "              param0: 5013.00000" or content[id] == "              param0: 5060.00000" or content[id] == "              param0: 5040.00000" or content[id] == "              param0: 5041.00000" or content[id] == "              param0: 5260.00000" or content[id] == "              param0: 5211.00000" or content[id] == "              param0: 5240.00000" or content[id] == "              param0: 5241.00000" or content[id] == "              param0: 3090.00000"or content[id] == "              param0: 3040.00000" or content[id] == "              param0: 2423.00000"or content[id] == "              param0: 3160.00000"or content[id] == "              param0: 3080.00000"or content[id] == "              param0: 2423.00000" or content[id] == "              param0: 5250.00000" or content[id] == "              param0: 5020.00000":
-							rail = preload("res://bridge.tscn").instance()
+							rail = preload("res://bridge.tscn").instantiate()
 							railtype = "normal"
 						if content[id] == "              param0: 0.00000":
-							rail = preload("res://bridge.tscn").instance()
+							rail = preload("res://bridge.tscn").instantiate()
 							rail.invisible = true
 							railtype = "normal"
 						if content[id] == "              param0: 1200.00000":
-							rail = preload("res://bridge.tscn").instance()
+							rail = preload("res://bridge.tscn").instantiate()
 							railtype = "normal"
 							rail.color = Color(.13,.58,.87,1)
 						if content[id] == "              param0: 5100.00000"  or content[id] == "              param0: 6000.00000" :
-							rail = preload("res://musicrail.tscn").instance()
+							rail = preload("res://musicrail.tscn").instantiate()
 							railtype = "normal"
 						if content[id] == "              param0: 3110.00000" or content[id] == "              param0: 3010.00000" :
-							rail = preload("res://Lspin.tscn").instance()
+							rail = preload("res://Lspin.tscn").instantiate()
 						if content[id] == "              param0: 3111.00000" or content[id] == "              param0: 3011.00000" :
-							rail = preload("res://Rspin.tscn").instance()
+							rail = preload("res://Rspin.tscn").instantiate()
 						if content[id] == "              param0: 3140.00000":
-							rail = preload("res://Lpivot.tscn").instance()
+							rail = preload("res://Lpivot.tscn").instantiate()
 						if content[id] == "              param0: 3150.00000":
-							rail = preload("res://Lpivot.tscn").instance()
+							rail = preload("res://Lpivot.tscn").instantiate()
 							push_error("Figure this one out please")
 						if content[id] == "              param0: 3300.00000" or content[id] == "              param0: 3200.00000" or content[id] == "              param0: 3423.00000" or content[id] == "              param0: 3322.00000":
-							rail = preload("res://Apivot.tscn").instance()
+							rail = preload("res://Apivot.tscn").instantiate()
 						if content[id] == "              param0: 3392.00000":
-							rail = preload("res://Endpivot.tscn").instance()
+							rail = preload("res://Endpivot.tscn").instantiate()
 						if content[id] == "              param0: 3141.00000":
-							rail = preload("res://Rpivot.tscn").instance()
+							rail = preload("res://Rpivot.tscn").instantiate()
 						if content[id] == "              param0: 3112.00000":
-							rail = preload("res://LSpivit.tscn").instance()
+							rail = preload("res://LSpivit.tscn").instantiate()
 						if content[id] == "              param0: 3113.00000":
-							rail = preload("res://RSpivit.tscn").instance()
+							rail = preload("res://RSpivit.tscn").instantiate()
 						if rail.get_node_or_null("Spin") != null:
 							
 							railtype = "turn"
@@ -278,7 +278,7 @@ func Load(data):
 						
 					if railtype != "fanchild":
 						if not rail.is_inside_tree():  #has not been added
-							scene.connect("EXPORT",rail,"EXPORT")
+							scene.connect("EXPORT", Callable(rail, "EXPORT"))
 							scene.add_child(rail)
 							scene.nodes.append(rail)
 				var offset = 0
@@ -330,7 +330,7 @@ func Load(data):
 				cycle = 27
 				
 				if content[8] == "            name: Dkb_Player":
-					var player = preload("res://player.tscn").instance()
+					var player = preload("res://player.tscn").instantiate()
 					player.position = Vector2(int(content[21].lstrip("            pos_x: ")),-int(content[22].lstrip("            pos_y: ")))
 					instance = player
 					scene.get_node("Cam").position = player.position
@@ -338,53 +338,53 @@ func Load(data):
 					scene.stored = player
 				if content[8] == "            name: Dkb_CheckPoint":
 					if content[9].begins_with("            param0: 2.00000"):
-						instance = preload("res://finalcheckpoint.tscn").instance()
+						instance = preload("res://finalcheckpoint.tscn").instantiate()
 					else:
-						instance = preload("res://checkpoint.tscn").instance()
+						instance = preload("res://checkpoint.tscn").instantiate()
 						if content[9].begins_with("            param0: 1"):
 							instance.changetofirst()
 					if content[24] == "            scale_x: -1.00000":
 						instance.flip_h = true
 				if content[8] == "            name: Dkb_Banana":
-					instance = preload("res://banana.tscn").instance()
+					instance = preload("res://banana.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkEntrance":
 					push_warning("Entrance")
-					instance = preload("res://door.tscn").instance()
+					instance = preload("res://door.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkRainbow":
-					instance = preload("res://door.tscn").instance()
+					instance = preload("res://door.tscn").instantiate()
 					instance.texture = preload("res://rainbow.png")
 					instance.offset.y = 0
 				if content[8] == "            name: Dkb_OneUpItem":
-					instance = preload("res://1up.tscn").instance()
+					instance = preload("res://1up.tscn").instantiate()
 				if content[8] == "            name: Dkb_Coin":
-					instance = preload("res://coin.tscn").instance()
+					instance = preload("res://coin.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkDonkey":
-					instance = preload("res://dk.tscn").instance()
+					instance = preload("res://dk.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkPauline":
-					instance = preload("res://pauline.tscn").instance()
+					instance = preload("res://pauline.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkBag":
-					instance = preload("res://purse.tscn").instance()
+					instance = preload("res://purse.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkYajirushi_Kaiten":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 					instance.type = "rotate"
 				if content[8] == "            name: Dkb_ChalkYajirushi_Arrow":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 					instance.type = "big"
 				if content[8] == "            name: Dkb_ChalkYajirushi_45":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 					instance.type = "45"
 				if content[8] == "            name: Dkb_ChalkYajirushi_90":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 					instance.type = "90"
 				if content[8] == "            name: Dkb_ChalkYajirushi_180":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 					instance.type = "180"
 				if content[8] == "            name: Dkb_ChalkYajirushi_00":
-					instance = preload("res://Arrow.tscn").instance()
+					instance = preload("res://Arrow.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkUmbrella":
-					instance = preload("res://hammer.tscn").instance()
+					instance = preload("res://hammer.tscn").instantiate()
 				if content[8] == "            name: Dkb_ChalkLadder":
-					instance = preload("res://ladder.tscn").instance()
+					instance = preload("res://ladder.tscn").instantiate()
 					instance.loading = true
 					
 					match int(content[9].lstrip("            param0: ")):
@@ -401,7 +401,7 @@ func Load(data):
 						6:
 							instance.texture = preload("res://ladder6.png")
 				if content[8] == "            name: Dkb_ChalkBarrel":
-					instance = preload("res://barrel.tscn").instance()
+					instance = preload("res://barrel.tscn").instantiate()
 				
 				if instance != null:
 					if not instance in scene.nodes:
@@ -413,10 +413,10 @@ func Load(data):
 							instance.scale = Vector2(float(content[24].lstrip("            scale_x: ")),float(content[25].lstrip("            scale_y: ")))*instance.scale
 						scene.nodes.append(instance)
 						scene.add_child(instance)
-						scene.connect("EXPORT",instance,"EXPORT")
+						scene.connect("EXPORT", Callable(instance, "EXPORT"))
 			if cycle <= 0:
 				push_warning("ERR Not Recognized [" + content[0] + "]")
-				content.remove(0)
+				content.remove_at(0)
 	
 	#print(content)
 	for node in everypivotrail:
@@ -425,8 +425,8 @@ func Load(data):
 
 
 func _on_FileDialog_file_selected(path):
-	var file = File.new()
-	file.open(path, File.READ)
+	var file = FileAccess.open(path, FileAccess.READ)
+	
 	
 	var name = str(path).get_file().left(str(path).get_file().length() - 1)
 	name = name.left(name.length() - 1)

@@ -5,8 +5,8 @@ var color = Options.colorbg
 
 func _process(delta):
 	color = Options.colorbg
-	modulate = Color(color[0] + color[1] + color[2],color[4] + color[5] + color[6],color[8]+color[9]+color[10])
+	modulate = Color(int(color[0] + color[1] + color[2]),int(color[4] + color[5] + color[6]),int(color[8]+color[9]+color[10]))
 	if Options.scrollbg != "true":
-		$AnimationPlayer.playback_speed = 0
+		$AnimationPlayer.speed_scale = 0
 	else:
-		$AnimationPlayer.playback_speed = 0.01
+		$AnimationPlayer.speed_scale = 0.01

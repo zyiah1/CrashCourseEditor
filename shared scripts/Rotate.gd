@@ -1,14 +1,14 @@
 extends Node2D
-signal done
+signal finish
 
-export (PackedScene) var point = preload("res://pointL.tscn")
-export (int) var Param0 = 3140
-export (int) var reset = 0
+@export var point: PackedScene = preload("res://pointL.tscn")
+@export var Param0: int = 3140
+@export var reset: int = 0
 
-export (Color) var color = Color(.92,.98,.98)
+@export var color: Color = Color(.92,.98,.98)
 
 var locked = false
-onready var id = get_parent().get_parent().nodes.size()
+@onready var id = get_parent().get_parent().nodes.size()
 var segments = 1
 var line = null
 var lines = []
@@ -27,17 +27,17 @@ func focus_exited():
 	$rotation.visible = false
 
 func _ready():
-	$rotation.connect("focus_entered",self,"focus_entered")
-	$rotation.connect("focus_exited",self,"focus_exited")
-	$end/Button.connect("button_down",get_parent(),"_on_Button_button_down")
-	$end/Button.connect("button_up",get_parent(),"_on_Button_button_up")
+	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
+	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
+	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
+	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	$rotation.grab_focus()
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
 	else:
 		$rotation.hide()
 	$crank.position = $start.position
-	$rotation.rect_position = $crank.position + Vector2(-20,-100)
+	$rotation.position = $crank.position + Vector2(-20,-100)
 	buttons.append($crank/Button)
 	data = ["            - Points:",
 "                - comment: !l -1",
@@ -65,7 +65,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -92,7 +92,7 @@ onready var dataseg = ["                - comment: !l -1",
 
 var data
 
-onready var end = ["              closed: CLOSE",
+@onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().get_parent().idnum),
 "              layer: LC",
@@ -111,7 +111,7 @@ onready var end = ["              closed: CLOSE",
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 
 func reposition():
@@ -203,36 +203,36 @@ func _process(delta):
 	#change where the rotation point is
 	
 	#update the lines
-	update()
+	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
 	id = get_parent().get_parent().nodes.find(get_parent())
 	if get_parent().get_parent().item == "delete":
 		if drag == true:
-			get_parent().get_parent().nodes.remove(id)
+			get_parent().get_parent().nodes.remove_at(id)
 			get_parent().queue_free()
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.red
+				modulate = Color.RED
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().get_parent().item == "edit":
 		if drag == true:
 			get_node("rotation").show()
 			get_node("rotation").grab_focus()
-			get_node("rotation").cursor_set_column(7)
+			get_node("rotation").set_caret_column(7)
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.lightblue
+				modulate = Color.LIGHT_BLUE
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().get_parent().item == "proporties":
 		if drag == true:
@@ -252,7 +252,7 @@ func _process(delta):
 			
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			if first == true:
 				newpoint.hide()
@@ -261,8 +261,8 @@ func _process(delta):
 			add_child(newpoint)
 			points.append(newpoint)
 			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-			newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 			dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -302,7 +302,7 @@ func _process(delta):
 			get_parent().get_parent().line = true
 			buttons.append(get_node("end/Button"))
 			$rotation.grab_focus()
-			$rotation.cursor_set_column(3)
+			$rotation.set_caret_column(3)
 	$crank.target = int($rotation.text)
 	$crank.rotation_degrees = move_toward($crank.rotation_degrees,int($rotation.text),speed)
 	if is_queued_for_deletion():
@@ -313,7 +313,7 @@ func _process(delta):
 func newseg():
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			if first == true:
 				newpoint.hide()
@@ -322,8 +322,8 @@ func newseg():
 			add_child(newpoint)
 			points.append(newpoint)
 			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-			newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 			dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -367,7 +367,7 @@ func _draw():
 	$crank.lines = lines
 	if loading == false and locked == false:
 		$end.position = get_global_mouse_position().round()
-	line = draw_line($start.position,$end.position,color,4.5)
+	draw_line($start.position,$end.position,color,4.5)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],color - Color(.2,.2,.2,0),4.5)
 		

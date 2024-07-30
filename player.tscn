@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://shared scripts/Objects.gd" type="Script" id=1]
-[ext_resource path="res://player.png" type="Texture" id=2]
+[ext_resource path="res://player.png" type="Texture2D" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
-[node name="Dkb_Player" type="Sprite"]
+[node name="Dkb_Player" type="Sprite2D"]
 scale = Vector2( 0.2, 0.2 )
 z_as_relative = false
 texture = ExtResource( 2 )
@@ -19,15 +19,15 @@ rotatable = false
 scalable = false
 
 [node name="Button" type="Button" parent="."]
-margin_left = -75.0
-margin_top = -55.0
-margin_right = 80.0
-margin_bottom = 60.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 3 )
-custom_styles/normal = SubResource( 3 )
+offset_left = -75.0
+offset_top = -55.0
+offset_right = 80.0
+offset_bottom = 60.0
+theme_override_styles/hover = SubResource( 1 )
+theme_override_styles/pressed = SubResource( 2 )
+theme_override_styles/focus = SubResource( 3 )
+theme_override_styles/disabled = SubResource( 3 )
+theme_override_styles/normal = SubResource( 3 )
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

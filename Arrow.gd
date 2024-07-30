@@ -1,16 +1,16 @@
-extends Sprite
+extends Sprite2D
 
 var drag = false
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 var type = "arrow"
 
-export (bool) var rotatable = true
-export (bool) var scalable = true
+@export var rotatable: bool = true
+@export var scalable: bool = true
 
 
-export var defaultSize = Vector2(3,3)
+@export var defaultSize = Vector2(3,3)
 
-onready var data = [
+@onready var data = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -41,34 +41,34 @@ onready var data = [
 
 func _ready():
 	texture = preload("res://Arrow.png")
-	$Button.rect_position = Vector2(66,-169)
-	$Button.rect_size = Vector2(133,95)
+	$Button.position = Vector2(66,-169)
+	$Button.size = Vector2(133,95)
 	match type:
 		"rotate":
 			data[8] = "            name: Dkb_ChalkYajirushi_Kaiten"
 			texture = preload("res://ArrowKaiten.png")
-			$Button.rect_position = Vector2(-162,-66)
-			$Button.rect_size = Vector2(353,132)
+			$Button.position = Vector2(-162,-66)
+			$Button.size = Vector2(353,132)
 		"big":
 			data[8] = "            name: Dkb_ChalkYajirushi_Arrow"
 			texture = preload("res://BigArrow.png")
-			$Button.rect_position = Vector2(-184,-147)
-			$Button.rect_size = Vector2(368,287)
+			$Button.position = Vector2(-184,-147)
+			$Button.size = Vector2(368,287)
 		"45":
 			data[8] = "            name: Dkb_ChalkYajirushi_45"
 			texture = preload("res://Arrow45.png")
-			$Button.rect_position = Vector2(37,-213)
-			$Button.rect_size = Vector2(103,81)
+			$Button.position = Vector2(37,-213)
+			$Button.size = Vector2(103,81)
 		"90":
 			data[8] = "            name: Dkb_ChalkYajirushi_90"
 			texture = preload("res://Arrow90.png")
-			$Button.rect_position = Vector2(15,-213)
-			$Button.rect_size = Vector2(206,191)
+			$Button.position = Vector2(15,-213)
+			$Button.size = Vector2(206,191)
 		"180":
 			data[8] = "            name: Dkb_ChalkYajirushi_180"
 			texture = preload("res://Arrow180.png")
-			$Button.rect_position = Vector2(-118,-206)
-			$Button.rect_size = Vector2(287,199)
+			$Button.position = Vector2(-118,-206)
+			$Button.size = Vector2(287,199)
 	get_parent().idnum += 1
 
 
@@ -83,14 +83,14 @@ func _process(delta):
 	id = get_parent().nodes.find(self)
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
-			modulate = Color.red
+			modulate = Color.RED
 		else:
-			modulate = Color.white
+			modulate = Color.WHITE
 	else:
-		modulate = Color.white
+		modulate = Color.WHITE
 	if drag == true:
 		if get_parent().item == "delete":
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		if get_parent().item == "proporties":
 			if get_parent().propertypanel == false:

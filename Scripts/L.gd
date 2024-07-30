@@ -3,7 +3,7 @@ signal done
 
 const point = preload("res://point2.tscn")
 var locked = false
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 var segments = 1
 var line = null
 var lines = []
@@ -46,7 +46,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -73,7 +73,7 @@ onready var dataseg = ["                - comment: !l -1",
 
 var data
 
-onready var end = ["              closed: CLOSE",
+@onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().idnum),
 "              layer: LC",
@@ -92,7 +92,7 @@ onready var end = ["              closed: CLOSE",
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 
 func reposition():
@@ -239,31 +239,31 @@ func _process(delta):
 	id = get_parent().nodes.find(self)
 	if get_parent().item == "delete":
 		if drag == true:
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.red
+				modulate = Color.RED
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().item == "edit":
 		if drag == true:
 			if childrail != null:
 				childrail.get_node("rotation").show()
 				childrail.get_node("rotation").grab_focus()
-				childrail.get_node("rotation").cursor_set_column(7)
+				childrail.get_node("rotation").set_caret_column(7)
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.lightblue
+				modulate = Color.LIGHT_BLUE
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().item == "proporties":
 		if drag == true:
@@ -278,7 +278,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
 			var rail = preload("res://Lrail.tscn")
-			var railinst = rail.instance()
+			var railinst = rail.instantiate()
 			for line in points:
 				railinst.path.append(line.position)
 			railinst.path.append($end.position)
@@ -294,13 +294,13 @@ func _process(delta):
 			if mode == 0:
 				lines.append([$start.position,$end.position])
 				
-				var newpoint = point.instance()
+				var newpoint = point.instantiate()
 				newpoint.position = $start.position
 				add_child(newpoint)
 				points.append(newpoint)
 				buttons.append(newpoint.get_node("Button"))
-				newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-				newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+				newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+				newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 				dataseg = ["                - dir_x: 0.00000",
 	"                  dir_y: 0.00000",
 	"                  dir_z: 0.00000",
@@ -345,13 +345,13 @@ func newseg():
 	if mode == 0:
 		lines.append([$start.position,$end.position])
 		
-		var newpoint = point.instance()
+		var newpoint = point.instantiate()
 		newpoint.position = $start.position
 		add_child(newpoint)
 		points.append(newpoint)
 		buttons.append(newpoint.get_node("Button"))
-		newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-		newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+		newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+		newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 		dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -392,7 +392,7 @@ func done(pos):
 func child(pos):
 	if mode == 1:
 		var rail = preload("res://Lrail.tscn")
-		var railinst = rail.instance()
+		var railinst = rail.instantiate()
 		railinst.loading = true
 		railinst.get_node("start").position = pos
 		for line in points:

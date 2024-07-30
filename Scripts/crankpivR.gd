@@ -13,12 +13,12 @@ func _process(delta):
 		if get_parent().get_parent().get_parent().data == true:
 			if $Timer.is_stopped():
 				$Timer.start(.3)
-	update()
+	queue_redraw()
 
 func _draw():
 	if lines != null:
 		for lineb in lines:
-			draw_line((lineb[0]-position),(lineb[1]-position),Color.lightcoral - Color(.2,.6,.2,0),4.5)
+			draw_line((lineb[0]-position),(lineb[1]-position),Color.LIGHT_CORAL - Color(.2,.6,.2,0),4.5)
 
 
 func _on_Timer_timeout():

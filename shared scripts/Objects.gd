@@ -1,30 +1,30 @@
-extends Sprite
+extends Sprite2D
 var drag
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 
-export (String) var ObjectName = "Dkb_Banana"
+@export var ObjectName:String = "Dkb_Banana"
 
-export (float) var Param0 = -1
-export (float) var Param1 = -1
-export (float) var Param10 = -1
-export (float) var Param11 = -1
-export (float) var Param2 = -1
-export (float) var Param3 = -1
-export (float) var Param4 = -1
-export (float) var Param5 = -1
-export (float) var Param6 = -1
-export (float) var Param7 = -1
-export (float) var Param8 = -1
-export (float) var Param9 = -1
+@export var Param0: float = -1
+@export var Param1: float = -1
+@export var Param10: float = -1
+@export var Param11: float = -1
+@export var Param2: float = -1
+@export var Param3: float = -1
+@export var Param4: float = -1
+@export var Param5: float = -1
+@export var Param6: float = -1
+@export var Param7: float = -1
+@export var Param8: float = -1
+@export var Param9: float = -1
 
-export (float) var PosZ = 0
+@export var PosZ: float = 0
 
-export (bool) var rotatable = true
-export (bool) var scalable = true
+@export var rotatable: bool = true
+@export var scalable: bool = true
 
-export var defaultSize = Vector2(.125,.125)
+@export var defaultSize = Vector2(.125,.125)
 
-onready var data = [
+@onready var data = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -69,18 +69,18 @@ func _process(delta):
 	
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
-			modulate = Color.red
+			modulate = Color.RED
 			if Input.is_action_pressed("bridge"):
-				get_parent().nodes.remove(id)
+				get_parent().nodes.remove_at(id)
 				queue_free()
 		else:
-			modulate = Color.white
+			modulate = Color.WHITE
 		
 	else:
-		modulate = Color.white
+		modulate = Color.WHITE
 	if drag == true:
 		if get_parent().item == "delete":
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		if get_parent().item == "proporties":
 			if get_parent().propertypanel == false:

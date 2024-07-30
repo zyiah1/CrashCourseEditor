@@ -1,9 +1,9 @@
 extends Node2D
-signal done
+signal finish
 
 const point = preload("res://point.tscn")
 var locked = false
-onready var id = get_parent().bridgedata.size()
+@onready var id = get_parent().bridgedata.size()
 var segments = 1
 var line = null
 var lines = []
@@ -39,7 +39,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -66,7 +66,7 @@ onready var dataseg = ["                - comment: !l -1",
 
 var data
 
-onready var end = ["              closed: CLOSE",
+@onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().camnum),
 "              layer: LC",
@@ -85,7 +85,7 @@ onready var end = ["              closed: CLOSE",
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 
 
@@ -98,39 +98,39 @@ func _process(delta):
 				get_parent().line = true
 				queue_free()
 			else:
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*23)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
-				data.remove(points.size()+1*25)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*23)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
+				data.remove_at(points.size()+1*25)
 				points[points.size()-1].queue_free()
-				lines.remove(points.size()-1)
-				points.remove(points.size()-1)
+				lines.remove_at(points.size()-1)
+				points.remove_at(points.size()-1)
 				segments -= 1
 				
 		if Input.is_action_just_pressed("addpoint"):
 			
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			add_child(newpoint)
 			points.append(newpoint)
@@ -172,7 +172,7 @@ func _process(delta):
 			get_parent().camnum += 1
 			get_parent().bridgedata += data + end
 			get_parent().line = true
-		update()
+		queue_redraw()
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
@@ -181,7 +181,7 @@ func _process(delta):
 func newseg():
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			add_child(newpoint)
 			points.append(newpoint)
@@ -226,6 +226,6 @@ func done():
 func _draw():
 	if loading == false:
 		$end.position = get_global_mouse_position().round()
-	line = draw_line($start.position,$end.position,Color(.22,.88,.28),4.5)
+	draw_line($start.position,$end.position,Color(.22,.88,.28),4.5)
 	for lineb in lines:
-		draw_line(lineb[0],lineb[1],Color.limegreen - Color(.2,0,0,0),4.5)
+		draw_line(lineb[0],lineb[1],Color.LIME_GREEN - Color(.2,0,0,0),4.5)

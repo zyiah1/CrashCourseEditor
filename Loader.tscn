@@ -1,294 +1,297 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=3 uid="uid://cx82h5vmx6lkn"]
 
-[ext_resource path="res://UI/logo.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/quit.gd" type="Script" id=2]
-[ext_resource path="res://dkb.tres" type="Theme" id=3]
-[ext_resource path="res://load(backupOLDNEW).gd" type="Script" id=4]
-[ext_resource path="res://Scripts/new.gd" type="Script" id=5]
-[ext_resource path="res://UI/bgg.png" type="Texture" id=6]
-[ext_resource path="res://small.tres" type="Theme" id=7]
-[ext_resource path="res://Scripts/settings.gd" type="Script" id=8]
-[ext_resource path="res://bfg.gd" type="Script" id=9]
-[ext_resource path="res://fonts/wii/contb.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://Scripts/help.gd" type="Script" id=11]
-[ext_resource path="res://UI/bigbg.png" type="Texture" id=12]
-[ext_resource path="res://fonts/wii.tres" type="DynamicFont" id=13]
-[ext_resource path="res://railart/trash.png" type="Texture" id=14]
-[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=15]
-[ext_resource path="res://UI/box.png" type="Texture" id=16]
-[ext_resource path="res://railart/edit.png" type="Texture" id=17]
-[ext_resource path="res://railart/property.png" type="Texture" id=18]
-[ext_resource path="res://apiRequest.gd" type="Script" id=19]
-[ext_resource path="res://LineEditTheme.tres" type="Theme" id=20]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=21]
-[ext_resource path="res://UI/panel.png" type="Texture" id=22]
+[ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
+[ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
+[ext_resource type="Script" path="res://load(backupOLDNEW).gd" id="4"]
+[ext_resource type="Script" path="res://Scripts/new.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://cig5thn0gsq3a" path="res://UI/bgg.png" id="6"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
+[ext_resource type="Script" path="res://bfg.gd" id="9"]
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
+[ext_resource type="Script" path="res://Scripts/help.gd" id="11"]
+[ext_resource type="Texture2D" uid="uid://biofqwfhqwaxh" path="res://UI/bigbg.png" id="12"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
+[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/trash.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttonsmallpressed.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/edit.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="18"]
+[ext_resource type="Script" path="res://apiRequest.gd" id="19"]
+[ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
+[ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="22"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 length = 0.001
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("bfg:rect_position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("bfg:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"points": PoolRealArray( -7155, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("bfg:rect_position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("bfg:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"points": PoolRealArray( -5718, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "cool"
 length = 1.12342e+07
-loop = true
+loop_mode = 1
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("bfg:rect_position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("bfg:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"points": PoolRealArray( -7155, -0.25, 0, 0.25, 0, -2.1453e+07, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.12342e+07 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("bfg:rect_position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("bfg:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"points": PoolRealArray( -5718, -0.25, 0, 0.25, 0, -1.6995e+07, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1.12342e+07 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 32
-font_data = ExtResource( 10 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28blp"]
+_data = {
+"RESET": SubResource("1"),
+"cool": SubResource("2")
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("10")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Animation" id="5"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( -821, 122 ) ]
+"values": [Vector2(-821, 122)]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0.0588235 ) ]
+"values": [Color(1, 1, 1, 0.0588235)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "transition"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 432, 152 ) ]
+"values": [Vector2(432, 152)]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="DynamicFont" id=7]
-size = 25
-font_data = ExtResource( 21 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udj0p"]
+_data = {
+"RESET": SubResource("5"),
+"transition": SubResource("4")
+}
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="FontFile" id="7"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="6"]
 
 [node name="Loader" type="Node2D"]
-scale = Vector2( 1.5, 1.5 )
-script = ExtResource( 19 )
+scale = Vector2(1.5, 1.5)
+script = ExtResource("19")
 currentNumberOfUpdates = 6
 
 [node name="bfg" type="TextureRect" parent="." groups=["hide"]]
-modulate = Color( 1, 1, 1, 0.266667 )
-self_modulate = Color( 1, 1, 1, 0.266667 )
-margin_left = -7155.0
-margin_top = -5718.0
-margin_right = 4.51508e+08
-margin_bottom = 1.51515e+09
-rect_scale = Vector2( 4, 4 )
-texture = ExtResource( 6 )
+modulate = Color(1, 1, 1, 0.266667)
+self_modulate = Color(1, 1, 1, 0.266667)
+offset_right = 4.51515e+08
+offset_bottom = 1.51516e+09
+scale = Vector2(4, 4)
+texture = ExtResource("6")
 stretch_mode = 2
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_lock_": true
-}
+script = ExtResource("9")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bfg"]
 root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_28blp")
+}
 autoplay = "cool"
-playback_speed = 13.05
-anims/RESET = SubResource( 1 )
-anims/cool = SubResource( 2 )
 
-[node name="logo" type="Sprite" parent="." groups=["hide"]]
-position = Vector2( 510, 163 )
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 1 )
+[node name="logo" type="Sprite2D" parent="." groups=["hide"]]
+position = Vector2(510, 163)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1")
 
 [node name="new" type="Button" parent="." groups=["hide"]]
-margin_left = 176.0
-margin_top = 239.0
-margin_right = 473.0
-margin_bottom = 497.0
-theme = ExtResource( 3 )
+offset_left = 176.0
+offset_top = 239.0
+offset_right = 473.0
+offset_bottom = 497.0
+theme = ExtResource("3")
 text = "New"
-script = ExtResource( 5 )
+script = ExtResource("5")
 
 [node name="quit" type="Button" parent="." groups=["hide"]]
-margin_left = 1.0
-margin_top = 433.0
-margin_right = 201.0
-margin_bottom = 641.0
-theme = ExtResource( 3 )
+offset_left = 1.0
+offset_top = 433.0
+offset_right = 201.0
+offset_bottom = 641.0
+theme = ExtResource("3")
 text = "Quit"
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="FileDialog" type="FileDialog" parent="."]
-margin_left = 124.0
-margin_top = 35.0
-margin_right = 861.0
-margin_bottom = 535.0
-rect_scale = Vector2( 1.5, 1.5 )
-theme = ExtResource( 7 )
-popup_exclusive = true
-window_title = "Open a File"
-mode = 0
+theme = ExtResource("7")
 access = 2
-filters = PoolStringArray( "*.txt" )
+filters = PackedStringArray("*.txt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." groups=["hide"]]
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 145.0
-margin_bottom = 113.0
-custom_fonts/normal_font = SubResource( 3 )
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 145.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = SubResource("3")
 text = "1.4"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
-margin_left = 758.0
-margin_top = 429.0
-margin_right = 1016.0
-margin_bottom = 649.0
-theme = ExtResource( 3 )
+offset_left = 758.0
+offset_top = 429.0
+offset_right = 1016.0
+offset_bottom = 649.0
+theme = ExtResource("3")
 text = "Settings"
-script = ExtResource( 8 )
+script = ExtResource("8")
 
 [node name="Node2D" type="Node2D" parent="settings"]
 
 [node name="FileWindoe" type="FileDialog" parent="settings/Node2D"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -758.0
-margin_top = -429.0
-margin_right = 264.0
-margin_bottom = 168.0
-theme = ExtResource( 7 )
-window_title = "Where to save levels? (can be changed later)"
-mode_overrides_title = false
 mode = 2
+theme = ExtResource("7")
+mode_overrides_title = false
 access = 2
-filters = PoolStringArray( "folder" )
+filters = PackedStringArray("folder")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 1021, 599 )
+position = Vector2(1021, 599)
 
 [node name="help" type="Button" parent="." groups=["hide"]]
-margin_left = 386.0
-margin_top = 429.0
-margin_right = 644.0
-margin_bottom = 649.0
-theme = ExtResource( 3 )
+offset_left = 386.0
+offset_top = 429.0
+offset_right = 644.0
+offset_bottom = 649.0
+theme = ExtResource("3")
 text = "Help"
-script = ExtResource( 11 )
+script = ExtResource("11")
 
-[node name="Sprite" type="Sprite" parent="help"]
+[node name="Sprite2D" type="Sprite2D" parent="help"]
 visible = false
 show_behind_parent = true
-position = Vector2( 231, -144 )
 z_index = 1
-texture = ExtResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(231, -144)
+texture = ExtResource("12")
 
-[node name="close" type="Button" parent="help/Sprite"]
-margin_left = -611.0
-margin_top = 212.0
-margin_right = -291.0
-margin_bottom = 460.0
-rect_scale = Vector2( 0.5, 0.5 )
-theme = ExtResource( 3 )
+[node name="close" type="Button" parent="help/Sprite2D"]
+offset_left = -611.0
+offset_top = 212.0
+offset_right = -291.0
+offset_bottom = 460.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3")
 text = "Close"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="help/Sprite"]
-margin_left = -601.0
-margin_top = -263.0
-margin_right = -148.0
-margin_bottom = -59.0
-custom_fonts/normal_font = ExtResource( 13 )
+[node name="RichTextLabel" type="RichTextLabel" parent="help/Sprite2D"]
+offset_left = -601.0
+offset_top = -263.0
+offset_right = -148.0
+offset_bottom = -59.0
+theme_override_fonts/normal_font = ExtResource("13")
 text = "How to import into game:
 "
 
-[node name="shortcuts" type="RichTextLabel" parent="help/Sprite"]
-margin_left = -613.0
-margin_top = -194.0
-margin_right = -50.0
-margin_bottom = 180.0
-custom_fonts/normal_font = ExtResource( 13 )
+[node name="shortcuts" type="RichTextLabel" parent="help/Sprite2D"]
+offset_left = -613.0
+offset_top = -194.0
+offset_right = -50.0
+offset_bottom = 180.0
+theme_override_fonts/normal_font = ExtResource("13")
 text = "In Editor:
 Ctrl+Z = Delete Last Object Placed
 Ctrl+S = Save
@@ -299,12 +302,12 @@ Ctrl+C = Copies level data to clipboard
 On Title Screen:
 Ctrl+V = Load Data on Clipboard"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="help/Sprite"]
-margin_left = -48.0
-margin_top = -222.0
-margin_right = 456.0
-margin_bottom = 150.0
-custom_fonts/normal_font = ExtResource( 13 )
+[node name="RichTextLabel3" type="RichTextLabel" parent="help/Sprite2D"]
+offset_left = -48.0
+offset_top = -222.0
+offset_right = 456.0
+offset_bottom = 150.0
+theme_override_fonts/normal_font = ExtResource("13")
 text = "left click to delete hovered object
 
 
@@ -316,179 +319,168 @@ left click on rail to show panel
 
 left click to show properties of object"
 
-[node name="LinkButton" type="LinkButton" parent="help/Sprite"]
-margin_left = -252.0
-margin_top = -261.0
-margin_right = 196.0
-margin_bottom = -227.0
-custom_colors/font_color = Color( 0.435294, 0.772549, 0.921569, 1 )
-custom_fonts/font = ExtResource( 13 )
+[node name="LinkButton" type="LinkButton" parent="help/Sprite2D"]
+offset_left = -252.0
+offset_top = -261.0
+offset_right = 196.0
+offset_bottom = -227.0
+theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
+theme_override_fonts/font = ExtResource("13")
 text = "https://youtu.be/gzPDyb5eMCs"
 
-[node name="Trash" type="Sprite" parent="help/Sprite"]
-position = Vector2( 146, -95 )
-scale = Vector2( 0.639037, 0.635802 )
-texture = ExtResource( 14 )
+[node name="Trash" type="Sprite2D" parent="help/Sprite2D"]
+position = Vector2(146, -95)
+scale = Vector2(0.639037, 0.635802)
+texture = ExtResource("14")
 
-[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash"]
+[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash"]
 show_behind_parent = true
-position = Vector2( -3.99998, 2 )
-scale = Vector2( 0.240109, 0.542969 )
-texture = ExtResource( 15 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(-3.99998, 2)
+scale = Vector2(0.240109, 0.542969)
+texture = ExtResource("15")
 
-[node name="Trash2" type="Sprite" parent="help/Sprite"]
-position = Vector2( 141, 42.3333 )
-scale = Vector2( 0.639037, 0.635802 )
-texture = ExtResource( 17 )
+[node name="Trash2" type="Sprite2D" parent="help/Sprite2D"]
+position = Vector2(141, 42.3333)
+scale = Vector2(0.639037, 0.635802)
+texture = ExtResource("17")
 
-[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash2"]
+[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash2"]
 show_behind_parent = true
-position = Vector2( -3.99998, 2 )
-scale = Vector2( 0.240109, 0.542969 )
-texture = ExtResource( 15 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(-3.99998, 2)
+scale = Vector2(0.240109, 0.542969)
+texture = ExtResource("15")
 
-[node name="Trash3" type="Sprite" parent="help/Sprite"]
-position = Vector2( 142.333, 186.333 )
-scale = Vector2( 0.639037, 0.635802 )
-texture = ExtResource( 18 )
+[node name="Trash3" type="Sprite2D" parent="help/Sprite2D"]
+position = Vector2(142.333, 186.333)
+scale = Vector2(0.639037, 0.635802)
+texture = ExtResource("18")
 
-[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash3"]
+[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash3"]
 show_behind_parent = true
-position = Vector2( -3.99998, 2 )
-scale = Vector2( 0.240109, 0.542969 )
-texture = ExtResource( 15 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(-3.99998, 2)
+scale = Vector2(0.240109, 0.542969)
+texture = ExtResource("15")
 
 [node name="bug" type="LinkButton" parent="." groups=["hide"]]
-margin_left = 888.0
-margin_top = 2.66667
-margin_right = 1062.0
-margin_bottom = 36.6667
+offset_left = 888.0
+offset_top = 2.66667
+offset_right = 1062.0
+offset_bottom = 36.6667
 focus_mode = 2
-custom_colors/font_color = Color( 0.435294, 0.772549, 0.921569, 1 )
-custom_fonts/font = ExtResource( 13 )
+theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
+theme_override_fonts/font = ExtResource("13")
 text = "Report a bug"
 underline = 1
 
 [node name="load" type="Button" parent="."]
-margin_left = 549.0
-margin_top = 237.0
-margin_right = 849.0
-margin_bottom = 496.0
-theme = ExtResource( 3 )
+offset_left = 549.0
+offset_top = 237.0
+offset_right = 849.0
+offset_bottom = 496.0
+theme = ExtResource("3")
 text = "Load"
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="load"]
-anims/RESET = SubResource( 5 )
-anims/transition = SubResource( 4 )
+libraries = {
+"": SubResource("AnimationLibrary_udj0p")
+}
 
-[node name="Sprite" type="Sprite" parent="load"]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0.0588235 )
-position = Vector2( -821, 122 )
-scale = Vector2( 5.21655, 12.5098 )
+[node name="Sprite2D" type="Sprite2D" parent="load"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.0588235)
 z_as_relative = false
-texture = ExtResource( 16 )
+position = Vector2(-821, 122)
+scale = Vector2(5.21655, 12.5098)
+texture = ExtResource("16")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="load/Sprite"]
-margin_left = -182.0
-margin_top = -10.0
-margin_right = 12.0
-margin_bottom = 64.0
-rect_scale = Vector2( 1, 0.4 )
-custom_fonts/normal_font = SubResource( 3 )
+[node name="RichTextLabel" type="RichTextLabel" parent="load/Sprite2D"]
+offset_left = -182.0
+offset_top = -10.0
+offset_right = 12.0
+offset_bottom = 64.0
+scale = Vector2(1, 0.4)
+theme_override_fonts/normal_font = SubResource("3")
 text = "Loading stuff"
 
-[node name="panel" type="Sprite" parent="." groups=["update"]]
+[node name="panel" type="Sprite2D" parent="." groups=["update"]]
 visible = false
-position = Vector2( 514.667, 294 )
-scale = Vector2( 0.778536, 1.84583 )
-texture = ExtResource( 22 )
+position = Vector2(514.667, 294)
+scale = Vector2(0.778536, 1.84583)
+texture = ExtResource("22")
 
 [node name="Patchnotes" type="ScrollContainer" parent="." groups=["update"]]
 visible = false
-margin_left = 235.0
-margin_top = 68.0
-margin_right = 795.0
-margin_bottom = 530.0
+offset_left = 235.0
+offset_top = 68.0
+offset_right = 795.0
+offset_bottom = 530.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Patchnotes"]
-margin_right = 560.0
-margin_bottom = 462.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="LineEdit" parent="." groups=["update"]]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 270.0
-margin_top = 5.33334
-margin_right = 752.0
-margin_bottom = 34.3333
+offset_left = 270.0
+offset_top = 5.33334
+offset_right = 752.0
+offset_bottom = 34.3333
 mouse_filter = 2
-theme = ExtResource( 20 )
-custom_colors/font_color_uneditable = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/read_only = SubResource( 6 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 6 )
+theme = ExtResource("20")
+theme_override_fonts/font = SubResource("7")
+theme_override_styles/normal = SubResource("6")
+theme_override_styles/focus = SubResource("6")
+theme_override_styles/read_only = SubResource("6")
 text = "Your Version Is OUTDATED!!"
-align = 1
 editable = false
 caret_blink = true
-caret_blink_speed = 0.5
+caret_blink_interval = 0.5
 
 [node name="Control2" type="LineEdit" parent="." groups=["update"]]
 visible = false
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 336.667
-margin_top = 42.0
-margin_right = 818.667
-margin_bottom = 71.0
-rect_scale = Vector2( 0.7, 0.7 )
+offset_left = 336.667
+offset_top = 42.0
+offset_right = 818.667
+offset_bottom = 71.0
+scale = Vector2(0.7, 0.7)
 mouse_filter = 2
-theme = ExtResource( 20 )
-custom_colors/font_color_uneditable = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 7 )
-custom_styles/read_only = SubResource( 6 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 6 )
+theme = ExtResource("20")
+theme_override_fonts/font = SubResource("7")
+theme_override_styles/normal = SubResource("6")
+theme_override_styles/focus = SubResource("6")
+theme_override_styles/read_only = SubResource("6")
 text = "changes made in new version:"
-align = 1
 editable = false
 caret_blink = true
-caret_blink_speed = 0.5
+caret_blink_interval = 0.5
 
 [node name="accept" type="Button" parent="." groups=["update"]]
 visible = false
-margin_left = 590.0
-margin_top = 534.0
-margin_right = 774.0
-margin_bottom = 574.0
-rect_pivot_offset = Vector2( 87.3334, 13.3334 )
-theme = ExtResource( 7 )
+offset_left = 590.0
+offset_top = 534.0
+offset_right = 774.0
+offset_bottom = 574.0
+pivot_offset = Vector2(87.3334, 13.3334)
+theme = ExtResource("7")
 text = "Update Now"
 
 [node name="decline" type="Button" parent="." groups=["update"]]
 visible = false
-modulate = Color( 0.709804, 0.709804, 0.709804, 1 )
-margin_left = 244.667
-margin_top = 534.0
-margin_right = 428.667
-margin_bottom = 574.0
-rect_pivot_offset = Vector2( 87.3334, 13.3334 )
-theme = ExtResource( 7 )
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+offset_left = 244.667
+offset_top = 534.0
+offset_right = 428.667
+offset_bottom = 574.0
+pivot_offset = Vector2(87.3334, 13.3334)
+theme = ExtResource("7")
 text = "Later"
 
 [connection signal="pressed" from="new" to="new" method="_on_new_pressed"]
@@ -497,8 +489,8 @@ text = "Later"
 [connection signal="pressed" from="settings" to="settings" method="_on_settings_pressed"]
 [connection signal="dir_selected" from="settings/Node2D/FileWindoe" to="settings" method="_on_FileWindoe_dir_selected"]
 [connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
-[connection signal="pressed" from="help/Sprite/close" to="help" method="_on_close_pressed"]
-[connection signal="pressed" from="help/Sprite/LinkButton" to="help" method="_on_LinkButton_pressed"]
+[connection signal="pressed" from="help/Sprite2D/close" to="help" method="_on_close_pressed"]
+[connection signal="pressed" from="help/Sprite2D/LinkButton" to="help" method="_on_LinkButton_pressed"]
 [connection signal="pressed" from="bug" to="help" method="_on_bug_pressed"]
 [connection signal="pressed" from="load" to="load" method="_on_load_pressed"]
 [connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]

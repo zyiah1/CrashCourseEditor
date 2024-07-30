@@ -35,19 +35,19 @@ func _physics_process(delta):
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_NONE
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_ALL
 	if Input.is_action_just_pressed("fullView"):
-		if current == false:
-			current = true
+		if enabled == false:
+			enabled = true
 		else:
-			get_parent().get_node("ZoomOut").current = true
+			get_parent().get_node("ZoomOut").enabled = true
 
 func _input(event):
 	if get_parent().propertypanel == false:
 		if event is InputEventMouseButton:
 			if event.is_pressed():
-				if event.button_index == BUTTON_WHEEL_UP:
+				if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 					if zoom > zoom_minimum:
 						zoom -= zoom_speed
-				if event.button_index == BUTTON_WHEEL_DOWN:
+				if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 					if zoom < zoom_maximum:
 						zoom += zoom_speed
 

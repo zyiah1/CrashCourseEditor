@@ -3,18 +3,18 @@ extends Node2D
 var drag = false
 var point = preload("res://point.tscn")
 var locked = false
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 var segments = 1
 var line = null
 var lines = []
 var points = []
 var loading = false
-var color = Color.red - Color(.2,0,0,0)
+var color = Color.RED - Color(.2,0,0,0)
 var buttons = []
 var invisible = false
 var size = 4.5
 
-onready var end = ["              closed: CLOSE",
+@onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().idnum),
 "              layer: LC",
@@ -33,7 +33,7 @@ onready var end = ["              closed: CLOSE",
 "              param8: 0.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 
 
@@ -55,7 +55,7 @@ func _ready():
 		$end.scale = $end.scale*3
 		size = size*6
 		end[8] = "              param0: 0.00000"
-		color = Color.gray
+		color = Color.GRAY
 	
 	
 	data = ["            - Points:",
@@ -85,7 +85,7 @@ func _ready():
 "                  unit_name: Point"]
 
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -118,20 +118,20 @@ var data
 
 
 func _process(delta):
-	update()
+	queue_redraw()
 	id = get_parent().nodes.find(self)
 	if get_parent().item == "delete":
 		if drag == true:
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.red
+				modulate = Color.RED
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().item == "proporties":
 		if drag == true:
@@ -152,12 +152,12 @@ func _process(delta):
 			
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			add_child(newpoint)
 			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-			newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 			points.append(newpoint)
 			dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
@@ -204,13 +204,13 @@ func _process(delta):
 func newseg():
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			add_child(newpoint)
 			points.append(newpoint)
 			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-			newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 			dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -260,7 +260,7 @@ func reposition():
 				for point in points:
 					
 					point.scale = point.scale/3
-			color = Color.red - Color(.2,0,0,0)
+			color = Color.RED - Color(.2,0,0,0)
 		if line == "              param0: 1200.00000":
 			if $start.scale == Vector2(.35,.35)*3:
 				$start.scale = Vector2(.35,.35)
@@ -276,7 +276,7 @@ func reposition():
 				$start.scale = $start.scale*3
 				$end.scale = $end.scale*3
 				size = size*6
-				color = Color.gray
+				color = Color.GRAY
 				for point in points:
 					point.scale = point.scale*3
 					if point.scale == Vector2(.75,.75):
@@ -350,7 +350,7 @@ func done():
 func _draw():
 	if loading == false:
 		$end.position = get_global_mouse_position().round()
-	line = draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
+	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],color,size)
 

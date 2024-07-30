@@ -1,10 +1,9 @@
 extends Button
 
 func _ready():
-	var file = File.new()
 	
 	
-	if file.open("Dkb.settings",File.READ_WRITE) != 0:
+	if not FileAccess.open("Dkb.settings",FileAccess.READ_WRITE):
 		print("WELCOME")
 		$Node2D/FileWindoe.popup(Rect2(-790,-429,1022,580))
 
@@ -13,7 +12,7 @@ func _ready():
 
 
 func _on_settings_pressed():
-	get_tree().change_scene("res://settings.tscn")
+	get_tree().change_scene_to_file("res://settings.tscn")
 
 
 

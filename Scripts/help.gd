@@ -3,7 +3,7 @@ extends Button
 
 
 func _on_help_pressed():
-	$Sprite.visible = not $Sprite.visible
+	$Sprite2D.visible = not $Sprite2D.visible
 
 
 func _on_LinkButton_pressed():
@@ -11,7 +11,7 @@ func _on_LinkButton_pressed():
 
 
 func _on_close_pressed():
-	$Sprite.visible = false
+	$Sprite2D.visible = false
 
 
 func _on_bug_pressed():

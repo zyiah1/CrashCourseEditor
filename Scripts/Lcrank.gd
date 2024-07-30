@@ -22,17 +22,17 @@ func focus_exited():
 	$rotation.visible = false
 
 func _ready():
-	$rotation.connect("focus_entered",self,"focus_entered")
-	$rotation.connect("focus_exited",self,"focus_exited")
-	$end/Button.connect("button_down",get_parent(),"_on_Button_button_down")
-	$end/Button.connect("button_up",get_parent(),"_on_Button_button_up")
+	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
+	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
+	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
+	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	get_parent().buttons.append($end/Button)
 	$rotation.text = str(speed)
 	if loading == false:
 		$start.position = get_global_mouse_position()
 	else:
 		$rotation.hide()
-	$rotation.rect_position = $start.position - Vector2(0,100)
+	$rotation.position = $start.position - Vector2(0,100)
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -59,7 +59,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -88,7 +88,7 @@ var data
 
 
 
-onready var endplat = ["              closed: CLOSE",
+@onready var endplat = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().idnum),
 "              layer: LC",
@@ -117,7 +117,7 @@ onready var endplat = ["              closed: CLOSE",
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 #2110 Lcrank
 
@@ -136,13 +136,13 @@ func _process(delta):
 			
 			lines.append([$start.position,$end.position])
 			
-			var newpoint = point.instance()
+			var newpoint = point.instantiate()
 			newpoint.position = $start.position
 			add_child(newpoint)
 			points.append(newpoint)
 			get_parent().buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down",get_parent(),"_on_Button_button_down")
-			newpoint.get_node("Button").connect("button_up",get_parent(),"_on_Button_button_up")
+			newpoint.get_node("Button").connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
+			newpoint.get_node("Button").connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 			dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
@@ -181,7 +181,7 @@ func _process(delta):
 				
 				get_parent().get_parent().line = true
 				$rotation.grab_focus()
-				$rotation.cursor_set_column(3)
+				$rotation.set_caret_column(3)
 				
 		
 		
@@ -196,13 +196,13 @@ func newseg():
 	
 	lines.append([$start.position,$end.position])
 	
-	var newpoint = point.instance()
+	var newpoint = point.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
 	points.append(newpoint)
 	get_parent().buttons.append(newpoint.get_node("Button"))
-	newpoint.get_node("Button").connect("button_down",get_parent(),"_on_Button_button_down")
-	newpoint.get_node("Button").connect("button_up",get_parent(),"_on_Button_button_up")
+	newpoint.get_node("Button").connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
+	newpoint.get_node("Button").connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
@@ -258,7 +258,7 @@ func _draw():
 	$preview.lines = lines
 	line = draw_line($start.position,$end.position,Color(.92,.98,.98),4.5)
 	for lineb in lines:
-		draw_line(lineb[0],lineb[1],Color.whitesmoke - Color(.1,.1,.1,0),4.5)
+		draw_line(lineb[0],lineb[1],Color.WHITE_SMOKE - Color(.1,.1,.1,0),4.5)
 
 func EXPORT():
 	get_parent().get_parent().bridgedata += get_parent().data + get_parent().end + data + endplat
