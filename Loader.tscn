@@ -1,0 +1,505 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://UI/logo.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/quit.gd" type="Script" id=2]
+[ext_resource path="res://dkb.tres" type="Theme" id=3]
+[ext_resource path="res://load(backupOLDNEW).gd" type="Script" id=4]
+[ext_resource path="res://Scripts/new.gd" type="Script" id=5]
+[ext_resource path="res://UI/bgg.png" type="Texture" id=6]
+[ext_resource path="res://small.tres" type="Theme" id=7]
+[ext_resource path="res://Scripts/settings.gd" type="Script" id=8]
+[ext_resource path="res://bfg.gd" type="Script" id=9]
+[ext_resource path="res://fonts/wii/contb.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Scripts/help.gd" type="Script" id=11]
+[ext_resource path="res://UI/bigbg.png" type="Texture" id=12]
+[ext_resource path="res://fonts/wii.tres" type="DynamicFont" id=13]
+[ext_resource path="res://railart/trash.png" type="Texture" id=14]
+[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=15]
+[ext_resource path="res://UI/box.png" type="Texture" id=16]
+[ext_resource path="res://railart/edit.png" type="Texture" id=17]
+[ext_resource path="res://railart/property.png" type="Texture" id=18]
+[ext_resource path="res://apiRequest.gd" type="Script" id=19]
+[ext_resource path="res://LineEditTheme.tres" type="Theme" id=20]
+[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=21]
+[ext_resource path="res://UI/panel.png" type="Texture" id=22]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("bfg:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -7155, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bfg:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -5718, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "cool"
+length = 1.12342e+07
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("bfg:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -7155, -0.25, 0, 0.25, 0, -2.1453e+07, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.12342e+07 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("bfg:rect_position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -5718, -0.25, 0, 0.25, 0, -1.6995e+07, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.12342e+07 )
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -821, 122 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.0588235 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 432, 152 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+font_data = ExtResource( 21 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="Loader" type="Node2D"]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 19 )
+currentNumberOfUpdates = 6
+
+[node name="bfg" type="TextureRect" parent="." groups=["hide"]]
+modulate = Color( 1, 1, 1, 0.266667 )
+self_modulate = Color( 1, 1, 1, 0.266667 )
+margin_left = -7155.0
+margin_top = -5718.0
+margin_right = 4.51508e+08
+margin_bottom = 1.51515e+09
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+stretch_mode = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bfg"]
+root_node = NodePath("../..")
+autoplay = "cool"
+playback_speed = 13.05
+anims/RESET = SubResource( 1 )
+anims/cool = SubResource( 2 )
+
+[node name="logo" type="Sprite" parent="." groups=["hide"]]
+position = Vector2( 510, 163 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 1 )
+
+[node name="new" type="Button" parent="." groups=["hide"]]
+margin_left = 176.0
+margin_top = 239.0
+margin_right = 473.0
+margin_bottom = 497.0
+theme = ExtResource( 3 )
+text = "New"
+script = ExtResource( 5 )
+
+[node name="quit" type="Button" parent="." groups=["hide"]]
+margin_left = 1.0
+margin_top = 433.0
+margin_right = 201.0
+margin_bottom = 641.0
+theme = ExtResource( 3 )
+text = "Quit"
+script = ExtResource( 2 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 124.0
+margin_top = 35.0
+margin_right = 861.0
+margin_bottom = 535.0
+rect_scale = Vector2( 1.5, 1.5 )
+theme = ExtResource( 7 )
+popup_exclusive = true
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.txt" )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." groups=["hide"]]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 145.0
+margin_bottom = 113.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "1.4"
+
+[node name="settings" type="Button" parent="." groups=["hide"]]
+margin_left = 758.0
+margin_top = 429.0
+margin_right = 1016.0
+margin_bottom = 649.0
+theme = ExtResource( 3 )
+text = "Settings"
+script = ExtResource( 8 )
+
+[node name="Node2D" type="Node2D" parent="settings"]
+
+[node name="FileWindoe" type="FileDialog" parent="settings/Node2D"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -758.0
+margin_top = -429.0
+margin_right = 264.0
+margin_bottom = 168.0
+theme = ExtResource( 7 )
+window_title = "Where to save levels? (can be changed later)"
+mode_overrides_title = false
+mode = 2
+access = 2
+filters = PoolStringArray( "folder" )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1021, 599 )
+
+[node name="help" type="Button" parent="." groups=["hide"]]
+margin_left = 386.0
+margin_top = 429.0
+margin_right = 644.0
+margin_bottom = 649.0
+theme = ExtResource( 3 )
+text = "Help"
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="help"]
+visible = false
+show_behind_parent = true
+position = Vector2( 231, -144 )
+z_index = 1
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="close" type="Button" parent="help/Sprite"]
+margin_left = -611.0
+margin_top = 212.0
+margin_right = -291.0
+margin_bottom = 460.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 3 )
+text = "Close"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="help/Sprite"]
+margin_left = -601.0
+margin_top = -263.0
+margin_right = -148.0
+margin_bottom = -59.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "How to import into game:
+"
+
+[node name="shortcuts" type="RichTextLabel" parent="help/Sprite"]
+margin_left = -613.0
+margin_top = -194.0
+margin_right = -50.0
+margin_bottom = 180.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "In Editor:
+Ctrl+Z = Delete Last Object Placed
+Ctrl+S = Save
+Ctrl+E = Open file in text edit
+Ctrl+C = Copies level data to clipboard
+   Esc = Go to Main Menu
+
+On Title Screen:
+Ctrl+V = Load Data on Clipboard"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="help/Sprite"]
+margin_left = -48.0
+margin_top = -222.0
+margin_right = 456.0
+margin_bottom = 150.0
+custom_fonts/normal_font = ExtResource( 13 )
+text = "left click to delete hovered object
+
+
+
+
+left click on rail to show panel
+
+
+
+left click to show properties of object"
+
+[node name="LinkButton" type="LinkButton" parent="help/Sprite"]
+margin_left = -252.0
+margin_top = -261.0
+margin_right = 196.0
+margin_bottom = -227.0
+custom_colors/font_color = Color( 0.435294, 0.772549, 0.921569, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "https://youtu.be/gzPDyb5eMCs"
+
+[node name="Trash" type="Sprite" parent="help/Sprite"]
+position = Vector2( 146, -95 )
+scale = Vector2( 0.639037, 0.635802 )
+texture = ExtResource( 14 )
+
+[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash"]
+show_behind_parent = true
+position = Vector2( -3.99998, 2 )
+scale = Vector2( 0.240109, 0.542969 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Trash2" type="Sprite" parent="help/Sprite"]
+position = Vector2( 141, 42.3333 )
+scale = Vector2( 0.639037, 0.635802 )
+texture = ExtResource( 17 )
+
+[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash2"]
+show_behind_parent = true
+position = Vector2( -3.99998, 2 )
+scale = Vector2( 0.240109, 0.542969 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Trash3" type="Sprite" parent="help/Sprite"]
+position = Vector2( 142.333, 186.333 )
+scale = Vector2( 0.639037, 0.635802 )
+texture = ExtResource( 18 )
+
+[node name="Buttonsmallpressed" type="Sprite" parent="help/Sprite/Trash3"]
+show_behind_parent = true
+position = Vector2( -3.99998, 2 )
+scale = Vector2( 0.240109, 0.542969 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="bug" type="LinkButton" parent="." groups=["hide"]]
+margin_left = 888.0
+margin_top = 2.66667
+margin_right = 1062.0
+margin_bottom = 36.6667
+focus_mode = 2
+custom_colors/font_color = Color( 0.435294, 0.772549, 0.921569, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "Report a bug"
+underline = 1
+
+[node name="load" type="Button" parent="."]
+margin_left = 549.0
+margin_top = 237.0
+margin_right = 849.0
+margin_bottom = 496.0
+theme = ExtResource( 3 )
+text = "Load"
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="load"]
+anims/RESET = SubResource( 5 )
+anims/transition = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="load"]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.0588235 )
+position = Vector2( -821, 122 )
+scale = Vector2( 5.21655, 12.5098 )
+z_as_relative = false
+texture = ExtResource( 16 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="load/Sprite"]
+margin_left = -182.0
+margin_top = -10.0
+margin_right = 12.0
+margin_bottom = 64.0
+rect_scale = Vector2( 1, 0.4 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "Loading stuff"
+
+[node name="panel" type="Sprite" parent="." groups=["update"]]
+visible = false
+position = Vector2( 514.667, 294 )
+scale = Vector2( 0.778536, 1.84583 )
+texture = ExtResource( 22 )
+
+[node name="Patchnotes" type="ScrollContainer" parent="." groups=["update"]]
+visible = false
+margin_left = 235.0
+margin_top = 68.0
+margin_right = 795.0
+margin_bottom = 530.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Patchnotes"]
+margin_right = 560.0
+margin_bottom = 462.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="LineEdit" parent="." groups=["update"]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 270.0
+margin_top = 5.33334
+margin_right = 752.0
+margin_bottom = 34.3333
+mouse_filter = 2
+theme = ExtResource( 20 )
+custom_colors/font_color_uneditable = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/read_only = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "Your Version Is OUTDATED!!"
+align = 1
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Control2" type="LineEdit" parent="." groups=["update"]]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 336.667
+margin_top = 42.0
+margin_right = 818.667
+margin_bottom = 71.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_filter = 2
+theme = ExtResource( 20 )
+custom_colors/font_color_uneditable = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
+custom_styles/read_only = SubResource( 6 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "changes made in new version:"
+align = 1
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="accept" type="Button" parent="." groups=["update"]]
+visible = false
+margin_left = 590.0
+margin_top = 534.0
+margin_right = 774.0
+margin_bottom = 574.0
+rect_pivot_offset = Vector2( 87.3334, 13.3334 )
+theme = ExtResource( 7 )
+text = "Update Now"
+
+[node name="decline" type="Button" parent="." groups=["update"]]
+visible = false
+modulate = Color( 0.709804, 0.709804, 0.709804, 1 )
+margin_left = 244.667
+margin_top = 534.0
+margin_right = 428.667
+margin_bottom = 574.0
+rect_pivot_offset = Vector2( 87.3334, 13.3334 )
+theme = ExtResource( 7 )
+text = "Later"
+
+[connection signal="pressed" from="new" to="new" method="_on_new_pressed"]
+[connection signal="pressed" from="quit" to="quit" method="_on_quit_pressed"]
+[connection signal="file_selected" from="FileDialog" to="load" method="_on_FileDialog_file_selected"]
+[connection signal="pressed" from="settings" to="settings" method="_on_settings_pressed"]
+[connection signal="dir_selected" from="settings/Node2D/FileWindoe" to="settings" method="_on_FileWindoe_dir_selected"]
+[connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
+[connection signal="pressed" from="help/Sprite/close" to="help" method="_on_close_pressed"]
+[connection signal="pressed" from="help/Sprite/LinkButton" to="help" method="_on_LinkButton_pressed"]
+[connection signal="pressed" from="bug" to="help" method="_on_bug_pressed"]
+[connection signal="pressed" from="load" to="load" method="_on_load_pressed"]
+[connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="decline" to="." method="_on_decline_pressed"]

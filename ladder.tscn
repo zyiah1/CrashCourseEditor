@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://small.tres" type="Theme" id=1]
+[ext_resource path="res://ladder.png" type="Texture" id=2]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://ladder.gd" type="Script" id=4]
+[ext_resource path="res://UI/grabpointladder.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+RichTextLabel/fonts/normal_font = SubResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("pitch:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("pitch:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 5 ), Vector2( 6, 6 ) ]
+}
+
+[node name="ladder" type="Sprite"]
+scale = Vector2( 0.126, 0.126 )
+z_index = -2
+z_as_relative = false
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+ObjectName = "Dkb_ChalkLadder"
+Param0 = 3.0
+PosZ = -6.9
+scalable = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -508.0
+margin_top = -112.0
+margin_right = 1620.0
+margin_bottom = 352.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = SubResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]id_name: obj"
+text = "id_name: obj"
+
+[node name="Button" type="Button" parent="."]
+margin_left = -63.0
+margin_top = -294.0
+margin_right = 63.0
+margin_bottom = 88.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 7 )
+
+[node name="pitch" type="Node2D" parent="."]
+position = Vector2( -3.12639e-13, -87.3016 )
+rotation = -1.5708
+scale = Vector2( 1e-05, 1e-05 )
+z_index = 5
+
+[node name="slider" type="HSlider" parent="pitch"]
+margin_left = -47.619
+margin_top = -35.7143
+margin_right = 102.381
+margin_bottom = 25.2857
+rect_scale = Vector2( 0.4, 0.4 )
+theme = ExtResource( 1 )
+custom_icons/grabber_disabled = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 5 )
+min_value = -5.0
+max_value = 6.0
+value = 3.0
+scrollable = false
+tick_count = 6
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "appear"
+anims/RESET = SubResource( 10 )
+anims/appear = SubResource( 11 )
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="focus_entered" from="pitch/slider" to="." method="_on_slider_focus_entered"]
+[connection signal="focus_exited" from="pitch/slider" to="." method="_on_slider_focus_exited"]
+[connection signal="value_changed" from="pitch/slider" to="." method="_on_slider_value_changed"]

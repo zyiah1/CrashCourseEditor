@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://musicrail.gd" type="Script" id=1]
+[ext_resource path="res://pointmusic.png" type="Texture" id=2]
+[ext_resource path="res://banana.png" type="Texture" id=3]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://small.tres" type="Theme" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=5]
+RichTextLabel/fonts/normal_font = SubResource( 8 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("pitch:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("pitch:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.5 ), Vector2( 1, 1 ) ]
+}
+
+[node name="music" type="Node2D" groups=["music"]]
+z_index = -1
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="start" type="Sprite" parent="."]
+scale = Vector2( 0.35, 0.35 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="end" type="Sprite" parent="."]
+scale = Vector2( 0.35, 0.35 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="end"]
+margin_left = -17.0
+margin_top = -17.0
+margin_right = 17.0
+margin_bottom = 17.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Banana" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.12549, 0.584314, 0.866667, 1 )
+position = Vector2( 55, 23 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+
+[node name="pitch" type="Node2D" parent="."]
+scale = Vector2( 1e-05, 1e-05 )
+z_index = 5
+
+[node name="slider" type="HSlider" parent="pitch"]
+margin_left = -54.0
+margin_top = -40.0
+margin_right = 218.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.4, 0.4 )
+theme = ExtResource( 5 )
+min_value = -1.0
+max_value = 7.0
+scrollable = false
+tick_count = 9
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="number" type="RichTextLabel" parent="pitch"]
+margin_left = -53.0
+margin_top = -61.0
+margin_right = 477.0
+margin_bottom = 75.0
+rect_scale = Vector2( 0.2, 0.2 )
+mouse_filter = 2
+theme = SubResource( 5 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "appear"
+anims/RESET = SubResource( 6 )
+anims/appear = SubResource( 7 )
+
+[connection signal="button_down" from="end/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="end/Button" to="." method="_on_Button_button_up"]
+[connection signal="focus_entered" from="pitch/slider" to="." method="_on_slider_focus_entered"]
+[connection signal="focus_exited" from="pitch/slider" to="." method="_on_slider_focus_exited"]
+[connection signal="value_changed" from="pitch/slider" to="." method="_on_slider_value_changed"]

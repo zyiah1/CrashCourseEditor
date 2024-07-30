@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LineEditTheme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="Control" type="LineEdit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_colors/font_color_uneditable = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/read_only = SubResource( 2 )
+text = "abcdefghijklmnopqrstuvwxyz"
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5

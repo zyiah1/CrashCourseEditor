@@ -1,0 +1,152 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://shared scripts/Rotate.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/crankpivA.gd" type="Script" id=2]
+[ext_resource path="res://BOX.tres" type="Theme" id=3]
+[ext_resource path="res://pivotA.png" type="Texture" id=4]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scripts/filter.gd" type="Script" id=6]
+[ext_resource path="res://pointA.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/messenger.gd" type="Script" id=8]
+[ext_resource path="res://pointA.tscn" type="PackedScene" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+font_data = ExtResource( 5 )
+
+[sub_resource type="ExternalTexture" id=12]
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("rotation:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("rotation:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.153893, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="rotate" type="Sprite"]
+script = ExtResource( 8 )
+
+[node name="Spin" type="Node2D" parent="." groups=["Autospin"]]
+script = ExtResource( 1 )
+point = ExtResource( 9 )
+Param0 = 3300
+
+[node name="crank" type="Node2D" parent="Spin"]
+script = ExtResource( 2 )
+
+[node name="crank" type="Sprite" parent="Spin/crank"]
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="Spin/crank"]
+one_shot = true
+
+[node name="cooldown" type="Timer" parent="Spin/crank"]
+autostart = true
+
+[node name="Button" type="Button" parent="Spin/crank"]
+margin_left = -11.0
+margin_top = -10.0
+margin_right = 11.0
+margin_bottom = 10.0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = SubResource( 17 )
+custom_styles/normal = SubResource( 17 )
+
+[node name="start" type="Sprite" parent="Spin"]
+visible = false
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="end" type="Sprite" parent="Spin"]
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="Button" type="Button" parent="Spin/end"]
+margin_left = -17.0
+margin_top = -17.0
+margin_right = 17.0
+margin_bottom = 17.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+
+[node name="rotation" type="TextEdit" parent="Spin"]
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -19.6077
+margin_top = -100.078
+margin_right = 219.392
+margin_bottom = -40.0777
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = 0.224702
+rect_pivot_offset = Vector2( 20, 100 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 11 )
+custom_icons/space = SubResource( 12 )
+custom_icons/fold = SubResource( 12 )
+custom_icons/folded = SubResource( 12 )
+custom_icons/tab = SubResource( 12 )
+smooth_scrolling = true
+hiding_enabled = true
+script = ExtResource( 6 )
+
+[node name="startup" type="AnimationPlayer" parent="Spin"]
+autoplay = "start"
+anims/RESET = SubResource( 13 )
+anims/start = SubResource( 14 )
+
+[connection signal="timeout" from="Spin/crank/Timer" to="Spin/crank" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
+[connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
+[connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
+[connection signal="button_down" from="Spin/end/Button" to="Spin" method="_on_Button_button_down"]
+[connection signal="button_up" from="Spin/end/Button" to="Spin" method="_on_Button_button_up"]
+[connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]
+[connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank" method="_on_rotation_rotationupdated"]
+[connection signal="text_changed" from="Spin/rotation" to="Spin/rotation" method="_on_rotation_text_changed"]

@@ -1,0 +1,98 @@
+[gd_resource type="Theme" load_steps=24 format=2]
+
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/button.png" type="Texture" id=3]
+[ext_resource path="res://UI/buttonpressed.png" type="Texture" id=4]
+[ext_resource path="res://UI/checkon.png" type="Texture" id=5]
+[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=6]
+[ext_resource path="res://UI/checkoff.png" type="Texture" id=7]
+[ext_resource path="res://UI/buttonsmall.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 733, 733 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 733, 733 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 733, 733 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 733, 733 )
+
+[sub_resource type="ImageTexture" id=16]
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[resource]
+Button/colors/font_color = Color( 0.996078, 0.282353, 0.282353, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.933333, 0.262745, 0.262745, 1 )
+Button/colors/font_color_hover = Color( 0.666667, 0.282353, 0.282353, 1 )
+Button/colors/font_color_pressed = Color( 0.262745, 0.462745, 0.796078, 1 )
+Button/fonts/font = SubResource( 5 )
+Button/styles/disabled = SubResource( 10 )
+Button/styles/focus = SubResource( 7 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 6 )
+Button/styles/pressed = SubResource( 9 )
+CheckButton/icons/off = ExtResource( 7 )
+CheckButton/icons/off_disabled = SubResource( 16 )
+CheckButton/icons/on = ExtResource( 5 )
+CheckButton/styles/disabled = SubResource( 11 )
+CheckButton/styles/hover = SubResource( 12 )
+CheckButton/styles/hover_pressed = SubResource( 14 )
+CheckButton/styles/normal = SubResource( 13 )
+CheckButton/styles/pressed = SubResource( 15 )
+PopupMenu/styles/hover = SubResource( 18 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 17 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = null
+RichTextLabel/fonts/normal_font = SubResource( 4 )

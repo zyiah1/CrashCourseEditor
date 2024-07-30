@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://checkpoint.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://firstcheckpoint.png" type="Texture" id=3]
+[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=3]
+RichTextLabel/fonts/normal_font = SubResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[node name="checkpoint" type="Sprite" groups=["checkpoint"]]
+position = Vector2( 0, -9 )
+scale = Vector2( 0.18, 0.18 )
+z_as_relative = false
+texture = ExtResource( 1 )
+offset = Vector2( 40, -110 )
+script = ExtResource( 2 )
+
+[node name="first" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+offset = Vector2( 40, -110 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -1039.68
+margin_top = -214.286
+margin_right = 1088.32
+margin_bottom = 249.714
+theme = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]id_name: obj"
+text = "id_name: obj"
+
+[node name="Button" type="Button" parent="."]
+margin_left = -48.0
+margin_top = -198.0
+margin_right = 119.0
+margin_bottom = 48.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

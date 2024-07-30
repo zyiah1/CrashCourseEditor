@@ -1,0 +1,207 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Function Presets/Bridge.gd" type="Script" id=1]
+[ext_resource path="res://dkb.tres" type="Theme" id=2]
+[ext_resource path="res://UI/HugePanel.png" type="Texture" id=3]
+[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=4]
+[ext_resource path="res://UI/buttonsmall.png" type="Texture" id=5]
+[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://LineEdit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://fonts/wii.tres" type="DynamicFont" id=8]
+[ext_resource path="res://UI/LineEdit.png" type="Texture" id=9]
+[ext_resource path="res://UI/LineEditFocus.png" type="Texture" id=10]
+[ext_resource path="res://UI/Triangle.png" type="Texture" id=11]
+[ext_resource path="res://UI/Trianglepressed.png" type="Texture" id=12]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 645, 25 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 645, 25 )
+
+[sub_resource type="Theme" id=12]
+PopupMenu/fonts/font = SubResource( 13 )
+PopupMenu/icons/radio_checked = ExtResource( 12 )
+PopupMenu/icons/radio_unchecked = ExtResource( 11 )
+PopupMenu/styles/hover = SubResource( 14 )
+PopupMenu/styles/panel = SubResource( 15 )
+
+[sub_resource type="StreamTexture" id=7]
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 733, 320 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 6 )
+
+[node name="Functions" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="HugePanel" type="Sprite" parent="."]
+position = Vector2( -122, 400 )
+texture = ExtResource( 3 )
+
+[node name="Color" type="VBoxContainer" parent="."]
+margin_left = 4.0
+margin_top = 54.0
+margin_right = 388.0
+margin_bottom = 512.0
+
+[node name="Red" type="Button" parent="Color"]
+margin_right = 384.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+theme = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "red"
+
+[node name="Blue" type="Button" parent="Color"]
+margin_top = 104.0
+margin_right = 384.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 0, 100 )
+theme = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "blue"
+
+[node name="Invisible" type="Button" parent="Color"]
+margin_top = 208.0
+margin_right = 384.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 0, 100 )
+theme = ExtResource( 2 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "invisible"
+
+[node name="Position" type="VBoxContainer" parent="."]
+margin_left = 394.0
+margin_top = 53.0
+margin_right = 622.0
+margin_bottom = 363.0
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 11.0
+margin_top = 513.0
+margin_right = 207.0
+margin_bottom = 599.0
+theme = SubResource( 12 )
+custom_fonts/font = ExtResource( 8 )
+custom_icons/arrow = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+align = 1
+
+[node name="X" parent="." instance=ExtResource( 7 )]
+margin_left = 279.0
+margin_top = 512.0
+margin_right = -1161.0
+margin_bottom = -303.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+
+[node name="Y" parent="." instance=ExtResource( 7 )]
+margin_left = 474.0
+margin_top = 512.0
+margin_right = -966.0
+margin_bottom = -300.0
+custom_fonts/font = SubResource( 5 )
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 11.0
+margin_top = 474.0
+margin_right = 208.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 143, 10 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Point"
+text = "Point"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 278.0
+margin_top = 474.0
+margin_right = 616.0
+margin_bottom = 510.0
+rect_pivot_offset = Vector2( 189, 14 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Position"
+text = "Position"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 240.0
+margin_top = 517.0
+margin_right = 279.0
+margin_bottom = 553.0
+rect_pivot_offset = Vector2( 189, 14 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]X:"
+text = "X:"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+margin_left = 435.0
+margin_top = 517.0
+margin_right = 474.0
+margin_bottom = 553.0
+rect_pivot_offset = Vector2( 189, 14 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Y:"
+text = "Y:"
+
+[connection signal="pressed" from="Color/Red" to="." method="_on_Red_pressed"]
+[connection signal="pressed" from="Color/Blue" to="." method="_on_Blue_pressed"]
+[connection signal="pressed" from="Color/Invisible" to="." method="_on_Invisible_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
+[connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]
