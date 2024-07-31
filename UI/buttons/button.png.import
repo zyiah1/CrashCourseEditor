@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjg2qj8lmkvj1"
-path="res://.godot/imported/checkonsmall.png-053af28d073f0526214e645307f0ac7b.ctex"
+uid="uid://c714qtkxy1rxn"
+path="res://.godot/imported/button.png-b9021d2428af98cf4011c9d80ae760fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/checkonsmall.png"
-dest_files=["res://.godot/imported/checkonsmall.png-053af28d073f0526214e645307f0ac7b.ctex"]
+source_file="res://UI/buttons/button.png"
+dest_files=["res://.godot/imported/button.png-b9021d2428af98cf4011c9d80ae760fb.ctex"]
 
 [params]
 

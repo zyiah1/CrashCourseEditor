@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3]
 
-[ext_resource path="res://LineEdit.tscn" type="PackedScene" id=1]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="FontFile" id=2]
-[ext_resource path="res://UI/HugePanel.png" type="Texture2D" id=3]
-[ext_resource path="res://UI/buttonsmall.png" type="Texture2D" id=4]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="FontFile" id=5]
-[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture2D" id=6]
-[ext_resource path="res://small.tres" type="Theme" id=7]
-[ext_resource path="res://Function Presets/Checkpoint.gd" type="Script" id=8]
+[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="1"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="2"]
+[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="4"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="6"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
+[ext_resource type="Script" path="res://Function Presets/Checkpoint.gd" id="8"]
 
 [sub_resource type="FontFile" id=1]
 size = 40

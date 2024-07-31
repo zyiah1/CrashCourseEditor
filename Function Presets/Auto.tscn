@@ -1,596 +1,628 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=3 uid="uid://cnvjyy7ot7u17"]
 
-[ext_resource path="res://UI/buttonsmall.png" type="Texture2D" id=1]
-[ext_resource path="res://fonts/wii.tres" type="FontFile" id=2]
-[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture2D" id=3]
-[ext_resource path="res://Function Presets/Auto.gd" type="Script" id=4]
-[ext_resource path="res://UI/LineEdit.png" type="Texture2D" id=5]
-[ext_resource path="res://UI/LineEditFocus.png" type="Texture2D" id=6]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="FontFile" id=7]
-[ext_resource path="res://LineEdit.tscn" type="PackedScene" id=8]
-[ext_resource path="res://UI/Triangle.png" type="Texture2D" id=9]
-[ext_resource path="res://UI/Trianglepressed.png" type="Texture2D" id=10]
-[ext_resource path="res://UI/HugePanel.png" type="Texture2D" id=11]
-[ext_resource path="res://small.tres" type="Theme" id=13]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="2"]
+[ext_resource type="Script" path="res://Function Presets/Auto.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="6"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="7"]
+[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_yqijn"]
+[ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_03k7f"]
+[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="11"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="13"]
 
-[sub_resource type="FontFile" id=15]
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="15"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("6")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="13"]
+texture = ExtResource("5")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="Theme" id=20]
-PopupMenu/fonts/font = SubResource( 15 )
-PopupMenu/icons/radio_checked = ExtResource( 10 )
-PopupMenu/icons/radio_unchecked = ExtResource( 9 )
-PopupMenu/styles/hover = SubResource( 14 )
-PopupMenu/styles/panel = SubResource( 13 )
+[sub_resource type="Theme" id="20"]
+PopupMenu/fonts/font = SubResource("15")
+PopupMenu/icons/radio_checked = ExtResource("10")
+PopupMenu/icons/radio_unchecked = ExtResource("9")
+PopupMenu/styles/hover = SubResource("14")
+PopupMenu/styles/panel = SubResource("13")
 
-[sub_resource type="CompressedTexture2D" id=21]
+[sub_resource type="CompressedTexture2D" id="21"]
 
-[sub_resource type="StyleBoxTexture" id=22]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="24"]
 
-[sub_resource type="StyleBoxTexture" id=23]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="25"]
+texture = ExtResource("9_yqijn")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=24]
+[sub_resource type="StyleBoxTexture" id="22"]
+texture = ExtResource("9_yqijn")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=25]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="23"]
+texture = ExtResource("10_03k7f")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="FontFile" id=26]
-size = 40
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="26"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=27]
-size = 30
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="27"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=32]
-size = 60
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="32"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="ImageTexture" id=33]
+[sub_resource type="ImageTexture" id="33"]
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id="34"]
 resource_name = "Move Camera3D Off"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("returns:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RichTextLabel14:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("camera:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, -47 ) ]
+"values": [Vector2(0, -47)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("camera/CamY:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("camera/RichTextLabel15:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id="35"]
 resource_name = "Move Camera3D On"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("returns:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RichTextLabel14:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("camera:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( -76, -91 ) ]
+"values": [Vector2(-76, -91)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("camera/CamY:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("camera/RichTextLabel15:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id="36"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("returns:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ true ]
+"values": [true]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RichTextLabel14:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ true ]
+"values": [true]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("camera:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, -47 ) ]
+"values": [Vector2(0, -47)]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("camera/CamY:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("camera/RichTextLabel15:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owntl"]
+_data = {
+"Move Camera3D Off": SubResource("34"),
+"Move Camera3D On": SubResource("35"),
+"RESET": SubResource("36")
 }
 
 [node name="Functions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="HugePanel" type="Sprite2D" parent="."]
 visible = false
-position = Vector2( -122, 400 )
-texture = ExtResource( 11 )
+position = Vector2(-122, 400)
+texture = ExtResource("11")
 
 [node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 118.0
 offset_right = 205.0
 offset_bottom = 204.0
-theme = SubResource( 20 )
-theme_override_fonts/font = ExtResource( 2 )
-theme_override_icons/arrow = SubResource( 21 )
-theme_override_styles/hover = SubResource( 22 )
-theme_override_styles/pressed = SubResource( 23 )
-theme_override_styles/focus = SubResource( 24 )
-theme_override_styles/normal = SubResource( 25 )
-align = 1
+theme = SubResource("20")
+theme_override_fonts/font = ExtResource("2")
+theme_override_icons/arrow = SubResource("21")
+theme_override_styles/focus = SubResource("24")
+theme_override_styles/normal = SubResource("25")
+theme_override_styles/hover = SubResource("22")
+theme_override_styles/pressed = SubResource("23")
 
-[node name="X" parent="." instance=ExtResource( 8 )]
+[node name="X" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 277.0
 offset_top = 117.0
 offset_right = -1163.0
 offset_bottom = -698.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="Y" parent="." instance=ExtResource( 8 )]
+[node name="Y" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 472.0
 offset_top = 117.0
 offset_right = -968.0
 offset_bottom = -695.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="Speed" parent="." instance=ExtResource( 8 )]
+[node name="Speed" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 179.0
 offset_right = -1065.0
 offset_bottom = -633.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 79.0
 offset_right = 206.0
 offset_bottom = 117.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Point"
 text = "Point"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 276.0
 offset_top = 79.0
 offset_right = 614.0
 offset_bottom = 115.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 238.0
 offset_top = 122.0
 offset_right = 277.0
 offset_bottom = 158.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel11" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 179.0
 offset_right = 369.0
 offset_bottom = 215.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Speed:"
 text = "Speed:"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 433.0
 offset_top = 122.0
 offset_right = 472.0
 offset_bottom = 158.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Y:"
 text = "Y:"
 
 [node name="RichTextLabel9" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 7.0
 offset_right = 618.0
 offset_bottom = 78.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 32 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("32")
 bbcode_enabled = true
-text = "[center]Platform"
 text = "Platform"
 
 [node name="RichTextLabel10" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 295.0
 offset_right = 618.0
 offset_bottom = 366.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 32 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("32")
 bbcode_enabled = true
-text = "[center]Track"
 text = "Track"
 
 [node name="ChildOptionButton" type="OptionButton" parent="."]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 422.0
 offset_right = 205.0
 offset_bottom = 508.0
-theme = SubResource( 20 )
-theme_override_fonts/font = ExtResource( 2 )
-theme_override_icons/arrow = SubResource( 21 )
-theme_override_styles/hover = SubResource( 22 )
-theme_override_styles/pressed = SubResource( 23 )
-theme_override_styles/focus = SubResource( 24 )
-theme_override_styles/normal = SubResource( 25 )
-align = 1
+theme = SubResource("20")
+theme_override_fonts/font = ExtResource("2")
+theme_override_icons/arrow = SubResource("21")
+theme_override_styles/focus = SubResource("24")
+theme_override_styles/normal = SubResource("25")
+theme_override_styles/hover = SubResource("22")
+theme_override_styles/pressed = SubResource("23")
 
-[node name="ChildX" parent="." instance=ExtResource( 8 )]
+[node name="ChildX" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 277.0
 offset_top = 421.0
 offset_right = -1163.0
 offset_bottom = -394.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="ChildY" parent="." instance=ExtResource( 8 )]
+[node name="ChildY" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 472.0
 offset_top = 421.0
 offset_right = -968.0
 offset_bottom = -391.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 9.0
 offset_top = 383.0
 offset_right = 206.0
 offset_bottom = 421.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Point"
 text = "Point"
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 276.0
 offset_top = 383.0
 offset_right = 614.0
 offset_bottom = 419.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel12" type="RichTextLabel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 1692.0
 offset_top = 503.0
 offset_right = 1821.0
 offset_bottom = 539.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Visible"
 text = "Visible"
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 238.0
 offset_top = 426.0
 offset_right = 277.0
 offset_bottom = 462.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 433.0
 offset_top = 426.0
 offset_right = 472.0
 offset_bottom = 462.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Y:"
 text = "Y:"
 
 [node name="visible" type="CheckBox" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 1638.0
 offset_top = 492.0
 offset_right = 1698.0
 offset_bottom = 547.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
-pressed = true
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 168.0
 offset_top = 629.0
 offset_right = 532.0
 offset_bottom = 665.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Returns to start position"
 text = "Returns to start position"
 
 [node name="returns" type="CheckBox" parent="."]
+layout_mode = 0
 offset_left = 114.0
 offset_top = 618.0
 offset_right = 174.0
 offset_bottom = 673.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
-pressed = true
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 219.0
 offset_top = 564.0
 offset_right = 449.0
 offset_bottom = 600.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Reset on Death"
 text = "Reset on Death"
 
 [node name="reset" type="CheckBox" parent="."]
+layout_mode = 0
 offset_left = 154.0
 offset_top = 554.0
 offset_right = 214.0
 offset_bottom = 609.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
-pressed = true
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="camera" type="Control" parent="."]
+anchors_preset = 0
 offset_top = -47.0
 offset_right = 40.0
 offset_bottom = -7.0
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="camera"]
+layout_mode = 0
 offset_left = 170.0
 offset_top = 743.0
 offset_right = 429.0
 offset_bottom = 779.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Moves Camera3D Y"
 text = "Moves Camera3D Y"
 
 [node name="RichTextLabel15" type="RichTextLabel" parent="camera"]
 visible = false
+layout_mode = 0
 offset_left = 401.0
 offset_top = 695.0
 offset_right = 660.0
 offset_bottom = 731.0
-pivot_offset = Vector2( 189, 14 )
+pivot_offset = Vector2(189, 14)
 mouse_filter = 2
-theme_override_fonts/normal_font = SubResource( 27 )
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Offset Y"
 text = "Offset Y"
 
 [node name="check" type="CheckBox" parent="camera"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 732.0
 offset_right = 176.0
 offset_bottom = 787.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
-[node name="CamY" parent="camera" instance=ExtResource( 8 )]
+[node name="CamY" parent="camera" instance=ExtResource("8")]
 visible = false
+layout_mode = 0
 offset_left = 442.0
 offset_top = 728.0
 offset_right = 569.0
 offset_bottom = 759.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Move Camera3D Off" = SubResource( 34 )
-"anims/Move Camera3D On" = SubResource( 35 )
-anims/RESET = SubResource( 36 )
+libraries = {
+"": SubResource("AnimationLibrary_owntl")
+}
 
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]

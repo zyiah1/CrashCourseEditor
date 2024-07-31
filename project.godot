@@ -14,7 +14,6 @@ config/name="Donkey Kong Crash Course level editor"
 run/main_scene="res://Loader.tscn"
 config/features=PackedStringArray("4.2")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
 boot_splash/image="res://UI/splash.png"
 config/icon="res://icon.png"
 config/windows_native_icon="res://GODOT_ICON.ico"
@@ -35,7 +34,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_icon/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
@@ -392,4 +391,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_environment="res://default_env.tres"

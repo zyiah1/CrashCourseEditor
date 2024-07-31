@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fxkeysuhd5i4"
-path="res://.godot/imported/checkoffsmall.png-ca6b5934ac6e3e2d39a148523bdbad1c.ctex"
+uid="uid://pit08ec3mgem"
+path="res://.godot/imported/buttonsmallpressed.png-a8d6e469438f55110858e38d90648131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/checkoffsmall.png"
-dest_files=["res://.godot/imported/checkoffsmall.png-ca6b5934ac6e3e2d39a148523bdbad1c.ctex"]
+source_file="res://UI/buttons/buttonsmallpressed.png"
+dest_files=["res://.godot/imported/buttonsmallpressed.png-a8d6e469438f55110858e38d90648131.ctex"]
 
 [params]
 

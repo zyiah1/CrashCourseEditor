@@ -1,7 +1,7 @@
 extends Node2D
 
 var scrollbg = "true"
-var colorbg = "0.3,0.6,0.3"
+var colorbg = Color(0.3,0.6,0.3)
 var filepath = "res://"
 var autofull = false
 var interval = 60
@@ -21,7 +21,7 @@ func _ready():
 		
 		if settings[settings.size()-2] == "end":
 			Options.scrollbg = settings[0]
-			Options.colorbg = settings[1]
+			Options.colorbg = Color.from_string(settings[1],colorbg)
 			Options.filepath = settings[2]
 			Options.interval = settings[3]
 		

@@ -1,20 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://cx82h5vmx6lkn"]
+[gd_scene load_steps=28 format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
 [ext_resource type="Script" path="res://load(backupOLDNEW).gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/new.gd" id="5"]
-[ext_resource type="Texture2D" uid="uid://cig5thn0gsq3a" path="res://UI/bgg.png" id="6"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
-[ext_resource type="Script" path="res://bfg.gd" id="9"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
 [ext_resource type="Script" path="res://Scripts/help.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://biofqwfhqwaxh" path="res://UI/bigbg.png" id="12"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
 [ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/trash.png" id="14"]
-[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttonsmallpressed.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/edit.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="18"]
@@ -22,64 +21,6 @@
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
 [ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="22"]
-
-[sub_resource type="Animation" id="1"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bfg:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("bfg:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-
-[sub_resource type="Animation" id="2"]
-resource_name = "cool"
-length = 1.12342e+07
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bfg:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("bfg:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_28blp"]
-_data = {
-"RESET": SubResource("1"),
-"cool": SubResource("2")
-}
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("10")])
@@ -178,42 +119,32 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("19")
 currentNumberOfUpdates = 6
 
-[node name="bfg" type="TextureRect" parent="." groups=["hide"]]
-modulate = Color(1, 1, 1, 0.266667)
-self_modulate = Color(1, 1, 1, 0.266667)
-offset_right = 4.51515e+08
-offset_bottom = 1.51516e+09
-scale = Vector2(4, 4)
-texture = ExtResource("6")
-stretch_mode = 2
-script = ExtResource("9")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bfg"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_28blp")
-}
-autoplay = "cool"
+[node name="bfg" parent="." instance=ExtResource("2_a7f5f")]
+offset_left = -217.333
+offset_top = -366.0
+offset_right = 1.27979e+06
+offset_bottom = 1.27964e+06
 
 [node name="logo" type="Sprite2D" parent="." groups=["hide"]]
-position = Vector2(510, 163)
+position = Vector2(525, 163)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1")
 
 [node name="new" type="Button" parent="." groups=["hide"]]
-offset_left = 176.0
+offset_left = 165.333
 offset_top = 239.0
-offset_right = 473.0
-offset_bottom = 497.0
+offset_right = 465.333
+offset_bottom = 539.0
 theme = ExtResource("3")
+theme_override_font_sizes/font_size = 30
 text = "New"
 script = ExtResource("5")
 
 [node name="quit" type="Button" parent="." groups=["hide"]]
 offset_left = 1.0
-offset_top = 433.0
+offset_top = 445.0
 offset_right = 201.0
-offset_bottom = 641.0
+offset_bottom = 645.0
 theme = ExtResource("3")
 text = "Quit"
 script = ExtResource("2")
@@ -232,10 +163,10 @@ theme_override_fonts/normal_font = SubResource("3")
 text = "1.4"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
-offset_left = 758.0
-offset_top = 429.0
-offset_right = 1016.0
-offset_bottom = 649.0
+offset_left = 868.0
+offset_top = 447.333
+offset_right = 1068.0
+offset_bottom = 647.333
 theme = ExtResource("3")
 text = "Settings"
 script = ExtResource("8")
@@ -253,10 +184,10 @@ filters = PackedStringArray("folder")
 position = Vector2(1021, 599)
 
 [node name="help" type="Button" parent="." groups=["hide"]]
-offset_left = 386.0
-offset_top = 429.0
-offset_right = 644.0
-offset_bottom = 649.0
+offset_left = 415.0
+offset_top = 445.0
+offset_right = 615.0
+offset_bottom = 645.0
 theme = ExtResource("3")
 text = "Help"
 script = ExtResource("11")
@@ -373,11 +304,12 @@ text = "Report a bug"
 underline = 1
 
 [node name="load" type="Button" parent="."]
-offset_left = 549.0
+offset_left = 565.0
 offset_top = 237.0
-offset_right = 849.0
-offset_bottom = 496.0
+offset_right = 865.0
+offset_bottom = 537.0
 theme = ExtResource("3")
+theme_override_font_sizes/font_size = 30
 text = "Load"
 script = ExtResource("4")
 
