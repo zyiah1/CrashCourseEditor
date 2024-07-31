@@ -19,6 +19,7 @@ var drag = false
 var buttons = []
 var first = true
 
+var rail
 
 func focus_entered():
 	$rotation.visible = true
@@ -27,6 +28,15 @@ func focus_exited():
 	$rotation.visible = false
 
 func _ready():
+	var inst = load("res://rail.tscn").instantiate()
+	var reference_node = get_node("start")
+	add_child(inst)
+	var reference_index = reference_node.get_index()
+	move_child(inst, reference_index + 1)
+	
+	
+	rail = inst
+	rail.texture = load("res://railwhite.png")
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
@@ -39,6 +49,10 @@ func _ready():
 	$crank.position = $start.position
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	buttons.append($crank/Button)
+	rail.add_point($start.position)
+	$crank.rail.add_point($start.position)
+	
+	
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -200,7 +214,6 @@ func changepivotpoint():
 		targetswappoint.position = oldpos
 
 func _process(delta):
-	#change where the rotation point is
 	
 	#update the lines
 	queue_redraw()
@@ -249,50 +262,7 @@ func _process(delta):
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
-			
-			lines.append([$start.position,$end.position])
-			
-			var newpoint = point.instantiate()
-			newpoint.position = $start.position
-			if first == true:
-				newpoint.hide()
-				first = false
-				$start.show()
-			add_child(newpoint)
-			points.append(newpoint)
-			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
-			dataseg = ["                - dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-			data += dataseg
-			$start.position = $end.position
-			$start.frame = 1
-			segments += 1
-			
-			if segments == 2:
-				newpoint.get_node("start").play("RESET")
+			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
 			loading = true
@@ -304,27 +274,27 @@ func _process(delta):
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
 	$crank.target = int($rotation.text)
-	$crank.rotation_degrees = move_toward($crank.rotation_degrees,int($rotation.text),speed)
 	if is_queued_for_deletion():
 		get_parent().get_parent().Ain()
 		get_parent().get_parent().railplace = -420
 		
 
 func newseg():
-			lines.append([$start.position,$end.position])
-			
-			var newpoint = point.instantiate()
-			newpoint.position = $start.position
-			if first == true:
-				newpoint.hide()
-				first = false
-				$start.show()
-			add_child(newpoint)
-			points.append(newpoint)
-			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
-			dataseg = ["                - dir_x: 0.00000",
+	lines.append([$start.position,$end.position])
+	rail.add_point($end.position)
+	$crank.rail.add_point($end.position)
+	var newpoint = point.instantiate()
+	newpoint.position = $start.position
+	if first == true:
+		newpoint.hide()
+		first = false
+		$start.show()
+	add_child(newpoint)
+	points.append(newpoint)
+	buttons.append(newpoint.get_node("Button"))
+	newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+	newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
+	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
 "                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
@@ -347,13 +317,13 @@ func newseg():
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
-			data += dataseg
-			$start.position = $end.position
-			$start.frame = 1
-			segments += 1
-			
-			if segments == 2:
-				newpoint.get_node("start").play("RESET")
+	data += dataseg
+	$start.position = $end.position
+	$start.frame = 1
+	segments += 1
+	
+	if segments == 2:
+		newpoint.get_node("start").play("RESET")
 
 
 func done():
@@ -364,14 +334,10 @@ func done():
 	get_parent().get_parent().line = true
 	buttons.append(get_node("end/Button"))
 func _draw():
-	$crank.lines = lines
+	
 	if loading == false and locked == false:
 		$end.position = get_global_mouse_position().round()
 	draw_line($start.position,$end.position,color,4.5)
-	for lineb in lines:
-		draw_line(lineb[0],lineb[1],color - Color(.2,.2,.2,0),4.5)
-		
-	
 
 func EXPORT():
 	if end != null:

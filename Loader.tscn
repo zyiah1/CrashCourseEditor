@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
-[ext_resource type="Script" path="res://load(backupOLDNEW).gd" id="4"]
+[ext_resource type="Script" path="res://Scripts/load.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/new.gd" id="5"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/edit.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="18"]
-[ext_resource type="Script" path="res://apiRequest.gd" id="19"]
+[ext_resource type="Script" path="res://Scripts/apiRequest.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
 [ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="22"]
@@ -151,7 +151,7 @@ script = ExtResource("2")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
-size = Vector2i(437, 114)
+size = Vector2i(437, 154)
 theme = ExtResource("7")
 ok_button_text = "Open"
 file_mode = 0

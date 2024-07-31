@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=16 format=3]
 
-[ext_resource path="res://pointE.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Endpreview.gd" type="Script" id=2]
-[ext_resource path="res://banana.png" type="Texture2D" id=3]
-[ext_resource path="res://pointE.png" type="Texture2D" id=4]
-[ext_resource path="res://Scripts/speed.gd" type="Script" id=5]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="FontFile" id=6]
-[ext_resource path="res://BOX.tres" type="Theme" id=7]
-[ext_resource path="res://shared scripts/MovingPlatform.gd" type="Script" id=8]
+[ext_resource type="PackedScene" path="res://pointE.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/Endpreview.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
+[ext_resource type="Script" path="res://Scripts/speed.gd" id="5"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="6"]
+[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="7"]
+[ext_resource type="Script" path="res://shared scripts/MovingPlatform.gd" id="8"]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 

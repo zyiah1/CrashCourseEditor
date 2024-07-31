@@ -2,9 +2,9 @@ extends Camera2D
 
 
 var paused = false
-var zoom_minimum = Vector2(.1000001,.100001)
-var zoom_maximum = Vector2(3.00001,3.00001)
-var zoom_speed = Vector2(.100001,.100001)
+var zoom_minimum = Vector2(.100001,.10001)
+var zoom_maximum = Vector2(20.00001,20.00001)
+var zoom_speed = Vector2(.000100001,.000100001)
 
 
 
@@ -13,14 +13,14 @@ func _physics_process(delta):
 	if get_parent().propertypanel == false:
 		if paused == false:
 			if Input.is_action_pressed("ui_right"):
-				position.x += 5 * zoom.x  
+				position.x += 4 * zoom.x  
 			if Input.is_action_pressed("ui_left"):
-				position.x += -5 * zoom.x  
+				position.x += -4 * zoom.x  
 			if Input.is_action_pressed("ui_up"):
-				position.y += -7 * zoom.x 
+				position.y += -5 * zoom.x 
 			if Input.is_action_pressed("ui_down"):
 				if not Input.is_action_pressed("save"):
-					position.y += 7 * zoom.x 
+					position.y += 5 * zoom.x 
 			if Input.is_action_just_pressed("zoom_in"):
 				if zoom.x < 3:
 					zoom += Vector2(.25,.25)

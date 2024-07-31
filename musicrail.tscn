@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=13 format=3]
 
-[ext_resource path="res://musicrail.gd" type="Script" id=1]
-[ext_resource path="res://pointmusic.png" type="Texture2D" id=2]
-[ext_resource path="res://banana.png" type="Texture2D" id=3]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="FontFile" id=4]
-[ext_resource path="res://small.tres" type="Theme" id=5]
+[ext_resource type="Script" path="res://Scripts/musicrail.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5"]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 

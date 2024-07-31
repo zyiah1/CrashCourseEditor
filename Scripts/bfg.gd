@@ -7,6 +7,8 @@ func _process(delta):
 	color = Options.colorbg
 	modulate = color
 	if Options.scrollbg != "true":
-		$AnimationPlayer.speed_scale = 0
+		
+		return
 	else:
-		$AnimationPlayer.speed_scale = 0.01
+		position -= Vector2(20,20)*delta
+	
