@@ -30,11 +30,23 @@ settings/fps/force_fps=60
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[file_customization]
+
+folder_colors={
+"res://Function Presets/": "orange",
+"res://Scripts/": "red",
+"res://UI/": "blue",
+"res://fonts/": "pink",
+"res://icon/": "gray",
+"res://railart/": "teal",
+"res://shared scripts/": "green"
+}
 
 [gui]
 

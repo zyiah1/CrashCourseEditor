@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=85 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://drwiyy8ajhe7m" path="res://UI/stage.png" id="4"]
 [ext_resource type="Script" path="res://Scripts/Cam.gd" id="5"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="7"]
+[ext_resource type="Texture2D" uid="uid://b6cx3gcq4bllj" path="res://UI/GenericTextEnter.png" id="7_cbhmo"]
 [ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://doswyaj0a462s" path="res://UI/BlueGenericTextEnter.png" id="8_366nk"]
 [ext_resource type="Texture2D" uid="uid://beg5u4jtrga63" path="res://checkpoint.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_jgxak"]
 [ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://fincheckpoint.png" id="10"]
@@ -35,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/PivotR.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/PivotL.png" id="35"]
 [ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/PivotA.png" id="36"]
-[ext_resource type="Texture2D" uid="uid://dsud6jwp7hdhd" path="res://UI/panelred.png" id="37"]
 [ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="38"]
 [ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="39"]
 [ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/trash.png" id="40"]
@@ -346,19 +347,34 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id="20"]
-fallbacks = Array[Font]([ExtResource("28")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[sub_resource type="FontVariation" id="FontVariation_r337g"]
+base_font = ExtResource("28")
+variation_embolden = 0.39
 
-[sub_resource type="StyleBoxTexture" id="21"]
-texture = ExtResource("37")
-region_rect = Rect2(0, 0, 733, 320)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c3ri"]
+texture = ExtResource("7_cbhmo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t780s"]
+texture = ExtResource("8_366nk")
 
 [sub_resource type="StyleBoxTexture" id="7"]
 texture = ExtResource("9_jgxak")
@@ -640,31 +656,36 @@ theme_override_fonts/normal_font = SubResource("15")
 text = "left click to add new segment, right click to end"
 
 [node name="name?" type="RichTextLabel" parent="nonmoving"]
-offset_left = 291.0
-offset_top = 548.0
-offset_right = 436.0
-offset_bottom = 786.0
+visible = false
+offset_left = 368.0
+offset_top = 535.333
+offset_right = 513.0
+offset_bottom = 773.333
 theme_override_fonts/normal_font = SubResource("15")
-text = "name:"
+theme_override_font_sizes/normal_font_size = 40
+text = "Name:"
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
 visible = false
 modulate = Color(1, 1, 1, 0.54902)
 offset_left = 8.0
 offset_top = 487.0
-offset_right = 153.0
+offset_right = 190.0
 offset_bottom = 725.0
 scale = Vector2(0.4, 0.4)
 theme_override_fonts/normal_font = SubResource("15")
+theme_override_font_sizes/normal_font_size = 40
 text = "saving"
 
 [node name="name" type="LineEdit" parent="nonmoving"]
-offset_left = 434.0
+offset_left = 482.0
 offset_top = 524.0
-offset_right = 1018.0
+offset_right = 1066.0
 offset_bottom = 593.0
-theme_override_fonts/font = SubResource("20")
-theme_override_styles/normal = SubResource("21")
+theme_override_fonts/font = SubResource("FontVariation_r337g")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
+theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
 text = "untitled"
 
 [node name="delay" type="Timer" parent="nonmoving"]

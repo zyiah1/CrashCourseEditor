@@ -9,7 +9,7 @@ var rail = false
 
 func _on_load_pressed():
 	file.current_path = Options.filepath
-	file.popup()
+	file.popup_centered(Vector2(1600,800))
 
 func _process(delta):
 	if loaded == false:
