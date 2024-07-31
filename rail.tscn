@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="1_so1yl"]
 
 [node name="Rail" type="Line2D"]
+width = 8.0
 texture = ExtResource("1_so1yl")
 texture_mode = 1

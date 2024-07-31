@@ -17,7 +17,7 @@ var mode = 0 #0 = path 1 = platform
 var loading = false
 var path = []
 var speed = 2
-
+var rail
 
 
 func focus_entered():
@@ -27,6 +27,15 @@ func focus_exited():
 	$rotation.visible = false
 
 func _ready():
+	var inst = load("res://rail.tscn").instantiate()
+	var reference_node = get_node("start")
+	add_child(inst)
+	var reference_index = reference_node.get_index()
+	move_child(inst, reference_index + 1)
+	
+	
+	rail = inst
+	rail.texture = load("res://railwhite.png")
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
@@ -37,7 +46,7 @@ func _ready():
 		$start.position = get_global_mouse_position()
 	else:
 		$rotation.hide()
-		
+	rail.add_point($start.position)
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -180,47 +189,7 @@ func _process(delta):
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
-			
-			lines.append([$start.position,$end.position])
-			
-			var newpoint = point.instantiate()
-			newpoint.position = $start.position
-			add_child(newpoint)
-			points.append(newpoint)
-			get_parent().buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
-			newpoint.get_node("Button").connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
-			dataseg = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-			data += dataseg
-			$start.position = $end.position
-			$start.frame = 1
-			segments += 1
-			
-			if segments == 2:
-				newpoint.get_node("start").play("RESET")
+			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
 			if mode == 0:
@@ -237,9 +206,8 @@ func _process(delta):
 
 
 func newseg():
-	
 	lines.append([$start.position,$end.position])
-	
+	rail.add_point($end.position)
 	var newpoint = point.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
@@ -291,8 +259,6 @@ func _draw():
 	if locked == false and loading == false:
 		$end.position = get_global_mouse_position()
 	draw_line($start.position,$end.position,color,4.5)
-	for lineb in lines:
-		draw_line(lineb[0],lineb[1],color - Color(.1,.1,.1,0),4.5)
 	
 	#draw the image that appears between the points
 	if midImage != null:

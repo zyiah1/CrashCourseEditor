@@ -280,6 +280,7 @@ func _process(delta):
 				get_parent().parse(childrail.endplat)
 				get_parent().editednode = self
 				return
+			
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
 			var railinst = rail.instantiate()
@@ -289,49 +290,14 @@ func _process(delta):
 			add_child(railinst)
 			childrail = railinst
 			mode = 69
+			
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
 				get_parent().line = true
 		if Input.is_action_just_pressed("addpoint"):
-			if mode == 0:
-				lines.append([$start.position,$end.position])
-				
-				var newpoint = point.instantiate()
-				newpoint.position = $start.position
-				add_child(newpoint)
-				points.append(newpoint)
-				buttons.append(newpoint.get_node("Button"))
-				newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-				newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
-				dataseg = ["                - dir_x: 0.00000",
-	"                  dir_y: 0.00000",
-	"                  dir_z: 0.00000",
-	"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
-	"                  link_info: []",
-	"                  link_num: !l 0",
-	"                  param0: -1.00000",
-	"                  param1: -1.00000",
-	"                  param2: -1.00000",
-	"                  param3: -1.00000",
-	"                  pnt0_x: " + str($end.position.x),
-	"                  pnt0_y: " + str(-$end.position.y),
-	"                  pnt0_z: 0.00000",
-	"                  pnt1_x: " + str($end.position.x),
-	"                  pnt1_y: " + str(-$end.position.y),
-	"                  pnt1_z: 0.00000",
-	"                  pnt2_x: " + str($end.position.x),
-	"                  pnt2_y: " + str(-$end.position.y),
-	"                  pnt2_z: 0.00000",
-	"                  scale_x: 1.00000",
-	"                  scale_y: 1.00000",
-	"                  scale_z: 1.00000",
-	"                  unit_name: Point"]
-				data += dataseg
-				$start.position = $end.position
-				segments += 1
-				
+				newseg()
 				
 		if Input.is_action_just_pressed("bridge"):
 			if mode == 0:
@@ -382,8 +348,7 @@ func newseg():
 		data += dataseg
 		$start.position = $end.position
 		segments += 1
-		
-		
+
 
 func done(pos):
 	if mode == 0:
