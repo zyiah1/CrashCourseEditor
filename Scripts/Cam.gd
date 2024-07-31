@@ -13,14 +13,14 @@ func _physics_process(delta):
 	if get_parent().propertypanel == false:
 		if paused == false:
 			if Input.is_action_pressed("ui_right"):
-				position.x += 5 * zoom.x  * 2
+				position.x += 5 * zoom.x  
 			if Input.is_action_pressed("ui_left"):
-				position.x += -5 * zoom.x  * 2
+				position.x += -5 * zoom.x  
 			if Input.is_action_pressed("ui_up"):
-				position.y += -7 * zoom.x  * 2
+				position.y += -7 * zoom.x 
 			if Input.is_action_pressed("ui_down"):
 				if not Input.is_action_pressed("save"):
-					position.y += 7 * zoom.x * 2
+					position.y += 7 * zoom.x 
 			if Input.is_action_just_pressed("zoom_in"):
 				if zoom.x < 3:
 					zoom += Vector2(.25,.25)
