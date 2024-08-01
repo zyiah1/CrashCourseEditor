@@ -177,7 +177,7 @@ func reposition():
 	for line in childrail.endplat:
 		if line.begins_with("              param2: "):
 			var text = line
-			text.erase(0,22)
+			text = text.erase(0,22)
 			childrail.get_node("rotation").text = text
 			childrail._on_rotation_change()
 	
@@ -236,7 +236,15 @@ func reposition():
 				childrail.data[cycles] = "                  pnt2_y: " + str(-childrail.points[currentpoint].position.y)
 				
 				currentpoint += 1
-
+	
+	#update the visuals
+	childrail.rail.points = []
+	childrail.get_node("preview").rail.points = []
+	for point in childrail.points:
+		childrail.rail.add_point(point.position)
+		childrail.get_node("preview").rail.add_point(point.position)
+	childrail.rail.add_point($end.position)
+	childrail.get_node("preview").rail.add_point($end.position)
 
 func _process(delta):
 	queue_redraw()

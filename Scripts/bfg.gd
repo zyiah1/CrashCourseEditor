@@ -1,11 +1,11 @@
 extends TextureRect
 
-var color = Options.colorbg
+var color: Color = Options.colorbg
 
 
 func _process(delta):
-	color = Options.colorbg
 	modulate = color
+	color = Options.colorbg
 	if Options.scrollbg != "true":
 		
 		return

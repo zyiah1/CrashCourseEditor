@@ -30,10 +30,10 @@ func _ready():
 	
 	var text = speed.text
 	
-	text.erase(0,22)
+	text = text.erase(0,22)
 	$Speed.text = text
 	text = rotation_text.text
-	text.erase(0,22)
+	text = text.erase(0,22)
 	$Rotation.text = text
 
 func _process(delta):

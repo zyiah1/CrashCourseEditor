@@ -38,12 +38,12 @@ func _ready():
 		$Y.text = "0"
 	
 	var newtext = points.text
-	newtext.erase(0,20)
+	newtext = newtext.erase(0,20)
 	
 	$point.text = newtext
 	
 	var newtext2 = area.text
-	newtext2.erase(0,20)
+	newtext2 = newtext2.erase(0,20)
 	
 	$area.text = newtext2
 	

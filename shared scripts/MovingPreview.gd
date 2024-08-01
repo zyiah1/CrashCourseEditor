@@ -18,7 +18,7 @@ func _ready():
 	var inst = load("res://rail.tscn").instantiate()
 	add_child(inst)
 	rail = inst
-	rail.modulate = Color(.8,.8,.8,.5)
+	rail.modulate = Color(.8,.8,.8,.9)
 	rail.texture = previewtexture
 
 func _process(delta):

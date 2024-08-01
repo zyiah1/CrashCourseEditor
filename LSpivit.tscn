@@ -113,14 +113,14 @@ theme_override_styles/focus = SubResource("13")
 [node name="crank2" type="Node2D" parent="Spin"]
 script = ExtResource("3_lgwtf")
 
+[node name="Timer" type="Timer" parent="Spin/crank2"]
+one_shot = true
+
 [node name="crank2" type="Sprite2D" parent="Spin/crank2"]
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("4")
-
-[node name="Timer" type="Timer" parent="Spin/crank2/crank2"]
-one_shot = true
 
 [node name="cooldown" type="Timer" parent="Spin/crank2"]
 autostart = true
@@ -171,7 +171,7 @@ autoplay = "start"
 [connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
 [connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
 [connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
-[connection signal="timeout" from="Spin/crank2/crank2/Timer" to="Spin/crank2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Spin/crank2/Timer" to="Spin/crank2" method="_on_Timer_timeout"]
 [connection signal="button_down" from="Spin/end/Button" to="Spin" method="_on_Button_button_down"]
 [connection signal="button_up" from="Spin/end/Button" to="Spin" method="_on_Button_button_up"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]

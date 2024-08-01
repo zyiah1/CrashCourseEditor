@@ -298,8 +298,11 @@ func reposition():
 				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
 				
 				currentpoint += 1
-	
-	
+	#update the visuals
+	rail.points = []
+	for point in points:
+		rail.add_point(point.position)
+	rail.add_point($end.position)
 	
 func done():
 	locked = true

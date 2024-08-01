@@ -57,9 +57,7 @@ func _ready():
 	if $ChildY.text == "":
 		$ChildY.text = "0"
 	
-	var text = speed.text
-	
-	text.erase(0,22)
+	var text = speed.text.erase(0,22)
 	$Speed.text = text
 	if trackvisible.text.begins_with("              param1: 0"):
 		$visible.button_pressed = false

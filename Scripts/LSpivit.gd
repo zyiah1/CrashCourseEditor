@@ -121,7 +121,7 @@ var data
 
 func changepivotpoint():
 	var line = end[11]
-	line.erase(19,1)
+	line = line.erase(19,1)
 	if int(line.lstrip("              param: ")) != 0:
 		var oldpos = $crank.position
 		var targetswappoint = null
@@ -199,13 +199,24 @@ func reposition():
 				currentpoint += 1
 	$crank.position = points[0].position
 	var text = end[9]
-	text.erase(0,22)
+	text = text.erase(0,22)
 	$rotation.text = str(-int(text))
 	$crank.target = int($rotation.text)
 	$crank2.target = int($rotation.text)
 	$crank.rotation_degrees = 0
 	$crank2.rotation_degrees = 0
 	changepivotpoint()
+	#update the visuals
+	rail.points = []
+	$crank.rail.points = []
+	$crank2.rail.points = []
+	for point in points:
+		rail.add_point(point.position)
+		$crank.rail.add_point(point.position)
+		$crank2.rail.add_point(point.position)
+	rail.add_point($end.position)
+	$crank.rail.add_point($end.position)
+	$crank2.rail.add_point($end.position)
 
 func _process(delta):
 	queue_redraw()
