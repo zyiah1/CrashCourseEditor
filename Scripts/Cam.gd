@@ -28,9 +28,7 @@ func _physics_process(delta):
 				if zoom.x - .25 != 0:
 					zoom += Vector2(-.25,-.25)
 			if Input.is_action_just_pressed("hide"):
-				get_parent().get_node("CanvasLayer3/CanvasLayer2").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer2").visible
-				get_parent().get_node("CanvasLayer3/CanvasLayer").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer").visible
-				get_parent().get_node("nonmoving").visible = not get_parent().get_node("nonmoving").visible
+				toggleUI()
 	if Input.is_action_just_pressed("accept"):
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_NONE
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_ALL
@@ -41,6 +39,11 @@ func _physics_process(delta):
 		else:
 			enabled = true
 			get_parent().get_node("ZoomOut").enabled = false
+
+func toggleUI():
+	get_parent().get_node("CanvasLayer3/CanvasLayer2").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer2").visible
+	get_parent().get_node("CanvasLayer3/CanvasLayer").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer").visible
+	get_parent().get_node("nonmoving").visible = not get_parent().get_node("nonmoving").visible
 
 func _input(event):
 	if get_parent().propertypanel == false:

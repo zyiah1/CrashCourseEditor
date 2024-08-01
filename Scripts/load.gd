@@ -25,6 +25,8 @@ func _process(delta):
 
 
 func Load(filename):
+	$CanvasLayer.show()
+	
 	self_modulate = Color(1,1,1,0)
 	$AnimationPlayer.play("transition")
 	var timer = Timer.new()
@@ -33,6 +35,7 @@ func Load(filename):
 	await timer.timeout;
 	content = str(content)
 	content = content.split("\n")
+	$CanvasLayer/LoadingBar.max_value = content.size()
 	var cycle = 8
 	loaded = true
 	
@@ -55,8 +58,10 @@ func Load(filename):
 	var actualrail = null
 	
 	var everypivotrail = [] #idk shuffle through all of them and call a function
+	var playerposition = Vector2(-216,-397)
 	
 	while content.size()>0:
+		$CanvasLayer/LoadingBar.value += 1
 		overide = 0
 		cycle -= 1
 		
@@ -134,8 +139,10 @@ func Load(filename):
 					trackedinfo = []
 		
 		
-		if cycle + 1 > 0:#remove whatever amount the cycle is (CHANGE THIS TO A SIMPLE ERASE COMMAND PLEASE)
+		if cycle + 1 > 0:#remove whatever amount the cycle is 
 			content.remove_at(0)
+			if randi_range(1,50) == 1:
+				await get_tree().create_timer(.0001).timeout
 		else:
 			
 			
@@ -323,7 +330,7 @@ func Load(filename):
 					var player = preload("res://player.tscn").instantiate()
 					player.position = Vector2(int(content[21].lstrip("            pos_x: ")),-int(content[22].lstrip("            pos_y: ")))
 					instance = player
-					scene.get_node("Cam").position = player.position
+					playerposition = player.position
 					scene.get_node("CanvasLayer3/CanvasLayer/buttons").play("out")
 					scene.stored = player
 				if content[8] == "            name: Dkb_CheckPoint":
@@ -408,10 +415,16 @@ func Load(filename):
 				push_warning("ERR Not Recognized [" + content[0] + "]")
 				content.remove_at(0)
 	
+	$CanvasLayer.hide()
 	#print(content)
 	for node in everypivotrail:
 		node.changepivotpoint()
 	
+	scene.get_node("Cam").paused = false
+	scene.disabledcontrolls = false
+	scene.get_node("Cam").position = playerposition
+	scene.get_node("Cam").zoom = Vector2(2.5,2.5)
+	scene.get_node("Cam").toggleUI()
 
 
 func _on_FileDialog_file_selected(path):

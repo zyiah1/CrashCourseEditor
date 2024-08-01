@@ -58,6 +58,8 @@ var objects = []
 
 var nodes = []
 
+var disabledcontrolls = false
+
 func _ready():
 	
 	$nonmoving/save/Timer.wait_time = int(Options.interval)
@@ -67,45 +69,28 @@ func _ready():
 	
 	#make the borders
 	if get_tree().current_scene.name == "Editor": #Not loading screen
-		var bridgeinst = bridge.instantiate()
-		bridgeinst.loading = true
-		bridgeinst.invisible = true
-		bridgeinst.get_node("start").position = Vector2(495,-555)
-		bridgeinst.get_node("end").position = Vector2(-495,-555)
-		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
-		add_child(bridgeinst)
-		bridgeinst.newseg()
-		bridgeinst.done()
-	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instantiate()
-		bridgeinst.loading = true
-		bridgeinst.invisible = true
-		bridgeinst.get_node("start").position = Vector2(495,-555)
-		bridgeinst.get_node("end").position = Vector2(495,555)
-		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
-		add_child(bridgeinst)
-		bridgeinst.newseg()
-		bridgeinst.done()
-	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instantiate()
-		bridgeinst.loading = true
-		bridgeinst.invisible = true
-		bridgeinst.get_node("start").position = Vector2(-495,-555)
-		bridgeinst.get_node("end").position = Vector2(-495,555)
-		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
-		add_child(bridgeinst)
-		bridgeinst.newseg()
-		bridgeinst.done()
-	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instantiate()
-		bridgeinst.loading = true
-		bridgeinst.invisible = true
-		bridgeinst.get_node("start").position = Vector2(-495,555)
-		bridgeinst.get_node("end").position = Vector2(495,555)
-		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
-		add_child(bridgeinst)
-		bridgeinst.newseg()
-		bridgeinst.done()
+		var borders = [bridge.instantiate(),bridge.instantiate(),bridge.instantiate(),bridge.instantiate()]
+		borders[0].get_node("start").position = Vector2(495,-555)
+		borders[0].get_node("end").position = Vector2(-495,-555)
+		borders[1].get_node("start").position = Vector2(495,-555)
+		borders[1].get_node("end").position = Vector2(495,555)
+		borders[2].get_node("start").position = Vector2(-495,-555)
+		borders[2].get_node("end").position = Vector2(-495,555)
+		borders[3].get_node("start").position = Vector2(-495,555)
+		borders[3].get_node("end").position = Vector2(495,555)
+		for bridgeinst in borders:
+			bridgeinst.loading = true
+			bridgeinst.invisible = true
+			connect("EXPORT", Callable(bridgeinst, "EXPORT"))
+			add_child(bridgeinst)
+			bridgeinst.newseg()
+			bridgeinst.done()
+	else:
+		disabledcontrolls = true
+		$Cam.position = Vector2.ZERO
+		$Cam.zoom = Vector2(.75,.75)
+		$Cam.paused = true
+		$Cam.toggleUI()
 
 var bridgeheader = ["        RailInfos:",
 "          PathInfo:"
@@ -386,53 +371,52 @@ func itemplace():
 
 
 func shortcuts():
-	if Input.is_action_just_pressed("id"):
-		movingLoop = not movingLoop
-	if Input.is_action_just_pressed("undo"):
-		if nodes.size() != 0:
-			if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
-				playerunstore()
+	if not disabledcontrolls:
+		if Input.is_action_just_pressed("id"):
+			movingLoop = not movingLoop
+		if Input.is_action_just_pressed("undo"):
+			if nodes.size() != 0:
+				if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
+					playerunstore()
+				
+				var target = str(nodes[nodes.size() - 1])
+				print("Undid ",target)
+				
+				nodes[nodes.size() - 1].queue_free()
+				nodes.remove_at(nodes.size() - 1)
+		if Input.is_action_just_pressed("esc"):
+			if $"CanvasLayer3/Proporties Panel".visible == false:
+				get_tree().change_scene_to_file("res://Loader.tscn")
+			else:
+				$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox"._on_new_pressed()
+		if Input.is_action_just_pressed("Export"):
+			_on_Button_pressed()
+			OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+		if Input.is_action_just_pressed("save"):
+			_on_Button_pressed()
+		if Input.is_action_just_pressed("Copy"):
+			_on_Button_pressed()
+			var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
 			
-			var target = str(nodes[nodes.size() - 1])
-			print("Undid ",target)
 			
-			nodes[nodes.size() - 1].queue_free()
-			nodes.remove_at(nodes.size() - 1)
-	
-	if Input.is_action_just_pressed("esc"):
-		if $"CanvasLayer3/Proporties Panel".visible == false:
-			get_tree().change_scene_to_file("res://Loader.tscn")
-		else:
-			$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox"._on_new_pressed()
-	
-	if Input.is_action_just_pressed("Export"):
-		_on_Button_pressed()
-		OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
-	if Input.is_action_just_pressed("save"):
-		_on_Button_pressed()
-	if Input.is_action_just_pressed("Copy"):
-		_on_Button_pressed()
-		var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
-		
-		
-		
-		DisplayServer.clipboard_set(file.get_as_text())
-	if Input.is_action_just_pressed("shift"):
-		mode += 1
-		if mode == 4:
-			mode = 1
-		if mode == 1:
-			$CanvasLayer3/CanvasLayer2/rails/rail.icon = redtex
-			$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow1
-			$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow4
-		if mode == 2:
-			$CanvasLayer3/CanvasLayer2/rails/rail.icon = bluetex
-			$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow2
-			$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow5
-		if mode == 3:
-			$CanvasLayer3/CanvasLayer2/rails/rail.icon = graytex
-			$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow3
-			$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow6
+			
+			DisplayServer.clipboard_set(file.get_as_text())
+		if Input.is_action_just_pressed("shift"):
+			mode += 1
+			if mode == 4:
+				mode = 1
+			if mode == 1:
+				$CanvasLayer3/CanvasLayer2/rails/rail.icon = redtex
+				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow1
+				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow4
+			if mode == 2:
+				$CanvasLayer3/CanvasLayer2/rails/rail.icon = bluetex
+				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow2
+				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow5
+			if mode == 3:
+				$CanvasLayer3/CanvasLayer2/rails/rail.icon = graytex
+				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow3
+				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow6
 
 var namefocus = false
 
