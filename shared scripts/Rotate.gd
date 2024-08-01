@@ -1,7 +1,7 @@
 extends Node2D
 signal finish
 
-@export var point: PackedScene = preload("res://pointL.tscn")
+@export var pointScene: PackedScene = preload("res://pointL.tscn")
 @export var Param0: int = 3140
 @export var reset: int = 0
 @export var color: Color = Color(.92,.98,.98)
@@ -290,7 +290,7 @@ func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointScene.instantiate()
 	newpoint.position = $start.position
 	if first == true:
 		newpoint.hide()

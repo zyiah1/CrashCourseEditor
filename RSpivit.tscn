@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmwg6um07x4fs"]
+[gd_scene load_steps=21 format=3 uid="uid://bmwg6um07x4fs"]
 
 [ext_resource type="Script" path="res://Scripts/RSpivit.gd" id="1"]
 [ext_resource type="Script" path="res://Scripts/rotationTextFilter.gd" id="3"]
 [ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="3_my8sy"]
 [ext_resource type="Texture2D" uid="uid://bm4jdwxs1nkev" path="res://pivotRS.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
+[ext_resource type="Texture2D" uid="uid://dkkhc0srthw5r" path="res://railmaroon.png" id="5_1vrlm"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="7"]
 [ext_resource type="Script" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
@@ -29,6 +30,24 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [sub_resource type="ImageTexture" id="5"]
 
@@ -86,6 +105,7 @@ hframes = 2
 
 [node name="crank" type="Node2D" parent="Spin"]
 script = ExtResource("3_my8sy")
+previewtexture = ExtResource("5_1vrlm")
 
 [node name="Timer" type="Timer" parent="Spin/crank"]
 one_shot = true

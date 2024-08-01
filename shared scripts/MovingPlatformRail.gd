@@ -2,7 +2,7 @@ extends Node2D
 
 signal finish
 
-const point = preload("res://point2.tscn")
+const pointScene = preload("res://point2.tscn")
 
 
 var speed = 2
@@ -322,7 +322,7 @@ func newseg():
 	if mode == 0:
 		lines.append([$start.position,$end.position])
 		
-		var newpoint = point.instantiate()
+		var newpoint = pointScene.instantiate()
 		newpoint.position = $start.position
 		add_child(newpoint)
 		points.append(newpoint)

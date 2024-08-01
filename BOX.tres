@@ -14,6 +14,7 @@ HScrollBar/styles/grabber_highlight = SubResource("6")
 HScrollBar/styles/grabber_pressed = SubResource("6")
 HScrollBar/styles/scroll = SubResource("6")
 HScrollBar/styles/scroll_focus = SubResource("6")
+TextEdit/font_sizes/font_size = 25
 TextEdit/styles/completion = SubResource("8")
 TextEdit/styles/focus = SubResource("8")
 TextEdit/styles/normal = SubResource("8")
