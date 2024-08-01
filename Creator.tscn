@@ -315,18 +315,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(-1, 142)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2/tools/delete:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1363, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
 _data = {
@@ -349,6 +337,7 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/40/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/50/0 = Vector2(0, 0)
 cache/0/40/0/ascent = 0.0
 cache/0/40/0/descent = 0.0
 cache/0/40/0/underline_position = 0.0
@@ -357,6 +346,7 @@ cache/0/40/0/scale = 1.0
 cache/0/40/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/40/0/kerning_overrides/40/0 = Vector2(0, 0)
 cache/0/40/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/40/0/kerning_overrides/50/0 = Vector2(0, 0)
 cache/0/20/0/ascent = 0.0
 cache/0/20/0/descent = 0.0
 cache/0/20/0/underline_position = 0.0
@@ -365,6 +355,16 @@ cache/0/20/0/scale = 1.0
 cache/0/20/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/20/0/kerning_overrides/40/0 = Vector2(0, 0)
 cache/0/20/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/20/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/40/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/20/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
 
 [sub_resource type="FontVariation" id="FontVariation_r337g"]
 base_font = ExtResource("28")
@@ -653,6 +653,7 @@ offset_top = 17.0
 offset_right = -40.0029
 offset_bottom = 260.0
 theme_override_fonts/normal_font = SubResource("15")
+theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"
 
 [node name="name?" type="RichTextLabel" parent="nonmoving"]

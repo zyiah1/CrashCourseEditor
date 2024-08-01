@@ -22,7 +22,6 @@ const player = preload("res://player.tscn")
 const coin = preload("res://coin.tscn")
 const DK = preload("res://dk.tscn")
 const Pauline = preload("res://pauline.tscn")
-const cam = preload("res://cameraborder.tscn")
 
 var idnum = 3
 
@@ -289,11 +288,6 @@ func itemplace():
 				instance = bridge.instantiate()
 			if item == "music":
 				instance = musicrail.instantiate()
-			if item == "camera":
-				var bridgeinst = cam.instantiate()
-				add_child(bridgeinst)
-				line = false
-				$Animation.play("Out")
 			if item == "endrotate":
 				instance = preload("res://Endpivot.tscn").instantiate()
 			if item == "Rspin":
@@ -395,12 +389,11 @@ func shortcuts():
 	
 	if Input.is_action_just_pressed("undo"):
 		if nodes.size() != 0:
-			if nodes[nodes.size() - 1] == stored:
-				
+			if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
 				playerunstore()
 			
 			var target = str(nodes[nodes.size() - 1])
-			print(target)
+			print("Undid ",target)
 			
 			nodes[nodes.size() - 1].queue_free()
 			nodes.remove_at(nodes.size() - 1)

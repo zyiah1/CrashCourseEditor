@@ -1,5 +1,5 @@
 extends Sprite2D
-var drag
+
 @onready var id = get_parent().nodes.size()
 
 @export var ObjectName:String = "Dkb_Banana"
@@ -56,42 +56,30 @@ var drag
 func _ready():
 	get_parent().idnum += 1
 
+func _on_Button_button_down():
+	if get_parent().item == "delete":
+		get_parent().nodes.remove_at(id)
+		if get_parent().stored == self:
+			get_parent().playerunstore()
+		queue_free()
+	if get_parent().item == "proporties":
+		if get_parent().propertypanel == false:
+			get_parent().propertypanel = true
+			data[21] = "            pos_x: " + str(position.x)
+			data[22] = "            pos_y: " + str(-position.y)
+			get_parent().parse(data)
+			get_parent().editednode = self
+			return
 
 func _process(delta):
-	#if get_parent().data == true:
-		#if get_parent().item == "banana":
-		#	$RichTextLabel.visible = true
-		#else:
-		#	$RichTextLabel.visible = false
-	#else:
-		#$RichTextLabel.visible = false
 	id = get_parent().nodes.find(self)
-	
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
 			modulate = Color.RED
-			if Input.is_action_pressed("bridge"):
-				get_parent().nodes.remove_at(id)
-				queue_free()
-		else:
-			modulate = Color.WHITE
-		
-	else:
+	elif get_parent().item != "delete" or not $Button.is_hovered():
 		modulate = Color.WHITE
-	if drag == true:
-		if get_parent().item == "delete":
-			get_parent().nodes.remove_at(id)
-			queue_free()
-		if get_parent().item == "proporties":
-			if get_parent().propertypanel == false:
-				get_parent().propertypanel = true
-				data[21] = "            pos_x: " + str(position.x)
-				data[22] = "            pos_y: " + str(-position.y)
-				get_parent().parse(data)
-				get_parent().editednode = self
-				return
-		else:
-			position = get_global_mouse_position().round()
+	if get_parent().item != "proporties" and $Button.button_pressed:
+		position = get_global_mouse_position().round()
 
 
 func reposition():
@@ -103,18 +91,6 @@ func reposition():
 		scale = scale*defaultSize #cause I'm stupid and everythings default scale is not 1
 	if rotatable:
 		rotation_degrees = float(data[3].lstrip("            dir_z: "))
-
-
-
-
-func _on_Button_button_down():
-	drag = true
-
-
-func _on_Button_button_up():
-	drag = false
-	
-	
 
 func EXPORT():
 	data[21] = "            pos_x: " + str(position.x)
