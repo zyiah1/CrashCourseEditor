@@ -70,7 +70,7 @@ func _on_Rotation_text_changed(new_text):
 
 
 func _on_returns_pressed():
-	if $returns.pressed:
+	if $returns.button_pressed:
 		id.text = "              param0: 3200.00000"
 	else:
 		id.text = "              param0: 3300.00000"

@@ -99,14 +99,14 @@ func _on_Speed_text_changed(new_text):
 
 
 func _on_CheckButton_pressed():
-	if $visible.pressed:
+	if $visible.button_pressed:
 		trackvisible.text = "              param1: -1.00000"
 	else:
 		trackvisible.text = "              param1: 0.00000"
 
 
 func _on_reset_pressed():
-	if $reset.pressed:
+	if $reset.button_pressed:
 		reset.text = "              param3: 1"
 	else:
 		reset.text = "              param3: -1"

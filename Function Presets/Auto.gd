@@ -121,21 +121,21 @@ func _on_Speed_text_changed(new_text):
 
 
 func _on_CheckButton_pressed():
-	if $visible.pressed:
+	if $visible.button_pressed:
 		trackvisible.text = "              param1: -1.00000"
 	else:
 		trackvisible.text = "              param1: 0.00000"
 
 
 func _on_reset_pressed():
-	if $reset.pressed:
+	if $reset.button_pressed:
 		reset.text = "              param3: 1"
 	else:
 		reset.text = "              param3: -1"
 
 
 func _on_returns_pressed():
-	if $returns.pressed:
+	if $returns.button_pressed:
 		id.text = "              param0: 2200.00000"
 	else:
 		id.text = "              param0: 2300.00000"
@@ -143,7 +143,7 @@ func _on_returns_pressed():
 
 
 func _on_camera_pressed():
-	if $camera/check.pressed:
+	if $camera/check.button_pressed:
 		id.text = "              param0: 4300.00000"
 		$AnimationPlayer.play("Move Camera3D On")
 	else:

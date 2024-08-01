@@ -297,10 +297,9 @@ scale = Vector2(0.240109, 0.542969)
 texture = ExtResource("15")
 
 [node name="bug" type="LinkButton" parent="." groups=["hide"]]
-offset_left = 888.0
-offset_top = 2.66667
-offset_right = 1062.0
-offset_bottom = 36.6667
+offset_left = 980.0
+offset_right = 1067.0
+offset_bottom = 34.0
 focus_mode = 2
 theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
 theme_override_fonts/font = ExtResource("13")
