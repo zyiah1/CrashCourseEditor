@@ -12,7 +12,3 @@ func _on_LinkButton_pressed():
 
 func _on_close_pressed():
 	$Sprite2D.visible = false
-
-
-func _on_bug_pressed():
-	OS.shell_open("https://forms.gle/59n4zZzmYVyBDicv8")

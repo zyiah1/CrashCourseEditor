@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://bsbsq82osul0f"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bsbsq82osul0f"]
 
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="1_266j5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ay3kplo8n45" path="res://UI/buttons/checkon.png" id="5_ynsp6"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="6_qgn5b"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="7_r8gib"]
+[ext_resource type="FontFile" uid="uid://duxgjdmpnemjq" path="res://fonts/wii/contm.ttf" id="8_qciqd"]
 
 [sub_resource type="FontVariation" id="FontVariation_8q65v"]
 base_font = ExtResource("1_266j5")
@@ -96,6 +97,7 @@ CheckButton/styles/hover = SubResource("12")
 CheckButton/styles/hover_pressed = SubResource("14")
 CheckButton/styles/normal = SubResource("13")
 CheckButton/styles/pressed = SubResource("15")
+OptionButton/fonts/font = ExtResource("8_qciqd")
 PopupMenu/styles/hover = SubResource("18")
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null

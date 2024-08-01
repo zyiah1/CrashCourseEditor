@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cx82h5vmx6lkn"]
+[gd_scene load_steps=25 format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
@@ -10,13 +10,10 @@
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
 [ext_resource type="Script" path="res://Scripts/help.gd" id="11"]
-[ext_resource type="Texture2D" uid="uid://biofqwfhqwaxh" path="res://UI/bigbg.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://c714qtkxy1rxn" path="res://UI/buttons/button.png" id="11_mkaen"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="12_uro0u"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
-[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/trash.png" id="14"]
-[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
-[ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/edit.png" id="17"]
-[ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="18"]
 [ext_resource type="Script" path="res://Scripts/apiRequest.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
@@ -111,13 +108,73 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/41/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/46/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="6"]
 
 [node name="Loader" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("19")
-currentNumberOfUpdates = 6
+currentNumberOfUpdates = 7
 
 [node name="bfg" parent="." instance=ExtResource("2_a7f5f")]
 offset_left = -217.333
@@ -164,7 +221,7 @@ offset_top = 3.0
 offset_right = 145.0
 offset_bottom = 113.0
 theme_override_fonts/normal_font = SubResource("3")
-text = "1.4"
+text = "1.5"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
 offset_left = 868.0
@@ -200,101 +257,85 @@ script = ExtResource("11")
 visible = false
 show_behind_parent = true
 z_index = 1
-position = Vector2(231, -144)
-texture = ExtResource("12")
+position = Vector2(130.667, -154)
+scale = Vector2(1.9327, 2.55116)
+texture = ExtResource("11_mkaen")
 
-[node name="close" type="Button" parent="help/Sprite2D"]
-offset_left = -611.0
-offset_top = 212.0
-offset_right = -291.0
-offset_bottom = 460.0
+[node name="Sprite2D" type="Sprite2D" parent="help/Sprite2D"]
+show_behind_parent = true
+scale = Vector2(1, 1)
+texture = ExtResource("12_uro0u")
+
+[node name="close" type="Button" parent="help/Sprite2D/Sprite2D"]
+offset_left = -272.331
+offset_top = 23.6494
+offset_right = -72.3311
+offset_bottom = 223.649
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("3")
 text = "Close"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="help/Sprite2D"]
-offset_left = -601.0
-offset_top = -263.0
-offset_right = -148.0
-offset_bottom = -59.0
-theme_override_fonts/normal_font = ExtResource("13")
-text = "How to import into game:
-"
+[node name="LinkButton" type="LinkButton" parent="help/Sprite2D/Sprite2D"]
+offset_left = -269.227
+offset_top = -85.0593
+offset_right = 546.773
+offset_bottom = -12.0593
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
+theme_override_fonts/font = ExtResource("13")
+theme_override_font_sizes/font_size = 71
+text = "How to Play Custom Levels"
+uri = "https://www.youtube.com/watch?v=fzCBWLRTxdM"
 
-[node name="shortcuts" type="RichTextLabel" parent="help/Sprite2D"]
-offset_left = -613.0
-offset_top = -194.0
-offset_right = -50.0
-offset_bottom = 180.0
+[node name="LinkButton2" type="LinkButton" parent="help/Sprite2D/Sprite2D"]
+offset_left = 161.95
+offset_top = -83.4914
+offset_right = 243.95
+offset_bottom = -63.4914
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
+theme_override_fonts/font = ExtResource("13")
+theme_override_font_sizes/font_size = 71
+text = "Editor Guide"
+uri = "https://youtu.be/UXkEsO05qdY?si=FnREIubNNrS_CQca&t=18"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="help/Sprite2D/Sprite2D"]
+offset_left = -110.209
+offset_top = -45.6002
+offset_right = 894.791
+offset_bottom = 532.4
+scale = Vector2(0.25, 0.25)
+
+[node name="shortcuts2" type="RichTextLabel" parent="help/Sprite2D/Sprite2D/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("13")
+theme_override_font_sizes/normal_font_size = 60
 text = "In Editor:
+WASD/Arrow Keys = move
++/- or Mouse wheel = zoom in/out
 Ctrl+Z = Delete Last Object Placed
 Ctrl+S = Save
 Ctrl+E = Open file in text edit
 Ctrl+C = Copies level data to clipboard
-   Esc = Go to Main Menu
-
+Esc = Go to Main Menu
+M = lock mouse X
+N = lock mouse Y
+H/f2 =  hide Hud
+Shift = toggle rails/objects
 On Title Screen:
 Ctrl+V = Load Data on Clipboard"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="help/Sprite2D"]
-offset_left = -48.0
-offset_top = -222.0
-offset_right = 456.0
-offset_bottom = 150.0
+[node name="shortcuts" type="RichTextLabel" parent="help/Sprite2D/Sprite2D"]
+offset_left = -62.0
+offset_top = -79.0
+offset_right = 573.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/normal_font = ExtResource("13")
-text = "left click to delete hovered object
-
-
-
-
-left click on rail to show panel
-
-
-
-left click to show properties of object"
-
-[node name="LinkButton" type="LinkButton" parent="help/Sprite2D"]
-offset_left = -252.0
-offset_top = -261.0
-offset_right = 196.0
-offset_bottom = -227.0
-theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
-theme_override_fonts/font = ExtResource("13")
-text = "https://youtu.be/gzPDyb5eMCs"
-
-[node name="Trash" type="Sprite2D" parent="help/Sprite2D"]
-position = Vector2(146, -95)
-scale = Vector2(0.639037, 0.635802)
-texture = ExtResource("14")
-
-[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash"]
-show_behind_parent = true
-position = Vector2(-3.99998, 2)
-scale = Vector2(0.240109, 0.542969)
-texture = ExtResource("15")
-
-[node name="Trash2" type="Sprite2D" parent="help/Sprite2D"]
-position = Vector2(141, 42.3333)
-scale = Vector2(0.639037, 0.635802)
-texture = ExtResource("17")
-
-[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash2"]
-show_behind_parent = true
-position = Vector2(-3.99998, 2)
-scale = Vector2(0.240109, 0.542969)
-texture = ExtResource("15")
-
-[node name="Trash3" type="Sprite2D" parent="help/Sprite2D"]
-position = Vector2(142.333, 186.333)
-scale = Vector2(0.639037, 0.635802)
-texture = ExtResource("18")
-
-[node name="Buttonsmallpressed" type="Sprite2D" parent="help/Sprite2D/Trash3"]
-show_behind_parent = true
-position = Vector2(-3.99998, 2)
-scale = Vector2(0.240109, 0.542969)
-texture = ExtResource("15")
+theme_override_font_sizes/normal_font_size = 140
+text = "Shortcuts:"
 
 [node name="bug" type="LinkButton" parent="." groups=["hide"]]
 offset_left = 980.0
@@ -305,6 +346,7 @@ theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
 theme_override_fonts/font = ExtResource("13")
 text = "Report a bug"
 underline = 1
+uri = "https://github.com/zyiah1/CrashCourseEditor/issues"
 
 [node name="load" type="Button" parent="."]
 offset_left = 565.0
@@ -349,7 +391,7 @@ visible = false
 offset_left = 235.0
 offset_top = 68.0
 offset_right = 795.0
-offset_bottom = 530.0
+offset_bottom = 485.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Patchnotes"]
 layout_mode = 2
@@ -368,6 +410,7 @@ offset_bottom = 34.3333
 mouse_filter = 2
 theme = ExtResource("20")
 theme_override_fonts/font = SubResource("7")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("6")
 theme_override_styles/focus = SubResource("6")
 theme_override_styles/read_only = SubResource("6")
@@ -389,6 +432,7 @@ scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 theme = ExtResource("20")
 theme_override_fonts/font = SubResource("7")
+theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("6")
 theme_override_styles/focus = SubResource("6")
 theme_override_styles/read_only = SubResource("6")
@@ -400,22 +444,22 @@ caret_blink_interval = 0.5
 [node name="accept" type="Button" parent="." groups=["update"]]
 visible = false
 offset_left = 590.0
-offset_top = 534.0
-offset_right = 774.0
-offset_bottom = 574.0
+offset_top = 440.0
+offset_right = 787.0
+offset_bottom = 624.0
 pivot_offset = Vector2(87.3334, 13.3334)
-theme = ExtResource("7")
+theme = ExtResource("3")
 text = "Update Now"
 
 [node name="decline" type="Button" parent="." groups=["update"]]
 visible = false
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
 offset_left = 244.667
-offset_top = 534.0
+offset_top = 440.0
 offset_right = 428.667
-offset_bottom = 574.0
+offset_bottom = 624.0
 pivot_offset = Vector2(87.3334, 13.3334)
-theme = ExtResource("7")
+theme = ExtResource("3")
 text = "Later"
 
 [connection signal="pressed" from="new" to="new" method="_on_new_pressed"]
@@ -424,9 +468,7 @@ text = "Later"
 [connection signal="pressed" from="settings" to="settings" method="_on_settings_pressed"]
 [connection signal="dir_selected" from="settings/Node2D/FileWindoe" to="settings" method="_on_FileWindoe_dir_selected"]
 [connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
-[connection signal="pressed" from="help/Sprite2D/close" to="help" method="_on_close_pressed"]
-[connection signal="pressed" from="help/Sprite2D/LinkButton" to="help" method="_on_LinkButton_pressed"]
-[connection signal="pressed" from="bug" to="help" method="_on_bug_pressed"]
+[connection signal="pressed" from="help/Sprite2D/Sprite2D/close" to="help" method="_on_close_pressed"]
 [connection signal="pressed" from="load" to="load" method="_on_load_pressed"]
 [connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="decline" to="." method="_on_decline_pressed"]

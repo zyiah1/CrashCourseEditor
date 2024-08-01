@@ -1,26 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bmvmnob1fhgt5"]
+[gd_scene load_steps=28 format=3 uid="uid://bmvmnob1fhgt5"]
 
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_2x6o2"]
 [ext_resource type="Script" path="res://Scripts/back.gd" id="3"]
 [ext_resource type="Script" path="res://Scripts/Options.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/optionbutton.gd" id="6"]
+[ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="6_vm8ls"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="8"]
 [ext_resource type="Script" path="res://Scripts/custom.gd" id="9"]
-[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="10"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="11"]
 [ext_resource type="Script" path="res://Scripts/setting4.gd" id="12"]
 [ext_resource type="Texture2D" uid="uid://dihnq7e2jea0v" path="res://UI/eyedroper.png" id="13"]
-
-[sub_resource type="FontFile" id="8"]
-fallbacks = Array[Font]([ExtResource("10")])
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="13_g1xid"]
 
 [sub_resource type="StyleBoxTexture" id="11"]
 
@@ -64,6 +56,11 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("7")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcgpm"]
+texture = ExtResource("8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm2w"]
+
 [node name="settings" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("4")
@@ -85,7 +82,9 @@ offset_top = 3.0
 offset_right = 724.0
 offset_bottom = 135.0
 theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
 text = "Scrolling bg"
+alignment = 1
 
 [node name="setting2" type="OptionButton" parent="."]
 offset_left = 279.0
@@ -98,12 +97,16 @@ theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1
 theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
 theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("8")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_vm8ls")
+theme_override_font_sizes/font_size = 41
 theme_override_styles/focus = SubResource("11")
 theme_override_styles/normal = SubResource("13")
 theme_override_styles/hover = SubResource("9")
 theme_override_styles/pressed = SubResource("10")
 theme_override_styles/disabled = SubResource("12")
+alignment = 1
 icon_alignment = 1
 script = ExtResource("6")
 
@@ -156,6 +159,7 @@ offset_top = 278.0
 offset_right = 732.0
 offset_bottom = 403.0
 theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("14")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("15")
@@ -178,24 +182,36 @@ offset_top = 425.0
 offset_right = 786.0
 offset_bottom = 559.0
 theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("14")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("15")
 theme_override_styles/focus = SubResource("14")
 text = "Auto Save Interval"
 
+[node name="Panel" type="Panel" parent="setting5"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 10.0
+offset_right = 749.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tcgpm")
+
 [node name="TextEdit" type="TextEdit" parent="setting5"]
 use_parent_material = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_right = 0.685
-offset_left = 571.0
-offset_top = 6.0
-offset_right = 320.55
-offset_bottom = 131.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 587.0
+offset_top = 38.0
+offset_right = 336.55
+offset_bottom = 81.0
 tooltip_text = "Time is in Seconds"
-theme = ExtResource("11")
+theme_override_fonts/font = ExtResource("13_g1xid")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sbm2w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sbm2w")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sbm2w")
 text = "100"
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
