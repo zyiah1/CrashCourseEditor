@@ -44,10 +44,10 @@ func _ready():
 	$rotation.text = str(speed)
 	if loading == false:
 		$start.position = get_global_mouse_position()
+		rail.add_point($start.position)
+		$preview.rail.add_point($start.position)
 	else:
 		$rotation.hide()
-	rail.add_point($start.position)
-	$preview.rail.add_point($start.position)
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -262,7 +262,7 @@ func _draw():
 		$end.position = get_global_mouse_position()
 	draw_line($start.position,$end.position,color,4.5)
 	
-	#draw the image that appears between the points
+	#draw the image that appears between the points (fan)
 	if midImage != null:
 		$Mid.texture = midImage
 		var amount = 1

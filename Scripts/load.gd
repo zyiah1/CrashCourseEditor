@@ -77,7 +77,7 @@ func Load(filename):
 			if trackedinfo[trackedinfo.size()-1].begins_with("                - comment: !l -1"):
 				if trackedinfo[trackedinfo.size()-2].begins_with("                - comment: !l -1"):
 					trackedinfo.remove_at(trackedinfo.size()-1)
-			#end of that BS
+			#end of that 
 			
 			
 		if content[0].begins_with("              closed:"):
@@ -259,7 +259,12 @@ func Load(filename):
 							rail.get_node("Spin/start").position = Vector2(int(content[12-firstoffset].lstrip("                  pnt0_x: ")),-int(content[13-firstoffset].lstrip("                  pnt0_y: ")))
 					rail.loading = true
 					if railtype != "turn":
-						rail.get_node("start").position = Vector2(int(content[12-firstoffset].lstrip("                  pnt0_x: ")),-int(content[13-firstoffset].lstrip("                  pnt0_y: ")))
+						var startpos = Vector2(int(content[12-firstoffset].lstrip("                  pnt0_x: ")),-int(content[13-firstoffset].lstrip("                  pnt0_y: ")))
+						rail.get_node("start").position = startpos
+						
+						if railtype == "fanchild":
+							rail.rail.add_point(startpos)
+							rail.get_node("preview").rail.add_point(startpos)
 						
 					if railtype != "fanchild":
 						if not rail.is_inside_tree():  #has not been added
@@ -414,7 +419,7 @@ func _on_FileDialog_file_selected(path):
 	
 	
 	var filename = str(path).get_file().left(str(path).get_file().length() - 1)
-	filename = filename.erase(filename.length() - 1,3)
+	filename = filename.erase(filename.length() - 3,3)
 	content = file.get_as_text()
 	
 	file.close()

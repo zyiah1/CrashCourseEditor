@@ -243,8 +243,8 @@ func reposition():
 	for point in childrail.points:
 		childrail.rail.add_point(point.position)
 		childrail.get_node("preview").rail.add_point(point.position)
-	childrail.rail.add_point($end.position)
-	childrail.get_node("preview").rail.add_point($end.position)
+	childrail.rail.add_point(childrail.get_node("end").position)
+	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
 
 func _process(delta):
 	queue_redraw()

@@ -28,6 +28,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4")
 
 [node name="HugePanel" type="Sprite2D" parent="."]
@@ -36,6 +38,8 @@ texture = ExtResource("3")
 
 [node name="X" parent="." instance=ExtResource("1")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 141.0
 offset_top = 180.0
 offset_right = -1299.0
@@ -44,6 +48,8 @@ theme_override_fonts/font = SubResource("1")
 
 [node name="Y" parent="." instance=ExtResource("1")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 336.0
 offset_top = 180.0
 offset_right = -1104.0
@@ -86,6 +92,8 @@ text = "Y:"
 [node name="ScaleX" parent="." groups=["scale"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 141.0
 offset_top = 492.0
 offset_right = -1299.0
@@ -95,6 +103,8 @@ theme_override_fonts/font = SubResource("1")
 [node name="ScaleY" parent="." groups=["scale"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 336.0
 offset_top = 492.0
 offset_right = -1104.0
@@ -140,6 +150,8 @@ text = "Y:"
 [node name="Rotation" parent="." groups=["rotate"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 237.0
 offset_top = 339.0
 offset_right = -1203.0
