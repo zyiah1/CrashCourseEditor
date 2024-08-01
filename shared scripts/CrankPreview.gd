@@ -10,7 +10,7 @@ func _ready():
 	add_child(inst)
 	rail = inst
 	move_child(inst,$Timer.get_index()+1)
-	inst.modulate = Color(.8,.8,.8,.9)
+	inst.modulate = Color(.8,.8,.8,.6)
 	rail.texture = previewtexture
 
 func _process(delta):
