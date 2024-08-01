@@ -43,6 +43,7 @@ func _ready():
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	buttons.append($crank/Button)
 	rail.add_point($start.position)
+	
 	$crank.rail.add_point($start.position)
 	$crank2.rail.add_point($start.position)
 	data = ["            - Points:",

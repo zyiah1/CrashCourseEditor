@@ -87,6 +87,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("11")
 
 [node name="HugePanel" type="Sprite2D" parent="."]
@@ -109,6 +111,8 @@ theme_override_styles/pressed = SubResource("19")
 
 [node name="X" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 279.0
 offset_top = 128.0
 offset_right = -1161.0
@@ -117,6 +121,8 @@ theme_override_fonts/font = SubResource("22")
 
 [node name="Y" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 474.0
 offset_top = 128.0
 offset_right = -966.0
@@ -169,6 +175,8 @@ text = "Y:"
 
 [node name="Rotation" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 142.0
 offset_top = 238.0
 offset_right = -1298.0
@@ -187,6 +195,8 @@ text = "Rotation:"
 
 [node name="Speed" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 454.0
 offset_top = 238.0
 offset_right = -986.0
