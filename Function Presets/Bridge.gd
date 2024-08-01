@@ -44,7 +44,7 @@ func _on_Invisible_pressed():
 	railtype.text = "              param0: 0.00000"
 
 
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")
 

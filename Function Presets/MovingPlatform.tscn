@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3]
+[gd_scene load_steps=26 format=3 uid="uid://por5sya5kxpw"]
 
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="1"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="2"]
@@ -13,305 +13,328 @@
 [ext_resource type="Script" path="res://Function Presets/MovingPlatform.gd" id="12"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="13"]
 
-[sub_resource type="FontFile" id=15]
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="15"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("6")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 645, 25 )
+[sub_resource type="StyleBoxTexture" id="13"]
+texture = ExtResource("5")
+region_rect = Rect2(0, 0, 645, 25)
 
-[sub_resource type="Theme" id=20]
-PopupMenu/fonts/font = SubResource( 15 )
-PopupMenu/icons/radio_checked = ExtResource( 10 )
-PopupMenu/icons/radio_unchecked = ExtResource( 9 )
-PopupMenu/styles/hover = SubResource( 14 )
-PopupMenu/styles/panel = SubResource( 13 )
+[sub_resource type="Theme" id="20"]
+PopupMenu/fonts/font = SubResource("15")
+PopupMenu/icons/radio_checked = ExtResource("10")
+PopupMenu/icons/radio_unchecked = ExtResource("9")
+PopupMenu/styles/hover = SubResource("14")
+PopupMenu/styles/panel = SubResource("13")
 
-[sub_resource type="CompressedTexture2D" id=21]
+[sub_resource type="CompressedTexture2D" id="21"]
 
-[sub_resource type="StyleBoxTexture" id=22]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="24"]
 
-[sub_resource type="StyleBoxTexture" id=23]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="25"]
+texture = ExtResource("1")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=24]
+[sub_resource type="StyleBoxTexture" id="22"]
+texture = ExtResource("1")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=25]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="23"]
+texture = ExtResource("3")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="FontFile" id=26]
-size = 40
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="26"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=27]
-size = 30
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="27"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="FontFile" id=32]
-size = 60
-font_data = ExtResource( 7 )
+[sub_resource type="FontFile" id="32"]
+fallbacks = Array[Font]([ExtResource("7")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="ImageTexture" id=33]
+[sub_resource type="ImageTexture" id="33"]
 
 [node name="Functions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 12 )
+script = ExtResource("12")
 
 [node name="HugePanel" type="Sprite2D" parent="."]
-position = Vector2( -122, 400 )
-texture = ExtResource( 11 )
+position = Vector2(-122, 400)
+texture = ExtResource("11")
 
 [node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 169.0
 offset_right = 207.0
 offset_bottom = 255.0
-theme = SubResource( 20 )
-theme_override_fonts/font = ExtResource( 2 )
-theme_override_icons/arrow = SubResource( 21 )
-theme_override_styles/hover = SubResource( 22 )
-theme_override_styles/pressed = SubResource( 23 )
-theme_override_styles/focus = SubResource( 24 )
-theme_override_styles/normal = SubResource( 25 )
-align = 1
+theme = SubResource("20")
+theme_override_fonts/font = ExtResource("2")
+theme_override_icons/arrow = SubResource("21")
+theme_override_styles/focus = SubResource("24")
+theme_override_styles/normal = SubResource("25")
+theme_override_styles/hover = SubResource("22")
+theme_override_styles/pressed = SubResource("23")
 
-[node name="X" parent="." instance=ExtResource( 8 )]
+[node name="X" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 279.0
 offset_top = 168.0
 offset_right = -1161.0
 offset_bottom = -647.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="Y" parent="." instance=ExtResource( 8 )]
+[node name="Y" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 474.0
 offset_top = 168.0
 offset_right = -966.0
 offset_bottom = -644.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="Speed" parent="." instance=ExtResource( 8 )]
+[node name="Speed" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 377.0
 offset_top = 230.0
 offset_right = -1063.0
 offset_bottom = -582.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 130.0
 offset_right = 208.0
 offset_bottom = 168.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Point"
 text = "Point"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 278.0
 offset_top = 130.0
 offset_right = 616.0
 offset_bottom = 166.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 173.0
 offset_right = 279.0
 offset_bottom = 209.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel11" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 230.0
 offset_right = 371.0
 offset_bottom = 266.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Speed:"
 text = "Speed:"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 435.0
 offset_top = 173.0
 offset_right = 474.0
 offset_bottom = 209.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Y:"
 text = "Y:"
 
 [node name="RichTextLabel9" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 58.0
 offset_right = 620.0
 offset_bottom = 129.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 32 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("32")
 bbcode_enabled = true
-text = "[center]Platform"
 text = "Platform"
 
 [node name="RichTextLabel10" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 346.0
 offset_right = 620.0
 offset_bottom = 417.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 32 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("32")
 bbcode_enabled = true
-text = "[center]Track"
 text = "Track"
 
 [node name="ChildOptionButton" type="OptionButton" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 473.0
 offset_right = 207.0
 offset_bottom = 559.0
-theme = SubResource( 20 )
-theme_override_fonts/font = ExtResource( 2 )
-theme_override_icons/arrow = SubResource( 21 )
-theme_override_styles/hover = SubResource( 22 )
-theme_override_styles/pressed = SubResource( 23 )
-theme_override_styles/focus = SubResource( 24 )
-theme_override_styles/normal = SubResource( 25 )
-align = 1
+theme = SubResource("20")
+theme_override_fonts/font = ExtResource("2")
+theme_override_icons/arrow = SubResource("21")
+theme_override_styles/focus = SubResource("24")
+theme_override_styles/normal = SubResource("25")
+theme_override_styles/hover = SubResource("22")
+theme_override_styles/pressed = SubResource("23")
 
-[node name="ChildX" parent="." instance=ExtResource( 8 )]
+[node name="ChildX" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 279.0
 offset_top = 472.0
 offset_right = -1161.0
 offset_bottom = -343.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
-[node name="ChildY" parent="." instance=ExtResource( 8 )]
+[node name="ChildY" parent="." instance=ExtResource("8")]
+layout_mode = 0
 offset_left = 474.0
 offset_top = 472.0
 offset_right = -966.0
 offset_bottom = -340.0
-theme_override_fonts/font = SubResource( 26 )
-align = 1
+theme_override_fonts/font = SubResource("26")
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 434.0
 offset_right = 208.0
 offset_bottom = 472.0
-pivot_offset = Vector2( 143, 10 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Point"
 text = "Point"
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 278.0
 offset_top = 434.0
 offset_right = 616.0
 offset_bottom = 470.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel12" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 93.0
 offset_top = 611.0
 offset_right = 222.0
 offset_bottom = 647.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Visible"
 text = "Visible"
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 477.0
 offset_right = 279.0
 offset_bottom = 513.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 435.0
 offset_top = 477.0
 offset_right = 474.0
 offset_bottom = 513.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Y:"
 text = "Y:"
 
 [node name="visible" type="CheckBox" parent="."]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 600.0
 offset_right = 99.0
 offset_bottom = 655.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
-pressed = true
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 369.0
 offset_top = 611.0
 offset_right = 599.0
 offset_bottom = 647.0
-pivot_offset = Vector2( 189, 14 )
-theme_override_fonts/normal_font = SubResource( 27 )
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
 bbcode_enabled = true
-text = "[center]Reset on Death"
 text = "Reset on Death"
 
 [node name="reset" type="CheckBox" parent="."]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 601.0
 offset_right = 364.0
 offset_bottom = 656.0
-theme = ExtResource( 13 )
-theme_override_icons/radio_checked_disabled = SubResource( 33 )
-theme_override_icons/radio_checked = SubResource( 33 )
-theme_override_icons/checked_disabled = SubResource( 33 )
-theme_override_icons/radio_unchecked_disabled = SubResource( 33 )
-theme_override_icons/checked = SubResource( 33 )
-theme_override_icons/radio_unchecked = SubResource( 33 )
-theme_override_icons/unchecked_disabled = SubResource( 33 )
-theme_override_icons/unchecked = SubResource( 33 )
-pressed = true
+theme = ExtResource("13")
+theme_override_icons/checked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
+theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]

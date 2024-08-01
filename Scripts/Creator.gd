@@ -2,7 +2,6 @@ extends Node2D
 
 var saving = false
 var item = "none"
-var data = false
 
 const exit = preload("res://door.tscn")
 const banana = preload("res://banana.tscn")
@@ -23,15 +22,16 @@ const coin = preload("res://coin.tscn")
 const DK = preload("res://dk.tscn")
 const Pauline = preload("res://pauline.tscn")
 
-var idnum = 3
-
-var checkpoints = 0
-var line = true
+var idnum: int = 3
+var mode: int = 1
+var checkpoints: int = 0
+var railplace: int = -2
+var lineplacing: bool = true
+var propertypanel: bool = false
+var movingLoop: bool = false
 var stored = null
-var railplace = -2
-var propertypanel = false
-var mode = 1
 var editednode = null
+
 
 @onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
 @onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
@@ -62,8 +62,8 @@ func _ready():
 	
 	$nonmoving/save/Timer.wait_time = int(Options.interval)
 	if Options.scrollbg == "false":
-		$Animation.playback_speed = 1000
-		$CanvasLayer3/CanvasLayer/buttons.playback_speed = 1000
+		$Animation.speed_scale = 1000
+		$CanvasLayer3/CanvasLayer/buttons.speed_scale = 1000
 	
 	#make the borders
 	if get_tree().current_scene.name == "Editor": #Not loading screen
@@ -281,7 +281,7 @@ func itemplace():
 			$Animation.play("In")
 			railplace = -69
 			return
-		if line == true:
+		if lineplacing == true:
 			
 			railplace = 1
 			if item == "rail":
@@ -322,7 +322,7 @@ func itemplace():
 				instance = preload("res://EndMove.tscn").instantiate()
 			if instance != null:
 				add_child(instance)
-				line = false
+				lineplacing = false
 				$Animation.play("Out")
 				connect("EXPORT", Callable(instance, "EXPORT"))
 				nodes.append(instance)
@@ -386,7 +386,8 @@ func itemplace():
 
 
 func shortcuts():
-	
+	if Input.is_action_just_pressed("id"):
+		movingLoop = not movingLoop
 	if Input.is_action_just_pressed("undo"):
 		if nodes.size() != 0:
 			if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
@@ -397,8 +398,6 @@ func shortcuts():
 			
 			nodes[nodes.size() - 1].queue_free()
 			nodes.remove_at(nodes.size() - 1)
-	if Input.is_action_just_pressed("id"):
-		data = not data
 	
 	if Input.is_action_just_pressed("esc"):
 		if $"CanvasLayer3/Proporties Panel".visible == false:

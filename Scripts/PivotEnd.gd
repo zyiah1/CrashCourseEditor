@@ -220,7 +220,7 @@ func _process(delta):
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 				get_parent().get_parent().idnum-=1
-				get_parent().get_parent().line = true
+				get_parent().get_parent().lineplacing = true
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
@@ -274,7 +274,7 @@ func _process(delta):
 			locked = true
 			end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
 			get_parent().get_parent().idnum += 1
-			get_parent().get_parent().line = true
+			get_parent().get_parent().lineplacing = true
 			buttons.append(get_node("end/Button"))
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
@@ -336,7 +336,7 @@ func done():
 	end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
 	get_parent().get_parent().idnum += 1
 	get_parent().get_parent().bridgedata += data + end
-	get_parent().get_parent().line = true
+	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
 func _draw():

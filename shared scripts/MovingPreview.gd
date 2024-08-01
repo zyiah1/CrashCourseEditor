@@ -1,24 +1,32 @@
 extends Node2D
 
+@export var previewtexture:Texture2D = load("res://rail.png")
 
-var lines
 @onready var start = get_parent().path[0]
 @onready var end = get_parent().path[1]
-var current = 1
 @onready var path = get_parent().path.duplicate()
 @onready var backpath = get_parent().path
-var repeat = false
 @onready var maxoffset = start - end
+
 var offset = Vector2.ZERO
+var current: int = 1
+var repeat: bool = false
 
+var rail
 
+func _ready():
+	var inst = load("res://rail.tscn").instantiate()
+	add_child(inst)
+	rail = inst
+	rail.modulate = Color(.8,.8,.8,.5)
+	rail.texture = previewtexture
 
 func _process(delta):
 	if repeat == true:
 		offset = Vector2.ZERO
 		path = backpath.duplicate()
 		repeat = false
-	if lines != []:
+	if rail.points.size() > 1:
 		start = path[0]
 		end = path[1]
 		maxoffset = start - end
@@ -31,18 +39,12 @@ func _process(delta):
 					path.remove_at(1)
 					current = 0
 				else:
-					if get_parent().get_parent().get_parent().data == true:
+					if get_parent().get_parent().get_parent().movingLoop == true:
 						offset = Vector2.ZERO
 						path = backpath.duplicate()
 						repeat = false
 		else:
 			current = 1
 		
-		queue_redraw()
+		rail.position = -offset
 	
-
-func _draw():
-	lines = get_parent().lines
-	for lineb in lines:
-		draw_line(lineb[0] - offset,lineb[1] - offset,Color.REBECCA_PURPLE - Color(.1,.1,.1,0),4.5)
-

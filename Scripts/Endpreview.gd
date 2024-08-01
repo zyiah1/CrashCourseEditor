@@ -31,7 +31,7 @@ func _process(delta):
 					path.remove_at(1)
 					current = 0
 				else:
-					if get_parent().get_parent().get_parent().data == true:
+					if get_parent().get_parent().get_parent().movingLoop == true:
 						offset = Vector2.ZERO
 						path = backpath.duplicate()
 						repeat = false

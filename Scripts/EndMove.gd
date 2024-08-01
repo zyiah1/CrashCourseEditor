@@ -289,7 +289,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 				
 		if Input.is_action_just_pressed("addpoint"):
 			if mode == 0:
@@ -340,7 +340,7 @@ func _process(delta):
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
-		get_parent().line = true
+		get_parent().lineplacing = true
 
 
 func newseg():

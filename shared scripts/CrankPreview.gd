@@ -21,7 +21,7 @@ func _process(delta):
 	if rotation_degrees == target:
 		get_parent().speed = 1
 		$cooldown.wait_time = 1
-		if get_parent().get_parent().get_parent().data == true:
+		if get_parent().get_parent().get_parent().movingLoop == true:
 			if $Timer.is_stopped():
 				$Timer.start(.3)
 	

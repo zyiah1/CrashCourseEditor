@@ -46,7 +46,7 @@ func _ready():
 
 func _process(delta):
 	id = get_parent().nodes.find(self)
-	if get_parent().data == true:
+	if get_parent().movingLoop == true:
 		if get_parent().item == "final":
 			$RichTextLabel.visible = true
 		else:

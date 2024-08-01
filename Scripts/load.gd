@@ -1,15 +1,14 @@
 extends Button
 
-@onready var file = get_parent().get_node("FileDialog")
-var path = null
+@onready var fileDialog = get_parent().get_node("FileDialog")
 var content
 var loaded = false
 var rail = false
 
 
 func _on_load_pressed():
-	file.current_path = Options.filepath
-	file.popup_centered(Vector2(1600,800))
+	fileDialog.current_path = Options.filepath
+	fileDialog.popup_centered(Vector2(1600,800))
 
 func _process(delta):
 	if loaded == false:
@@ -25,40 +24,26 @@ func _process(delta):
 
 
 
-func Load(data):
-	var name = data
+func Load(filename):
 	self_modulate = Color(1,1,1,0)
 	$AnimationPlayer.play("transition")
 	var timer = Timer.new()
 	add_child(timer)
 	timer.start(.05)
 	await timer.timeout;
-	
-	
-	
-	
-	
-	
-	
-	
 	content = str(content)
-	
-	print(name)
-	
 	content = content.split("\n")
-	
 	var cycle = 8
 	loaded = true
 	
 	for node in get_tree().get_nodes_in_group("hide"):
 		node.hide()
-	
-	
 	var scene = preload("res://Creator.tscn").instantiate()
 	get_parent().add_child(scene)
 	scene.get_node("Cam").enabled = true
-	scene.get_node("nonmoving/name").text = name
+	scene.get_node("nonmoving/name").text = filename
 	get_parent().scale = Vector2(1,1)
+	
 	var railtype = "normal"
 	var nextid = 0
 	var overide = 0
@@ -428,13 +413,10 @@ func _on_FileDialog_file_selected(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	
 	
-	var name = str(path).get_file().left(str(path).get_file().length() - 1)
-	name = name.left(name.length() - 1)
-	name = name.left(name.length() - 1)
-	name = name.left(name.length() - 1)
-	
+	var filename = str(path).get_file().left(str(path).get_file().length() - 1)
+	filename = filename.erase(filename.length() - 1,3)
 	content = file.get_as_text()
 	
 	file.close()
-	Load(name)
+	Load(filename)
 

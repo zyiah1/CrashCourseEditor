@@ -47,6 +47,7 @@ func _ready():
 	else:
 		$rotation.hide()
 	rail.add_point($start.position)
+	$preview.rail.add_point($start.position)
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -185,7 +186,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
@@ -195,19 +196,20 @@ func _process(delta):
 			if mode == 0:
 				locked = true
 				
-				get_parent().get_parent().line = true
+				get_parent().get_parent().lineplacing = true
 				$rotation.grab_focus()
 				$rotation.set_caret_column(3)
 	if is_queued_for_deletion():
 		get_parent().get_parent().Ain()
 		get_parent().get_parent().railplace = -420
 		get_parent().queue_free()
-		get_parent().get_parent().line = true
+		get_parent().get_parent().lineplacing = true
 
 
 func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
+	$preview.rail.add_point($end.position)
 	var newpoint = point.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
@@ -251,7 +253,7 @@ func done():
 	if mode == 0:
 		locked = true
 		
-		get_parent().get_parent().line = true
+		get_parent().get_parent().lineplacing = true
 
 
 

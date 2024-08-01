@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" path="res://pointR.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://crankR.png" id="4"]
-[ext_resource type="Script" path="res://shared scripts/crank.gd" id="4_7e5nu"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="5_h1dro"]
+[ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="5_rdit7"]
 [ext_resource type="Script" path="res://Scripts/filter.gd" id="6"]
 [ext_resource type="Script" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
@@ -86,7 +86,7 @@ texture = ExtResource("2")
 hframes = 2
 
 [node name="crank" type="Node2D" parent="Spin"]
-script = ExtResource("4_7e5nu")
+script = ExtResource("5_rdit7")
 previewtexture = ExtResource("5_h1dro")
 
 [node name="Timer" type="Timer" parent="Spin/crank"]

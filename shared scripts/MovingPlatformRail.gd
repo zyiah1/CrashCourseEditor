@@ -9,7 +9,6 @@ var speed = 2
 var locked = false
 @onready var id = get_parent().nodes.size()
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var mode = 0 #0 = path 1 = platform
@@ -295,7 +294,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 		if Input.is_action_just_pressed("addpoint"):
 				newseg()
 				
@@ -309,7 +308,7 @@ func _process(delta):
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
-		get_parent().line = true
+		get_parent().lineplacing = true
 
 func newseg():
 	if mode == 0:

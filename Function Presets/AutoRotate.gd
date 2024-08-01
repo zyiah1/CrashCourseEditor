@@ -49,7 +49,7 @@ func _process(delta):
 
 
 
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")
 
@@ -62,11 +62,11 @@ func _on_Y_text_changed(new_text):
 
 
 func _on_Speed_text_changed(new_text):
-	speed.text = "              param2: " + $Speed.text
+	speed.text = "              param2: " + new_text
 
 
 func _on_Rotation_text_changed(new_text):
-	rotation_text.text = "              param1: " + $Rotation.text
+	rotation_text.text = "              param1: " + new_text
 
 
 func _on_returns_pressed():

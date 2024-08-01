@@ -64,7 +64,7 @@ func _ready():
 		$pitch.hide()
 
 func _process(delta):
-	#if get_parent().data == true:
+	#if get_parent().movingLoop == true:
 		#if get_parent().item == "banana":
 		#	$RichTextLabel.visible = true
 		#else:

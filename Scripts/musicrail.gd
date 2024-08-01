@@ -5,7 +5,6 @@ var point = preload("res://musicpoint.tscn")
 var locked = false
 @onready var id = get_parent().nodes.size()
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var loading = false
@@ -157,7 +156,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
@@ -202,13 +201,13 @@ func _process(delta):
 			loading = true
 			locked = true
 			get_parent().idnum += 1
-			get_parent().line = true
+			get_parent().lineplacing = true
 			buttons.append(get_node("end/Button"))
 		
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
-		get_parent().line = true
+		get_parent().lineplacing = true
 
 func newseg():
 	lines.append([$start.position,$end.position])
@@ -320,7 +319,7 @@ func reposition():
 func done():
 	locked = true
 	get_parent().idnum += 1
-	get_parent().line = true
+	get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
 func _draw():

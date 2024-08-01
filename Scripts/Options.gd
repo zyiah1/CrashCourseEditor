@@ -21,7 +21,9 @@ func _ready():
 		
 		if settings[settings.size()-2] == "end":
 			Options.scrollbg = settings[0]
-			Options.colorbg = Color.from_string(settings[1],colorbg)
+			var rgb = settings[1].split(",")
+			Options.colorbg = Color(float(rgb[0]),float(rgb[1]),float(rgb[2]))
+			print(Options.colorbg,settings[1])
 			Options.filepath = settings[2]
 			Options.interval = settings[3]
 		

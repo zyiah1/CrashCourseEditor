@@ -1,11 +1,9 @@
 extends Node2D
 
+var pointScene = preload("res://point.tscn")
 var drag = false
-var point = preload("res://point.tscn")
 var locked = false
-@onready var id = get_parent().nodes.size()
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var loading = false
@@ -15,7 +13,7 @@ var invisible = false
 var size = 4.5
 
 @onready var rail = $Rail
-
+@onready var id = get_parent().nodes.size()
 @onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().idnum),
@@ -53,7 +51,7 @@ func _ready():
 		end[8] = "              param0: 1200.00000"
 		rail.texture = load("res://railblue.png")
 	if invisible == true:
-		point = preload("res://Bigpoint.tscn")
+		pointScene = preload("res://Bigpoint.tscn")
 		$start.scale = $start.scale*3
 		$end.scale = $end.scale*3
 		size = size*6
@@ -150,7 +148,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
@@ -163,12 +161,12 @@ func _process(delta):
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
-		get_parent().line = true
+		get_parent().lineplacing = true
 
 func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointScene.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
 	points.append(newpoint)
@@ -306,7 +304,7 @@ func reposition():
 func done():
 	locked = true
 	get_parent().idnum += 1
-	get_parent().line = true
+	get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
 

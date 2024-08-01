@@ -45,7 +45,7 @@ func fetch(url:String ="https://www.duckduckgo.com/", headers:Array = [], method
 
 #fetch(url, [], 0, handle_response)
 
-func handle_response(result, response_code, headers, body):
+func handle_response(_result, _response_code, _headers, body):
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(body.get_string_from_utf8())
 	var response = test_json_conv.get_data()

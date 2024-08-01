@@ -135,7 +135,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 				
 		if Input.is_action_just_pressed("addpoint"):
 			
@@ -184,14 +184,14 @@ func _process(delta):
 			if mode == 0:
 				locked = true
 				
-				get_parent().get_parent().line = true
+				get_parent().get_parent().lineplacing = true
 				$rotation.grab_focus()
 				$rotation.set_caret_column(3)
 	if is_queued_for_deletion():
 		get_parent().get_parent().Ain()
 		get_parent().get_parent().railplace = 0
 		get_parent().queue_free()
-		get_parent().get_parent().line = true
+		get_parent().get_parent().lineplacing = true
 
 
 
@@ -243,7 +243,7 @@ func done():
 	if mode == 0:
 		locked = true
 		
-		get_parent().get_parent().line = true
+		get_parent().get_parent().lineplacing = true
 
 
 

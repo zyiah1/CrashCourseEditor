@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="1"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
-[ext_resource type="Script" path="res://shared scripts/Crank.gd" id="4_urgny"]
+[ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="4_urgny"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="5_m3osh"]
 [ext_resource type="Script" path="res://Scripts/filter.gd" id="6"]

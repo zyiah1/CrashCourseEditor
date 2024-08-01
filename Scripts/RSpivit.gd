@@ -1,11 +1,10 @@
 extends Node2D
 
-
-const point = preload("res://pointR.tscn")
-var locked = false
 @onready var id = get_parent().get_parent().nodes.size()
+
+const pointScene = preload("res://pointR.tscn")
+var locked = false
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var loading = false
@@ -139,7 +138,7 @@ func reposition():
 	var currentpoint = 0
 	var currentline = 0
 	var count = -1
-	var first = true
+	var firstPoint = true
 	var cycles = -1
 	
 	
@@ -167,20 +166,20 @@ func reposition():
 		else:
 			if line.begins_with("                  pnt0_x: "):
 				count += 1
-				if first == true:
+				if firstPoint == true:
 					if count >= 2:
 						count = 0
 						currentline += 1
-						first = false
+						firstPoint = false
 				points[currentpoint].position.x = int(line.lstrip("                  pnt0_x: "))
-				if first == true:
+				if firstPoint == true:
 					lines[currentline][count].x = points[currentpoint].position.x
 				else:
 					lines[currentline][0].x = lines[currentline - 1][1].x
 					lines[currentline][1].x = points[currentpoint].position.x
 			if line.begins_with("                  pnt0_y: "):
 				points[currentpoint].position.y = -int(line.lstrip("                  pnt0_y: "))
-				if first == true:
+				if firstPoint == true:
 					lines[currentline][count].y = points[currentpoint].position.y
 				else:
 					lines[currentline][0].y = lines[currentline - 1][1].y
@@ -248,11 +247,10 @@ func _process(delta):
 				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
 				return
-	var middle = $start.position
-	var amount = 1
+	
+	
 	for point in points:
-		amount += 1
-		middle += point.position
+		$start.position += point.position
 	
 	
 	$crank2.position = $crank.position
@@ -260,7 +258,7 @@ func _process(delta):
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 				get_parent().get_parent().idnum-=1
-				get_parent().get_parent().line = true
+				get_parent().get_parent().lineplacing = true
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
@@ -270,7 +268,7 @@ func _process(delta):
 			locked = true
 			end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
 			get_parent().get_parent().idnum += 1
-			get_parent().get_parent().line = true
+			get_parent().get_parent().lineplacing = true
 			buttons.append(get_node("end/Button"))
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
@@ -287,7 +285,7 @@ func newseg():
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	$crank2.rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointScene.instantiate()
 	newpoint.position = $start.position
 	if first == true:
 		newpoint.hide()
@@ -335,7 +333,7 @@ func done():
 	end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
 	get_parent().get_parent().idnum += 1
 	get_parent().get_parent().bridgedata += data + end
-	get_parent().get_parent().line = true
+	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
 func _draw():
