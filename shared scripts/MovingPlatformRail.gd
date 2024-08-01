@@ -240,11 +240,16 @@ func reposition():
 	#update the visuals
 	childrail.rail.points = []
 	childrail.get_node("preview").rail.points = []
-	for point in childrail.points:
+	for point in childrail.points: #don't worry the duplicates are intentional (no weird scaling
+		childrail.rail.add_point(point.position)
+		childrail.get_node("preview").rail.add_point(point.position)
 		childrail.rail.add_point(point.position)
 		childrail.get_node("preview").rail.add_point(point.position)
 	childrail.rail.add_point(childrail.get_node("end").position)
 	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
+	childrail.rail.add_point(childrail.get_node("end").position)
+	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
+
 
 func _process(delta):
 	queue_redraw()

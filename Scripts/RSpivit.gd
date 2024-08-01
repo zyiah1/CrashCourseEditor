@@ -215,10 +215,15 @@ func reposition():
 		rail.add_point(point.position)
 		$crank.rail.add_point(point.position)
 		$crank2.rail.add_point(point.position)
+		rail.add_point(point.position)
+		$crank.rail.add_point(point.position)
+		$crank2.rail.add_point(point.position)
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	$crank2.rail.add_point($end.position)
-
+	rail.add_point($end.position)
+	$crank.rail.add_point($end.position)
+	$crank2.rail.add_point($end.position)
 
 func _process(delta):
 	queue_redraw()
@@ -296,6 +301,9 @@ func _process(delta):
 
 func newseg():
 	lines.append([$start.position,$end.position])
+	rail.add_point($end.position)
+	$crank.rail.add_point($end.position)
+	$crank2.rail.add_point($end.position)
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	$crank2.rail.add_point($end.position)

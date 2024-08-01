@@ -203,6 +203,10 @@ func reposition():
 	for point in points:
 		rail.add_point(point.position)
 		get_node("crank").rail.add_point(point.position)
+		rail.add_point(point.position)
+		get_node("crank").rail.add_point(point.position)
+	rail.add_point($end.position)
+	get_node("crank").rail.add_point($end.position)
 	rail.add_point($end.position)
 	get_node("crank").rail.add_point($end.position)
 
@@ -288,6 +292,8 @@ func _process(delta):
 
 func newseg():
 	lines.append([$start.position,$end.position])
+	rail.add_point($end.position)
+	$crank.rail.add_point($end.position)
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	var newpoint = pointScene.instantiate()

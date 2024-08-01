@@ -210,6 +210,8 @@ func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
 	$preview.rail.add_point($end.position)
+	rail.add_point($end.position)
+	$preview.rail.add_point($end.position)
 	var newpoint = point.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)

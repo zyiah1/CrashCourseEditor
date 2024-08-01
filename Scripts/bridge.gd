@@ -166,6 +166,7 @@ func _process(delta):
 func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
+	rail.add_point($end.position)
 	var newpoint = pointScene.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
@@ -302,6 +303,8 @@ func reposition():
 	rail.points = []
 	for point in points:
 		rail.add_point(point.position)
+		rail.add_point(point.position)
+	rail.add_point($end.position)
 	rail.add_point($end.position)
 	
 func done():
