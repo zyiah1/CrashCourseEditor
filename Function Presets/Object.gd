@@ -1,9 +1,9 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 var posx = null
 var posy = null
-var rotation = null
+var rotation_text = null
 var scalex = null
 var scaley = null
 
@@ -16,7 +16,7 @@ func _ready():
 		if child.text.begins_with("            pos_y: "):
 			posy = child
 		if child.text.begins_with("            dir_z: "):
-			rotation = child
+			rotation_text = child
 		if child.text.begins_with("            scale_x: "):
 			scalex = child
 		if child.text.begins_with("            scale_y: "):
@@ -25,7 +25,7 @@ func _ready():
 	$Y.text = posy.text.lstrip("            pos_y: ")
 	$ScaleX.text = scalex.text.lstrip("            scale_x: ")
 	$ScaleY.text = scaley.text.lstrip("            scale_y: ")
-	$Rotation.text = rotation.text.lstrip("            dir_z: ")
+	$Rotation.text = rotation_text.text.lstrip("            dir_z: ")
 	if $X.text == "":
 		$X.text = "0"
 	if $Y.text == "":
@@ -58,4 +58,4 @@ func _on_ScaleY_text_changed(new_text):
 
 
 func _on_Rotation_text_changed(new_text):
-	rotation.text = "            dir_z: " + new_text
+	rotation_text.text = "            dir_z: " + new_text

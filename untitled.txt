@@ -6,269 +6,8 @@ root:
   LayerInfos:
     - Infos:
         ObjInfo:
-          - comment: !l -1
-            dir_x: 0.00000
-            dir_y: 0.00000
-            dir_z: 0.00000
-            id_name: obj2
-            layer: LC
-            link_info: []
-            link_num: !l 0
-            name: Dkb_Player
-            param0: -1.00000
-            param1: -1.00000
-            param10: -1.00000
-            param11: -1.00000
-            param2: -1.00000
-            param3: -1.00000
-            param4: -1.00000
-            param5: -1.00000
-            param6: -1.00000
-            param7: -1.00000
-            param8: -1.00000
-            param9: -1.00000
-            pos_x: -281
-            pos_y: 433
-            pos_z: 0.00000
-            scale_x: 1.00000
-            scale_y: 1.00000
-            scale_z: 1.00000
-          - comment: !l -1
-            dir_x: 0.00000
-            dir_y: 0.00000
-            dir_z: 0.00000
-            id_name: obj32
-            layer: L2
-            link_info: []
-            link_num: !l 0
-            name: Dkb_ChalkBarrel
-            param0: -1.00000
-            param1: -1.00000
-            param10: -1.00000
-            param11: -1.00000
-            param2: -1.00000
-            param3: -1.00000
-            param4: -1.00000
-            param5: -1.00000
-            param6: -1.00000
-            param7: -1.00000
-            param8: -1.00000
-            param9: -1.00000
-            pos_x: -248
-            pos_y: 436
-            pos_z: -6.90000
-            scale_x: 1.00000
-            scale_y: 1.00000
-            scale_z: 1.00000
         RailInfos:
           PathInfo:
-            - Points:
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail0/0
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: -495.00000
-                  pnt0_y: 555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: -495.00000
-                  pnt1_y: 555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: -495.00000
-                  pnt2_y: 555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail0/1
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: 495.00000
-                  pnt0_y: 555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: 495.00000
-                  pnt1_y: 555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: 495.00000
-                  pnt2_y: 555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-              closed: CLOSE
-              comment: !l -1
-              id_name: rail0
-              layer: LC
-              link_info: []
-              link_num: !l 0
-              name: レール
-              num_pnt: !l 2
-              param0: 0.00000
-              param1: -1.00000
-              param2: -1.00000
-              param3: -1.00000
-              param4: 0.00000
-              param5: -1.00000
-              param6: -1.00000
-              param7: -1.00000
-              param8: 0.00000
-              param9: -1.00000
-              type: Linear
-              unit_name: Path
-            - Points:
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail1/0
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: 495.00000
-                  pnt0_y: 555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: 495.00000
-                  pnt1_y: 555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: 495.00000
-                  pnt2_y: 555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail1/1
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: 495.00000
-                  pnt0_y: -555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: 495.00000
-                  pnt1_y: -555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: 495.00000
-                  pnt2_y: -555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-              closed: CLOSE
-              comment: !l -1
-              id_name: rail1
-              layer: LC
-              link_info: []
-              link_num: !l 0
-              name: レール
-              num_pnt: !l 2
-              param0: 0.00000
-              param1: -1.00000
-              param2: -1.00000
-              param3: -1.00000
-              param4: 0.00000
-              param5: -1.00000
-              param6: -1.00000
-              param7: -1.00000
-              param8: 0.00000
-              param9: -1.00000
-              type: Linear
-              unit_name: Path
-            - Points:
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail2/0
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: 495.00000
-                  pnt0_y: -555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: 495.00000
-                  pnt1_y: -555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: 495.00000
-                  pnt2_y: -555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-                - comment: !l -1
-                  dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail2/1
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: -495.00000
-                  pnt0_y: -555.00000
-                  pnt0_z: 0.00000
-                  pnt1_x: -495.00000
-                  pnt1_y: -555.00000
-                  pnt1_z: 0.00000
-                  pnt2_x: -495.00000
-                  pnt2_y: -555.00000
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-              closed: CLOSE
-              comment: !l -1
-              id_name: rail2
-              layer: LC
-              link_info: []
-              link_num: !l 0
-              name: レール
-              num_pnt: !l 2
-              param0: 0.00000
-              param1: -1.00000
-              param2: -1.00000
-              param3: -1.00000
-              param4: 0.00000
-              param5: -1.00000
-              param6: -1.00000
-              param7: -1.00000
-              param8: 0.00000
-              param9: -1.00000
-              type: Linear
-              unit_name: Path
             - Points:
                 - comment: !l -1
                   dir_x: 0.00000
@@ -281,21 +20,20 @@ root:
                   param1: -1.00000
                   param2: -1.00000
                   param3: -1.00000
-                  pnt0_x: -495.00000
-                  pnt0_y: -555.00000
+                  pnt0_x: 495
+                  pnt0_y: 555
                   pnt0_z: 0.00000
-                  pnt1_x: -495.00000
-                  pnt1_y: -555.00000
+                  pnt1_x: 495
+                  pnt1_y: 555
                   pnt1_z: 0.00000
-                  pnt2_x: -495.00000
-                  pnt2_y: -555.00000
+                  pnt2_x: 495
+                  pnt2_y: 555
                   pnt2_z: 0.00000
                   scale_x: 1.00000
                   scale_y: 1.00000
                   scale_z: 1.00000
                   unit_name: Point
-                - comment: !l -1
-                  dir_x: 0.00000
+                - dir_x: 0.00000
                   dir_y: 0.00000
                   dir_z: 0.00000
                   id_name: rail3/1
@@ -305,14 +43,14 @@ root:
                   param1: -1.00000
                   param2: -1.00000
                   param3: -1.00000
-                  pnt0_x: -495.00000
-                  pnt0_y: 555.00000
+                  pnt0_x: -495
+                  pnt0_y: 555
                   pnt0_z: 0.00000
-                  pnt1_x: -495.00000
-                  pnt1_y: 555.00000
+                  pnt1_x: -495
+                  pnt1_y: 555
                   pnt1_z: 0.00000
-                  pnt2_x: -495.00000
-                  pnt2_y: 555.00000
+                  pnt2_x: -495
+                  pnt2_y: 555
                   pnt2_z: 0.00000
                   scale_x: 1.00000
                   scale_y: 1.00000
@@ -330,34 +68,34 @@ root:
               param1: -1.00000
               param2: -1.00000
               param3: -1.00000
-              param4: 0.00000
+              param4:  0.00000
               param5: -1.00000
               param6: -1.00000
               param7: -1.00000
               param8: 0.00000
               param9: -1.00000
               type: Linear
-              unit_name: Path
+              unit_name: Path3D
             - Points:
                 - comment: !l -1
                   dir_x: 0.00000
                   dir_y: 0.00000
                   dir_z: 0.00000
-                  id_name: rail14/0
+                  id_name: rail4/0
                   link_info: []
                   link_num: !l 0
                   param0: -1.00000
                   param1: -1.00000
                   param2: -1.00000
                   param3: -1.00000
-                  pnt0_x: -301
-                  pnt0_y: 443
+                  pnt0_x: 495
+                  pnt0_y: 555
                   pnt0_z: 0.00000
-                  pnt1_x: -301
-                  pnt1_y: 443
+                  pnt1_x: 495
+                  pnt1_y: 555
                   pnt1_z: 0.00000
-                  pnt2_x: -301
-                  pnt2_y: 443
+                  pnt2_x: 495
+                  pnt2_y: 555
                   pnt2_z: 0.00000
                   scale_x: 1.00000
                   scale_y: 1.00000
@@ -366,67 +104,21 @@ root:
                 - dir_x: 0.00000
                   dir_y: 0.00000
                   dir_z: 0.00000
-                  id_name: rail14/1
+                  id_name: rail4/1
                   link_info: []
                   link_num: !l 0
                   param0: -1.00000
                   param1: -1.00000
                   param2: -1.00000
                   param3: -1.00000
-                  pnt0_x: -300
-                  pnt0_y: 420
+                  pnt0_x: 495
+                  pnt0_y: -555
                   pnt0_z: 0.00000
-                  pnt1_x: -300
-                  pnt1_y: 420
+                  pnt1_x: 495
+                  pnt1_y: -555
                   pnt1_z: 0.00000
-                  pnt2_x: -300
-                  pnt2_y: 420
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-                - dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail14/2
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: -263
-                  pnt0_y: 419
-                  pnt0_z: 0.00000
-                  pnt1_x: -263
-                  pnt1_y: 419
-                  pnt1_z: 0.00000
-                  pnt2_x: -263
-                  pnt2_y: 419
-                  pnt2_z: 0.00000
-                  scale_x: 1.00000
-                  scale_y: 1.00000
-                  scale_z: 1.00000
-                  unit_name: Point
-                - dir_x: 0.00000
-                  dir_y: 0.00000
-                  dir_z: 0.00000
-                  id_name: rail14/3
-                  link_info: []
-                  link_num: !l 0
-                  param0: -1.00000
-                  param1: -1.00000
-                  param2: -1.00000
-                  param3: -1.00000
-                  pnt0_x: -263
-                  pnt0_y: 419
-                  pnt0_z: 0.00000
-                  pnt1_x: -263
-                  pnt1_y: 419
-                  pnt1_z: 0.00000
-                  pnt2_x: -263
-                  pnt2_y: 419
+                  pnt2_x: 495
+                  pnt2_y: -555
                   pnt2_z: 0.00000
                   scale_x: 1.00000
                   scale_y: 1.00000
@@ -434,13 +126,13 @@ root:
                   unit_name: Point
               closed: CLOSE
               comment: !l -1
-              id_name: rail14
+              id_name: rail4
               layer: LC
               link_info: []
               link_num: !l 0
               name: レール
               num_pnt: !l 2
-              param0: 1000.00000
+              param0: 0.00000
               param1: -1.00000
               param2: -1.00000
               param3: -1.00000
@@ -451,7 +143,143 @@ root:
               param8: 0.00000
               param9: -1.00000
               type: Linear
-              unit_name: Path
+              unit_name: Path3D
+            - Points:
+                - comment: !l -1
+                  dir_x: 0.00000
+                  dir_y: 0.00000
+                  dir_z: 0.00000
+                  id_name: rail5/0
+                  link_info: []
+                  link_num: !l 0
+                  param0: -1.00000
+                  param1: -1.00000
+                  param2: -1.00000
+                  param3: -1.00000
+                  pnt0_x: -495
+                  pnt0_y: 555
+                  pnt0_z: 0.00000
+                  pnt1_x: -495
+                  pnt1_y: 555
+                  pnt1_z: 0.00000
+                  pnt2_x: -495
+                  pnt2_y: 555
+                  pnt2_z: 0.00000
+                  scale_x: 1.00000
+                  scale_y: 1.00000
+                  scale_z: 1.00000
+                  unit_name: Point
+                - dir_x: 0.00000
+                  dir_y: 0.00000
+                  dir_z: 0.00000
+                  id_name: rail5/1
+                  link_info: []
+                  link_num: !l 0
+                  param0: -1.00000
+                  param1: -1.00000
+                  param2: -1.00000
+                  param3: -1.00000
+                  pnt0_x: -495
+                  pnt0_y: -555
+                  pnt0_z: 0.00000
+                  pnt1_x: -495
+                  pnt1_y: -555
+                  pnt1_z: 0.00000
+                  pnt2_x: -495
+                  pnt2_y: -555
+                  pnt2_z: 0.00000
+                  scale_x: 1.00000
+                  scale_y: 1.00000
+                  scale_z: 1.00000
+                  unit_name: Point
+              closed: CLOSE
+              comment: !l -1
+              id_name: rail5
+              layer: LC
+              link_info: []
+              link_num: !l 0
+              name: レール
+              num_pnt: !l 2
+              param0: 0.00000
+              param1: -1.00000
+              param2: -1.00000
+              param3: -1.00000
+              param4:  0.00000
+              param5: -1.00000
+              param6: -1.00000
+              param7: -1.00000
+              param8: 0.00000
+              param9: -1.00000
+              type: Linear
+              unit_name: Path3D
+            - Points:
+                - comment: !l -1
+                  dir_x: 0.00000
+                  dir_y: 0.00000
+                  dir_z: 0.00000
+                  id_name: rail6/0
+                  link_info: []
+                  link_num: !l 0
+                  param0: -1.00000
+                  param1: -1.00000
+                  param2: -1.00000
+                  param3: -1.00000
+                  pnt0_x: -495
+                  pnt0_y: -555
+                  pnt0_z: 0.00000
+                  pnt1_x: -495
+                  pnt1_y: -555
+                  pnt1_z: 0.00000
+                  pnt2_x: -495
+                  pnt2_y: -555
+                  pnt2_z: 0.00000
+                  scale_x: 1.00000
+                  scale_y: 1.00000
+                  scale_z: 1.00000
+                  unit_name: Point
+                - dir_x: 0.00000
+                  dir_y: 0.00000
+                  dir_z: 0.00000
+                  id_name: rail6/1
+                  link_info: []
+                  link_num: !l 0
+                  param0: -1.00000
+                  param1: -1.00000
+                  param2: -1.00000
+                  param3: -1.00000
+                  pnt0_x: 495
+                  pnt0_y: -555
+                  pnt0_z: 0.00000
+                  pnt1_x: 495
+                  pnt1_y: -555
+                  pnt1_z: 0.00000
+                  pnt2_x: 495
+                  pnt2_y: -555
+                  pnt2_z: 0.00000
+                  scale_x: 1.00000
+                  scale_y: 1.00000
+                  scale_z: 1.00000
+                  unit_name: Point
+              closed: CLOSE
+              comment: !l -1
+              id_name: rail6
+              layer: LC
+              link_info: []
+              link_num: !l 0
+              name: レール
+              num_pnt: !l 2
+              param0: 0.00000
+              param1: -1.00000
+              param2: -1.00000
+              param3: -1.00000
+              param4:  0.00000
+              param5: -1.00000
+              param6: -1.00000
+              param7: -1.00000
+              param8: 0.00000
+              param9: -1.00000
+              type: Linear
+              unit_name: Path3D
       LayerName: LC
     - Infos:
         ObjInfo: []

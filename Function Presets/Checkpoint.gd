@@ -1,6 +1,6 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 var posx = null
 var posy = null
 
@@ -38,12 +38,12 @@ func _ready():
 		$Y.text = "0"
 	
 	var newtext = points.text
-	newtext.erase(0,20)
+	newtext = newtext.erase(0,20)
 	
 	$point.text = newtext
 	
 	var newtext2 = area.text
-	newtext2.erase(0,20)
+	newtext2 = newtext2.erase(0,20)
 	
 	$area.text = newtext2
 	
@@ -83,11 +83,11 @@ func _on_Y_text_changed(new_text):
 
 
 func _on_point_text_changed(new_text):
-	points.text = "            param4: " + $point.text
+	points.text = "            param4: " + new_text
 
 
 func _on_area_text_changed(new_text):
-	area.text = "            param2: "+$area.text
+	area.text = "            param2: "+new_text
 
 
 func _on_type_item_selected(index):

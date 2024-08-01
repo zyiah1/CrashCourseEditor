@@ -1,14 +1,14 @@
 extends Node2D
-signal done
 
-const point = preload("res://point2.tscn")
+signal finish
+
+const pointScene = preload("res://point2.tscn")
 
 
 var speed = 2
 var locked = false
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var mode = 0 #0 = path 1 = platform
@@ -18,7 +18,7 @@ var loading = false
 var drag = false
 var buttons = []
 
-export(PackedScene) var rail = preload("res://Rrail.tscn")
+@export var rail: PackedScene = preload("res://Rrail.tscn")
 
 
 func _ready():
@@ -51,7 +51,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -78,7 +78,7 @@ onready var dataseg = ["                - comment: !l -1",
 
 var data
 
-onready var end = ["              closed: CLOSE",
+@onready var end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().idnum),
 "              layer: LC",
@@ -97,7 +97,7 @@ onready var end = ["              closed: CLOSE",
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path"]
+"              unit_name: Path3D"]
 
 
 
@@ -177,7 +177,7 @@ func reposition():
 	for line in childrail.endplat:
 		if line.begins_with("              param2: "):
 			var text = line
-			text.erase(0,22)
+			text = text.erase(0,22)
 			childrail.get_node("rotation").text = text
 			childrail._on_rotation_change()
 	
@@ -236,38 +236,51 @@ func reposition():
 				childrail.data[cycles] = "                  pnt2_y: " + str(-childrail.points[currentpoint].position.y)
 				
 				currentpoint += 1
+	
+	#update the visuals
+	childrail.rail.points = []
+	childrail.get_node("preview").rail.points = []
+	for point in childrail.points: #don't worry the duplicates are intentional (no weird scaling
+		childrail.rail.add_point(point.position)
+		childrail.get_node("preview").rail.add_point(point.position)
+		childrail.rail.add_point(point.position)
+		childrail.get_node("preview").rail.add_point(point.position)
+	childrail.rail.add_point(childrail.get_node("end").position)
+	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
+	childrail.rail.add_point(childrail.get_node("end").position)
+	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
 
 
 func _process(delta):
-	update()
+	queue_redraw()
 	id = get_parent().nodes.find(self)
 	if get_parent().item == "delete":
 		if drag == true:
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.red
+				modulate = Color.RED
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().item == "edit":
 		if drag == true:
 			if childrail != null:
 				childrail.get_node("rotation").show()
 				childrail.get_node("rotation").grab_focus()
-				childrail.get_node("rotation").cursor_set_column(7)
+				childrail.get_node("rotation").set_caret_column(7)
 		var amount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
-				modulate = Color.lightblue
+				modulate = Color.LIGHT_BLUE
 				amount += 1
 			if amount == 0:
-				modulate = Color.white
+				modulate = Color.WHITE
 				drag = false
 	if get_parent().item == "proporties":
 		if drag == true:
@@ -279,58 +292,24 @@ func _process(delta):
 				get_parent().parse(childrail.endplat)
 				get_parent().editednode = self
 				return
+			
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
-			var railinst = rail.instance()
+			var railinst = rail.instantiate()
 			for line in points:
 				railinst.path.append(line.position)
 			railinst.path.append($end.position)
 			add_child(railinst)
 			childrail = railinst
 			mode = 69
+			
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
 				get_parent().idnum-=1
-				get_parent().line = true
+				get_parent().lineplacing = true
 		if Input.is_action_just_pressed("addpoint"):
-			if mode == 0:
-				lines.append([$start.position,$end.position])
-				
-				var newpoint = point.instance()
-				newpoint.position = $start.position
-				add_child(newpoint)
-				points.append(newpoint)
-				buttons.append(newpoint.get_node("Button"))
-				newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-				newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
-				dataseg = ["                - dir_x: 0.00000",
-	"                  dir_y: 0.00000",
-	"                  dir_z: 0.00000",
-	"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
-	"                  link_info: []",
-	"                  link_num: !l 0",
-	"                  param0: -1.00000",
-	"                  param1: -1.00000",
-	"                  param2: -1.00000",
-	"                  param3: -1.00000",
-	"                  pnt0_x: " + str($end.position.x),
-	"                  pnt0_y: " + str(-$end.position.y),
-	"                  pnt0_z: 0.00000",
-	"                  pnt1_x: " + str($end.position.x),
-	"                  pnt1_y: " + str(-$end.position.y),
-	"                  pnt1_z: 0.00000",
-	"                  pnt2_x: " + str($end.position.x),
-	"                  pnt2_y: " + str(-$end.position.y),
-	"                  pnt2_z: 0.00000",
-	"                  scale_x: 1.00000",
-	"                  scale_y: 1.00000",
-	"                  scale_z: 1.00000",
-	"                  unit_name: Point"]
-				data += dataseg
-				$start.position = $end.position
-				segments += 1
-				
+				newseg()
 				
 		if Input.is_action_just_pressed("bridge"):
 			if mode == 0:
@@ -342,19 +321,19 @@ func _process(delta):
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
-		get_parent().line = true
+		get_parent().lineplacing = true
 
 func newseg():
 	if mode == 0:
 		lines.append([$start.position,$end.position])
 		
-		var newpoint = point.instance()
+		var newpoint = pointScene.instantiate()
 		newpoint.position = $start.position
 		add_child(newpoint)
 		points.append(newpoint)
 		buttons.append(newpoint.get_node("Button"))
-		newpoint.get_node("Button").connect("button_down",self,"_on_Button_button_down")
-		newpoint.get_node("Button").connect("button_up",self,"_on_Button_button_up")
+		newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
+		newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 		dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -381,8 +360,8 @@ func newseg():
 		data += dataseg
 		$start.position = $end.position
 		segments += 1
-		
-		
+
+
 func done(pos):
 	if mode == 0:
 		get_parent().idnum += 2
@@ -394,7 +373,7 @@ func done(pos):
 
 func child(pos):
 	if mode == 1:
-		var railinst = rail.instance()
+		var railinst = rail.instantiate()
 		railinst.loading = true
 		railinst.get_node("start").position = pos
 		for line in points:
@@ -408,7 +387,7 @@ func child(pos):
 func _draw():
 	if locked == false and loading == false:
 		$end.position = get_global_mouse_position()
-	line = draw_line($start.position,$end.position,Color(.3,.3,.3),4.5/2)
+	draw_line($start.position,$end.position,Color(.3,.3,.3),4.5/2)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],Color(.2,.2,.2),4.5/2)
 

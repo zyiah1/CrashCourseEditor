@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource path="res://Arrow.gd" type="Script" id=1]
-[ext_resource path="res://Arrow.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://Scripts/Arrow.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d36jsk2dlpvcp" path="res://Arrow.png" id="2"]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
-[node name="Arrow" type="Sprite"]
+[node name="Arrow" type="Sprite2D"]
 scale = Vector2( 0.136, 0.136 )
 z_index = -2
 z_as_relative = false
@@ -18,15 +18,15 @@ script = ExtResource( 1 )
 defaultSize = Vector2( 0.136, 0.136 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 66.0
-margin_top = -169.0
-margin_right = 199.0
-margin_bottom = -74.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 7 )
+offset_left = 66.0
+offset_top = -169.0
+offset_right = 199.0
+offset_bottom = -74.0
+theme_override_styles/hover = SubResource( 5 )
+theme_override_styles/pressed = SubResource( 6 )
+theme_override_styles/focus = SubResource( 7 )
+theme_override_styles/disabled = SubResource( 7 )
+theme_override_styles/normal = SubResource( 7 )
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

@@ -1,6 +1,6 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 var trackvisible = null
 var speed = null
 var reset = null
@@ -52,13 +52,13 @@ func _ready():
 	
 	var text = speed.text
 	
-	text.erase(0,22)
+	text = text.erase(0,22)
 	$Speed.text = text
 	if trackvisible.text.begins_with("              param1: 0"):
-		$visible.pressed = false
+		$visible.button_pressed = false
 	
 	if reset.text.begins_with("              param3: -1"):
-		$reset.pressed = false
+		$reset.button_pressed = false
 
 
 #-1               param3:  == no reset on spawn
@@ -69,7 +69,7 @@ func _process(delta):
 		$Speed.hide()
 		$Speed.show()
 
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")
 
@@ -81,7 +81,7 @@ func _on_Y_text_changed(new_text):
 	pointsy[int($OptionButton.text)].text = "                  pnt0_y: " + str(new_text)
 
 
-func _on_ChildOptionButton_item_selected(index):
+func _on_ChildOptionButton_item_selected(_index):
 	$ChildX.text = childpointsx[int($ChildOptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$ChildY.text = childpointsy[int($ChildOptionButton.text)].text.lstrip("                  pnt0_y: ")
 
@@ -95,18 +95,18 @@ func _on_ChildY_text_changed(new_text):
 
 
 func _on_Speed_text_changed(new_text):
-	speed.text = "              param2: " + $Speed.text
+	speed.text = "              param2: " + new_text
 
 
 func _on_CheckButton_pressed():
-	if $visible.pressed:
+	if $visible.button_pressed:
 		trackvisible.text = "              param1: -1.00000"
 	else:
 		trackvisible.text = "              param1: 0.00000"
 
 
 func _on_reset_pressed():
-	if $reset.pressed:
+	if $reset.button_pressed:
 		reset.text = "              param3: 1"
 	else:
 		reset.text = "              param3: -1"

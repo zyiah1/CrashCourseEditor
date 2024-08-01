@@ -1,12 +1,14 @@
 extends TextureRect
 
-var color = Options.colorbg
+var color: Color = Options.colorbg
 
 
 func _process(delta):
+	modulate = color
 	color = Options.colorbg
-	modulate = Color(color[0] + color[1] + color[2],color[4] + color[5] + color[6],color[8]+color[9]+color[10])
 	if Options.scrollbg != "true":
-		$AnimationPlayer.playback_speed = 0
+		
+		return
 	else:
-		$AnimationPlayer.playback_speed = 0.01
+		position -= Vector2(20,20)*delta
+	

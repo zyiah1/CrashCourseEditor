@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbneaewbsqv85"]
+
+[ext_resource type="Texture2D" uid="uid://cig5thn0gsq3a" path="res://UI/bgg.png" id="1_aih5r"]
+[ext_resource type="Script" path="res://Scripts/bfg.gd" id="2_0uew1"]
+
+[node name="bfg" type="TextureRect" groups=["hide"]]
+modulate = Color(1, 1, 1, 0.270588)
+offset_left = -2953.0
+offset_top = -2362.0
+offset_right = 1.27705e+06
+offset_bottom = 1.27764e+06
+scale = Vector2(4, 4)
+texture = ExtResource("1_aih5r")
+stretch_mode = 1
+script = ExtResource("2_0uew1")

@@ -1,183 +1,339 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=17 format=3 uid="uid://iijcal0j685x"]
 
-[ext_resource path="res://LineEdit.tscn" type="PackedScene" id=1]
-[ext_resource path="res://fonts/ARIALBD 1.TTF" type="DynamicFontData" id=2]
-[ext_resource path="res://UI/HugePanel.png" type="Texture" id=3]
-[ext_resource path="res://UI/buttonsmall.png" type="Texture" id=4]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://UI/buttonsmallpressed.png" type="Texture" id=6]
-[ext_resource path="res://small.tres" type="Theme" id=7]
-[ext_resource path="res://Function Presets/Checkpoint.gd" type="Script" id=8]
+[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="1"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="2"]
+[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="4"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="6"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
+[ext_resource type="Script" path="res://Function Presets/Checkpoint.gd" id="8"]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/41/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/46/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/45/0 = Vector2(0, 0)
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/45/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/45/0/kerning_overrides/45/0 = Vector2(0, 0)
 
-[sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/21/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
 
-[sub_resource type="DynamicFont" id=5]
-size = 64
-font_data = ExtResource( 5 )
+[sub_resource type="FontFile" id="5"]
+fallbacks = Array[Font]([ExtResource("5")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="8"]
 
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="10"]
+texture = ExtResource("4")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id="6"]
+texture = ExtResource("4")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id="7"]
+texture = ExtResource("6")
+region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 733, 320 )
+[sub_resource type="StyleBoxTexture" id="9"]
 
 [node name="Functions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 8 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8")
 
-[node name="HugePanel" type="Sprite" parent="."]
+[node name="HugePanel" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource( 3 )
+texture = ExtResource("3")
 
-[node name="X" parent="." instance=ExtResource( 1 )]
-margin_left = 146.0
-margin_top = 84.0
-margin_right = -1294.0
-margin_bottom = -731.0
-custom_fonts/font = SubResource( 1 )
-align = 1
+[node name="X" parent="." instance=ExtResource("1")]
+layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 146.0
+offset_top = 84.0
+offset_right = -1294.0
+offset_bottom = -731.0
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
-[node name="Y" parent="." instance=ExtResource( 1 )]
-margin_left = 341.0
-margin_top = 84.0
-margin_right = -1099.0
-margin_bottom = -728.0
-custom_fonts/font = SubResource( 1 )
-align = 1
+[node name="Y" parent="." instance=ExtResource("1")]
+layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 341.0
+offset_top = 84.0
+offset_right = -1099.0
+offset_bottom = -728.0
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 145.0
-margin_top = 46.0
-margin_right = 483.0
-margin_bottom = 82.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+layout_mode = 0
+offset_left = 145.0
+offset_top = 46.0
+offset_right = 483.0
+offset_bottom = 82.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-bbcode_text = "[center]Position"
 text = "Position"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
-margin_left = 107.0
-margin_top = 89.0
-margin_right = 146.0
-margin_bottom = 125.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+layout_mode = 0
+offset_left = 107.0
+offset_top = 89.0
+offset_right = 146.0
+offset_bottom = 125.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-bbcode_text = "[center]X:"
 text = "X:"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
-margin_left = 302.0
-margin_top = 89.0
-margin_right = 341.0
-margin_bottom = 125.0
-rect_pivot_offset = Vector2( 189, 14 )
-custom_fonts/normal_font = SubResource( 2 )
+layout_mode = 0
+offset_left = 302.0
+offset_top = 89.0
+offset_right = 341.0
+offset_bottom = 125.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-bbcode_text = "[center]Y:"
 text = "Y:"
 
-[node name="point" parent="." instance=ExtResource( 1 )]
-margin_left = 81.0
-margin_top = 257.0
-margin_right = -1359.0
-margin_bottom = -555.0
-custom_fonts/font = SubResource( 1 )
-align = 1
+[node name="point" parent="." instance=ExtResource("1")]
+layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 81.0
+offset_top = 257.0
+offset_right = -1359.0
+offset_bottom = -555.0
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
-margin_left = 37.0
-margin_top = 217.0
-margin_right = 284.0
-margin_bottom = 341.0
-rect_pivot_offset = Vector2( 189, 14 )
+layout_mode = 0
+offset_left = 37.0
+offset_top = 217.0
+offset_right = 284.0
+offset_bottom = 341.0
+pivot_offset = Vector2(189, 14)
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 2 )
+theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-bbcode_text = "[center]Points rewarded:
-"
 text = "Points rewarded:
 "
 
-[node name="area" parent="." instance=ExtResource( 1 )]
-margin_left = 372.0
-margin_top = 260.0
-margin_right = -1068.0
-margin_bottom = -552.0
-custom_fonts/font = SubResource( 1 )
-align = 1
+[node name="area" parent="." instance=ExtResource("1")]
+layout_mode = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 372.0
+offset_top = 260.0
+offset_right = -1068.0
+offset_bottom = -552.0
+theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
-margin_left = 328.0
-margin_top = 220.0
-margin_right = 575.0
-margin_bottom = 344.0
-rect_pivot_offset = Vector2( 189, 14 )
+layout_mode = 0
+offset_left = 328.0
+offset_top = 220.0
+offset_right = 575.0
+offset_bottom = 344.0
+pivot_offset = Vector2(189, 14)
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 2 )
+theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
-bbcode_text = "[center]Area
-"
 text = "Area
 "
 
 [node name="type" type="OptionButton" parent="."]
-margin_left = 119.0
-margin_top = 533.0
-margin_right = 554.0
-margin_bottom = 659.0
-theme = ExtResource( 7 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0.839216, 0.188235, 0.188235, 1 )
-custom_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
-custom_colors/font_color_hover = Color( 0.866667, 0.333333, 0.333333, 1 )
-custom_colors/font_color_pressed = Color( 0.431373, 0.121569, 0.121569, 1 )
-custom_fonts/font = SubResource( 5 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-align = 1
-icon_align = 1
+layout_mode = 0
+offset_left = 119.0
+offset_top = 533.0
+offset_right = 554.0
+offset_bottom = 659.0
+theme = ExtResource("7")
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
+theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("5")
+theme_override_styles/focus = SubResource("8")
+theme_override_styles/normal = SubResource("10")
+theme_override_styles/hover = SubResource("6")
+theme_override_styles/pressed = SubResource("7")
+theme_override_styles/disabled = SubResource("9")
+icon_alignment = 1
 
 [node name="face" type="OptionButton" parent="."]
-margin_left = 184.0
-margin_top = 393.0
-margin_right = 489.0
-margin_bottom = 519.0
-theme = ExtResource( 7 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_focus = Color( 0.839216, 0.188235, 0.188235, 1 )
-custom_colors/font_color = Color( 0.815686, 0.145098, 0.145098, 1 )
-custom_colors/font_color_hover = Color( 0.866667, 0.333333, 0.333333, 1 )
-custom_colors/font_color_pressed = Color( 0.431373, 0.121569, 0.121569, 1 )
-custom_fonts/font = SubResource( 5 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-align = 1
-icon_align = 1
+layout_mode = 0
+offset_left = 184.0
+offset_top = 393.0
+offset_right = 489.0
+offset_bottom = 519.0
+theme = ExtResource("7")
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
+theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("5")
+theme_override_styles/focus = SubResource("8")
+theme_override_styles/normal = SubResource("10")
+theme_override_styles/hover = SubResource("6")
+theme_override_styles/pressed = SubResource("7")
+theme_override_styles/disabled = SubResource("9")
+icon_alignment = 1
 
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]

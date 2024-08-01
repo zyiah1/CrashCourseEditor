@@ -1,17 +1,17 @@
-extends Sprite
+extends Sprite2D
 
 var localchecknum = 0
 var drag = false
-onready var id = get_parent().nodes.size()
+@onready var id = get_parent().nodes.size()
 var first = false
 
-export (bool) var rotatable = false
-export (bool) var scalable = false
+@export var rotatable: bool = false
+@export var scalable: bool = false
 
 
-onready var defaultSize = scale
+@onready var defaultSize = scale
 
-onready var finaldata = [
+@onready var finaldata = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -40,7 +40,7 @@ onready var finaldata = [
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
 
-onready var data = [
+@onready var data = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -101,7 +101,7 @@ func _ready():
 			"            scale_x: 1.00000",
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
-	$RichTextLabel.bbcode_text = "[center]" + data[4]
+	$RichTextLabel.text = "[center]" + data[4]
 	localchecknum = get_parent().idnum
 	get_parent().idnum += 1
 	get_parent().checkpoints += 1
@@ -111,7 +111,7 @@ func changetofirst():
 
 func _process(delta):
 	id = get_parent().nodes.find(self)
-	if get_parent().data == true:
+	if get_parent().movingLoop == true:
 		if get_parent().item == "checkpoint":
 			$RichTextLabel.visible = true
 		else:
@@ -122,14 +122,14 @@ func _process(delta):
 	
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
-			modulate = Color.red
+			modulate = Color.RED
 		else:
-			modulate = Color.white
+			modulate = Color.WHITE
 	else:
-		modulate = Color.white
+		modulate = Color.WHITE
 	if drag == true:
 		if get_parent().item == "delete":
-			get_parent().nodes.remove(id)
+			get_parent().nodes.remove_at(id)
 			queue_free()
 	
 		if get_parent().item == "proporties":

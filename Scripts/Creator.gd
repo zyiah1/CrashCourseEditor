@@ -2,7 +2,6 @@ extends Node2D
 
 var saving = false
 var item = "none"
-var data = false
 
 const exit = preload("res://door.tscn")
 const banana = preload("res://banana.tscn")
@@ -22,21 +21,21 @@ const player = preload("res://player.tscn")
 const coin = preload("res://coin.tscn")
 const DK = preload("res://dk.tscn")
 const Pauline = preload("res://pauline.tscn")
-const cam = preload("res://cameraborder.tscn")
 
-var idnum = 3
-
-var checkpoints = 0
-var line = true
+var idnum: int = 3
+var mode: int = 1
+var checkpoints: int = 0
+var railplace: int = -2
+var lineplacing: bool = true
+var propertypanel: bool = false
+var movingLoop: bool = false
 var stored = null
-var railplace = -2
-var propertypanel = false
-var mode = 1
 var editednode = null
 
-onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
-onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
-onready var graytex = $CanvasLayer3/CanvasLayer2/invisible.icon
+
+@onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
+@onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
+@onready var graytex = $CanvasLayer3/CanvasLayer2/invisible.icon
 var arrow1 = preload("res://railart/Arrow.png")
 var arrow2 = preload("res://railart/BigArrow.png")
 var arrow3 = preload("res://railart/ArrowKaiten.png")
@@ -47,7 +46,7 @@ var arrow6 = preload("res://railart/Arrow180.png")
 
 signal EXPORT
 
-export(Array) var map = ["Version: 1",
+@export var map: Array = ["Version: 1",
 "IsBigEndian: True",
 "SupportPaths: False",
 "HasReferenceNodes: False",
@@ -63,47 +62,47 @@ func _ready():
 	
 	$nonmoving/save/Timer.wait_time = int(Options.interval)
 	if Options.scrollbg == "false":
-		$Animation.playback_speed = 1000
-		$CanvasLayer3/CanvasLayer/buttons.playback_speed = 1000
+		$Animation.speed_scale = 1000
+		$CanvasLayer3/CanvasLayer/buttons.speed_scale = 1000
 	
 	#make the borders
 	if get_tree().current_scene.name == "Editor": #Not loading screen
-		var bridgeinst = bridge.instance()
+		var bridgeinst = bridge.instantiate()
 		bridgeinst.loading = true
 		bridgeinst.invisible = true
 		bridgeinst.get_node("start").position = Vector2(495,-555)
 		bridgeinst.get_node("end").position = Vector2(-495,-555)
-		connect("EXPORT",bridgeinst,"EXPORT")
+		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 		add_child(bridgeinst)
 		bridgeinst.newseg()
 		bridgeinst.done()
 	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instance()
+		var bridgeinst = bridge.instantiate()
 		bridgeinst.loading = true
 		bridgeinst.invisible = true
 		bridgeinst.get_node("start").position = Vector2(495,-555)
 		bridgeinst.get_node("end").position = Vector2(495,555)
-		connect("EXPORT",bridgeinst,"EXPORT")
+		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 		add_child(bridgeinst)
 		bridgeinst.newseg()
 		bridgeinst.done()
 	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instance()
+		var bridgeinst = bridge.instantiate()
 		bridgeinst.loading = true
 		bridgeinst.invisible = true
 		bridgeinst.get_node("start").position = Vector2(-495,-555)
 		bridgeinst.get_node("end").position = Vector2(-495,555)
-		connect("EXPORT",bridgeinst,"EXPORT")
+		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 		add_child(bridgeinst)
 		bridgeinst.newseg()
 		bridgeinst.done()
 	if get_tree().current_scene.name == "Editor":
-		var bridgeinst = bridge.instance()
+		var bridgeinst = bridge.instantiate()
 		bridgeinst.loading = true
 		bridgeinst.invisible = true
 		bridgeinst.get_node("start").position = Vector2(-495,555)
 		bridgeinst.get_node("end").position = Vector2(495,555)
-		connect("EXPORT",bridgeinst,"EXPORT")
+		connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 		add_child(bridgeinst)
 		bridgeinst.newseg()
 		bridgeinst.done()
@@ -282,55 +281,50 @@ func itemplace():
 			$Animation.play("In")
 			railplace = -69
 			return
-		if line == true:
+		if lineplacing == true:
 			
 			railplace = 1
 			if item == "rail":
-				instance = bridge.instance()
+				instance = bridge.instantiate()
 			if item == "music":
-				instance = musicrail.instance()
-			if item == "camera":
-				var bridgeinst = cam.instance()
-				add_child(bridgeinst)
-				line = false
-				$Animation.play("Out")
+				instance = musicrail.instantiate()
 			if item == "endrotate":
-				instance = preload("res://Endpivot.tscn").instance()
+				instance = preload("res://Endpivot.tscn").instantiate()
 			if item == "Rspin":
-				instance = RightSpin.instance()
+				instance = RightSpin.instantiate()
 			if item == "Lspin":
-				instance = LeftSpin.instance()
+				instance = LeftSpin.instantiate()
 			if item == "Lpivot":
-				instance = preload("res://Lpivot.tscn").instance()
+				instance = preload("res://Lpivot.tscn").instantiate()
 			if item == "Rpivot":
-				instance = preload("res://Rpivot.tscn").instance()
+				instance = preload("res://Rpivot.tscn").instantiate()
 			if item == "Apivot":
-				instance = preload("res://Apivot.tscn").instance()
+				instance = preload("res://Apivot.tscn").instantiate()
 			if item == "LS":
-				instance = preload("res://LSpivit.tscn").instance()
+				instance = preload("res://LSpivit.tscn").instantiate()
 			if item == "RS":
-				instance = preload("res://RSpivit.tscn").instance()
+				instance = preload("res://RSpivit.tscn").instantiate()
 			if instance == null:
 				railplace = 3
 			if item == "fan":
-				instance = fan.instance()
+				instance = fan.instantiate()
 			if item == "movingR":
-				instance = RightMove.instance()
+				instance = RightMove.instantiate()
 			if item == "movingL":
-				instance = LeftMove.instance()
+				instance = LeftMove.instantiate()
 			if item == "movingA":
-				instance = AutoPlat.instance()
+				instance = AutoPlat.instantiate()
 			if item == "CrankL":
-				instance = LeftCrank.instance()
+				instance = LeftCrank.instantiate()
 			if item == "CrankR":
-				instance = RightCrank.instance()
+				instance = RightCrank.instantiate()
 			if item == "endmove":
-				instance = preload("res://EndMove.tscn").instance()
+				instance = preload("res://EndMove.tscn").instantiate()
 			if instance != null:
 				add_child(instance)
-				line = false
+				lineplacing = false
 				$Animation.play("Out")
-				connect("EXPORT",instance,"EXPORT")
+				connect("EXPORT", Callable(instance, "EXPORT"))
 				nodes.append(instance)
 				return
 			
@@ -339,43 +333,43 @@ func itemplace():
 			$Animation.stop()
 			$CanvasLayer3/CanvasLayer/buttons.play("out")
 			item = "none"
-			instance = player.instance()
+			instance = player.instantiate()
 			stored = instance
 		if item == "banana":
-			instance = banana.instance()
+			instance = banana.instantiate()
 		if item == "1up":
-			instance = preload("res://1up.tscn").instance()
+			instance = preload("res://1up.tscn").instantiate()
 		if item == "checkpoint":
-			instance = checkpoint.instance()
+			instance = checkpoint.instantiate()
 			if checkpoints == 0:
 				instance.first = true
 				instance.changetofirst()
 		if item == "final":
-			instance = finalcheck.instance()
+			instance = finalcheck.instantiate()
 		if  item == "coin":
-			instance = coin.instance()
+			instance = coin.instantiate()
 		if item == "door":
-			instance = exit.instance()
+			instance = exit.instantiate()
 		if item == "dk":
-			instance = DK.instance()
+			instance = DK.instantiate()
 		if item == "pauline":
-			instance = Pauline.instance()
+			instance = Pauline.instantiate()
 		if item == "hammer":
-			instance = preload("res://hammer.tscn").instance()
+			instance = preload("res://hammer.tscn").instantiate()
 		if item == "purse":
-			instance = preload("res://purse.tscn").instance()
+			instance = preload("res://purse.tscn").instantiate()
 		if item == "barrel":
-			instance = preload("res://barrel.tscn").instance()
+			instance = preload("res://barrel.tscn").instantiate()
 		if item == "ladder":
-			instance = preload("res://ladder.tscn").instance()
+			instance = preload("res://ladder.tscn").instantiate()
 		if item == "arrow":
-			instance = preload("res://Arrow.tscn").instance()
+			instance = preload("res://Arrow.tscn").instantiate()
 			if mode == 2:
 				instance.type = "big"
 			if mode == 3:
 				instance.type = "rotate"
 		if item == "arrow2":
-			instance = preload("res://Arrow.tscn").instance()
+			instance = preload("res://Arrow.tscn").instantiate()
 			instance.type = "45"
 			if mode == 2:
 				instance.type = "90"
@@ -385,31 +379,29 @@ func itemplace():
 			instance.position = get_global_mouse_position().round()
 			add_child(instance)
 			nodes.append(instance)
-			connect("EXPORT",instance,"EXPORT")
+			connect("EXPORT", Callable(instance, "EXPORT"))
 
 
 
 
 
 func shortcuts():
-	
+	if Input.is_action_just_pressed("id"):
+		movingLoop = not movingLoop
 	if Input.is_action_just_pressed("undo"):
 		if nodes.size() != 0:
-			if nodes[nodes.size() - 1] == stored:
-				
+			if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
 				playerunstore()
 			
 			var target = str(nodes[nodes.size() - 1])
-			print(target)
+			print("Undid ",target)
 			
 			nodes[nodes.size() - 1].queue_free()
-			nodes.remove(nodes.size() - 1)
-	if Input.is_action_just_pressed("id"):
-		data = not data
+			nodes.remove_at(nodes.size() - 1)
 	
 	if Input.is_action_just_pressed("esc"):
 		if $"CanvasLayer3/Proporties Panel".visible == false:
-			get_tree().change_scene("res://Loader.tscn")
+			get_tree().change_scene_to_file("res://Loader.tscn")
 		else:
 			$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox"._on_new_pressed()
 	
@@ -420,13 +412,11 @@ func shortcuts():
 		_on_Button_pressed()
 	if Input.is_action_just_pressed("Copy"):
 		_on_Button_pressed()
-		var __my_file := File.new()
+		var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
 		
 		
 		
-		if __my_file.open(Options.filepath + $nonmoving/name.text + ".txt", __my_file.READ== OK):
-			__my_file.open(Options.filepath + $nonmoving/name.text + ".txt", __my_file.READ)
-			OS.clipboard = __my_file.get_as_text()
+		DisplayServer.clipboard_set(file.get_as_text())
 	if Input.is_action_just_pressed("shift"):
 		mode += 1
 		if mode == 4:
@@ -456,14 +446,13 @@ func _on_Button_pressed():
 			objects = []
 			bridgedata = []
 			emit_signal("EXPORT")
-			var __my_file := File.new()
+			var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.WRITE)
 			var __my_text = map + objects + bridgeheader + bridgedata + end
 			
 			
-			if __my_file.open(Options.filepath + $nonmoving/name.text + ".txt", __my_file.WRITE== OK):
-				__my_file.open(Options.filepath + $nonmoving/name.text + ".txt", __my_file.WRITE)
-				for line2 in __my_text: __my_file.store_line(line2)
-			__my_file.close()
+			for line2 in __my_text:
+				file.store_line(line2)
+			file.close()
 			$nonmoving/delay.start()
 			bridgedata = []
 			objects = []
@@ -517,7 +506,7 @@ var Groupnum = 0
 
 func parse(data):
 	for line in data:
-		var Edit = preload("res://LineEdit.tscn").instance()
+		var Edit = preload("res://LineEdit.tscn").instantiate()
 		Edit.text = line
 		match Groupnum:
 			0:

@@ -1,11 +1,12 @@
 extends Control
 
-onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+@onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
+#references to imputs
 var pointsx = []
 var pointsy = []
 var numberofpoints = 0
 var speed
-var rotation
+var rotation_text
 
 func _ready():
 	$HugePanel.hide()
@@ -17,7 +18,7 @@ func _ready():
 			$OptionButton.add_item(str(numberofpoints))
 			numberofpoints += 1
 		if child.text.begins_with("              param1: "):
-			rotation = child
+			rotation_text = child
 		if child.text.begins_with("              param2: "):
 			speed = child
 	$X.text = pointsx[0].text.lstrip("                  pnt0_x: ")
@@ -29,10 +30,10 @@ func _ready():
 	
 	var text = speed.text
 	
-	text.erase(0,22)
+	text = text.erase(0,22)
 	$Speed.text = text
-	text = rotation.text
-	text.erase(0,22)
+	text = rotation_text.text
+	text = text.erase(0,22)
 	$Rotation.text = text
 
 func _process(delta):
@@ -43,7 +44,7 @@ func _process(delta):
 
 
 
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")
 
@@ -56,8 +57,8 @@ func _on_Y_text_changed(new_text):
 
 
 func _on_Speed_text_changed(new_text):
-	speed.text = "              param2: " + $Speed.text
+	speed.text = "              param2: " + new_text
 
 
 func _on_Rotation_text_changed(new_text):
-	rotation.text = "              param1: " + $Rotation.text
+	rotation_text.text = "              param1: " + new_text
