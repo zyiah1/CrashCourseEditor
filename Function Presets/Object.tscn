@@ -302,6 +302,7 @@ offset_top = 492.0
 offset_right = -1299.0
 offset_bottom = -323.0
 theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="ScaleY" parent="." groups=["scale"] instance=ExtResource("1")]
 visible = false
@@ -313,6 +314,7 @@ offset_top = 492.0
 offset_right = -1104.0
 offset_bottom = -320.0
 theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="." groups=["scale"]]
 visible = false
@@ -323,6 +325,7 @@ offset_right = 478.0
 offset_bottom = 490.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Scale"
 
@@ -335,6 +338,7 @@ offset_right = 141.0
 offset_bottom = 533.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "X:"
 
@@ -347,6 +351,7 @@ offset_right = 336.0
 offset_bottom = 533.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "Y:"
 
@@ -360,6 +365,7 @@ offset_top = 339.0
 offset_right = -1203.0
 offset_bottom = -476.0
 theme_override_fonts/font = SubResource("1")
+theme_override_font_sizes/font_size = 45
 
 [node name="RichTextLabel8" type="RichTextLabel" parent="." groups=["rotate"]]
 visible = false
@@ -370,6 +376,7 @@ offset_right = 397.0
 offset_bottom = 337.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("2")
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Rotation"
 

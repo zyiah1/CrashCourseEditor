@@ -5,6 +5,7 @@ signal finish
 @export var Param0: int = 3140
 @export var reset: int = 0
 @export var color: Color = Color(.92,.98,.98)
+@export var railtexture: Texture2D = load("res://railwhite.png")
 
 @onready var id = get_parent().get_parent().nodes.size()
 
@@ -35,7 +36,7 @@ func _ready():
 	
 	
 	rail = inst
-	rail.texture = load("res://railwhite.png")
+	rail.texture = railtexture
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))

@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1hvlsqh6i1gy"]
+[gd_scene load_steps=18 format=3 uid="uid://b1hvlsqh6i1gy"]
 
 [ext_resource type="PackedScene" path="res://pointE.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_le88g"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
 [ext_resource type="Script" path="res://shared scripts/MovingPreview.gd" id="4_vbgdc"]
 [ext_resource type="Script" path="res://Scripts/speed.gd" id="5"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="6"]
+[ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="6_7xp7g"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="7"]
 [ext_resource type="Script" path="res://shared scripts/MovingPlatform.gd" id="8"]
 
@@ -22,6 +24,14 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [sub_resource type="ImageTexture" id="2"]
 
@@ -66,6 +76,7 @@ z_index = -1
 z_as_relative = false
 script = ExtResource("8")
 point = ExtResource("1")
+railtexture = ExtResource("3_le88g")
 Param0 = 2392
 reset = -1
 color = Color(0.717647, 0.2, 0.133333, 1)
@@ -93,6 +104,7 @@ theme_override_styles/focus = SubResource("7")
 
 [node name="preview" type="Node2D" parent="."]
 script = ExtResource("4_vbgdc")
+previewtexture = ExtResource("6_7xp7g")
 
 [node name="rotation" type="TextEdit" parent="."]
 modulate = Color(1, 1, 1, 0.478431)

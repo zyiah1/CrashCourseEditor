@@ -2,7 +2,7 @@ extends Camera2D
 
 
 var paused = false
-var zoom_minimum = Vector2(.100001,.10001)
+var zoom_minimum = Vector2(.500001,.50001)
 var zoom_maximum = Vector2(20.00001,20.00001)
 var zoom_speed = Vector2(.000100001,.000100001)
 
@@ -25,7 +25,7 @@ func _physics_process(delta):
 				if zoom.x < 3:
 					zoom += Vector2(.25,.25)
 			if Input.is_action_just_pressed("zoom_out"):
-				if zoom.x - .25 != 0:
+				if zoom.x - .25 >= 0.5:
 					zoom += Vector2(-.25,-.25)
 			if Input.is_action_just_pressed("hide"):
 				toggleUI()

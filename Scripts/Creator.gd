@@ -263,7 +263,7 @@ func itemplace():
 	if Input.is_action_just_pressed("bridge"):
 		railplace -= 1
 		if railplace == 0:
-			$Animation.play("In")
+			Ain()
 			railplace = -69
 			return
 		if lineplacing == true:
@@ -308,14 +308,14 @@ func itemplace():
 			if instance != null:
 				add_child(instance)
 				lineplacing = false
-				$Animation.play("Out")
+				out()
 				connect("EXPORT", Callable(instance, "EXPORT"))
 				nodes.append(instance)
 				return
 			
 	if Input.is_action_just_pressed("bridge") or Input.is_action_pressed("control") and Input.is_action_pressed("bridge"):
 		if item == "player":
-			$Animation.stop()
+			#$Animation.stop()
 			$CanvasLayer3/CanvasLayer/buttons.play("out")
 			item = "none"
 			instance = player.instantiate()
@@ -378,6 +378,7 @@ func shortcuts():
 			if nodes.size() != 0:
 				if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
 					playerunstore()
+					print("woah")
 				
 				var target = str(nodes[nodes.size() - 1])
 				print("Undid ",target)

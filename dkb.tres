@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bsbsq82osul0f"]
+[gd_resource type="Theme" load_steps=30 format=3 uid="uid://bsbsq82osul0f"]
 
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="1_266j5"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="6_qgn5b"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="7_r8gib"]
 [ext_resource type="FontFile" uid="uid://duxgjdmpnemjq" path="res://fonts/wii/contm.ttf" id="8_qciqd"]
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="9_ribht"]
+[ext_resource type="Texture2D" uid="uid://crx2b0kvw0d0r" path="res://UI/loadbg.png" id="10_pfnjb"]
+[ext_resource type="Texture2D" uid="uid://dy85616naomwt" path="res://UI/load.png" id="11_thmmv"]
 
 [sub_resource type="FontVariation" id="FontVariation_8q65v"]
 base_font = ExtResource("1_266j5")
@@ -61,6 +64,12 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("7_r8gib")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xued6"]
+texture = ExtResource("10_pfnjb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5a1i5"]
+texture = ExtResource("11_thmmv")
+
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("1")])
 cache/0/16/0/ascent = 0.0
@@ -89,9 +98,11 @@ Button/styles/focus = SubResource("7")
 Button/styles/hover = SubResource("8")
 Button/styles/normal = SubResource("6")
 Button/styles/pressed = SubResource("StyleBoxTexture_f6nq6")
+CheckButton/icons/checked = ExtResource("5_ynsp6")
 CheckButton/icons/off = ExtResource("4_3oa3o")
 CheckButton/icons/off_disabled = SubResource("16")
 CheckButton/icons/on = ExtResource("5_ynsp6")
+CheckButton/icons/unchecked = ExtResource("4_3oa3o")
 CheckButton/styles/disabled = SubResource("11")
 CheckButton/styles/hover = SubResource("12")
 CheckButton/styles/hover_pressed = SubResource("14")
@@ -104,4 +115,8 @@ PopupMenu/styles/labeled_separator_right = null
 PopupMenu/styles/panel = SubResource("17")
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
+ProgressBar/font_sizes/font_size = 60
+ProgressBar/fonts/font = ExtResource("9_ribht")
+ProgressBar/styles/background = SubResource("StyleBoxTexture_xued6")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_5a1i5")
 RichTextLabel/fonts/normal_font = SubResource("4")

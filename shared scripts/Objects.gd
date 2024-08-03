@@ -76,7 +76,7 @@ func _process(delta):
 	if get_parent().item == "delete":
 		if $Button.is_hovered():
 			modulate = Color.RED
-	elif get_parent().item != "delete" or not $Button.is_hovered():
+	if get_parent().item != "delete" or not $Button.is_hovered():
 		modulate = Color.WHITE
 	if get_parent().item != "proporties" and $Button.button_pressed:
 		position = get_global_mouse_position().round()

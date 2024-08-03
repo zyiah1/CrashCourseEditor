@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=83 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -58,24 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://dw4oebqfms080" path="res://UI/Cameraborder.png" id="57"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="58"]
 [ext_resource type="Texture2D" uid="uid://pm3v6to0bd2c" path="res://railart/1up.png" id="59"]
-
-[sub_resource type="Animation" id="12"]
-resource_name = "In"
-length = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Ain"
-}]
-}
 
 [sub_resource type="Animation" id="18"]
 resource_name = "In1"
@@ -167,24 +149,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-1, 142)]
-}
-
-[sub_resource type="Animation" id="13"]
-resource_name = "Out"
-length = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"out"
-}]
 }
 
 [sub_resource type="Animation" id="16"]
@@ -294,22 +258,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/tutorial:position")
+tracks/1/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1061, 17)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -318,10 +270,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
 _data = {
-"In": SubResource("12"),
 "In1": SubResource("18"),
 "In2": SubResource("19"),
-"Out": SubResource("13"),
 "Out1": SubResource("16"),
 "Out2": SubResource("17"),
 "RESET": SubResource("14")
@@ -656,10 +606,10 @@ text = "save"
 autostart = true
 
 [node name="tutorial" type="RichTextLabel" parent="nonmoving"]
-offset_left = -1061.0
-offset_top = 17.0
-offset_right = -40.0029
-offset_bottom = 260.0
+offset_left = 11.9557
+offset_top = 688.447
+offset_right = 1032.95
+offset_bottom = 931.447
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"

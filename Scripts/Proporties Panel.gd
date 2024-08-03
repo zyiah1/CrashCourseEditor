@@ -53,6 +53,7 @@ func _on_Functions_pressed():
 				for node in instance.get_children():
 					if node.is_in_group("rotate"):
 						node.show()
+
 func _on_Property_pressed():
 	$ScrollContainer.show()
 	$FunctionContainer.hide()

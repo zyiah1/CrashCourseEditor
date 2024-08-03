@@ -141,7 +141,7 @@ func Load(filename):
 		
 		if cycle + 1 > 0:#remove whatever amount the cycle is 
 			content.remove_at(0)
-			if randi_range(1,50) == 1:
+			if randi_range(1,500) == 1:
 				await get_tree().create_timer(.0001).timeout
 		else:
 			

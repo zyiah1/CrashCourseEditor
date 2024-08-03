@@ -22,4 +22,4 @@ func _on_FileWindoe_dir_selected(dir):
 		Options.filepath = dir + "/"
 	else:
 		Options.filepath = dir
-	Options._on_back_pressed()
+	Options.save()

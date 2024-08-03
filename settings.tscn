@@ -1,9 +1,9 @@
 [gd_scene load_steps=28 format=3 uid="uid://bmvmnob1fhgt5"]
 
+[ext_resource type="Script" path="res://settingsScreen.gd" id="1_o34gw"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_2x6o2"]
 [ext_resource type="Script" path="res://Scripts/back.gd" id="3"]
-[ext_resource type="Script" path="res://Scripts/Options.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/optionbutton.gd" id="6"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="6_vm8ls"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7"]
@@ -62,35 +62,30 @@ texture = ExtResource("8")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm2w"]
 
 [node name="settings" type="Node2D"]
+process_priority = 1
 scale = Vector2(1.5, 1.5)
-script = ExtResource("4")
+script = ExtResource("1_o34gw")
 
 [node name="bfg" parent="." instance=ExtResource("2_2x6o2")]
+metadata/_edit_lock_ = true
 
-[node name="back" type="Button" parent="."]
-offset_left = 1.0
-offset_top = 448.0
-offset_right = 181.0
-offset_bottom = 641.0
-theme = ExtResource("2")
-text = "back"
-script = ExtResource("3")
-
-[node name="setting1" type="CheckButton" parent="."]
-offset_left = 267.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 197.0
 offset_top = 3.0
-offset_right = 724.0
-offset_bottom = 135.0
+offset_right = 788.0
+offset_bottom = 599.0
+
+[node name="setting1" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2")
 theme_override_font_sizes/font_size = 36
 text = "Scrolling bg"
 alignment = 1
 
-[node name="setting2" type="OptionButton" parent="."]
-offset_left = 279.0
-offset_top = 136.0
-offset_right = 714.0
-offset_bottom = 262.0
+[node name="setting2" type="OptionButton" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("11")
 theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
 theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
@@ -110,7 +105,7 @@ alignment = 1
 icon_alignment = 1
 script = ExtResource("6")
 
-[node name="custom" type="Button" parent="setting2"]
+[node name="custom" type="Button" parent="Buttons/setting2"]
 layout_mode = 0
 offset_left = 434.0
 offset_top = 2.0
@@ -123,11 +118,12 @@ theme_override_styles/pressed = SubResource("4")
 theme_override_styles/disabled = SubResource("6")
 theme_override_styles/focus = SubResource("5")
 icon = ExtResource("13")
+flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("9")
 
-[node name="ColorPicker" type="ColorPicker" parent="setting2/custom"]
+[node name="ColorPicker" type="ColorPicker" parent="Buttons/setting2/custom"]
 visible = false
 layout_mode = 0
 offset_left = -342.0
@@ -138,26 +134,16 @@ scale = Vector2(0.6, 0.6)
 edit_alpha = false
 presets_visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="setting2/custom/ColorPicker"]
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/setting2/custom/ColorPicker"]
 visible = false
 show_behind_parent = true
 position = Vector2(236.667, 353.333)
 scale = Vector2(2.36471, 3.20625)
 texture = ExtResource("8")
 
-[node name="setting3" type="CheckButton" parent="."]
-offset_left = 241.0
-offset_top = 735.0
-offset_right = 749.0
-offset_bottom = 915.0
-theme = ExtResource("2")
-text = "auto fullscreen"
-
-[node name="setting4" type="Button" parent="."]
-offset_left = 261.0
-offset_top = 278.0
-offset_right = 732.0
-offset_bottom = 403.0
+[node name="setting4" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("14")
@@ -167,20 +153,18 @@ theme_override_styles/focus = SubResource("14")
 text = "Change file path"
 script = ExtResource("12")
 
-[node name="Node2D" type="Node2D" parent="setting4"]
+[node name="Node2D" type="Node2D" parent="Buttons/setting4"]
 
-[node name="FileWindoe" type="FileDialog" parent="setting4/Node2D"]
+[node name="FileWindoe" type="FileDialog" parent="Buttons/setting4/Node2D"]
 mode = 2
 theme = ExtResource("11")
 mode_overrides_title = false
 access = 2
 filters = PackedStringArray("folder")
 
-[node name="setting5" type="Button" parent="."]
-offset_left = 216.0
-offset_top = 425.0
-offset_right = 786.0
-offset_bottom = 559.0
+[node name="setting5" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("14")
@@ -189,7 +173,7 @@ theme_override_styles/pressed = SubResource("15")
 theme_override_styles/focus = SubResource("14")
 text = "Auto Save Interval"
 
-[node name="Panel" type="Panel" parent="setting5"]
+[node name="Panel" type="Panel" parent="Buttons/setting5"]
 layout_mode = 0
 offset_left = 576.0
 offset_top = 10.0
@@ -197,7 +181,7 @@ offset_right = 749.0
 offset_bottom = 123.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_tcgpm")
 
-[node name="TextEdit" type="TextEdit" parent="setting5"]
+[node name="TextEdit" type="TextEdit" parent="Buttons/setting5"]
 use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
@@ -214,11 +198,29 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_sbm2w")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_sbm2w")
 text = "100"
 
+[node name="back" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 448.0
+offset_right = 181.0
+offset_bottom = 641.0
+theme = ExtResource("2")
+text = "back"
+script = ExtResource("3")
+
+[node name="setting3" type="CheckButton" parent="."]
+visible = false
+offset_left = 241.0
+offset_top = 735.0
+offset_right = 749.0
+offset_bottom = 915.0
+theme = ExtResource("2")
+text = "auto fullscreen"
+
+[connection signal="pressed" from="Buttons/setting1" to="." method="_on_setting1_pressed"]
+[connection signal="item_selected" from="Buttons/setting2" to="Buttons/setting2" method="_on_setting2_item_selected"]
+[connection signal="pressed" from="Buttons/setting2/custom" to="Buttons/setting2/custom" method="_on_custom_pressed"]
+[connection signal="pressed" from="Buttons/setting4" to="Buttons/setting4" method="_on_setting4_pressed"]
+[connection signal="dir_selected" from="Buttons/setting4/Node2D/FileWindoe" to="." method="_on_FileWindoe_dir_selected"]
+[connection signal="text_changed" from="Buttons/setting5/TextEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="back" to="back" method="_on_back_pressed"]
-[connection signal="pressed" from="setting1" to="." method="_on_setting1_pressed"]
-[connection signal="item_selected" from="setting2" to="setting2" method="_on_setting2_item_selected"]
-[connection signal="pressed" from="setting2/custom" to="setting2/custom" method="_on_custom_pressed"]
-[connection signal="pressed" from="setting4" to="setting4" method="_on_setting4_pressed"]
-[connection signal="dir_selected" from="setting4/Node2D/FileWindoe" to="." method="_on_FileWindoe_dir_selected"]
-[connection signal="text_changed" from="setting5/TextEdit" to="." method="_on_TextEdit_text_changed"]

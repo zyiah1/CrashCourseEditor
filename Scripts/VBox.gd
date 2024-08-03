@@ -16,10 +16,7 @@ func _process(delta):
 			node.queue_free()
 		clear()
 
-
-
-func _on_new_pressed():
-	get_parent().get_parent()._on_Property_pressed()
+func applydata():
 	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
 	for node in get_children():
 		if node.is_in_group("Data"):
@@ -30,7 +27,6 @@ func _on_new_pressed():
 			childData.append(node.text)
 		if node.is_in_group("ChildEnd"):
 			childEnd.append(node.text)
-		node.queue_free()
 	targetnode.data = data
 	if end != []:
 		targetnode.end = end
@@ -38,6 +34,13 @@ func _on_new_pressed():
 		targetnode.childrail.data = childData
 		targetnode.childrail.endplat = childEnd
 	targetnode.reposition()
+
+func _on_new_pressed():
+	get_parent().get_parent()._on_Property_pressed() # change back to normal tab
+	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
+	applydata()
+	for node in get_children():
+		node.queue_free()
 	clear()
 
 func clear():
