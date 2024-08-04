@@ -347,6 +347,8 @@ func done():
 	get_parent().get_parent().bridgedata += data + end
 	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
+
+
 func _draw():
 	
 	if loading == false and locked == false:

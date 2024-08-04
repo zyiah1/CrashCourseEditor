@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
-[ext_resource type="Script" path="res://Scripts/load.gd" id="4"]
 [ext_resource type="Script" path="res://Scripts/new.gd" id="5"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c714qtkxy1rxn" path="res://UI/buttons/button.png" id="11_mkaen"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="12_uro0u"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
+[ext_resource type="Script" path="res://Scripts/loadreworked.gd" id="14_hbknu"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
 [ext_resource type="Script" path="res://Scripts/apiRequest.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
@@ -3535,7 +3535,7 @@ offset_bottom = 537.0
 theme = ExtResource("3")
 theme_override_font_sizes/font_size = 40
 text = "Load"
-script = ExtResource("4")
+script = ExtResource("14_hbknu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="load"]
 libraries = {

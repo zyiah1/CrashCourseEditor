@@ -356,6 +356,7 @@ func done():
 	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
+
 func _draw():
 	if loading == false and locked == false:
 		$end.position = get_global_mouse_position().round()

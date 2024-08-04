@@ -236,6 +236,7 @@ texture = ExtResource("3")
 
 [node name="X" parent="." instance=ExtResource("1")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 141.0
@@ -247,6 +248,7 @@ theme_override_font_sizes/font_size = 45
 
 [node name="Y" parent="." instance=ExtResource("1")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 336.0
@@ -295,6 +297,7 @@ text = "Y:"
 [node name="ScaleX" parent="." groups=["scale"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 141.0
@@ -307,6 +310,7 @@ theme_override_font_sizes/font_size = 45
 [node name="ScaleY" parent="." groups=["scale"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 336.0
@@ -358,6 +362,7 @@ text = "Y:"
 [node name="Rotation" parent="." groups=["rotate"] instance=ExtResource("1")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 237.0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://ch0hxchdfht5l"]
+[gd_scene load_steps=23 format=3 uid="uid://ch0hxchdfht5l"]
 
 [ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="1"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="3"]
+[ext_resource type="PackedScene" path="res://pointE.tscn" id="3_5x1ot"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_epxp8"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
 [ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="4_urgny"]
@@ -83,6 +84,7 @@ script = ExtResource("8")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
 script = ExtResource("1")
+pointScene = ExtResource("3_5x1ot")
 Param0 = 3392
 color = Color(0.75, 0.2, 0.13, 1)
 railtexture = ExtResource("3_epxp8")
