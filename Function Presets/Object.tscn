@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cys0w210dd3w6"]
 
-[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="1"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="2"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="3"]
 [ext_resource type="Script" path="res://Function Presets/Object.gd" id="4"]

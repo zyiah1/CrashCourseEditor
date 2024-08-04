@@ -1325,6 +1325,17 @@ libraries = {
 "": SubResource("AnimationLibrary_kr57d")
 }
 
+[node name="RealTime" type="CheckButton" parent="CanvasLayer3/Proporties Panel"]
+offset_left = 3471.0
+offset_top = 810.0
+offset_right = 3852.0
+offset_bottom = 891.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("7")
+button_pressed = true
+text = "real time updates"
+flat = true
+
 [node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev"]]
 visible = false
 z_index = 20

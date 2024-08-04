@@ -503,7 +503,9 @@ func parse(data):
 			3:
 				Edit.add_to_group("ChildEnd")
 		$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox".add_child(Edit)
-	
+		#Edit.connect("text_changed",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
+		Edit.connect("text_set",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
+		
 	Groupnum += 1
 	if Options.scrollbg == "true":
 		$"CanvasLayer3/Proporties Panel/Panel".play("IN")

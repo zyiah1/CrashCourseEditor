@@ -17,6 +17,7 @@ func _process(delta):
 		clear()
 
 func applydata():
+	data = []
 	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
 	for node in get_children():
 		if node.is_in_group("Data"):
@@ -37,7 +38,6 @@ func applydata():
 
 func _on_new_pressed():
 	get_parent().get_parent()._on_Property_pressed() # change back to normal tab
-	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
 	applydata()
 	for node in get_children():
 		node.queue_free()
