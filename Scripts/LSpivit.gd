@@ -34,9 +34,9 @@ func _ready():
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
 	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
-	$rotation.grab_focus()
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
+		$rotation.grab_focus()
 	else:
 		$rotation.hide()
 	$crank.position = $start.position
@@ -203,6 +203,8 @@ func reposition():
 	$rotation.text = str(-int(text))
 	$crank.target = int($rotation.text)
 	$crank2.target = int($rotation.text)
+	$rotation.prev = $rotation.text
+	$rotation.position = $crank.position + Vector2(-20,-100)
 	$crank.rotation_degrees = 0
 	$crank2.rotation_degrees = 0
 	changepivotpoint()

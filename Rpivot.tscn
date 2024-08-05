@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://b672m6mteuaov"]
+[gd_scene load_steps=22 format=3 uid="uid://b672m6mteuaov"]
 
 [ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://dalli7fv0djlw" path="res://pivotR.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Script" path="res://Scripts/filter.gd" id="6"]
@@ -32,6 +31,14 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
 
 [sub_resource type="ImageTexture" id="5"]
 
@@ -76,14 +83,8 @@ script = ExtResource("8")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
 script = ExtResource("1")
-point = ExtResource("10")
+pointScene = ExtResource("10")
 Param0 = 3141
-
-[node name="Banana" type="Sprite2D" parent="Spin"]
-visible = false
-position = Vector2(55, 23)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3")
 
 [node name="start" type="Sprite2D" parent="Spin"]
 visible = false

@@ -15,4 +15,5 @@ func newseg():
 func done():
 	$Spin.done()
 
-
+func reposition():
+	$Spin.reposition()

@@ -1,7 +1,7 @@
 extends TextEdit
 signal rotationupdated(string)
 
-var prev = ""
+@onready var prev = text
 
 func _on_rotation_text_changed():
 	emit_signal("rotationupdated",text)

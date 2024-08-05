@@ -52,8 +52,8 @@ func _ready():
 		rail.texture = load("res://railblue.png")
 	if invisible == true:
 		pointScene = preload("res://Bigpoint.tscn")
-		$start.scale = $start.scale*3
-		$end.scale = $end.scale*3
+		$start.scale =  Vector2(.90,.90)
+		$end.scale =  Vector2(.90,.90)
 		size = size*6
 		rail.width = 40
 		end[8] = "              param0: 0.00000"
@@ -239,10 +239,7 @@ func reposition():
 				size = size*6
 				color = Color.GRAY
 				for point in points:
-					point.scale = point.scale*3
-					if point.scale == Vector2(.75,.75):
-						point.scale = Vector2(.90,.90)
-	
+					point.scale = Vector2(.90,.90)
 	
 	for line in data:
 		cycles += 1

@@ -18,6 +18,9 @@ func _process(delta):
 
 func applydata():
 	data = []
+	end = []
+	childData = []
+	childEnd = []
 	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
 	for node in get_children():
 		if node.is_in_group("Data"):

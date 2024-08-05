@@ -41,9 +41,9 @@ func _ready():
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
 	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
-	$rotation.grab_focus()
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
+		$rotation.grab_focus()
 	else:
 		$rotation.hide()
 	$crank.position = $start.position
@@ -51,7 +51,6 @@ func _ready():
 	buttons.append($crank/Button)
 	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
-	
 	
 	data = ["            - Points:",
 "                - comment: !l -1",
@@ -194,9 +193,11 @@ func reposition():
 	$crank.position = points[0].position
 	var text = end[9]
 	text = text.erase(0,22)
-	$rotation.text = str(-int(text))
-	$crank.target = int($rotation.text)
+	$rotation.text = str(-float(text))
+	$crank.target = float($rotation.text)
+	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0
+	$rotation.position = $crank.position + Vector2(-20,-100)
 	changepivotpoint()
 	#update the visuals
 	rail.points = []
