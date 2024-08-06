@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var data = []
+var data:PackedStringArray = []
 var end = []
 var childData = []
 var childEnd = []

@@ -27,7 +27,7 @@ var loading = false
 
 @onready var defaultSize = scale
 
-@onready var data = [
+@onready var data:PackedStringArray = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",
@@ -125,6 +125,7 @@ func _process(delta):
 					6:
 						ladderframe = -5
 			$pitch.show()
+			$pitch/slider.grab_focus()
 			$pitch/slider.value = ladderframe
 		if get_parent().item != "edit" and get_parent().item != "proporties":
 			position = get_global_mouse_position().round()
@@ -139,8 +140,17 @@ func reposition():
 		scale = scale*defaultSize #cause I'm stupid and everythings default scale is not 1
 	if rotatable:
 		rotation_degrees = float(data[3].lstrip("            dir_z: "))
-
-
+	match int(data[9].lstrip("            param0: ")):
+		1:
+			texture = preload("res://ladder1.png")
+		2:
+			texture = preload("res://ladder2.png")
+		4:
+			texture = preload("res://ladder4.png")
+		5:
+			texture = preload("res://ladder5.png")
+		6:
+			texture = preload("res://ladder6.png")
 
 
 

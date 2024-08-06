@@ -40,7 +40,7 @@ var first = false
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
 
-@onready var data = [
+@onready var data:PackedStringArray = [
 		  "          - comment: !l -1",
 			"            dir_x: 0.00000",
 			"            dir_y: 0.00000",

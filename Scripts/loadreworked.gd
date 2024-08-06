@@ -55,6 +55,9 @@ func LoadTest(filename):
 	var ignore = 4
 	var actualrail = null
 	while content.size() > 0:
+		$CanvasLayer/LoadingBar.value = $CanvasLayer/LoadingBar.max_value - content.size()
+		if randi_range(1,20) == 1:
+			await get_tree().create_timer(.0001).timeout
 		var matched = false
 		match content[0]:
 			"    - Infos:":
@@ -86,7 +89,7 @@ func LoadTest(filename):
 						playerposition = instance.position
 						scene.get_node("CanvasLayer3/CanvasLayer/buttons").play("out")
 			"            - Points:":
-				var raildata = []
+				var raildata:PackedStringArray = []
 				
 				var amount = content.find("              closed: CLOSE")
 				
@@ -95,49 +98,67 @@ func LoadTest(filename):
 					raildata.append(content[0])
 					content.remove_at(0)
 					amount -= 1
-				var railend = []
-				amount = content.find("              unit_name: Path3D")+1
+				var railend:PackedStringArray = []
+				amount = content.find("              unit_name: Path")+1
 				while amount > 0:
 					railend.append(content[0])
 					content.remove_at(0)
 					amount -= 1
 				matched = true
+				
 				var instance = getRail(railend[8])
-				if railend[18].begins_with("              param0: 2"):
-					instance = getRail(railend[18])
-					var oldrail = movingPlatforms.get(railend[5].erase(0,30))
-					oldrail.rail = instance
-					instance = oldrail
-					instance.done(Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: "))))
-					instance = instance.childrail
-					AddPoints(raildata,instance,"")
-					instance.done()
-					oldrail.reposition()
-					movingPlatforms.erase(railend[5].erase(0,30))
-					break
-				var prereference = ""
-				instance.loading = true
-				scene.add_child(instance)
-				if railend[8].begins_with("              param0: 3"):
-					prereference = "Spin/"# add this to get node calls if it's a rotate rail
-				instance.get_node(prereference+"start").position = Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: ")))
-				AddPoints(raildata,instance,prereference)
-				scene.nodes.append(instance)
-				if prereference == "":
-					instance.data = raildata
-					instance.end = railend
+				if railend[18].begins_with("              param0: 2") or railend[19].begins_with("              param0: 2"):#moving platform
+					if railend[19].begins_with("              param0: 2"):
+						instance = getRail(railend[19])
+					else:
+						instance = getRail(railend[18])
+					
+					var Id
+					if railend[5].begins_with("                - comment:"):# account for different parsing types
+						Id = railend[6].erase(0,30)
+					else:
+						Id = railend[5].erase(0,30)
+					var oldrail = movingPlatforms.get(Id)
+					if oldrail == null:
+						print(railend[6])
+						print(Id)
+						content += raildata
+						content += railend
+					else:
+						oldrail.rail = instance
+						instance = oldrail
+						instance.done(Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: "))))
+						instance = instance.childrail
+						AddPoints(raildata,instance,"")
+						instance.done()
+						oldrail.reposition()
+						movingPlatforms.erase(Id)
+					
 				else:
-					instance.get_node(prereference).data = raildata
-					instance.get_node(prereference).end = railend
-				
-				if railend[8].begins_with("              param0: 2900"):
-					var id = railend[2].erase(0,27)
-					movingPlatforms[id] = instance
-				else:#if it isn't a moving rail
-					instance.done()
-					instance.reposition()
-				
-				scene.connect("EXPORT", Callable(instance, "EXPORT"))
+					var prereference = ""
+					instance.loading = true
+					scene.add_child(instance)
+					if railend[8].begins_with("              param0: 3"):
+						prereference = "Spin/"# add this to get node calls if it's a rotate rail
+					instance.get_node(prereference+"start").position = Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: ")))
+					AddPoints(raildata,instance,prereference)
+					scene.nodes.append(instance)
+					if prereference == "":
+						instance.data = raildata
+						instance.end = railend
+					else:
+						instance.get_node(prereference).data = raildata
+						instance.get_node(prereference).end = railend
+						
+					
+					if railend[8].begins_with("              param0: 2900"):
+						var id = railend[2].erase(0,27)
+						movingPlatforms[id] = instance
+					else:#if it isn't a moving rail
+						instance.done()
+						instance.reposition()
+					
+					scene.connect("EXPORT", Callable(instance, "EXPORT"))
 		if matched == false:
 			content.remove_at(0)
 	$CanvasLayer.hide()
@@ -147,6 +168,8 @@ func LoadTest(filename):
 	scene.get_node("Cam").position = playerposition
 	scene.get_node("Cam").zoom = Vector2(2.5,2.5)
 	scene.get_node("Cam").toggleUI()
+	if movingPlatforms.size() != 0:
+		push_error("Not All Platforms Have a Pair!")
 
 func AddPoints(raildata,instance,prereference):
 	var pointpos = Vector2.ZERO
@@ -157,14 +180,14 @@ func AddPoints(raildata,instance,prereference):
 			
 		if railline.begins_with("                  pnt0_y:"):
 			if first == false:
-				pointpos.y = float(railline.erase(0,26))
+				pointpos.y = -float(railline.erase(0,26))
 				instance.get_node(prereference+"end").position = pointpos
 				instance.newseg()
 			else:
 				first = false
 
 func MovingRail(Railname) -> PackedScene:
-	var Railscene
+	var Railscene = preload("res://fanrail.tscn") # default is fan
 	match Railname:
 		"              param0: 2141.00000":
 			Railscene = preload("res://Rrail.tscn")
@@ -248,11 +271,11 @@ func getObject(Objectname:String) -> Node:
 			Objectscene = player
 			scene.stored = player
 		"            name: Dkb_CheckPoint":
-			if content[8].begins_with("            param0: 2.00000"):
+			if Objectname.begins_with("            param0: 2.00000"):
 				Objectscene = preload("res://finalcheckpoint.tscn").instantiate()
 			else:
 				Objectscene = preload("res://checkpoint.tscn").instantiate()
-				if content[8].begins_with("            param0: 1"):
+				if Objectname.begins_with("            param0: 1"):
 					Objectscene.changetofirst()
 			if content[24] == "            scale_x: -1.00000":
 				Objectscene.flip_h = true
@@ -297,19 +320,6 @@ func getObject(Objectname:String) -> Node:
 			Objectscene = preload("res://ladder.tscn").instantiate()
 			Objectscene.loading = true
 			
-			match int(content[8].lstrip("            param0: ")):
-				1:
-					Objectscene.texture = preload("res://ladder1.png")
-				2:
-					Objectscene.texture = preload("res://ladder2.png")
-				#3:
-					
-				4:
-					Objectscene.texture = preload("res://ladder4.png")
-				5:
-					Objectscene.texture = preload("res://ladder5.png")
-				6:
-					Objectscene.texture = preload("res://ladder6.png")
 		"            name: Dkb_ChalkBarrel":
 			Objectscene = preload("res://barrel.tscn").instantiate()
 	return Objectscene

@@ -71,7 +71,7 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-@onready var dataseg = ["                - comment: !l -1",
+@onready var dataseg:PackedStringArray = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -96,9 +96,9 @@ func _ready():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 
-var data
+var data:PackedStringArray
 
-@onready var end = ["              closed: CLOSE",
+@onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(get_parent().get_parent().idnum),
 "              layer: LC",
@@ -117,7 +117,7 @@ var data
 "              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
-"              unit_name: Path3D"]
+"              unit_name: Path"]
 
 func changepivotpoint():
 	var line = end[11]
@@ -352,7 +352,6 @@ func newseg():
 
 func done():
 	locked = true
-	end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
 	get_parent().get_parent().idnum += 1
 	get_parent().get_parent().bridgedata += data + end
 	get_parent().get_parent().lineplacing = true

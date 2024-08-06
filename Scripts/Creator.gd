@@ -46,7 +46,7 @@ var arrow6 = preload("res://railart/Arrow180.png")
 
 signal EXPORT
 
-@export var map: Array = ["Version: 1",
+@export var map: PackedStringArray = ["Version: 1",
 "IsBigEndian: True",
 "SupportPaths: False",
 "HasReferenceNodes: False",
@@ -54,7 +54,7 @@ signal EXPORT
 "  LayerInfos:",
 "    - Infos:",
 "        ObjInfo:"]
-var objects = []
+var objects:PackedStringArray = []
 
 var nodes = []
 
@@ -92,13 +92,13 @@ func _ready():
 		$Cam.paused = true
 		$Cam.toggleUI()
 
-var bridgeheader = ["        RailInfos:",
+var bridgeheader:PackedStringArray = ["        RailInfos:",
 "          PathInfo:"
 ]
 
-var bridgedata = []
+var bridgedata:PackedStringArray = []
 
-var end = ["      LayerName: LC",
+var end:PackedStringArray = ["      LayerName: LC",
 "    - Infos:",
 "        ObjInfo: []",
 "        RailInfos:",
