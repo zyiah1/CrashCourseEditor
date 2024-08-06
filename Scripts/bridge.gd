@@ -12,11 +12,13 @@ var buttons = []
 var invisible = false
 var size = 4.5
 
+
 @onready var rail = $Rail
 @onready var id = get_parent().nodes.size()
+@onready var idnum = get_parent().idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
-"              id_name: rail" + str(get_parent().idnum),
+"              id_name: rail" + str(idnum),
 "              layer: LC",
 "              link_info: []",
 "              link_num: !l 0",
@@ -66,7 +68,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/0",
+"                  id_name: rail" + str(idnum) + "/0",
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -92,7 +94,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -147,7 +149,6 @@ func _process(delta):
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
-				get_parent().idnum-=1
 				get_parent().lineplacing = true
 				queue_free()
 				
@@ -177,7 +178,7 @@ func newseg():
 	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -296,6 +297,7 @@ func reposition():
 				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
 				
 				currentpoint += 1
+	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []
 	for point in points:
@@ -306,7 +308,7 @@ func reposition():
 	
 func done():
 	locked = true
-	get_parent().idnum += 1
+	idnum += 1
 	get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 

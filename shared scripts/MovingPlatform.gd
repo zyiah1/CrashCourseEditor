@@ -18,7 +18,7 @@ var loading = false
 var path = []
 var speed = 2
 var rail
-
+@onready var idnum = get_parent().idnum + 1
 
 func focus_entered():
 	$rotation.visible = true
@@ -53,7 +53,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/0",
+"                  id_name: rail" + str(idnum) + "/0",
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -78,7 +78,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -105,10 +105,10 @@ var data:PackedStringArray
 
 @onready var endplat:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
-"              id_name: rail" + str(get_parent().idnum),
+"              id_name: rail" + str(idnum),
 "              layer: LC",
 "              link_info:",
-"                - linkID: rail" + str(get_parent().idnum - 1),
+"                - linkID: rail" + str(get_parent().idnum),
 "                  param0: -1.00000",
 "                  param1: -1.00000",
 "                  param2: -1.00000",
@@ -185,7 +185,6 @@ func _process(delta):
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
 			if segments == 1:
-				get_parent().idnum-=1
 				get_parent().lineplacing = true
 				queue_free()
 				
@@ -223,7 +222,7 @@ func newseg():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",

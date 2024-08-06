@@ -6,7 +6,7 @@ signal finish
 @export var reset: int = 0
 @export var color: Color = Color(.92,.98,.98)
 @export var railtexture: Texture2D = load("res://railwhite.png")
-
+@onready var idnum = get_parent().get_parent().idnum
 @onready var id = get_parent().get_parent().nodes.size()
 
 var locked = false
@@ -57,7 +57,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/0",
+"                  id_name: rail" + str(idnum) + "/0",
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -82,7 +82,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -107,7 +107,7 @@ var data:PackedStringArray
 
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
-"              id_name: rail" + str(get_parent().get_parent().idnum),
+"              id_name: rail" + str(idnum),
 "              layer: LC",
 "              link_info: []",
 "              link_num: !l 0",
@@ -198,7 +198,8 @@ func reposition():
 	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0
 	$rotation.position = $crank.position + Vector2(-20,-100)
-	changepivotpoint()
+	
+	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []
 	get_node("crank").rail.points = []
@@ -211,6 +212,7 @@ func reposition():
 	get_node("crank").rail.add_point($end.position)
 	rail.add_point($end.position)
 	get_node("crank").rail.add_point($end.position)
+	changepivotpoint()
 
 func changepivotpoint():
 	var line = end[11]
@@ -225,6 +227,7 @@ func changepivotpoint():
 			$crank.position = points[int(line.lstrip("              param: "))].position
 			targetswappoint = points[int(line.lstrip("              param: "))]
 		targetswappoint.position = oldpos
+	$start.position = $end.position
 
 func _process(delta):
 	
@@ -270,7 +273,6 @@ func _process(delta):
 				return
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
-				get_parent().get_parent().idnum-=1
 				get_parent().get_parent().lineplacing = true
 				queue_free()
 				
@@ -312,7 +314,7 @@ func newseg():
 	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",

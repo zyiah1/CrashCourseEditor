@@ -4,6 +4,7 @@ extends Node2D
 const point = preload("res://pointR.tscn")
 var locked = false
 @onready var id = get_parent().get_parent().nodes.size()
+@onready var idnum = get_parent().get_parent().idnum
 var segments = 1
 var line = null
 var lines = []
@@ -36,6 +37,7 @@ func changepivotpoint():
 			targetswappoint = points[int(line.lstrip("              param: "))]
 		targetswappoint.position = oldpos
 	$crank2.position = $crank.position
+	$start.position = $end.position
 
 func _ready():
 	var inst = load("res://rail.tscn").instantiate()
@@ -65,7 +67,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/0",
+"                  id_name: rail" + str(idnum) + "/0",
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -90,7 +92,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -115,7 +117,7 @@ var data:PackedStringArray
 
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
-"              id_name: rail" + str(get_parent().get_parent().idnum),
+"              id_name: rail" + str(idnum),
 "              layer: LC",
 "              link_info: []",
 "              link_num: !l 0",
@@ -208,7 +210,6 @@ func reposition():
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	$crank.rotation_degrees = 0
 	$crank2.rotation_degrees = 0
-	changepivotpoint()
 	#update the visuals
 	rail.points = []
 	$crank.rail.points = []
@@ -226,6 +227,7 @@ func reposition():
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	$crank2.rail.add_point($end.position)
+	changepivotpoint()
 
 func _process(delta):
 	queue_redraw()
@@ -278,7 +280,6 @@ func _process(delta):
 	
 	if locked == false:
 		if Input.is_action_just_pressed("undo"):
-				get_parent().get_parent().idnum-=1
 				get_parent().get_parent().line = true
 				queue_free()
 				
@@ -323,7 +324,7 @@ func newseg():
 	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",

@@ -114,13 +114,11 @@ func LoadTest(filename):
 						instance = getRail(railend[18])
 					
 					var Id
-					if railend[5].begins_with("                - comment:"):# account for different parsing types
-						Id = railend[6].erase(0,30)
-					else:
-						Id = railend[5].erase(0,30)
+					for railline in railend:
+						if railline.contains("linkID:"):
+							Id = railline.erase(0,30)
 					var oldrail = movingPlatforms.get(Id)
 					if oldrail == null:
-						print(railend[6])
 						print(Id)
 						content += raildata
 						content += railend
@@ -131,6 +129,8 @@ func LoadTest(filename):
 						instance = instance.childrail
 						AddPoints(raildata,instance,"")
 						instance.done()
+						instance.data = raildata
+						instance.endplat = railend
 						oldrail.reposition()
 						movingPlatforms.erase(Id)
 					

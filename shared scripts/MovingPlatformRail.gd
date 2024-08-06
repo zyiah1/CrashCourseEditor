@@ -8,11 +8,11 @@ const pointScene = preload("res://point2.tscn")
 var speed = 2
 var locked = false
 @onready var id = get_parent().nodes.size()
+@onready var idnum = get_parent().idnum
 var segments = 1
 var lines = []
 var points = []
 var mode = 0 #0 = path 1 = platform
-var idnum
 var childrail = null
 var loading = false
 var drag = false
@@ -22,7 +22,6 @@ var buttons = []
 
 
 func _ready():
-	idnum = int(get_parent().idnum)
 	if loading == false:
 		$start.position = get_global_mouse_position()
 	data = ["            - Points:",
@@ -30,7 +29,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/0",
+"                  id_name: rail" + str(idnum) + "/0",
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -55,7 +54,7 @@ func _ready():
 "                  dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -80,7 +79,7 @@ var data:PackedStringArray
 
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
-"              id_name: rail" + str(get_parent().idnum),
+"              id_name: rail" + str(idnum),
 "              layer: LC",
 "              link_info: []",
 "              link_num: !l 0",
@@ -164,6 +163,7 @@ func reposition():
 				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
 				
 				currentpoint += 1
+	idnum = int(end[2].lstrip("              id_name: rail"))
 	childrail.path = []
 	for line in points:
 		childrail.path.append(line.position)
@@ -249,7 +249,8 @@ func reposition():
 	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
 	childrail.rail.add_point(childrail.get_node("end").position)
 	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
-
+	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
+	print(childrail.idnum)
 
 func _process(delta):
 	queue_redraw()
@@ -314,7 +315,6 @@ func _process(delta):
 		if Input.is_action_just_pressed("bridge"):
 			if mode == 0:
 				get_parent().idnum += 2
-				idnum += 1
 				mode = 1
 				locked = true
 				buttons.append(get_node("end/Button"))
@@ -337,7 +337,7 @@ func newseg():
 		dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
+"                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
 "                  link_num: !l 0",
 "                  param0: -1.00000",
@@ -365,7 +365,6 @@ func newseg():
 func done(pos):
 	if mode == 0:
 		get_parent().idnum += 2
-		idnum += 1
 		mode = 1
 		locked = true
 		child(pos)
