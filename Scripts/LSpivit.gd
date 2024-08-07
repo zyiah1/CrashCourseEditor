@@ -24,6 +24,7 @@ func focus_exited():
 	$rotation.visible = false
 
 func _ready():
+	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
 	var reference_node = get_node("start")
 	add_child(inst)

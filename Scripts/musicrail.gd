@@ -5,12 +5,11 @@ var point = preload("res://musicpoint.tscn")
 var locked = false
 @onready var id = get_parent().nodes.size()
 var segments = 1
-var lines = []
 var points = []
 var loading = false
 var color = Color(0.9, 0.58, 0.34)
 var buttons = []
-
+@onready var rail = $Rail
 
 
 @onready var end:PackedStringArray = ["              closed: CLOSE",
@@ -46,6 +45,7 @@ func _ready():
 	else:
 		$pitch.hide()
 	$pitch.position = $start.position
+	rail.add_point($start.position)
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -160,42 +160,7 @@ func _process(delta):
 				queue_free()
 				
 		if Input.is_action_just_pressed("addpoint"):
-			
-			lines.append([$start.position,$end.position])
-			
-			var newpoint = point.instantiate()
-			newpoint.position = $start.position
-			add_child(newpoint)
-			buttons.append(newpoint.get_node("Button"))
-			newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-			newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
-			points.append(newpoint)
-			dataseg = ["                - dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(get_parent().idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-			data += dataseg
-			$start.position = $end.position
-			segments += 1
+			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
 			loading = true
@@ -210,8 +175,8 @@ func _process(delta):
 		get_parent().lineplacing = true
 
 func newseg():
-	lines.append([$start.position,$end.position])
-	
+	rail.add_point($end.position)
+	rail.add_point($end.position)
 	var newpoint = point.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
@@ -263,13 +228,9 @@ func reposition():
 		if currentpoint == points.size():
 			if line.begins_with("                  pnt0_x: "):
 				$start.position.x = int(line.lstrip("                  pnt0_x: "))
-				currentline = lines.size() - 1
 			if line.begins_with("                  pnt0_y: "):
 				$start.position.y = -int(line.lstrip("                  pnt0_y: "))
 				$end.position = $start.position
-				lines[currentline][1] = $end.position
-				if points.size() >= 2:
-					lines[currentline][0] = lines[currentline-1][1]
 			if line.begins_with("                  pnt1_x: "):
 				data[cycles] = "                  pnt1_x: " + str($end.position.x)
 			if line.begins_with("                  pnt1_y: "):
@@ -288,18 +249,9 @@ func reposition():
 						currentline += 1
 						first = false
 				points[currentpoint].position.x = int(line.lstrip("                  pnt0_x: "))
-				if first == true:
-					lines[currentline][count].x = points[currentpoint].position.x
-				else:
-					lines[currentline][0].x = lines[currentline - 1][1].x
-					lines[currentline][1].x = points[currentpoint].position.x
 			if line.begins_with("                  pnt0_y: "):
 				points[currentpoint].position.y = -int(line.lstrip("                  pnt0_y: "))
-				if first == true:
-					lines[currentline][count].y = points[currentpoint].position.y
-				else:
-					lines[currentline][0].y = lines[currentline - 1][1].y
-					lines[currentline][1].y = points[currentpoint].position.y
+				if first != true:
 					currentline += 1
 				
 			if line.begins_with("                  pnt1_x: "):
@@ -313,9 +265,15 @@ func reposition():
 				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
 				
 				currentpoint += 1
-	
-	
-	
+	$pitch.position = $start.position
+	#update the visuals
+	rail.points = []
+	for point in points:
+		rail.add_point(point.position)
+		rail.add_point(point.position)
+	rail.add_point($end.position)
+	rail.add_point($end.position)
+
 func done():
 	locked = true
 	get_parent().idnum += 1
@@ -326,8 +284,6 @@ func _draw():
 	if loading == false:
 		$end.position = get_global_mouse_position().round()
 	draw_line($start.position,$end.position,color+Color(.001,.00,.001),8)
-	for lineb in lines:
-		draw_line(lineb[0],lineb[1],color,8)
 
 func EXPORT():
 	get_parent().bridgedata += data + end

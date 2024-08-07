@@ -22,12 +22,13 @@ var first = true
 var rail
 
 func focus_entered():
-	$rotation.visible = true
+	$rotation.show()
 
 func focus_exited():
-	$rotation.visible = false
+	$rotation.hide()
 
 func _ready():
+	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
 	var reference_node = get_node("start")
 	add_child(inst)
@@ -43,9 +44,10 @@ func _ready():
 	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
-		$rotation.grab_focus()
 	else:
+		print("AAAAAAA")
 		$rotation.hide()
+		
 	$crank.position = $start.position
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	buttons.append($crank/Button)
@@ -77,6 +79,7 @@ func _ready():
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
+
 
 @onready var dataseg:PackedStringArray = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -352,7 +355,6 @@ func done():
 
 
 func _draw():
-	
 	if loading == false and locked == false:
 		$end.position = get_global_mouse_position().round()
 	draw_line($start.position,$end.position,color,4.5)

@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c714qtkxy1rxn" path="res://UI/buttons/button.png" id="11_mkaen"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="12_uro0u"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
-[ext_resource type="Script" path="res://Scripts/loadreworked.gd" id="14_hbknu"]
+[ext_resource type="Script" path="res://Scripts/load.gd" id="14_hbknu"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
 [ext_resource type="Script" path="res://Scripts/apiRequest.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://daf8r71wixk5k"]
+[gd_scene load_steps=18 format=3 uid="uid://daf8r71wixk5k"]
 
 [ext_resource type="Script" path="res://Scripts/musicrail.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_6xnkd"]
+[ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="7_8b4ke"]
+[ext_resource type="Texture2D" uid="uid://c7vmsjs2op5vu" path="res://wood.png" id="8_bluix"]
 
 [sub_resource type="StyleBoxEmpty" id="3"]
 
@@ -255,6 +257,11 @@ libraries = {
 "": SubResource("AnimationLibrary_my4il")
 }
 autoplay = "appear"
+
+[node name="Rail" parent="." instance=ExtResource("7_8b4ke")]
+texture = ExtResource("8_bluix")
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [connection signal="button_down" from="end/Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="end/Button" to="." method="_on_Button_button_up"]

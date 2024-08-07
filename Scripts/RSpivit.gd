@@ -40,6 +40,7 @@ func changepivotpoint():
 	$start.position = $end.position
 
 func _ready():
+	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
 	var reference_node = get_node("start")
 	add_child(inst)
