@@ -190,7 +190,7 @@ func MovingRail(Railname) -> PackedScene:
 		"              param0: 2141.00000":
 			Railscene = preload("res://Rrail.tscn")
 		"              param0: 2392.00000":
-			Railscene = preload("res://EndMoverail.tscn")
+			Railscene = preload("res://Endmoverail.tscn")
 		"              param0: 2200.00000":
 			Railscene = preload("res://Autorail.tscn")
 		"              param0: 2300.00000":
@@ -200,9 +200,9 @@ func MovingRail(Railname) -> PackedScene:
 		"              param0: 4300.00000":
 			Railscene = preload("res://Autorail.tscn")
 		"              param0: 2110.00000":
-			Railscene = preload("res://lcrank.tscn")
+			Railscene = preload("res://Lcrank.tscn")
 		"              param0: 2111.00000":
-			Railscene = preload("res://RCrank.tscn")
+			Railscene = preload("res://Rcrank.tscn")
 		"              param0: 2150.00000":
 			Railscene = preload("res://fanrail.tscn")
 		"              param0: 2140.00000":

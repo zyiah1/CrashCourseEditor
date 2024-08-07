@@ -157,8 +157,11 @@ script = ExtResource("12")
 
 [node name="FileWindoe" type="FileDialog" parent="Buttons/setting4/Node2D"]
 mode = 2
+size = Vector2i(1500, 800)
 theme = ExtResource("11")
+ok_button_text = "Select Current Folder"
 mode_overrides_title = false
+file_mode = 2
 access = 2
 filters = PackedStringArray("folder")
 
