@@ -20,4 +20,3 @@ func _on_rotation_text_changed():
 		set_caret_column(9)
 		
 	
-

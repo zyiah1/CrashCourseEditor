@@ -44,4 +44,3 @@ func save():
 	for line in content:
 		file.store_line(str(line))
 	file.close()
-

@@ -67,7 +67,7 @@ func _ready():
 		$Animation.speed_scale = 1000
 		$CanvasLayer3/CanvasLayer/buttons.speed_scale = 1000
 	
-	#make the borders
+	#make the default borders of the level if new level
 	if get_tree().current_scene.name == "Editor": #Not loading screen
 		var borders = [bridge.instantiate(),bridge.instantiate(),bridge.instantiate(),bridge.instantiate()]
 		borders[0].get_node("start").position = Vector2(495,-555)
@@ -91,6 +91,9 @@ func _ready():
 		$Cam.zoom = Vector2(.75,.75)
 		$Cam.paused = true
 		$Cam.toggleUI()
+	#connect all item and tool buttons
+	for button in get_tree().get_nodes_in_group("button"):
+		button.connect("selected",Callable(self,"itemselected"))
 
 var bridgeheader:PackedStringArray = ["        RailInfos:",
 "          PathInfo:"
@@ -257,6 +260,8 @@ func _process(delta):
 	itemplace()
 	shortcuts()
 
+func itemselected(item_name):
+	item = item_name
 
 func itemplace():
 	var instance = null
@@ -511,4 +516,3 @@ func parse(data):
 		$"CanvasLayer3/Proporties Panel/Panel".play("IN")
 	else:
 		$"CanvasLayer3/Proporties Panel".show()
-

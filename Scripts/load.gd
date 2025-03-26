@@ -331,4 +331,3 @@ func _on_FileDialog_file_selected(path):
 	
 	file.close()
 	LoadTest(filename)
-
