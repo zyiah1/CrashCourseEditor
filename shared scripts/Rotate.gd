@@ -378,5 +378,3 @@ func _on_Button_button_up():
 
 func _on_rotation_rotationupdated(text):
 	end[9] = "              param1: " + str(-int(text))
-
-

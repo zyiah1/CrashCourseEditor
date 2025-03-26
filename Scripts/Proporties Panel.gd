@@ -61,4 +61,3 @@ func _on_Property_pressed():
 func datachanged(text):
 	if $RealTime.button_pressed: #if it's realtime
 		$ScrollContainer/VBox.applydata()
-

@@ -45,4 +45,3 @@ func _draw():
 	lines = get_parent().lines
 	for lineb in lines:
 		draw_line(lineb[0] - offset,lineb[1] - offset,Color.DARK_RED - Color(.1,.1,.1,0),4.5)
-

@@ -16,9 +16,7 @@
 
 [sub_resource type="StyleBoxTexture" id="11"]
 
-[sub_resource type="StyleBoxTexture" id="13"]
-texture = ExtResource("8")
-region_rect = Rect2(0, 0, 733, 320)
+[sub_resource type="StyleBoxTexture" id="12"]
 
 [sub_resource type="StyleBoxTexture" id="9"]
 texture = ExtResource("8")
@@ -28,10 +26,14 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("7")
 region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id="12"]
-
-[sub_resource type="StyleBoxTexture" id="7"]
+[sub_resource type="StyleBoxTexture" id="13"]
 texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxEmpty" id="5"]
+
+[sub_resource type="StyleBoxTexture" id="6"]
+texture = ExtResource("7")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="3"]
@@ -42,11 +44,9 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("7")
 region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id="6"]
-texture = ExtResource("7")
+[sub_resource type="StyleBoxTexture" id="7"]
+texture = ExtResource("8")
 region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxEmpty" id="5"]
 
 [sub_resource type="StyleBoxTexture" id="14"]
 texture = ExtResource("8")
@@ -87,20 +87,20 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11")
-theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
-theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
-theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
-theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_vm8ls")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/focus = SubResource("11")
-theme_override_styles/normal = SubResource("13")
+theme_override_styles/disabled = SubResource("12")
 theme_override_styles/hover = SubResource("9")
 theme_override_styles/pressed = SubResource("10")
-theme_override_styles/disabled = SubResource("12")
+theme_override_styles/normal = SubResource("13")
 alignment = 1
 icon_alignment = 1
 script = ExtResource("6")
@@ -112,11 +112,11 @@ offset_top = 2.0
 offset_right = 577.0
 offset_bottom = 135.0
 theme = ExtResource("2")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/focus = SubResource("5")
+theme_override_styles/disabled = SubResource("6")
 theme_override_styles/hover = SubResource("3")
 theme_override_styles/pressed = SubResource("4")
-theme_override_styles/disabled = SubResource("6")
-theme_override_styles/focus = SubResource("5")
+theme_override_styles/normal = SubResource("7")
 icon = ExtResource("13")
 flat = true
 icon_alignment = 1
@@ -146,10 +146,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("14")
+theme_override_styles/focus = SubResource("14")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("15")
-theme_override_styles/focus = SubResource("14")
+theme_override_styles/normal = SubResource("14")
 text = "Change file path"
 script = ExtResource("12")
 
@@ -170,10 +170,10 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("14")
+theme_override_styles/focus = SubResource("14")
 theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("15")
-theme_override_styles/focus = SubResource("14")
+theme_override_styles/normal = SubResource("14")
 text = "Auto Save Interval"
 
 [node name="Panel" type="Panel" parent="Buttons/setting5"]

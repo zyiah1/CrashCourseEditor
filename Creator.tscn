@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=82 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -46,7 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/arrow45.png" id="45"]
 [ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/PivotEnd.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="47"]
-[ext_resource type="Script" path="res://Scripts/childbutton.gd" id="47_sq13j"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="48"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="50"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="52"]
@@ -320,26 +319,26 @@ cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
 base_font = ExtResource("28")
 variation_embolden = 0.39
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c3ri"]
-texture = ExtResource("7_cbhmo")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t780s"]
 texture = ExtResource("8_366nk")
 
-[sub_resource type="StyleBoxTexture" id="7"]
-texture = ExtResource("9_jgxak")
-region_rect = Rect2(0, 0, 733, 320)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c3ri"]
+texture = ExtResource("7_cbhmo")
 
 [sub_resource type="StyleBoxTexture" id="11"]
 texture = ExtResource("10_l2bps")
 region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id="10"]
+[sub_resource type="StyleBoxTexture" id="7"]
 texture = ExtResource("9_jgxak")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="9"]
 texture = ExtResource("10_l2bps")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="10"]
+texture = ExtResource("9_jgxak")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="Animation" id="3"]
@@ -643,8 +642,8 @@ offset_right = 1066.0
 offset_bottom = 593.0
 theme_override_fonts/font = SubResource("FontVariation_r337g")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "untitled"
 
 [node name="delay" type="Timer" parent="nonmoving"]
@@ -657,7 +656,7 @@ one_shot = true
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
-[node name="blue" type="Button" parent="CanvasLayer3/CanvasLayer2" groups=["button"]]
+[node name="blue" type="Button" parent="CanvasLayer3/CanvasLayer2"]
 visible = false
 custom_minimum_size = Vector2(350, 290)
 offset_left = -93.0
@@ -665,16 +664,16 @@ offset_top = 151.0
 offset_right = 94.0
 offset_bottom = 441.0
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("39")
 clip_text = true
 icon_alignment = 1
 
-[node name="invisible" type="Button" parent="CanvasLayer3/CanvasLayer2" groups=["button"]]
+[node name="invisible" type="Button" parent="CanvasLayer3/CanvasLayer2"]
 visible = false
 custom_minimum_size = Vector2(350, 290)
 offset_left = -94.0
@@ -682,10 +681,10 @@ offset_top = 221.0
 offset_right = 93.0
 offset_bottom = 511.0
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("44")
 clip_text = true
@@ -698,10 +697,10 @@ offset_top = 83.0
 offset_right = 701.95
 offset_bottom = 245.0
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("32")
 clip_text = true
@@ -720,10 +719,10 @@ alignment = 1
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("8")
 clip_text = true
@@ -734,10 +733,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("9")
 clip_text = true
@@ -748,10 +747,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("10")
 clip_text = true
@@ -762,10 +761,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("13")
 clip_text = true
@@ -776,10 +775,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("59")
 clip_text = true
@@ -791,10 +790,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("12")
 clip_text = true
@@ -805,10 +804,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("19")
 clip_text = true
@@ -819,10 +818,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("20")
 clip_text = true
@@ -833,10 +832,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("21")
 clip_text = true
@@ -847,10 +846,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("22")
 clip_text = true
@@ -861,10 +860,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("41")
 clip_text = true
@@ -875,10 +874,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("45")
 clip_text = true
@@ -889,10 +888,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("17")
 clip_text = true
@@ -903,10 +902,10 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("16")
 clip_text = true
@@ -924,10 +923,10 @@ alignment = 1
 [node name="rail" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("23")
 clip_text = true
@@ -937,10 +936,10 @@ script = ExtResource("3")
 [node name="music" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("55")
 clip_text = true
@@ -950,10 +949,10 @@ script = ExtResource("3")
 [node name="fan" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("18")
 clip_text = true
@@ -963,10 +962,10 @@ script = ExtResource("3")
 [node name="movingL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("26")
 clip_text = true
@@ -976,10 +975,10 @@ script = ExtResource("3")
 [node name="movingR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("25")
 clip_text = true
@@ -989,10 +988,10 @@ script = ExtResource("3")
 [node name="movingA" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("27")
 clip_text = true
@@ -1002,10 +1001,10 @@ script = ExtResource("3")
 [node name="CrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("30")
 clip_text = true
@@ -1015,10 +1014,10 @@ script = ExtResource("3")
 [node name="CrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("29")
 clip_text = true
@@ -1028,10 +1027,10 @@ script = ExtResource("3")
 [node name="Lspin" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("32")
 clip_text = true
@@ -1041,10 +1040,10 @@ script = ExtResource("3")
 [node name="Rspin" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("31")
 clip_text = true
@@ -1054,10 +1053,10 @@ script = ExtResource("3")
 [node name="Lpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("35")
 clip_text = true
@@ -1067,10 +1066,10 @@ script = ExtResource("3")
 [node name="Rpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("34")
 clip_text = true
@@ -1080,10 +1079,10 @@ script = ExtResource("3")
 [node name="Apivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("36")
 clip_text = true
@@ -1093,10 +1092,10 @@ script = ExtResource("3")
 [node name="LS" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("24")
 clip_text = true
@@ -1106,10 +1105,10 @@ script = ExtResource("3")
 [node name="RS" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("38")
 clip_text = true
@@ -1119,10 +1118,10 @@ script = ExtResource("3")
 [node name="endmove" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("47")
 clip_text = true
@@ -1132,10 +1131,10 @@ script = ExtResource("3")
 [node name="endrotate" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("46")
 clip_text = true
@@ -1154,10 +1153,10 @@ alignment = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("40")
 clip_text = true
@@ -1169,46 +1168,61 @@ script = ExtResource("3")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("43")
 clip_text = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("47_sq13j")
+script = ExtResource("3")
 
 [node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("52")
 clip_text = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("47_sq13j")
+script = ExtResource("3")
+
+[node name="multiselect" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("7")
+theme_override_styles/disabled = SubResource("11")
+theme_override_styles/hover = SubResource("7")
+theme_override_styles/pressed = SubResource("11")
+theme_override_styles/normal = SubResource("7")
+button_mask = 5
+icon = ExtResource("52")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
 
 [node name="grab" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
 visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
-theme_override_styles/disabled = SubResource("11")
+theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("53")
 clip_text = true
 icon_alignment = 1
-script = ExtResource("47_sq13j")
+script = ExtResource("3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3"]
 process_priority = 20
@@ -1232,10 +1246,10 @@ offset_top = 11.0
 offset_right = 356.0
 offset_bottom = 301.0
 theme = ExtResource("7")
-theme_override_styles/normal = SubResource("10")
+theme_override_styles/disabled = SubResource("9")
 theme_override_styles/hover = SubResource("10")
 theme_override_styles/pressed = SubResource("9")
-theme_override_styles/disabled = SubResource("9")
+theme_override_styles/normal = SubResource("10")
 button_mask = 5
 icon = ExtResource("2")
 clip_text = true
@@ -1291,16 +1305,16 @@ offset_left = 3169.0
 offset_top = 31.0
 offset_right = 3339.0
 offset_bottom = 63.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("23")
+theme_override_styles/focus = SubResource("23")
+theme_override_styles/disabled = SubResource("23")
 theme_override_styles/hover = SubResource("23")
 theme_override_styles/pressed = SubResource("23")
-theme_override_styles/disabled = SubResource("23")
-theme_override_styles/focus = SubResource("23")
+theme_override_styles/normal = SubResource("23")
 text = "Property Panel"
 
 [node name="Functions" type="Button" parent="CanvasLayer3/Proporties Panel"]
@@ -1308,16 +1322,16 @@ offset_left = 3639.0
 offset_top = 34.0
 offset_right = 3809.0
 offset_bottom = 66.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("23")
+theme_override_styles/focus = SubResource("23")
+theme_override_styles/disabled = SubResource("23")
 theme_override_styles/hover = SubResource("23")
 theme_override_styles/pressed = SubResource("23")
-theme_override_styles/disabled = SubResource("23")
-theme_override_styles/focus = SubResource("23")
+theme_override_styles/normal = SubResource("23")
 text = "Functions"
 
 [node name="Panel" type="AnimationPlayer" parent="CanvasLayer3/Proporties Panel"]

@@ -1,5 +1,6 @@
 extends Button
 
+signal selected
 #func _process(delta):
 	#if Input.is_action_just_pressed(name):
 		#print(name)
@@ -9,8 +10,4 @@ func _pressed():
 		buttons.disabled = false
 	disabled = true
 	
-	
-	get_parent().get_parent().get_parent().get_parent().item = str(name)
-	
-
-
+	emit_signal("selected",str(name))
