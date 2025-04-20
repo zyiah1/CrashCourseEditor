@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="6"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="7"]
-[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="8"]
 [ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_yqijn"]
 [ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="10"]
@@ -15,6 +15,9 @@
 
 [sub_resource type="FontFile" id="15"]
 fallbacks = Array[Font]([ExtResource("7")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -37,13 +40,7 @@ PopupMenu/icons/radio_unchecked = ExtResource("9")
 PopupMenu/styles/hover = SubResource("14")
 PopupMenu/styles/panel = SubResource("13")
 
-[sub_resource type="CompressedTexture2D" id="21"]
-
 [sub_resource type="StyleBoxTexture" id="24"]
-
-[sub_resource type="StyleBoxTexture" id="25"]
-texture = ExtResource("9_yqijn")
-region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="22"]
 texture = ExtResource("9_yqijn")
@@ -53,8 +50,17 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("10_03k7f")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxTexture" id="25"]
+texture = ExtResource("9_yqijn")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="CompressedTexture2D" id="21"]
+
 [sub_resource type="FontFile" id="26"]
 fallbacks = Array[Font]([ExtResource("7")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -234,6 +240,9 @@ cache/0/45/0/kerning_overrides/45/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="27"]
 fallbacks = Array[Font]([ExtResource("7")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -441,6 +450,9 @@ cache/0/22/0/kerning_overrides/22/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="32"]
 fallbacks = Array[Font]([ExtResource("7")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -4441,15 +4453,16 @@ offset_bottom = 204.0
 theme = SubResource("20")
 theme_override_fonts/font = ExtResource("2")
 theme_override_font_sizes/font_size = 56
-theme_override_icons/arrow = SubResource("21")
 theme_override_styles/focus = SubResource("24")
-theme_override_styles/normal = SubResource("25")
 theme_override_styles/hover = SubResource("22")
 theme_override_styles/pressed = SubResource("23")
+theme_override_styles/normal = SubResource("25")
+theme_override_icons/arrow = SubResource("21")
 alignment = 1
 
 [node name="X" parent="." instance=ExtResource("8")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 277.0
@@ -4461,6 +4474,7 @@ theme_override_font_sizes/font_size = 41
 
 [node name="Y" parent="." instance=ExtResource("8")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 472.0
@@ -4472,6 +4486,7 @@ theme_override_font_sizes/font_size = 41
 
 [node name="Speed" parent="." instance=ExtResource("8")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 375.0
@@ -4551,7 +4566,7 @@ pivot_offset = Vector2(143, 10)
 theme_override_fonts/normal_font = SubResource("32")
 theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
-text = "Platform"
+text = "Track"
 
 [node name="RichTextLabel10" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -4563,7 +4578,7 @@ pivot_offset = Vector2(143, 10)
 theme_override_fonts/normal_font = SubResource("32")
 theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
-text = "Track"
+text = "Platform"
 
 [node name="ChildOptionButton" type="OptionButton" parent="."]
 layout_mode = 0
@@ -4574,15 +4589,16 @@ offset_bottom = 508.0
 theme = SubResource("20")
 theme_override_fonts/font = ExtResource("2")
 theme_override_font_sizes/font_size = 56
-theme_override_icons/arrow = SubResource("21")
 theme_override_styles/focus = SubResource("24")
-theme_override_styles/normal = SubResource("25")
 theme_override_styles/hover = SubResource("22")
 theme_override_styles/pressed = SubResource("23")
+theme_override_styles/normal = SubResource("25")
+theme_override_icons/arrow = SubResource("21")
 alignment = 1
 
 [node name="ChildX" parent="." instance=ExtResource("8")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 277.0
@@ -4594,6 +4610,7 @@ theme_override_font_sizes/font_size = 41
 
 [node name="ChildY" parent="." instance=ExtResource("8")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 472.0
@@ -4672,12 +4689,12 @@ offset_right = 1698.0
 offset_bottom = 547.0
 theme = ExtResource("13")
 theme_override_icons/checked = SubResource("33")
-theme_override_icons/checked_disabled = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
-theme_override_icons/unchecked_disabled = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
-theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
@@ -4700,12 +4717,12 @@ offset_right = 174.0
 offset_bottom = 673.0
 theme = ExtResource("13")
 theme_override_icons/checked = SubResource("33")
-theme_override_icons/checked_disabled = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
-theme_override_icons/unchecked_disabled = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
-theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="."]
@@ -4728,13 +4745,14 @@ offset_right = 214.0
 offset_bottom = 609.0
 theme = ExtResource("13")
 theme_override_icons/checked = SubResource("33")
-theme_override_icons/checked_disabled = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
-theme_override_icons/unchecked_disabled = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
-theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked_disabled = SubResource("33")
+button_pressed = true
 
 [node name="camera" type="Control" parent="."]
 anchors_preset = 0
@@ -4776,17 +4794,18 @@ offset_right = 176.0
 offset_bottom = 787.0
 theme = ExtResource("13")
 theme_override_icons/checked = SubResource("33")
-theme_override_icons/checked_disabled = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
-theme_override_icons/unchecked_disabled = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
-theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked = SubResource("33")
+theme_override_icons/checked_disabled = SubResource("33")
+theme_override_icons/unchecked_disabled = SubResource("33")
+theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked_disabled = SubResource("33")
 
 [node name="CamY" parent="camera" instance=ExtResource("8")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 442.0

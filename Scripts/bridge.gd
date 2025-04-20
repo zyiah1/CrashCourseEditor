@@ -309,6 +309,7 @@ func reposition():
 func done():
 	locked = true
 	idnum += 1
+	get_parent().idnum += 1
 	get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 

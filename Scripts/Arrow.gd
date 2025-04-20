@@ -115,7 +115,7 @@ func reposition():
 		scale.y = float(data[25].lstrip("            scale_y: "))
 		scale = scale*defaultSize #cause I'm stupid and everythings default scale is not 1
 	if rotatable:
-		rotation_degrees = float(data[3].lstrip("            dir_z: "))
+		rotation_degrees = -float(data[3].lstrip("            dir_z: "))
 
 func EXPORT():
 	data[21] = "            pos_x: " + str(position.x)
