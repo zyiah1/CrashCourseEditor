@@ -251,6 +251,7 @@ func reposition():
 	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
 	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
 	print(childrail.idnum)
+	childrail.get_node("preview").backpath = childrail.path
 
 func _process(delta):
 	queue_redraw()
@@ -371,7 +372,6 @@ func done(pos):
 		child(pos)
 		buttons.append(get_node("end/Button"))
 		add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
-		print(str(rail.resource_path).lstrip("res://").rstrip(".tscn"))
 
 func child(pos):
 	if mode == 1:
@@ -384,7 +384,7 @@ func child(pos):
 		railinst.speed = speed
 		add_child(railinst)
 		childrail = railinst
-		mode = 69
+		mode = 69 #nice
 
 func _draw():
 	if locked == false and loading == false:
