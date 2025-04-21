@@ -946,7 +946,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="fan" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingfan" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -998,7 +998,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="CrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingCrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1011,7 +1011,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="CrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingCrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1115,7 +1115,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="endmove" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingEnd" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")

@@ -18,7 +18,7 @@ var loading = false
 var drag = false
 var buttons = []
 
-@export var rail: PackedScene = preload("res://Rrail.tscn")
+@export var rail: PackedScene = preload("res://RMove.tscn")
 
 
 func _ready():
@@ -318,6 +318,8 @@ func _process(delta):
 				mode = 1
 				locked = true
 				buttons.append(get_node("end/Button"))
+				add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
+				print(str(rail.resource_path).lstrip("res://").rstrip(".tscn"))
 	if is_queued_for_deletion():
 		get_parent().Ain()
 		get_parent().railplace = -420
@@ -361,7 +363,6 @@ func newseg():
 		$start.position = $end.position
 		segments += 1
 
-
 func done(pos):
 	if mode == 0:
 		get_parent().idnum += 2
@@ -369,6 +370,8 @@ func done(pos):
 		locked = true
 		child(pos)
 		buttons.append(get_node("end/Button"))
+		add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
+		print(str(rail.resource_path).lstrip("res://").rstrip(".tscn"))
 
 func child(pos):
 	if mode == 1:

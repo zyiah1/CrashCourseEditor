@@ -185,34 +185,34 @@ func AddPoints(raildata,instance,prereference):
 				first = false
 
 func MovingRail(Railname) -> PackedScene:
-	var Railscene = preload("res://fanrail.tscn") # default is fan
+	var Railscene = preload("res://FanMove.tscn") # default is fan
 	match Railname:
 		"              param0: 2141.00000":
-			Railscene = preload("res://Rrail.tscn")
+			Railscene = preload("res://RMove.tscn")
 		"              param0: 2392.00000":
-			Railscene = preload("res://Endmoverail.tscn")
+			Railscene = preload("res://EndMove.tscn")
 		"              param0: 2200.00000":
-			Railscene = preload("res://Autorail.tscn")
+			Railscene = preload("res://AutoMove.tscn")
 		"              param0: 2300.00000":
-			Railscene = preload("res://Autorail.tscn")
+			Railscene = preload("res://AutoMove.tscn")
 		"              param0: 2000.00000":
-			Railscene = preload("res://Autorail.tscn")
+			Railscene = preload("res://AutoMove.tscn")
 		"              param0: 4300.00000":
-			Railscene = preload("res://Autorail.tscn")
+			Railscene = preload("res://AutoMove.tscn")
 		"              param0: 2110.00000":
 			Railscene = preload("res://Lcrank.tscn")
 		"              param0: 2111.00000":
 			Railscene = preload("res://Rcrank.tscn")
 		"              param0: 2150.00000":
-			Railscene = preload("res://fanrail.tscn")
+			Railscene = preload("res://FanMove.tscn")
 		"              param0: 2140.00000":
-			Railscene = preload("res://Lrail.tscn")
+			Railscene = preload("res://LMove.tscn")
 	return Railscene
 func getRail(Railname:String):
 	var Railscene = preload("res://bridge.tscn").instantiate()
 	if Railname.begins_with("              param0: 2") or Railname.begins_with("              param0: 4300") or Railname.begins_with("              param0: 4900.00000"):
 		if Railname == "              param0: 2900.00000" or Railname.begins_with("              param0: 4900.00000"):
-			Railscene = preload("res://R.tscn").instantiate()
+			Railscene = preload("res://PathRail.tscn").instantiate()
 			
 		else:
 			
@@ -237,21 +237,21 @@ func getRail(Railname:String):
 		"              param0: 3011.00000":
 			Railscene = preload("res://Rspin.tscn").instantiate()
 		"              param0: 3140.00000":
-			Railscene = preload("res://Lpivot.tscn").instantiate()
+			Railscene = preload("res://LRotate.tscn").instantiate()
 		"              param0: 3150.00000":
-			Railscene = preload("res://Lpivot.tscn").instantiate()
+			Railscene = preload("res://LRotate.tscn").instantiate()
 		"              param0: 3300.00000":
-			Railscene = preload("res://Apivot.tscn").instantiate()
+			Railscene = preload("res://AutoRotate.tscn").instantiate()
 		"              param0: 3200.00000":
-			Railscene = preload("res://Apivot.tscn").instantiate()
+			Railscene = preload("res://AutoRotate.tscn").instantiate()
 		"              param0: 3423.00000":
-			Railscene = preload("res://Apivot.tscn").instantiate()
+			Railscene = preload("res://AutoRotate.tscn").instantiate()
 		"              param0: 3322.00000":
-			Railscene = preload("res://Apivot.tscn").instantiate()
+			Railscene = preload("res://AutoRotate.tscn").instantiate()
 		"              param0: 3392.00000":
-			Railscene = preload("res://Endpivot.tscn").instantiate()
+			Railscene = preload("res://EndRotate.tscn").instantiate()
 		"              param0: 3141.00000":
-			Railscene = preload("res://Rpivot.tscn").instantiate()
+			Railscene = preload("res://RRotate.tscn").instantiate()
 		"              param0: 3112.00000":
 			Railscene = preload("res://LSpivit.tscn").instantiate()
 		"              param0: 3113.00000":

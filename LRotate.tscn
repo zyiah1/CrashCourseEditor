@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://cbywyi3kqlov1"]
 
-[ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
-[ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="3_n0j06"]
-[ext_resource type="Texture2D" uid="uid://c6428javeoxyj" path="res://pivotL.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="4_dgf3v"]
-[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
-[ext_resource type="Script" path="res://Scripts/filter.gd" id="6"]
-[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="7"]
-[ext_resource type="Script" path="res://Scripts/messenger.gd" id="8"]
-[ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="9"]
+[ext_resource type="Script" path="res://Scripts/messenger.gd" id="1_bu4pu"]
+[ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="2_6r3so"]
+[ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="3_r7g3a"]
+[ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="4_n2m12"]
+[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="5_u50vq"]
+[ext_resource type="Texture2D" uid="uid://c6428javeoxyj" path="res://pivotL.png" id="6_77wu5"]
+[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="7_jixq0"]
+[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8_fqff7"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="9_dha1j"]
+[ext_resource type="Script" path="res://Scripts/filter.gd" id="10_w6pfe"]
 
 [sub_resource type="StyleBoxEmpty" id="10"]
 
@@ -18,13 +18,21 @@
 [sub_resource type="StyleBoxEmpty" id="9"]
 
 [sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("5")])
+fallbacks = Array[Font]([ExtResource("9_dha1j")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
 
 [sub_resource type="ImageTexture" id="5"]
 
@@ -65,20 +73,20 @@ _data = {
 }
 
 [node name="rotate" type="Sprite2D"]
-script = ExtResource("8")
+script = ExtResource("1_bu4pu")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
-script = ExtResource("1")
+script = ExtResource("2_6r3so")
 
 [node name="start" type="Sprite2D" parent="Spin"]
 visible = false
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("9")
+texture = ExtResource("3_r7g3a")
 hframes = 2
 
 [node name="crank" type="Node2D" parent="Spin"]
-script = ExtResource("3_n0j06")
-previewtexture = ExtResource("4_dgf3v")
+script = ExtResource("4_n2m12")
+previewtexture = ExtResource("5_u50vq")
 
 [node name="Timer" type="Timer" parent="Spin/crank"]
 one_shot = true
@@ -88,15 +96,15 @@ offset_left = -11.0
 offset_top = -10.0
 offset_right = 11.0
 offset_bottom = 10.0
-theme_override_styles/normal = SubResource("10")
+theme_override_styles/focus = SubResource("10")
+theme_override_styles/disabled = SubResource("10")
 theme_override_styles/hover = SubResource("8")
 theme_override_styles/pressed = SubResource("9")
-theme_override_styles/disabled = SubResource("10")
-theme_override_styles/focus = SubResource("10")
+theme_override_styles/normal = SubResource("10")
 
 [node name="crank" type="Sprite2D" parent="Spin/crank"]
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("4")
+texture = ExtResource("6_77wu5")
 
 [node name="cooldown" type="Timer" parent="Spin/crank"]
 autostart = true
@@ -105,11 +113,11 @@ autostart = true
 visible = false
 position = Vector2(55, 23)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3")
+texture = ExtResource("7_jixq0")
 
 [node name="end" type="Sprite2D" parent="Spin"]
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("9")
+texture = ExtResource("3_r7g3a")
 hframes = 2
 
 [node name="Button" type="Button" parent="Spin/end"]
@@ -117,11 +125,11 @@ offset_left = -17.0
 offset_top = -17.0
 offset_right = 17.0
 offset_bottom = 17.0
-theme_override_styles/normal = SubResource("10")
+theme_override_styles/focus = SubResource("10")
+theme_override_styles/disabled = SubResource("10")
 theme_override_styles/hover = SubResource("8")
 theme_override_styles/pressed = SubResource("9")
-theme_override_styles/disabled = SubResource("10")
-theme_override_styles/focus = SubResource("10")
+theme_override_styles/normal = SubResource("10")
 
 [node name="rotation" type="TextEdit" parent="Spin"]
 modulate = Color(1, 1, 1, 0.478431)
@@ -137,11 +145,11 @@ offset_bottom = -40.0777
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(20, 100)
-theme = ExtResource("7")
+theme = ExtResource("8_fqff7")
 theme_override_fonts/font = SubResource("1")
 theme_override_icons/tab = SubResource("5")
 theme_override_icons/space = SubResource("5")
-script = ExtResource("6")
+script = ExtResource("10_w6pfe")
 
 [node name="startup" type="AnimationPlayer" parent="Spin"]
 libraries = {

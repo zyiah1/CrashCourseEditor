@@ -9,18 +9,22 @@ const checkpoint = preload("res://checkpoint.tscn")
 const finalcheck = preload("res://finalcheckpoint.tscn")
 const musicrail = preload("res://musicrail.tscn")
 const bridge = preload("res://bridge.tscn")
-const fan = preload("res://fan.tscn")
-const RightMove = preload("res://R.tscn")
-const LeftMove = preload("res://L.tscn")
-const LeftCrank = preload("res://lcrankrail.tscn")
-const RightCrank = preload("res://RCrankRail.tscn")
 const RightSpin = preload("res://Rspin.tscn")
 const LeftSpin = preload("res://Lspin.tscn")
-const AutoPlat = preload("res://Auto.tscn")
 const player = preload("res://player.tscn")
 const coin = preload("res://coin.tscn")
 const DK = preload("res://dk.tscn")
 const Pauline = preload("res://pauline.tscn")
+
+#Moving Platforms
+const PathRail = preload("res://PathRail.tscn")
+const fan = preload("res://FanMove.tscn")
+const RightMove = preload("res://RMove.tscn")
+const LeftMove = preload("res://LMove.tscn")
+const AutoPlat = preload("res://AutoMove.tscn")
+const EndMove = preload("res://EndMove.tscn")
+const LeftCrank = preload("res://lcrank.tscn")
+const RightCrank = preload("res://Rcrank.tscn")
 
 var idnum: int = 3
 var mode: int = 1
@@ -279,37 +283,39 @@ func itemplace():
 			if item == "music":
 				instance = musicrail.instantiate()
 			if item == "endrotate":
-				instance = preload("res://Endpivot.tscn").instantiate()
+				instance = preload("res://EndRotate.tscn").instantiate()
 			if item == "Rspin":
 				instance = RightSpin.instantiate()
 			if item == "Lspin":
 				instance = LeftSpin.instantiate()
 			if item == "Lpivot":
-				instance = preload("res://Lpivot.tscn").instantiate()
+				instance = preload("res://LRotate.tscn").instantiate()
 			if item == "Rpivot":
-				instance = preload("res://Rpivot.tscn").instantiate()
+				instance = preload("res://RRotate.tscn").instantiate()
 			if item == "Apivot":
-				instance = preload("res://Apivot.tscn").instantiate()
+				instance = preload("res://AutoRotate.tscn").instantiate()
 			if item == "LS":
 				instance = preload("res://LSpivit.tscn").instantiate()
 			if item == "RS":
 				instance = preload("res://RSpivit.tscn").instantiate()
 			if instance == null:
 				railplace = 3
-			if item == "fan":
-				instance = fan.instantiate()
+			if item.begins_with("moving"):
+				instance = PathRail.instantiate()
+			if item == "movingfan":
+				instance.rail = fan
 			if item == "movingR":
-				instance = RightMove.instantiate()
+				instance.rail = RightMove
 			if item == "movingL":
-				instance = LeftMove.instantiate()
+				instance.rail = LeftMove
 			if item == "movingA":
-				instance = AutoPlat.instantiate()
-			if item == "CrankL":
-				instance = LeftCrank.instantiate()
-			if item == "CrankR":
-				instance = RightCrank.instantiate()
-			if item == "endmove":
-				instance = preload("res://EndMove.tscn").instantiate()
+				instance.rail = AutoPlat
+			if item == "movingCrankL":
+				instance.rail = LeftCrank
+			if item == "movingCrankR":
+				instance.rail = RightCrank
+			if item == "movingEnd":
+				instance.rail = EndMove
 			if instance != null:
 				add_child(instance)
 				lineplacing = false
