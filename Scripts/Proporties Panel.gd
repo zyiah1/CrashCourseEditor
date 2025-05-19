@@ -22,7 +22,7 @@ func _on_Functions_pressed():
 			$FunctionContainer.add_child(bridge.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("music"):
 			$FunctionContainer.add_child(bridge.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("fan"):
+		if get_parent().get_parent().editednode.is_in_group("FanMove"):
 			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("RMove"):
 			$FunctionContainer.add_child(moving.instantiate())
@@ -32,9 +32,9 @@ func _on_Functions_pressed():
 			$FunctionContainer.add_child(auto.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Autospin"):
 			$FunctionContainer.add_child(apivot.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("LCrankrail"):
+		if get_parent().get_parent().editednode.is_in_group("Lcrank"):
 			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("RCrankrail"):
+		if get_parent().get_parent().editednode.is_in_group("Rcrank"):
 			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("EndMove"):
 			$FunctionContainer.add_child(moving.instantiate())

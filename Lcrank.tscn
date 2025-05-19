@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="6_dvq7r"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="7"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8"]
-[ext_resource type="PackedScene" path="res://pointL.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://brk6lsnfqfyaw" path="res://pointL.tscn" id="9"]
 
 [sub_resource type="StyleBoxEmpty" id="7"]
 
@@ -18,12 +18,20 @@
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("7")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
 
 [sub_resource type="ImageTexture" id="2"]
 
@@ -89,11 +97,11 @@ offset_left = -17.0
 offset_top = -17.0
 offset_right = 17.0
 offset_bottom = 17.0
-theme_override_styles/normal = SubResource("7")
+theme_override_styles/focus = SubResource("7")
+theme_override_styles/disabled = SubResource("7")
 theme_override_styles/hover = SubResource("5")
 theme_override_styles/pressed = SubResource("6")
-theme_override_styles/disabled = SubResource("7")
-theme_override_styles/focus = SubResource("7")
+theme_override_styles/normal = SubResource("7")
 
 [node name="preview" type="Node2D" parent="."]
 script = ExtResource("5_dhpds")

@@ -238,13 +238,13 @@ func _process(delta):
 		if drag == true:
 			get_parent().get_parent().nodes.remove_at(id)
 			get_parent().queue_free()
-		var amount = 0
+		var buttonamount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
 				modulate = Color.RED
-				amount += 1
-			if amount == 0:
+				buttonamount += 1
+			if buttonamount == 0:
 				modulate = Color.WHITE
 				drag = false
 	if get_parent().get_parent().item == "edit":
@@ -252,13 +252,13 @@ func _process(delta):
 			get_node("rotation").show()
 			get_node("rotation").grab_focus()
 			get_node("rotation").set_caret_column(7)
-		var amount = 0
+		var buttonamount = 0
 		
 		for button in buttons:
 			if button.is_hovered():
 				modulate = Color.LIGHT_BLUE
-				amount += 1
-			if amount == 0:
+				buttonamount += 1
+			if buttonamount == 0:
 				modulate = Color.WHITE
 				drag = false
 	if get_parent().get_parent().item == "proporties":

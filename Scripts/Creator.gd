@@ -23,7 +23,7 @@ const RightMove = preload("res://RMove.tscn")
 const LeftMove = preload("res://LMove.tscn")
 const AutoPlat = preload("res://AutoMove.tscn")
 const EndMove = preload("res://EndMove.tscn")
-const LeftCrank = preload("res://lcrank.tscn")
+const LeftCrank = preload("res://Lcrank.tscn")
 const RightCrank = preload("res://Rcrank.tscn")
 
 var idnum: int = 3
