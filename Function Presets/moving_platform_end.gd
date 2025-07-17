@@ -63,6 +63,7 @@ func _ready():
 	if reset.text.begins_with("              param3: -1"):
 		$reset.button_pressed = false
 	
+	$Trigger.selected = $Trigger.get_item_index(int(ID.text.erase(0,22)))
 
 #-1               param3:  == no reset on spawn
 
@@ -113,3 +114,7 @@ func _on_reset_pressed():
 		reset.text = "              param3: 1"
 	else:
 		reset.text = "              param3: -1"
+
+
+func _on_trigger_item_selected(index):
+	ID.text = "              param0: "+str($Trigger.get_item_id(index))+".00000"

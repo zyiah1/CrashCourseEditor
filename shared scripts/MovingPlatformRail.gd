@@ -175,14 +175,65 @@ func reposition():
 	first = true
 	cycles = -1
 	for line in childrail.endplat:
+		if line.begins_with("              param0:"): #get the point kind
+			var pointtexture = preload("res://point.png")
+			childrail.get_node("preview").rail.texture = preload("res://railPurple.png")
+			#L points
+			if not line.begins_with("              param0: 2150") and line.begins_with("              param0: 21"):
+				pointtexture = preload("res://pointL.png")
+				childrail.get_node("preview").rail.texture = preload("res://raildarkblue.png")
+			#R points
+			if line.begins_with("              param0: 2141") or line.begins_with("              param0: 2111"):
+				pointtexture = preload("res://pointR.png")
+				childrail.get_node("preview").rail.texture = preload("res://railmaroon.png")
+			#Auto points
+			if line.begins_with("              param0: 2200") or line.begins_with("              param0: 2300") or line.begins_with("              param0: 2000") or line.begins_with("              param0: 4300"):
+				pointtexture = preload("res://pointA.png")
+				childrail.get_node("preview").rail.texture = preload("res://railGreen.png")
+			
+			#End Points
+			if line.begins_with("              param0: 2380"):
+				pointtexture = preload("res://PointE0.png")
+			if line.begins_with("              param0: 2381"):
+				pointtexture = preload("res://PointE1.png")
+			if line.begins_with("              param0: 2382"):
+				pointtexture = preload("res://PointE2.png")
+			if line.begins_with("              param0: 2383"):
+				pointtexture = preload("res://PointE3.png")
+			if line.begins_with("              param0: 2384"):
+				pointtexture = preload("res://PointE4.png")
+			if line.begins_with("              param0: 2385"):
+				pointtexture = preload("res://PointE5.png")
+			if line.begins_with("              param0: 2386"):
+				pointtexture = preload("res://PointE6.png")
+			if line.begins_with("              param0: 2387"):
+				pointtexture = preload("res://PointE7.png")
+			if line.begins_with("              param0: 2388"):
+				pointtexture = preload("res://PointE8.png")
+			if line.begins_with("              param0: 2389"):
+				pointtexture = preload("res://PointE9.png")
+			if line.begins_with("              param0: 2390"):
+				pointtexture = preload("res://PointE10.png")
+			if line.begins_with("              param0: 2391"):
+				pointtexture = preload("res://PointE11.png")
+			if line.begins_with("              param0: 2392") or line.begins_with("              param0: 2393") or line.begins_with("              param0: 2394"):
+				pointtexture = preload("res://pointE.png")
+			for point in childrail.points:
+				point.texture = pointtexture
+			childrail.get_node("end").texture = pointtexture
+			childrail.get_node("start").texture = pointtexture
 		if line.begins_with("              param2: "):
 			var text = line
 			text = text.erase(0,22)
 			childrail.get_node("rotation").text = text
 			childrail._on_rotation_change()
 	
-	for line in childrail.data:
+	for line in childrail.data: # cycle through child data
 		cycles += 1
+		
+			
+			
+			
 		if currentpoint == childrail.points.size():
 			if line.begins_with("                  pnt0_x: "):
 				childrail.get_node("start").position.x = int(line.lstrip("                  pnt0_x: "))

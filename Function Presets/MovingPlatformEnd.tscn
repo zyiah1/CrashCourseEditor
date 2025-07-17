@@ -1,20 +1,20 @@
-[gd_scene load_steps=26 format=3 uid="uid://por5sya5kxpw"]
+[gd_scene load_steps=26 format=3 uid="uid://c7f61x55tb67a"]
 
-[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="1"]
-[ext_resource type="FontFile" path="res://fonts/wii.tres" id="2"]
-[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="6"]
-[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="7"]
-[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="8"]
-[ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="9"]
-[ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="10"]
-[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="11"]
-[ext_resource type="Script" uid="uid://bdk2tksscf4gp" path="res://Function Presets/MovingPlatform.gd" id="12"]
-[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="13"]
+[ext_resource type="Script" uid="uid://dn7m6wc3nssa" path="res://Function Presets/moving_platform_end.gd" id="1_pc6uv"]
+[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="2_kb8jy"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="3_qy81w"]
+[ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="4_rn2as"]
+[ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="5_1jex5"]
+[ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="6_ihikw"]
+[ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="7_upvck"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="8_x2awj"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_n74j3"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_6vme7"]
+[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="11_ju8du"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="12_65hp5"]
 
 [sub_resource type="FontFile" id="15"]
-fallbacks = Array[Font]([ExtResource("7")])
+fallbacks = Array[Font]([ExtResource("3_qy81w")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -26,38 +26,38 @@ cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxTexture" id="14"]
-texture = ExtResource("6")
+texture = ExtResource("6_ihikw")
 region_rect = Rect2(0, 0, 645, 25)
 
 [sub_resource type="StyleBoxTexture" id="13"]
-texture = ExtResource("5")
+texture = ExtResource("7_upvck")
 region_rect = Rect2(0, 0, 645, 25)
 
 [sub_resource type="Theme" id="20"]
 PopupMenu/fonts/font = SubResource("15")
-PopupMenu/icons/radio_checked = ExtResource("10")
-PopupMenu/icons/radio_unchecked = ExtResource("9")
+PopupMenu/icons/radio_checked = ExtResource("4_rn2as")
+PopupMenu/icons/radio_unchecked = ExtResource("5_1jex5")
 PopupMenu/styles/hover = SubResource("14")
 PopupMenu/styles/panel = SubResource("13")
 
 [sub_resource type="StyleBoxTexture" id="24"]
 
 [sub_resource type="StyleBoxTexture" id="22"]
-texture = ExtResource("1")
+texture = ExtResource("9_n74j3")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="23"]
-texture = ExtResource("3")
+texture = ExtResource("10_6vme7")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="25"]
-texture = ExtResource("1")
+texture = ExtResource("9_n74j3")
 region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="CompressedTexture2D" id="21"]
 
 [sub_resource type="FontFile" id="26"]
-fallbacks = Array[Font]([ExtResource("7")])
+fallbacks = Array[Font]([ExtResource("3_qy81w")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -129,7 +129,7 @@ cache/0/45/0/kerning_overrides/46/0 = Vector2(0, 0)
 cache/0/45/0/kerning_overrides/45/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="27"]
-fallbacks = Array[Font]([ExtResource("7")])
+fallbacks = Array[Font]([ExtResource("3_qy81w")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -201,7 +201,7 @@ cache/0/36/0/kerning_overrides/11/0 = Vector2(0, 0)
 cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="32"]
-fallbacks = Array[Font]([ExtResource("7")])
+fallbacks = Array[Font]([ExtResource("3_qy81w")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -365,11 +365,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("12")
+script = ExtResource("1_pc6uv")
 
 [node name="HugePanel" type="Sprite2D" parent="."]
 position = Vector2(-122, 400)
-texture = ExtResource("11")
+texture = ExtResource("2_kb8jy")
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 0
@@ -378,7 +378,7 @@ offset_top = 169.0
 offset_right = 207.0
 offset_bottom = 255.0
 theme = SubResource("20")
-theme_override_fonts/font = ExtResource("2")
+theme_override_fonts/font = ExtResource("8_x2awj")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("24")
 theme_override_styles/hover = SubResource("22")
@@ -387,7 +387,7 @@ theme_override_styles/normal = SubResource("25")
 theme_override_icons/arrow = SubResource("21")
 alignment = 1
 
-[node name="X" parent="." instance=ExtResource("8")]
+[node name="X" parent="." instance=ExtResource("11_ju8du")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -399,7 +399,7 @@ offset_bottom = 227.0
 theme_override_fonts/font = SubResource("26")
 theme_override_font_sizes/font_size = 45
 
-[node name="Y" parent="." instance=ExtResource("8")]
+[node name="Y" parent="." instance=ExtResource("11_ju8du")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -411,7 +411,7 @@ offset_bottom = -644.0
 theme_override_fonts/font = SubResource("26")
 theme_override_font_sizes/font_size = 45
 
-[node name="Speed" parent="." instance=ExtResource("8")]
+[node name="Speed" parent="." instance=ExtResource("11_ju8du")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -514,7 +514,7 @@ offset_top = 473.0
 offset_right = 207.0
 offset_bottom = 559.0
 theme = SubResource("20")
-theme_override_fonts/font = ExtResource("2")
+theme_override_fonts/font = ExtResource("8_x2awj")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("24")
 theme_override_styles/hover = SubResource("22")
@@ -523,7 +523,7 @@ theme_override_styles/normal = SubResource("25")
 theme_override_icons/arrow = SubResource("21")
 alignment = 1
 
-[node name="ChildX" parent="." instance=ExtResource("8")]
+[node name="ChildX" parent="." instance=ExtResource("11_ju8du")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -535,7 +535,7 @@ offset_bottom = 531.0
 theme_override_fonts/font = SubResource("26")
 theme_override_font_sizes/font_size = 45
 
-[node name="ChildY" parent="." instance=ExtResource("8")]
+[node name="ChildY" parent="." instance=ExtResource("11_ju8du")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -570,6 +570,18 @@ theme_override_fonts/normal_font = SubResource("27")
 theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
 text = "Position"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 668.0
+offset_right = 229.0
+offset_bottom = 704.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("27")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Triggers After:"
 
 [node name="RichTextLabel12" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -613,7 +625,7 @@ offset_left = 39.0
 offset_top = 600.0
 offset_right = 99.0
 offset_bottom = 655.0
-theme = ExtResource("13")
+theme = ExtResource("12_65hp5")
 theme_override_icons/checked = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
@@ -642,7 +654,7 @@ offset_left = 304.0
 offset_top = 601.0
 offset_right = 364.0
 offset_bottom = 656.0
-theme = ExtResource("13")
+theme = ExtResource("12_65hp5")
 theme_override_icons/checked = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
 theme_override_icons/radio_checked = SubResource("33")
@@ -653,6 +665,48 @@ theme_override_icons/radio_checked_disabled = SubResource("33")
 theme_override_icons/radio_unchecked_disabled = SubResource("33")
 button_pressed = true
 
+[node name="Trigger" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 703.0
+offset_right = 232.0
+offset_bottom = 766.0
+theme = ExtResource("12_65hp5")
+theme_override_font_sizes/font_size = 61
+alignment = 1
+selected = 0
+item_count = 15
+popup/item_0/text = "Area 0"
+popup/item_0/id = 2380
+popup/item_1/text = "Area 1"
+popup/item_1/id = 2381
+popup/item_2/text = "Area 2"
+popup/item_2/id = 2382
+popup/item_3/text = "Area 3"
+popup/item_3/id = 2383
+popup/item_4/text = "Area 4"
+popup/item_4/id = 2384
+popup/item_5/text = "Area 5"
+popup/item_5/id = 2385
+popup/item_6/text = "Area 6"
+popup/item_6/id = 2386
+popup/item_7/text = "Area 7"
+popup/item_7/id = 2387
+popup/item_8/text = "Area 8"
+popup/item_8/id = 2388
+popup/item_9/text = "Area 9"
+popup/item_9/id = 2389
+popup/item_10/text = "Area 10"
+popup/item_10/id = 2390
+popup/item_11/text = "Area 11"
+popup/item_11/id = 2391
+popup/item_12/text = "End"
+popup/item_12/id = 2392
+popup/item_13/text = "EndFall"
+popup/item_13/id = 2393
+popup/item_14/text = "DK Hit"
+popup/item_14/id = 2394
+
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]
@@ -662,3 +716,4 @@ button_pressed = true
 [connection signal="text_changed" from="ChildY" to="." method="_on_ChildY_text_changed"]
 [connection signal="pressed" from="visible" to="." method="_on_CheckButton_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
+[connection signal="item_selected" from="Trigger" to="." method="_on_trigger_item_selected"]

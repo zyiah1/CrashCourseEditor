@@ -7,11 +7,35 @@ var rail = false
 
 var playerposition = Vector2(-216,-397)
 
+var railIDlist = {
+	"Normal":[],
+	"Blue":["1200"],
+	"Invisible":["0.00"],
+	"Music":["5100","6000"],
+	"RMove":["2141"],
+	"LMove":["2140"],
+	"RCrankMove":["2111"],
+	"LCrankMove":["2110"],
+	"AutoMove":["2000","2200","2300","4300"],
+	"EndMove":["2380","2381","2382","2383","2384","2385","2386","2387","2388","2389","2390","2391","2392","2393","2394"],
+	"FanMove":["2150"],
+	"PathRail":["2900","4900"],
+	"RRotate":["3112","3141"],
+	"LRotate":["3140","3150"],
+	"AutoRotate":["3200","3300","3322","3423"],
+	"RSPivot":["3113"],
+	"LSPivot":["3112"],
+	"RSpin":["3011","3111"],
+	"LSpin":["3010","3110"],
+	"EndRotate":["3392"],
+	}
+
 func _on_load_pressed():
 	fileDialog.current_path = Options.filepath
 	fileDialog.popup_centered(Vector2(1600,800))
 
-func _process(delta):
+
+func _process(_delta):
 	if loaded == false:
 		if Input.is_action_just_pressed("Paste"):
 			content = DisplayServer.clipboard_get()
@@ -26,43 +50,27 @@ var movingPlatforms:Dictionary = {}
 var scene = preload("res://Creator.tscn").instantiate()
 func LoadTest(filename):
 	$CanvasLayer.show()
-	
 	self_modulate = Color(1,1,1,0)
 	$AnimationPlayer.play("transition")
-	var timer = Timer.new()
-	add_child(timer)
-	timer.start(.05)
-	await timer.timeout;
-	content = str(content)
-	content = content.split("\n")
+	content = str(content).split("\n") #splits it into lines
 	$CanvasLayer/LoadingBar.max_value = content.size()
-	var cycle = 8
 	loaded = true
-	
 	for node in get_tree().get_nodes_in_group("hide"):
-		node.hide()
+		node.hide() # hides everything that needs to be gone
 	get_parent().add_child(scene)
 	scene.get_node("Cam").enabled = true
 	scene.get_node("nonmoving/name").text = filename
 	get_parent().scale = Vector2(1,1)
 	
-	var railtype = "normal"
-	var nextid = 0
-	var overide = 0
-	var objinterested = false
-	var railinterested = false
-	var trackedinfo = []
-	var ignore = 4
-	var actualrail = null
 	while content.size() > 0:
 		$CanvasLayer/LoadingBar.value = $CanvasLayer/LoadingBar.max_value - content.size()
 		if randi_range(1,20) == 1:
-			await get_tree().create_timer(.0001).timeout
+			await get_tree().create_timer(.0001).timeout # lets the loading bar update by pausing the loading
 		var matched = false
 		match content[0]:
 			"    - Infos:":
 				currentLayer += 1
-				print(currentLayer)
+				print("CurrentLayer:",currentLayer)
 				currentMode = "object"
 				content.remove_at(0)
 				matched = true
@@ -186,76 +194,58 @@ func AddPoints(raildata,instance,prereference):
 
 func MovingRail(Railname) -> PackedScene:
 	var Railscene = preload("res://FanMove.tscn") # default is fan
-	match Railname:
-		"              param0: 2141.00000":
-			Railscene = preload("res://RMove.tscn")
-		"              param0: 2392.00000":
-			Railscene = preload("res://EndMove.tscn")
-		"              param0: 2200.00000":
-			Railscene = preload("res://AutoMove.tscn")
-		"              param0: 2300.00000":
-			Railscene = preload("res://AutoMove.tscn")
-		"              param0: 2000.00000":
-			Railscene = preload("res://AutoMove.tscn")
-		"              param0: 4300.00000":
-			Railscene = preload("res://AutoMove.tscn")
-		"              param0: 2110.00000":
-			Railscene = preload("res://Lcrank.tscn")
-		"              param0: 2111.00000":
-			Railscene = preload("res://Rcrank.tscn")
-		"              param0: 2150.00000":
-			Railscene = preload("res://FanMove.tscn")
-		"              param0: 2140.00000":
-			Railscene = preload("res://LMove.tscn")
+	
+	if Railname in railIDlist.RMove:
+		Railscene = preload("res://RMove.tscn")
+	if Railname in railIDlist.LMove:
+		Railscene = preload("res://LMove.tscn")
+	if Railname in railIDlist.AutoMove:
+		Railscene = preload("res://AutoMove.tscn")
+	if Railname in railIDlist.RCrankMove:
+		Railscene = preload("res://Rcrank.tscn")
+	if Railname in railIDlist.LCrankMove:
+		Railscene = preload("res://Lcrank.tscn")
+	if Railname in railIDlist.FanMove: #redundant but whatevers
+		Railscene = preload("res://FanMove.tscn")
+	if Railname in railIDlist.EndMove:
+		Railscene = preload("res://EndMove.tscn")
 	return Railscene
+
 func getRail(Railname:String):
 	var Railscene = preload("res://bridge.tscn").instantiate()
+	var RailID = Railname.erase(26,6).erase(0,22) #the railID with nothing else
 	if Railname.begins_with("              param0: 2") or Railname.begins_with("              param0: 4300") or Railname.begins_with("              param0: 4900.00000"):
-		if Railname == "              param0: 2900.00000" or Railname.begins_with("              param0: 4900.00000"):
+		if RailID in railIDlist.PathRail:
 			Railscene = preload("res://PathRail.tscn").instantiate()
 			
 		else:
 			
-			return MovingRail(Railname)
-	
-	match Railname:
-		"              param0: 0.00000":
-			Railscene.invisible = true
-		"              param0: 1200.00000":
-			
-			Railscene.color = Color(.13,.58,.87,1)
-		"              param0: 5100.00000":
-			Railscene = preload("res://musicrail.tscn").instantiate()
-		"              param0: 6000.00000" :
-			Railscene = preload("res://musicrail.tscn").instantiate()
-		"              param0: 3110.00000":
-			Railscene = preload("res://Lspin.tscn").instantiate()
-		"              param0: 3010.00000":
-			Railscene = preload("res://Lspin.tscn").instantiate()
-		"              param0: 3111.00000":
-			Railscene = preload("res://Rspin.tscn").instantiate()
-		"              param0: 3011.00000":
-			Railscene = preload("res://Rspin.tscn").instantiate()
-		"              param0: 3140.00000":
-			Railscene = preload("res://LRotate.tscn").instantiate()
-		"              param0: 3150.00000":
-			Railscene = preload("res://LRotate.tscn").instantiate()
-		"              param0: 3300.00000":
-			Railscene = preload("res://AutoRotate.tscn").instantiate()
-		"              param0: 3200.00000":
-			Railscene = preload("res://AutoRotate.tscn").instantiate()
-		"              param0: 3423.00000":
-			Railscene = preload("res://AutoRotate.tscn").instantiate()
-		"              param0: 3322.00000":
-			Railscene = preload("res://AutoRotate.tscn").instantiate()
-		"              param0: 3392.00000":
-			Railscene = preload("res://EndRotate.tscn").instantiate()
-		"              param0: 3141.00000":
-			Railscene = preload("res://RRotate.tscn").instantiate()
-		"              param0: 3112.00000":
-			Railscene = preload("res://LSpivit.tscn").instantiate()
-		"              param0: 3113.00000":
-			Railscene = preload("res://RSpivit.tscn").instantiate()
+			return MovingRail(RailID)
+	#if not a moving rail
+	print(Railname)
+	print("RotatingRail:",RailID)
+	if RailID in railIDlist.Invisible:
+		Railscene.invisible = true
+	if RailID in railIDlist.Blue:
+		Railscene.color = Color(.13,.58,.87,1)
+	if RailID in railIDlist.Music:
+		Railscene = preload("res://musicrail.tscn").instantiate()
+	if RailID in railIDlist.RSpin:
+		Railscene = preload("res://Rspin.tscn").instantiate()
+	if RailID in railIDlist.LSpin:
+		Railscene = preload("res://Lspin.tscn").instantiate()
+	if RailID in railIDlist.LRotate:
+		Railscene = preload("res://LRotate.tscn").instantiate()
+	if RailID in railIDlist.RRotate:
+		Railscene = preload("res://RRotate.tscn").instantiate()
+	if RailID in railIDlist.AutoRotate:
+		Railscene = preload("res://AutoRotate.tscn").instantiate()
+	if RailID in railIDlist.EndRotate:
+		Railscene = preload("res://EndRotate.tscn").instantiate()
+	if RailID in railIDlist.RSPivot:
+		Railscene = preload("res://RSpivit.tscn").instantiate()
+	if RailID in railIDlist.LSPivot:
+		Railscene = preload("res://LSpivit.tscn").instantiate()
 	return Railscene
 
 func getObject(Objectname:String) -> Node:

@@ -151,18 +151,21 @@ var data:PackedStringArray
 #2200 automove
 #2300 Automove but it stays and doesn't go back
 #2330 moving platform press X anywhere, doens't go back
-#2380 move after area 0 checkpoint activated
-#2381?
-#2382?
-#2383?
-#2384?
-#2385?
-#2386?
-#2387?
-#2388?
-#2389?
+#2380 Move after 0th checkpoint is activated
+#2381 Move after 1st checkpoint is activated
+#2382 Move after 2nd checkpoint is activated
+#2383 Move after 3rd checkpoint is activated
+#2384 Move after 4th checkpoint is activated
+#2385 Move after 5th checkpoint is activated
+#2386 Move after 6th checkpoint is activated
+#2387 Move after 7th checkpoint is activated
+#2388 Move after 8th checkpoint is activated
+#2389 Move after 9th checkpoint is activated
 #2390 Move after 10th checkpoint is activated
+#2391 Move after 11th checkpoint is activated
 #2392 move when level beat
+#2393 used for that DK dying cutscene where the rails move to the fallen position after a brief delay
+#2394 same as ^^^^ but more delay?
 #3110 Lspin unused
 #3111 Rspin
 #3112 MLtilt
@@ -171,6 +174,18 @@ var data:PackedStringArray
 #3141 PivitR
 #3200 auto Pivot but goes back
 #3300 autoPivit stays no go back (default)
+#3380 Rotate after 0th checkpoint is activated
+#3381 Rotate after 1st checkpoint is activated
+#3382 Rotate after 2nd checkpoint is activated
+#3383 Rotate after 3rd checkpoint is activated
+#3384 Rotate after 4th checkpoint is activated
+#3385 Rotate after 5th checkpoint is activated
+#3386 Rotate after 6th checkpoint is activated
+#3387 Rotate after 7th checkpoint is activated
+#3388 Rotate after 8th checkpoint is activated
+#3389 Rotate after 9th checkpoint is activated
+#3390 Rotate after 10th checkpoint is activated
+#3391 Rotate after 11th checkpoint is activated
 #3392 Rotate when level beat
 #4300 param6 is how much to move camera y position (- = down)
 #4900 invisble when I tried to load it (Might just be another way to do invisible track

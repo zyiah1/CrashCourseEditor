@@ -4,6 +4,7 @@ const object = preload("res://Function Presets/Object.tscn")
 const check = preload("res://Function Presets/Checkpoint.tscn")
 const bridge = preload("res://Function Presets/Bridge.tscn")
 const moving = preload("res://Function Presets/MovingPlatform.tscn")
+const movingend = preload("res://Function Presets/MovingPlatformEnd.tscn")
 const auto = preload("res://Function Presets/Auto.tscn")
 const rotating = preload("res://Function Presets/RotatingRails.tscn")
 const apivot = preload("res://Function Presets/AutoRotate.tscn")
@@ -37,7 +38,7 @@ func _on_Functions_pressed():
 		if get_parent().get_parent().editednode.is_in_group("Rcrank"):
 			$FunctionContainer.add_child(moving.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("EndMove"):
-			$FunctionContainer.add_child(moving.instantiate())
+			$FunctionContainer.add_child(movingend.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Spin"):
 			$FunctionContainer.add_child(rotating.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("checkpoint"):
