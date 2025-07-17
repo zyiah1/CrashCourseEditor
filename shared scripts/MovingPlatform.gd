@@ -152,6 +152,15 @@ var data:PackedStringArray
 #2300 Automove but it stays and doesn't go back
 #2330 moving platform press X anywhere, doens't go back
 #2380 move after area 0 checkpoint activated
+#2381?
+#2382?
+#2383?
+#2384?
+#2385?
+#2386?
+#2387?
+#2388?
+#2389?
 #2390 Move after 10th checkpoint is activated
 #2392 move when level beat
 #3110 Lspin unused

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://daf8r71wixk5k"]
 
-[ext_resource type="Script" path="res://Scripts/musicrail.gd" id="1"]
+[ext_resource type="Script" uid="uid://bc06qfek4nkgq" path="res://Scripts/musicrail.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
@@ -187,8 +187,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_my4il"]
 _data = {
-"RESET": SubResource("6"),
-"appear": SubResource("7")
+&"RESET": SubResource("6"),
+&"appear": SubResource("7")
 }
 
 [node name="music" type="Node2D" groups=["music"]]
@@ -257,7 +257,7 @@ text = "[center]0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_my4il")
+&"": SubResource("AnimationLibrary_my4il")
 }
 autoplay = "appear"
 

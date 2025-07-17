@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://dgfag2ppnyu3m"]
 
-[ext_resource type="Script" path="res://shared scripts/MovingPlatform.gd" id="1"]
+[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ckd1nvejuas1" path="res://crankL.png" id="4"]
-[ext_resource type="Script" path="res://shared scripts/MovingPreview.gd" id="5_dhpds"]
-[ext_resource type="Script" path="res://Scripts/speed.gd" id="6"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/MovingPreview.gd" id="5_dhpds"]
+[ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="6_dvq7r"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="7"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8"]
@@ -67,8 +67,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jf7r"]
 _data = {
-"RESET": SubResource("3"),
-"start": SubResource("4")
+&"RESET": SubResource("3"),
+&"start": SubResource("4")
 }
 
 [node name="Lcrank" type="Node2D"]
@@ -130,7 +130,7 @@ script = ExtResource("6")
 
 [node name="startup" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6jf7r")
+&"": SubResource("AnimationLibrary_6jf7r")
 }
 autoplay = "start"
 

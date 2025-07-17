@@ -45,7 +45,6 @@ func _ready():
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
 	else:
-		print("AAAAAAA")
 		$rotation.hide()
 		
 	$crank.position = $start.position

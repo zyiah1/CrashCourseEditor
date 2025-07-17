@@ -1,15 +1,15 @@
 [gd_scene load_steps=22 format=3 uid="uid://q57svrq2jxwt"]
 
-[ext_resource type="Script" path="res://Scripts/messenger.gd" id="1_dun2s"]
-[ext_resource type="Script" path="res://shared scripts/Rotate.gd" id="2_octuf"]
+[ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="1_dun2s"]
+[ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="2_octuf"]
 [ext_resource type="PackedScene" uid="uid://4mbynh4jne3c" path="res://pointA.tscn" id="3_a0ivd"]
 [ext_resource type="Texture2D" uid="uid://dv1xfkkmbirrk" path="res://pointA.png" id="4_m8ug4"]
-[ext_resource type="Script" path="res://shared scripts/CrankPreview.gd" id="5_6jidk"]
+[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/CrankPreview.gd" id="5_6jidk"]
 [ext_resource type="Texture2D" uid="uid://ksbllqjphq5t" path="res://railGreen.png" id="6_el36w"]
 [ext_resource type="Texture2D" uid="uid://bcusuw5pyy87i" path="res://pivotA.png" id="7_jose0"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8_2ednn"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="9_dsgo8"]
-[ext_resource type="Script" path="res://Scripts/filter.gd" id="10_r1mlu"]
+[ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/filter.gd" id="10_r1mlu"]
 
 [sub_resource type="StyleBoxEmpty" id="17"]
 
@@ -77,8 +77,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o6qbu"]
 _data = {
-"RESET": SubResource("13"),
-"start": SubResource("14")
+&"RESET": SubResource("13"),
+&"start": SubResource("14")
 }
 
 [node name="rotate" type="Sprite2D"]
@@ -158,7 +158,7 @@ script = ExtResource("10_r1mlu")
 
 [node name="startup" type="AnimationPlayer" parent="Spin"]
 libraries = {
-"": SubResource("AnimationLibrary_o6qbu")
+&"": SubResource("AnimationLibrary_o6qbu")
 }
 autoplay = "start"
 

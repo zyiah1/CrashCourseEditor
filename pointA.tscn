@@ -58,8 +58,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cwmsd"]
 _data = {
-"RESET": SubResource("1"),
-"start": SubResource("2")
+&"RESET": SubResource("1"),
+&"start": SubResource("2")
 }
 
 [sub_resource type="StyleBoxEmpty" id="5"]
@@ -75,7 +75,7 @@ hframes = 2
 
 [node name="start" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cwmsd")
+&"": SubResource("AnimationLibrary_cwmsd")
 }
 autoplay = "start"
 

@@ -1,20 +1,20 @@
 [gd_scene load_steps=25 format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
-[ext_resource type="Script" path="res://Scripts/quit.gd" id="2"]
+[ext_resource type="Script" uid="uid://cu3xvdk0wvaac" path="res://Scripts/quit.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
-[ext_resource type="Script" path="res://Scripts/new.gd" id="5"]
+[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/new.gd" id="5"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="8"]
+[ext_resource type="Script" uid="uid://dmx5s8xk86lkk" path="res://Scripts/settings.gd" id="8"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
-[ext_resource type="Script" path="res://Scripts/help.gd" id="11"]
+[ext_resource type="Script" uid="uid://4hdf1bqh2dtb" path="res://Scripts/help.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://c714qtkxy1rxn" path="res://UI/buttons/button.png" id="11_mkaen"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="12_uro0u"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
-[ext_resource type="Script" path="res://Scripts/load.gd" id="14_hbknu"]
+[ext_resource type="Script" uid="uid://c3w17m7uishwy" path="res://Scripts/load.gd" id="14_hbknu"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
-[ext_resource type="Script" path="res://Scripts/apiRequest.gd" id="19"]
+[ext_resource type="Script" uid="uid://bb1lsqiy43rje" path="res://Scripts/apiRequest.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
 [ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="22"]
@@ -3276,8 +3276,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udj0p"]
 _data = {
-"RESET": SubResource("5"),
-"transition": SubResource("4")
+&"RESET": SubResource("5"),
+&"transition": SubResource("4")
 }
 
 [sub_resource type="FontFile" id="7"]
@@ -3542,7 +3542,7 @@ script = ExtResource("14_hbknu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="load"]
 libraries = {
-"": SubResource("AnimationLibrary_udj0p")
+&"": SubResource("AnimationLibrary_udj0p")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="load"]

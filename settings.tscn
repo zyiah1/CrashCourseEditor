@@ -1,16 +1,16 @@
 [gd_scene load_steps=28 format=3 uid="uid://bmvmnob1fhgt5"]
 
-[ext_resource type="Script" path="res://settingsScreen.gd" id="1_o34gw"]
+[ext_resource type="Script" uid="uid://xuf656scs7ed" path="res://settingsScreen.gd" id="1_o34gw"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_2x6o2"]
-[ext_resource type="Script" path="res://Scripts/back.gd" id="3"]
-[ext_resource type="Script" path="res://Scripts/optionbutton.gd" id="6"]
+[ext_resource type="Script" uid="uid://c2mtn152mb3t4" path="res://Scripts/back.gd" id="3"]
+[ext_resource type="Script" uid="uid://uwgc3c4svmap" path="res://Scripts/optionbutton.gd" id="6"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="6_vm8ls"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="8"]
-[ext_resource type="Script" path="res://Scripts/custom.gd" id="9"]
+[ext_resource type="Script" uid="uid://dhcwxw85nb8u5" path="res://Scripts/custom.gd" id="9"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="11"]
-[ext_resource type="Script" path="res://Scripts/setting4.gd" id="12"]
+[ext_resource type="Script" uid="uid://cjgl588miqtwm" path="res://Scripts/setting4.gd" id="12"]
 [ext_resource type="Texture2D" uid="uid://dihnq7e2jea0v" path="res://UI/eyedroper.png" id="13"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="13_g1xid"]
 
@@ -89,10 +89,10 @@ size_flags_vertical = 3
 theme = ExtResource("11")
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
-theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
-theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
-theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_vm8ls")
 theme_override_font_sizes/font_size = 41

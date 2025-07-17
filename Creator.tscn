@@ -1,11 +1,11 @@
 [gd_scene load_steps=82 format=3 uid="uid://esyup1huie0u"]
 
-[ext_resource type="Script" path="res://Scripts/Creator.gd" id="1"]
+[ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_ceeig"]
-[ext_resource type="Script" path="res://Scripts/item.gd" id="3"]
+[ext_resource type="Script" uid="uid://dpmpn2wm5p8is" path="res://Scripts/item.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://drwiyy8ajhe7m" path="res://UI/stage.png" id="4"]
-[ext_resource type="Script" path="res://Scripts/Cam.gd" id="5"]
+[ext_resource type="Script" uid="uid://b3v124vdegq6l" path="res://Scripts/Cam.gd" id="5"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="7"]
 [ext_resource type="Texture2D" uid="uid://b6cx3gcq4bllj" path="res://UI/GenericTextEnter.png" id="7_cbhmo"]
 [ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="8"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_jgxak"]
 [ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://fincheckpoint.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_l2bps"]
-[ext_resource type="Script" path="res://Scripts/mouselock.gd" id="11"]
+[ext_resource type="Script" uid="uid://02xu54i1wd0x" path="res://Scripts/mouselock.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://door.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://dakt7cipbcnp" path="res://railart/coin.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://dk.png" id="16"]
@@ -50,9 +50,9 @@
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="50"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="52"]
 [ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="53"]
-[ext_resource type="Script" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
+[ext_resource type="Script" uid="uid://c3kne8dxowgwf" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
 [ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="55"]
-[ext_resource type="Script" path="res://Scripts/VBox.gd" id="55_y28lh"]
+[ext_resource type="Script" uid="uid://drbjwufj6kvsp" path="res://Scripts/VBox.gd" id="55_y28lh"]
 [ext_resource type="Texture2D" uid="uid://drdwsg8jgaaa8" path="res://UI/Cameraborderbottom.png" id="56"]
 [ext_resource type="Texture2D" uid="uid://dw4oebqfms080" path="res://UI/Cameraborder.png" id="57"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="58"]
@@ -269,15 +269,18 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
 _data = {
-"In1": SubResource("18"),
-"In2": SubResource("19"),
-"Out1": SubResource("16"),
-"Out2": SubResource("17"),
-"RESET": SubResource("14")
+&"In1": SubResource("18"),
+&"In2": SubResource("19"),
+&"Out1": SubResource("16"),
+&"Out2": SubResource("17"),
+&"RESET": SubResource("14")
 }
 
 [sub_resource type="FontFile" id="15"]
 fallbacks = Array[Font]([ExtResource("28")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -460,13 +463,16 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ccfl"]
 _data = {
-"RESET": SubResource("3"),
-"in": SubResource("5"),
-"out": SubResource("4")
+&"RESET": SubResource("3"),
+&"in": SubResource("5"),
+&"out": SubResource("4")
 }
 
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("28")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -541,12 +547,15 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kr57d"]
 _data = {
-"IN": SubResource("24"),
-"RESET": SubResource("25")
+&"IN": SubResource("24"),
+&"RESET": SubResource("25")
 }
 
 [sub_resource type="FontFile" id="28"]
 fallbacks = Array[Font]([ExtResource("58")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -586,7 +595,7 @@ position = Vector2(1062, 1236)
 
 [node name="Animation" type="AnimationPlayer" parent="." groups=["ed"]]
 libraries = {
-"": SubResource("AnimationLibrary_rqhxc")
+&"": SubResource("AnimationLibrary_rqhxc")
 }
 
 [node name="nonmoving" type="CanvasLayer" parent="." groups=["ed"]]
@@ -1260,7 +1269,7 @@ script = ExtResource("3")
 
 [node name="buttons" type="AnimationPlayer" parent="CanvasLayer3/CanvasLayer"]
 libraries = {
-"": SubResource("AnimationLibrary_4ccfl")
+&"": SubResource("AnimationLibrary_4ccfl")
 }
 
 [node name="Proporties Panel" type="Sprite2D" parent="CanvasLayer3"]
@@ -1307,8 +1316,8 @@ offset_top = 31.0
 offset_right = 3339.0
 offset_bottom = 63.0
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
-theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("23")
@@ -1324,8 +1333,8 @@ offset_top = 34.0
 offset_right = 3809.0
 offset_bottom = 66.0
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
-theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("23")
@@ -1337,7 +1346,7 @@ text = "Functions"
 
 [node name="Panel" type="AnimationPlayer" parent="CanvasLayer3/Proporties Panel"]
 libraries = {
-"": SubResource("AnimationLibrary_kr57d")
+&"": SubResource("AnimationLibrary_kr57d")
 }
 
 [node name="RealTime" type="CheckButton" parent="CanvasLayer3/Proporties Panel"]
