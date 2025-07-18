@@ -316,6 +316,7 @@ func itemplace():
 				instance.rail = RightCrank
 			if item == "movingEnd":
 				instance.rail = EndMove
+				instance.Param1 = 0
 			if instance != null:
 				add_child(instance)
 				lineplacing = false
@@ -402,17 +403,12 @@ func shortcuts():
 			else:
 				$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox"._on_new_pressed()
 		if Input.is_action_just_pressed("Export"):
-			_on_Button_pressed()
+			save()
 			OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
 		if Input.is_action_just_pressed("save"):
-			_on_Button_pressed()
+			save()
 		if Input.is_action_just_pressed("Copy"):
-			_on_Button_pressed()
-			var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
-			
-			
-			
-			DisplayServer.clipboard_set(file.get_as_text())
+			copy()
 		if Input.is_action_just_pressed("shift"):
 			mode += 1
 			if mode == 4:
@@ -432,7 +428,7 @@ func shortcuts():
 
 var namefocus = false
 
-func _on_Button_pressed():
+func save():
 	if namefocus == false:
 		if saving == false:
 			
@@ -454,8 +450,10 @@ func _on_Button_pressed():
 			objects = []
 			saving = false
 
-
-
+func copy():
+	save()
+	var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
+	DisplayServer.clipboard_set(file.get_as_text())
 
 
 
@@ -478,7 +476,7 @@ func Ain():
 
 
 func _on_Timer_timeout():
-	_on_Button_pressed()
+	save()
 
 
 func _on_delay_timeout():
@@ -522,3 +520,40 @@ func parse(data):
 		$"CanvasLayer3/Proporties Panel/Panel".play("IN")
 	else:
 		$"CanvasLayer3/Proporties Panel".show()
+
+
+func _on_view_index_pressed(index):
+	#0 Hide UI
+	#1 Loop Movements
+	#2 Whole Level View
+	match index:
+		0:
+			if $Cam.paused == false and propertypanel == false:
+				$Cam.toggleUI()
+		1:
+			movingLoop = not movingLoop
+		2:
+			$Cam.toggleCam()
+
+
+func _on_file_index_pressed(index):
+	#0 = Save
+	#1 = Save as
+	#2 = Copy
+	#4 = Open In File Manager
+	#5 = Show In File Manager
+	#7 = Save And Quit
+	match index:
+		0:
+			save()
+		2:
+			copy()
+		4:
+			save()
+			OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+		5:
+			save()
+			OS.shell_show_in_file_manager(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+		7:
+			save()
+			get_tree().quit()

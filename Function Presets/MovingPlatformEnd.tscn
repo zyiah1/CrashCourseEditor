@@ -585,10 +585,10 @@ text = "Triggers After:"
 
 [node name="RichTextLabel12" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 93.0
-offset_top = 611.0
-offset_right = 222.0
-offset_bottom = 647.0
+offset_left = 257.0
+offset_top = 301.0
+offset_right = 386.0
+offset_bottom = 337.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("27")
 theme_override_font_sizes/normal_font_size = 26
@@ -621,10 +621,10 @@ text = "Y:"
 
 [node name="visible" type="CheckBox" parent="."]
 layout_mode = 0
-offset_left = 39.0
-offset_top = 600.0
-offset_right = 99.0
-offset_bottom = 655.0
+offset_left = 203.0
+offset_top = 290.0
+offset_right = 263.0
+offset_bottom = 345.0
 theme = ExtResource("12_65hp5")
 theme_override_icons/checked = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")
@@ -638,10 +638,10 @@ button_pressed = true
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 369.0
-offset_top = 611.0
-offset_right = 599.0
-offset_bottom = 647.0
+offset_left = 267.0
+offset_top = 586.0
+offset_right = 497.0
+offset_bottom = 622.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("27")
 theme_override_font_sizes/normal_font_size = 26
@@ -650,10 +650,10 @@ text = "Reset on Death"
 
 [node name="reset" type="CheckBox" parent="."]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 601.0
-offset_right = 364.0
-offset_bottom = 656.0
+offset_left = 202.0
+offset_top = 576.0
+offset_right = 262.0
+offset_bottom = 631.0
 theme = ExtResource("12_65hp5")
 theme_override_icons/checked = SubResource("33")
 theme_override_icons/unchecked = SubResource("33")

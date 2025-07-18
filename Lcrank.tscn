@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgfag2ppnyu3m"]
+[gd_scene load_steps=17 format=3 uid="uid://dgfag2ppnyu3m"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="6_dvq7r"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="7"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8"]
-[ext_resource type="PackedScene" uid="uid://brk6lsnfqfyaw" path="res://pointL.tscn" id="9"]
 
 [sub_resource type="StyleBoxEmpty" id="7"]
 
@@ -75,7 +74,7 @@ _data = {
 z_index = -1
 z_as_relative = false
 script = ExtResource("1")
-point = ExtResource("9")
+pointtexture = ExtResource("2")
 Param0 = 2110
 midImage = ExtResource("4")
 

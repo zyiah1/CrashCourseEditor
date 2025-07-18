@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=87 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -48,7 +48,9 @@
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="47"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="48"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="50"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="51_0rgi5"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="52"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="52_cmovo"]
 [ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="53"]
 [ext_resource type="Script" uid="uid://c3kne8dxowgwf" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
 [ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="55"]
@@ -328,14 +330,6 @@ texture = ExtResource("8_366nk")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c3ri"]
 texture = ExtResource("7_cbhmo")
 
-[sub_resource type="StyleBoxTexture" id="11"]
-texture = ExtResource("10_l2bps")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="7"]
-texture = ExtResource("9_jgxak")
-region_rect = Rect2(0, 0, 733, 320)
-
 [sub_resource type="StyleBoxTexture" id="9"]
 texture = ExtResource("10_l2bps")
 region_rect = Rect2(0, 0, 733, 320)
@@ -467,6 +461,23 @@ _data = {
 &"in": SubResource("5"),
 &"out": SubResource("4")
 }
+
+[sub_resource type="StyleBoxTexture" id="11"]
+texture = ExtResource("10_l2bps")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="7"]
+texture = ExtResource("9_jgxak")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmovo"]
+bg_color = Color(0.301961, 0.270588, 0.254902, 0.737255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nge0o"]
+bg_color = Color(0.652811, 0.607561, 0.585027, 0.737255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4qg3"]
+bg_color = Color(0.220716, 0.196017, 0.183663, 0.737255)
 
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("28")])
@@ -660,6 +671,44 @@ wait_time = 0.05
 one_shot = true
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["ed"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3"]
+process_priority = 20
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+script = ExtResource("11")
+
+[node name="Control" type="Control" parent="CanvasLayer3/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 8.5
+offset_right = 44.0
+offset_bottom = 48.5
+scale = Vector2(0.2, 0.2)
+
+[node name="player" type="Button" parent="CanvasLayer3/CanvasLayer/Control" groups=["button"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 356.0
+offset_bottom = 301.0
+theme = ExtResource("7")
+theme_override_styles/disabled = SubResource("9")
+theme_override_styles/hover = SubResource("10")
+theme_override_styles/pressed = SubResource("9")
+theme_override_styles/normal = SubResource("10")
+button_mask = 5
+icon = ExtResource("2")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
+
+[node name="buttons" type="AnimationPlayer" parent="CanvasLayer3/CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_4ccfl")
+}
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="CanvasLayer3"]
 scale = Vector2(1.5, 1.5)
@@ -1234,43 +1283,70 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3"]
-process_priority = 20
-scale = Vector2(1.5, 1.5)
-transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-script = ExtResource("11")
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer3"]
+offset_right = 229.0
+offset_bottom = 33.0
+theme = ExtResource("51_0rgi5")
+theme_override_fonts/font = ExtResource("52_cmovo")
+theme_override_font_sizes/font_size = 31
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_cmovo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cmovo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_cmovo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nge0o")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_cmovo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v4qg3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cmovo")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cmovo")
 
-[node name="Control" type="Control" parent="CanvasLayer3/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 4.0
-offset_top = 8.5
-offset_right = 44.0
-offset_bottom = 48.5
-scale = Vector2(0.2, 0.2)
+[node name="File" type="PopupMenu" parent="CanvasLayer3/MenuBar"]
+theme = ExtResource("51_0rgi5")
+item_count = 8
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Save As..."
+item_1/id = 1
+item_2/text = "Copy"
+item_2/id = 2
+item_3/id = 5
+item_3/separator = true
+item_4/text = "Open File"
+item_4/id = 3
+item_5/text = "Show In File Manager"
+item_5/id = 6
+item_6/id = 7
+item_6/separator = true
+item_7/text = "Save And Quit"
+item_7/id = 4
 
-[node name="player" type="Button" parent="CanvasLayer3/CanvasLayer/Control" groups=["button"]]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 11.0
-offset_right = 356.0
-offset_bottom = 301.0
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("9")
-theme_override_styles/hover = SubResource("10")
-theme_override_styles/pressed = SubResource("9")
-theme_override_styles/normal = SubResource("10")
-button_mask = 5
-icon = ExtResource("2")
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3")
+[node name="Edit" type="PopupMenu" parent="CanvasLayer3/MenuBar"]
+auto_translate_mode = 1
+theme = ExtResource("51_0rgi5")
+item_count = 2
+item_0/text = "Undo"
+item_0/id = 0
+item_1/text = "Redo"
+item_1/id = 1
 
-[node name="buttons" type="AnimationPlayer" parent="CanvasLayer3/CanvasLayer"]
-libraries = {
-&"": SubResource("AnimationLibrary_4ccfl")
-}
+[node name="View" type="PopupMenu" parent="CanvasLayer3/MenuBar"]
+auto_translate_mode = 1
+theme = ExtResource("51_0rgi5")
+item_count = 3
+item_0/text = "Hide UI"
+item_0/id = 0
+item_1/text = "Loop Movements"
+item_1/id = 1
+item_2/text = "Level View"
+item_2/id = 2
+
+[node name="Help" type="PopupMenu" parent="CanvasLayer3/MenuBar"]
+auto_translate_mode = 1
+theme = ExtResource("51_0rgi5")
+system_menu_id = 4
+item_count = 2
+item_0/text = "Controls"
+item_0/id = 0
+item_1/text = "Tutorial"
+item_1/id = 1
 
 [node name="Proporties Panel" type="Sprite2D" parent="CanvasLayer3"]
 visible = false
@@ -1402,13 +1478,15 @@ theme_override_fonts/normal_font = SubResource("28")
 bbcode_enabled = true
 text = "From Default Level 2&4:"
 
-[connection signal="pressed" from="nonmoving/save" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="nonmoving/save" to="." method="save"]
 [connection signal="timeout" from="nonmoving/save/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="focus_entered" from="nonmoving/name" to="." method="_on_name_focus_entered"]
 [connection signal="focus_entered" from="nonmoving/name" to="Cam" method="_on_name_focus_entered"]
 [connection signal="focus_exited" from="nonmoving/name" to="." method="_on_name_focus_exited"]
 [connection signal="focus_exited" from="nonmoving/name" to="Cam" method="_on_name_focus_exited"]
 [connection signal="timeout" from="nonmoving/delay" to="." method="_on_delay_timeout"]
+[connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer3/MenuBar/View" to="." method="_on_view_index_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/close" to="CanvasLayer3/Proporties Panel/ScrollContainer/VBox" method="_on_new_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Property" to="CanvasLayer3/Proporties Panel" method="_on_Property_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Functions" to="CanvasLayer3/Proporties Panel" method="_on_Functions_pressed"]

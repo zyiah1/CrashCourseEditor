@@ -1,0 +1,483 @@
+[gd_scene load_steps=25 format=3 uid="uid://dy3eth05o442k"]
+
+[ext_resource type="Script" uid="uid://bb3nuenbrbbs2" path="res://Function Presets/rotating_rails_end.gd" id="1_aav10"]
+[ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="2_aav10"]
+[ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="3_4a7v0"]
+[ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="4_d0na8"]
+[ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="5_x2k8q"]
+[ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="6_t0jfy"]
+[ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="7_id4uf"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="8_dw3xg"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_rralh"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_4loh8"]
+[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="11_0po2a"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="12_aav10"]
+
+[sub_resource type="FontFile" id="13"]
+fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("6_t0jfy")
+region_rect = Rect2(0, 0, 645, 25)
+
+[sub_resource type="StyleBoxTexture" id="15"]
+texture = ExtResource("7_id4uf")
+region_rect = Rect2(0, 0, 645, 25)
+
+[sub_resource type="Theme" id="16"]
+PopupMenu/fonts/font = SubResource("13")
+PopupMenu/icons/radio_checked = ExtResource("4_d0na8")
+PopupMenu/icons/radio_unchecked = ExtResource("5_x2k8q")
+PopupMenu/styles/hover = SubResource("14")
+PopupMenu/styles/panel = SubResource("15")
+
+[sub_resource type="StyleBoxTexture" id="20"]
+
+[sub_resource type="StyleBoxTexture" id="18"]
+texture = ExtResource("9_rralh")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="19"]
+texture = ExtResource("10_4loh8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="21"]
+texture = ExtResource("9_rralh")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="CompressedTexture2D" id="17"]
+
+[sub_resource type="FontFile" id="22"]
+fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/41/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/46/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="23"]
+fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/41/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/46/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_4a7v0"]
+fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/21/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/11/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+
+[node name="Functions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aav10")
+
+[node name="HugePanel" type="Sprite2D" parent="."]
+position = Vector2(-122, 400)
+texture = ExtResource("2_aav10")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 129.0
+offset_right = 207.0
+offset_bottom = 215.0
+theme = SubResource("16")
+theme_override_fonts/font = ExtResource("8_dw3xg")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("20")
+theme_override_styles/hover = SubResource("18")
+theme_override_styles/pressed = SubResource("19")
+theme_override_styles/normal = SubResource("21")
+theme_override_icons/arrow = SubResource("17")
+alignment = 1
+
+[node name="X" parent="." instance=ExtResource("11_0po2a")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 279.0
+offset_top = 128.0
+offset_right = -1161.0
+offset_bottom = -687.0
+theme_override_fonts/font = SubResource("22")
+theme_override_font_sizes/font_size = 46
+
+[node name="Y" parent="." instance=ExtResource("11_0po2a")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 474.0
+offset_top = 128.0
+offset_right = -966.0
+offset_bottom = -684.0
+theme_override_fonts/font = SubResource("22")
+theme_override_font_sizes/font_size = 46
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 90.0
+offset_right = 208.0
+offset_bottom = 128.0
+pivot_offset = Vector2(143, 10)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Point"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 90.0
+offset_right = 616.0
+offset_bottom = 126.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Position"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 133.0
+offset_right = 279.0
+offset_bottom = 169.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "X:"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 133.0
+offset_right = 474.0
+offset_bottom = 169.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Y:"
+
+[node name="Rotation" parent="." instance=ExtResource("11_0po2a")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 142.0
+offset_top = 238.0
+offset_right = -1298.0
+offset_bottom = -577.0
+theme_override_fonts/font = SubResource("22")
+theme_override_font_sizes/font_size = 46
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = 243.0
+offset_right = 144.0
+offset_bottom = 279.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Rotation:"
+
+[node name="Speed" parent="." instance=ExtResource("11_0po2a")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 454.0
+offset_top = 238.0
+offset_right = -986.0
+offset_bottom = -577.0
+theme_override_fonts/font = SubResource("22")
+theme_override_font_sizes/font_size = 46
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 243.0
+offset_right = 450.0
+offset_bottom = 279.0
+pivot_offset = Vector2(85, 19)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Speed:"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 266.0
+offset_right = 661.0
+offset_bottom = 368.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(85, 19)
+theme_override_fonts/normal_font = SubResource("23")
+bbcode_enabled = true
+text = "*only shown in game"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="."]
+offset_left = 242.0
+offset_top = 319.0
+offset_right = 433.0
+offset_bottom = 355.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("FontFile_4a7v0")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Triggers After:"
+
+[node name="Trigger" type="OptionButton" parent="."]
+offset_left = 225.0
+offset_top = 354.0
+offset_right = 436.0
+offset_bottom = 417.0
+theme = ExtResource("12_aav10")
+theme_override_font_sizes/font_size = 61
+alignment = 1
+selected = 0
+item_count = 15
+popup/item_0/text = "Area 0"
+popup/item_0/id = 3380
+popup/item_1/text = "Area 1"
+popup/item_1/id = 3381
+popup/item_2/text = "Area 2"
+popup/item_2/id = 3382
+popup/item_3/text = "Area 3"
+popup/item_3/id = 3383
+popup/item_4/text = "Area 4"
+popup/item_4/id = 3384
+popup/item_5/text = "Area 5"
+popup/item_5/id = 3385
+popup/item_6/text = "Area 6"
+popup/item_6/id = 3386
+popup/item_7/text = "Area 7"
+popup/item_7/id = 3387
+popup/item_8/text = "Area 8"
+popup/item_8/id = 3388
+popup/item_9/text = "Area 9"
+popup/item_9/id = 3389
+popup/item_10/text = "Area 10"
+popup/item_10/id = 3390
+popup/item_11/text = "Area 11"
+popup/item_11/id = 3391
+popup/item_12/text = "End"
+popup/item_12/id = 3392
+popup/item_13/text = "EndFall"
+popup/item_13/id = 3393
+popup/item_14/text = "DK Hit"
+popup/item_14/id = 3394
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
+[connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]
+[connection signal="text_changed" from="Rotation" to="." method="_on_Rotation_text_changed"]
+[connection signal="text_changed" from="Speed" to="." method="_on_Speed_text_changed"]
+[connection signal="item_selected" from="Trigger" to="." method="_on_trigger_item_selected"]

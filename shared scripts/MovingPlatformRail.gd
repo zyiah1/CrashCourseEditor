@@ -17,38 +17,12 @@ var childrail = null
 var loading = false
 var drag = false
 var buttons = []
-
+var Param1: int = -1 #visiblie
+var color = Color(.2,.2,.2)
 @export var rail: PackedScene = preload("res://RMove.tscn")
 
 
-func _ready():
-	if loading == false:
-		$start.position = get_global_mouse_position()
-	data = ["            - Points:",
-"                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/0",
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($start.position.x),
-"                  pnt1_y: " + str(-$start.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($start.position.x),
-"                  pnt2_y: " + str(-$start.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
+
 
 @onready var dataseg:PackedStringArray = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -86,7 +60,7 @@ var data:PackedStringArray
 "              name: レール",
 "              num_pnt: !l 2",
 "              param0: 2900.00000", #railtype
-"              param1: -1.00000",
+"              param1: "+str(Param1)+".00000", #-1 = visible, 0 = invisible
 "              param2: -1.00000",
 "              param3: -1.00000",
 "              param4:  0.00000",
@@ -98,7 +72,38 @@ var data:PackedStringArray
 "              type: Linear",
 "              unit_name: Path"]
 
-
+func _ready():
+	if end[9].begins_with("              param1: 0"): # invisible
+		color = Color(.7,.7,.7,.5)
+	else:
+		color = Color(.2,.2,.2)
+	if loading == false:
+		$start.position = get_global_mouse_position()
+	data = ["            - Points:",
+"                - comment: !l -1",
+"                  dir_x: 0.00000",
+"                  dir_y: 0.00000",
+"                  dir_z: 0.00000",
+"                  id_name: rail" + str(idnum) + "/0",
+"                  link_info: []",
+"                  link_num: !l 0",
+"                  param0: -1.00000",
+"                  param1: -1.00000",
+"                  param2: -1.00000",
+"                  param3: -1.00000",
+"                  pnt0_x: " + str($start.position.x),
+"                  pnt0_y: " + str(-$start.position.y),
+"                  pnt0_z: 0.00000",
+"                  pnt1_x: " + str($start.position.x),
+"                  pnt1_y: " + str(-$start.position.y),
+"                  pnt1_z: 0.00000",
+"                  pnt2_x: " + str($start.position.x),
+"                  pnt2_y: " + str(-$start.position.y),
+"                  pnt2_z: 0.00000",
+"                  scale_x: 1.00000",
+"                  scale_y: 1.00000",
+"                  scale_z: 1.00000",
+"                  unit_name: Point"]
 
 func reposition():
 	var currentpoint = 0
@@ -178,19 +183,22 @@ func reposition():
 		if line.begins_with("              param0:"): #get the point kind
 			var pointtexture = preload("res://point.png")
 			childrail.get_node("preview").rail.texture = preload("res://railPurple.png")
+			childrail.rail.texture = preload("res://rail.png")
 			#L points
 			if not line.begins_with("              param0: 2150") and line.begins_with("              param0: 21"):
 				pointtexture = preload("res://pointL.png")
 				childrail.get_node("preview").rail.texture = preload("res://raildarkblue.png")
+				childrail.rail.texture = preload("res://railwhite.png")
 			#R points
 			if line.begins_with("              param0: 2141") or line.begins_with("              param0: 2111"):
 				pointtexture = preload("res://pointR.png")
 				childrail.get_node("preview").rail.texture = preload("res://railmaroon.png")
+				childrail.rail.texture = preload("res://railwhite.png")
 			#Auto points
 			if line.begins_with("              param0: 2200") or line.begins_with("              param0: 2300") or line.begins_with("              param0: 2000") or line.begins_with("              param0: 4300"):
 				pointtexture = preload("res://pointA.png")
 				childrail.get_node("preview").rail.texture = preload("res://railGreen.png")
-			
+				childrail.rail.texture = preload("res://railwhite.png")
 			#End Points
 			if line.begins_with("              param0: 2380"):
 				pointtexture = preload("res://PointE0.png")
@@ -287,6 +295,11 @@ func reposition():
 				childrail.data[cycles] = "                  pnt2_y: " + str(-childrail.points[currentpoint].position.y)
 				
 				currentpoint += 1
+	#visible and invisible rail color differ
+	if end[9].begins_with("              param1: 0"): # invisible
+		color = Color(.7,.7,.7,.5)
+	else:
+		color = Color(.2,.2,.2)
 	
 	#update the visuals
 	childrail.rail.points = []
@@ -440,9 +453,9 @@ func child(pos):
 func _draw():
 	if locked == false and loading == false:
 		$end.position = get_global_mouse_position()
-	draw_line($start.position,$end.position,Color(.3,.3,.3),4.5/2)
+	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25)
 	for lineb in lines:
-		draw_line(lineb[0],lineb[1],Color(.2,.2,.2),4.5/2)
+		draw_line(lineb[0],lineb[1],color,2.25)
 
 func EXPORT():
 	if childrail != null:

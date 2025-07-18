@@ -30,10 +30,8 @@ func focus_exited():
 func _ready():
 	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
-	var reference_node = get_node("start")
 	add_child(inst)
-	var reference_index = reference_node.get_index()
-	move_child(inst, reference_index + 1)
+	move_child(inst, 0)
 	
 	
 	rail = inst
@@ -192,6 +190,77 @@ func reposition():
 				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
 				
 				currentpoint += 1
+	for line in end:
+		if line.begins_with("              param0:"): #get the point kind
+			var pointtexture = preload("res://point.png")
+			var rotatetexture = preload("res://pivotR.png")
+			$crank.rail.texture = preload("res://railPurple.png")
+			rail.texture = preload("res://rail.png")
+			#L points
+			if line.begins_with("              param0: 3140") or line.begins_with("              param0: 3150"):
+				pointtexture = preload("res://pointL.png")
+				$crank.rail.texture = preload("res://raildarkblue.png")
+				rail.texture = preload("res://railwhite.png")
+				rotatetexture = preload("res://pivotL.png")
+			#R points
+			if line.begins_with("              param0: 3141") or line.begins_with("              param0: 3112"):
+				pointtexture = preload("res://pointR.png")
+				$crank.rail.texture = preload("res://railmaroon.png")
+				rail.texture = preload("res://railwhite.png")
+			#Auto points
+			if line.begins_with("              param0: 3200") or line.begins_with("              param0: 3300") or line.begins_with("              param0: 3322") or line.begins_with("              param0: 3423"):
+				pointtexture = preload("res://pointA.png")
+				$crank.rail.texture = preload("res://railGreen.png")
+				rail.texture = preload("res://railwhite.png")
+				rotatetexture = preload("res://pivotA.png")
+			
+			#End Points
+			if line.begins_with("              param0: 3380"):
+				pointtexture = preload("res://PointE0.png")
+				rotatetexture = preload("res://PivotE0.png")
+			if line.begins_with("              param0: 3381"):
+				pointtexture = preload("res://PointE1.png")
+				rotatetexture = preload("res://PivotE1.png")
+			if line.begins_with("              param0: 3382"):
+				pointtexture = preload("res://PointE2.png")
+				rotatetexture = preload("res://PivotE2.png")
+			if line.begins_with("              param0: 3383"):
+				pointtexture = preload("res://PointE3.png")
+				rotatetexture = preload("res://PivotE3.png")
+			if line.begins_with("              param0: 3384"):
+				pointtexture = preload("res://PointE4.png")
+				rotatetexture = preload("res://PivotE4.png")
+			if line.begins_with("              param0: 3385"):
+				pointtexture = preload("res://PointE5.png")
+				rotatetexture = preload("res://PivotE5.png")
+			if line.begins_with("              param0: 3386"):
+				pointtexture = preload("res://PointE6.png")
+				rotatetexture = preload("res://PivotE6.png")
+			if line.begins_with("              param0: 3387"):
+				pointtexture = preload("res://PointE7.png")
+				rotatetexture = preload("res://PivotE7.png")
+			if line.begins_with("              param0: 3388"):
+				pointtexture = preload("res://PointE8.png")
+				rotatetexture = preload("res://PivotE8.png")
+			if line.begins_with("              param0: 3389"):
+				pointtexture = preload("res://PointE9.png")
+				rotatetexture = preload("res://PivotE9.png")
+			if line.begins_with("              param0: 3390"):
+				pointtexture = preload("res://PointE10.png")
+				rotatetexture = preload("res://PivotE10.png")
+			if line.begins_with("              param0: 3391"):
+				pointtexture = preload("res://PointE11.png")
+				rotatetexture = preload("res://PivotE11.png")
+			if line.begins_with("              param0: 3392") or line.begins_with("              param0: 3393") or line.begins_with("              param0: 3394"):
+				pointtexture = preload("res://pointE.png")
+				rotatetexture = preload("res://pivotEnd.png")
+			for point in points:
+				point.texture = pointtexture
+			$end.texture = pointtexture
+			$start.texture = pointtexture
+			$crank/crank.texture = rotatetexture
+	
+	
 	$crank.position = points[0].position
 	var text = end[9]
 	text = text.erase(0,22)

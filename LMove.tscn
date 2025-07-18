@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvio04wabmtkb"]
+[gd_scene load_steps=16 format=3 uid="uid://bvio04wabmtkb"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_h6hrl"]
-[ext_resource type="PackedScene" uid="uid://brk6lsnfqfyaw" path="res://pointL.tscn" id="2_d02hl"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="3_c3smo"]
 [ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/MovingPreview.gd" id="4_jjtel"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="5_urndh"]
@@ -74,7 +73,7 @@ _data = {
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_h6hrl")
-point = ExtResource("2_d02hl")
+pointtexture = ExtResource("3_c3smo")
 
 [node name="start" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)

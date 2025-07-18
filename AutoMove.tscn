@@ -1,13 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq8xl1b7q43mu"]
+[gd_scene load_steps=16 format=3 uid="uid://bq8xl1b7q43mu"]
 
-[ext_resource type="Script" path="res://shared scripts/MovingPlatform.gd" id="1_tf7kc"]
-[ext_resource type="PackedScene" path="res://pointA.tscn" id="2_b8nwf"]
+[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_tf7kc"]
 [ext_resource type="Texture2D" uid="uid://dv1xfkkmbirrk" path="res://pointA.png" id="3_la077"]
-[ext_resource type="Script" path="res://shared scripts/MovingPreview.gd" id="4_l8h8a"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/MovingPreview.gd" id="4_l8h8a"]
 [ext_resource type="Texture2D" uid="uid://ksbllqjphq5t" path="res://railGreen.png" id="5_ghtoo"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="6_c8uh4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="7_kemdw"]
-[ext_resource type="Script" path="res://Scripts/speed.gd" id="8_fec1f"]
+[ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="8_fec1f"]
 
 [sub_resource type="StyleBoxEmpty" id="7"]
 
@@ -69,15 +68,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wyfmn"]
 _data = {
-"RESET": SubResource("3"),
-"start": SubResource("4")
+&"RESET": SubResource("3"),
+&"start": SubResource("4")
 }
 
 [node name="Autoplat" type="Node2D"]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_tf7kc")
-point = ExtResource("2_b8nwf")
+pointtexture = ExtResource("3_la077")
 Param0 = 2200
 
 [node name="start" type="Sprite2D" parent="."]
@@ -128,7 +127,7 @@ script = ExtResource("8_fec1f")
 
 [node name="startup" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_wyfmn")
+&"": SubResource("AnimationLibrary_wyfmn")
 }
 autoplay = "start"
 

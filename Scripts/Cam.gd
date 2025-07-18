@@ -39,12 +39,15 @@ func _physics_process(delta):
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_NONE
 		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_ALL
 	if Input.is_action_just_pressed("fullView"):
-		if enabled:
-			get_parent().get_node("ZoomOut").enabled = true
-			enabled = false
-		else:
-			enabled = true
-			get_parent().get_node("ZoomOut").enabled = false
+		toggleCam()
+
+func toggleCam():
+	if enabled:
+		get_parent().get_node("ZoomOut").enabled = true
+		enabled = false
+	else:
+		enabled = true
+		get_parent().get_node("ZoomOut").enabled = false
 
 func toggleUI():
 	get_parent().get_node("CanvasLayer3/CanvasLayer2").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer2").visible

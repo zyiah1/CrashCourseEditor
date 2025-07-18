@@ -1,8 +1,10 @@
 extends Node2D
 signal finish
 
-@export var point: PackedScene = preload("res://pointR.tscn")
-@export var railtexture: Texture2D = load("res://railwhite.png")
+const point: PackedScene = preload("res://point.tscn")
+
+@export var pointtexture: Texture2D = preload("res://pointR.png")
+@export var railtexture: Texture2D = preload("res://railwhite.png")
 @export var Param0: int = 2140
 @export var reset: int = 1
 @export var midImage:Texture2D = null
@@ -28,10 +30,8 @@ func focus_exited():
 
 func _ready():
 	var inst = load("res://rail.tscn").instantiate()
-	var reference_node = get_node("start")
 	add_child(inst)
-	var reference_index = reference_node.get_index()
-	move_child(inst, reference_index + 1)
+	move_child(inst, 0)
 	
 	
 	rail = inst
@@ -236,6 +236,7 @@ func newseg():
 	rail.add_point($end.position)
 	$preview.rail.add_point($end.position)
 	var newpoint = point.instantiate()
+	newpoint.texture = pointtexture
 	newpoint.position = $start.position
 	add_child(newpoint)
 	points.append(newpoint)

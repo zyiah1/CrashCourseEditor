@@ -7,6 +7,7 @@ const moving = preload("res://Function Presets/MovingPlatform.tscn")
 const movingend = preload("res://Function Presets/MovingPlatformEnd.tscn")
 const auto = preload("res://Function Presets/Auto.tscn")
 const rotating = preload("res://Function Presets/RotatingRails.tscn")
+const endrotate = preload("res://Function Presets/RotatingRailsEnd.tscn")
 const apivot = preload("res://Function Presets/AutoRotate.tscn")
 
 func _on_Functions_pressed():
@@ -40,7 +41,10 @@ func _on_Functions_pressed():
 		if get_parent().get_parent().editednode.is_in_group("EndMove"):
 			$FunctionContainer.add_child(movingend.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("Spin"):
-			$FunctionContainer.add_child(rotating.instantiate())
+			if get_parent().get_parent().editednode.is_in_group("EndSpin"):
+				$FunctionContainer.add_child(endrotate.instantiate())
+			else:
+				$FunctionContainer.add_child(rotating.instantiate())
 		if get_parent().get_parent().editednode.is_in_group("checkpoint"):
 			$FunctionContainer.add_child(check.instantiate())
 		if $FunctionContainer.get_child_count() == 0:
@@ -59,6 +63,6 @@ func _on_Property_pressed():
 	$ScrollContainer.show()
 	$FunctionContainer.hide()
 
-func datachanged(text):
+func datachanged(_text):
 	if $RealTime.button_pressed: #if it's realtime
 		$ScrollContainer/VBox.applydata()

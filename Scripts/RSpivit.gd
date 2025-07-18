@@ -42,10 +42,8 @@ func changepivotpoint():
 func _ready():
 	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
-	var reference_node = get_node("start")
 	add_child(inst)
-	var reference_index = reference_node.get_index()
-	move_child(inst, reference_index + 1)
+	move_child(inst, 0)
 	rail = inst
 	rail.texture = load("res://railwhite.png")
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
