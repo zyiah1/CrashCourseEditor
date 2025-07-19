@@ -1,7 +1,5 @@
 extends Node2D
 
-signal finish
-
 const pointScene = preload("res://point2.tscn")
 
 
@@ -192,14 +190,14 @@ func reposition():
 			#L points
 			elif line.begins_with("              param0: 21"):
 				pointtexture = preload("res://pointL.png")
-				childrail.get_node("preview").rail.texture = preload("res://raildarkblue.png")
+				childrail.get_node("preview").rail.texture = preload("res://railblue.png")
 				childrail.rail.texture = preload("res://railwhite.png")
 			if line.begins_with("              param0: 2110"):
 				childrail.midImage = preload("res://crankL.png")
 			#R points
 			if line.begins_with("              param0: 2141") or line.begins_with("              param0: 2111"):
 				pointtexture = preload("res://pointR.png")
-				childrail.get_node("preview").rail.texture = preload("res://railmaroon.png")
+				childrail.get_node("preview").rail.texture = preload("res://rail.png")
 				childrail.rail.texture = preload("res://railwhite.png")
 			if line.begins_with("              param0: 2111"):
 				childrail.midImage = preload("res://crankR.png")
@@ -463,7 +461,7 @@ func _draw():
 		draw_line(lineb[0],lineb[1],color,2.25)
 
 func EXPORT():
-	if childrail != null:
+	if childrail != null and visible:
 		childrail.EXPORT()
 
 func _on_Button_button_down():

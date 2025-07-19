@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://cu1qbuhg8htnl"]
 
-[ext_resource type="PackedScene" path="res://pointR.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8swdau056aah" path="res://pointR.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://crankR.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]

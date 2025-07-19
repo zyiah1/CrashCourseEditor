@@ -1436,6 +1436,14 @@ button_pressed = true
 text = "real time updates"
 flat = true
 
+[node name="SaveAs" type="FileDialog" parent="CanvasLayer3"]
+process_mode = 3
+auto_translate_mode = 1
+size = Vector2i(1000, 800)
+theme = ExtResource("51_0rgi5")
+access = 2
+filters = PackedStringArray("*.txt")
+
 [node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev"]]
 visible = false
 z_index = 20
@@ -1486,7 +1494,11 @@ text = "From Default Level 2&4:"
 [connection signal="focus_exited" from="nonmoving/name" to="Cam" method="_on_name_focus_exited"]
 [connection signal="timeout" from="nonmoving/delay" to="." method="_on_delay_timeout"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer3/MenuBar/Edit" to="." method="_on_edit_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/View" to="." method="_on_view_index_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/close" to="CanvasLayer3/Proporties Panel/ScrollContainer/VBox" method="_on_new_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Property" to="CanvasLayer3/Proporties Panel" method="_on_Property_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Functions" to="CanvasLayer3/Proporties Panel" method="_on_Functions_pressed"]
+[connection signal="canceled" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_canceled"]
+[connection signal="confirmed" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_confirmed"]
+[connection signal="file_selected" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_file_selected"]

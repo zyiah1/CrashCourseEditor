@@ -1,9 +1,8 @@
 extends Node2D
-signal finish
 
 @export var pointScene: PackedScene = preload("res://pointL.tscn")
 @export var Param0: int = 3140
-@export var reset: int = 0
+@export var rotationpoint: int = 0 
 @export var color: Color = Color(.92,.98,.98)
 @export var railtexture: Texture2D = load("res://railwhite.png")
 @onready var idnum = get_parent().get_parent().idnum
@@ -115,8 +114,8 @@ var data:PackedStringArray
 "              num_pnt: !l 2",
 "              param0: " + str(Param0) + ".00000",
 "              param1: " + str(int($rotation.text)), #max degree tilt
-"              param2: 2.50000",
-"              param3: "+str(reset), #This is the point it rotates from: 0 = 1st 1 = 2nd ect.
+"              param2: 2.50000", #speed
+"              param3: "+str(rotationpoint), #This is the point it rotates from: 0 = 1st 1 = 2nd ect.
 "              param4:  0.00000",
 "              param5: -1.00000",
 "              param6: -1.00000",
@@ -199,13 +198,13 @@ func reposition():
 			#L points
 			if line.begins_with("              param0: 3140") or line.begins_with("              param0: 3150"):
 				pointtexture = preload("res://pointL.png")
-				$crank.rail.texture = preload("res://raildarkblue.png")
+				$crank.rail.texture = preload("res://railblue.png")
 				rail.texture = preload("res://railwhite.png")
 				rotatetexture = preload("res://pivotL.png")
 			#R points
 			if line.begins_with("              param0: 3141") or line.begins_with("              param0: 3112"):
 				pointtexture = preload("res://pointR.png")
-				$crank.rail.texture = preload("res://railmaroon.png")
+				$crank.rail.texture = preload("res://rail.png")
 				rail.texture = preload("res://railwhite.png")
 			#Auto points
 			if line.begins_with("              param0: 3200") or line.begins_with("              param0: 3300") or line.begins_with("              param0: 3322") or line.begins_with("              param0: 3423"):
@@ -279,6 +278,7 @@ func reposition():
 		get_node("crank").rail.add_point(point.position)
 		rail.add_point(point.position)
 		get_node("crank").rail.add_point(point.position)
+		point.scale = Vector2(.25,.25)
 	rail.add_point($end.position)
 	get_node("crank").rail.add_point($end.position)
 	rail.add_point($end.position)
@@ -294,9 +294,11 @@ func changepivotpoint():
 		if points.size()-1 < int(line.lstrip("              param: ")):
 			$crank.position = $end.position #last point not in point array aab
 			targetswappoint = $end
+			
 		else:
 			$crank.position = points[int(line.lstrip("              param: "))].position
 			targetswappoint = points[int(line.lstrip("              param: "))]
+			targetswappoint.scale = Vector2(.35,.35)
 		targetswappoint.position = oldpos
 	$start.position = $end.position
 

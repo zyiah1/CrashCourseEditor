@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpuvfl1h5xo7l"]
+[gd_scene load_steps=24 format=3 uid="uid://dpuvfl1h5xo7l"]
 
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="2"]
-[ext_resource type="PackedScene" path="res://LineEdit.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="5"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="6"]
@@ -10,10 +10,14 @@
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="8"]
 [ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="10"]
-[ext_resource type="Script" path="res://Function Presets/RotatingRails.gd" id="11"]
+[ext_resource type="Script" uid="uid://djkjo37c4ti0a" path="res://Function Presets/RotatingRails.gd" id="11"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="12_ctb1r"]
 
 [sub_resource type="FontFile" id="13"]
 fallbacks = Array[Font]([ExtResource("6")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -36,13 +40,7 @@ PopupMenu/icons/radio_unchecked = ExtResource("9")
 PopupMenu/styles/hover = SubResource("14")
 PopupMenu/styles/panel = SubResource("15")
 
-[sub_resource type="CompressedTexture2D" id="17"]
-
 [sub_resource type="StyleBoxTexture" id="20"]
-
-[sub_resource type="StyleBoxTexture" id="21"]
-texture = ExtResource("2")
-region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="StyleBoxTexture" id="18"]
 texture = ExtResource("2")
@@ -52,8 +50,17 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("1")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxTexture" id="21"]
+texture = ExtResource("2")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="CompressedTexture2D" id="17"]
+
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("6")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -123,6 +130,9 @@ cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="23"]
 fallbacks = Array[Font]([ExtResource("6")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -212,15 +222,16 @@ offset_bottom = 215.0
 theme = SubResource("16")
 theme_override_fonts/font = ExtResource("8")
 theme_override_font_sizes/font_size = 50
-theme_override_icons/arrow = SubResource("17")
 theme_override_styles/focus = SubResource("20")
-theme_override_styles/normal = SubResource("21")
 theme_override_styles/hover = SubResource("18")
 theme_override_styles/pressed = SubResource("19")
+theme_override_styles/normal = SubResource("21")
+theme_override_icons/arrow = SubResource("17")
 alignment = 1
 
 [node name="X" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 279.0
@@ -232,6 +243,7 @@ theme_override_font_sizes/font_size = 46
 
 [node name="Y" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 474.0
@@ -291,6 +303,7 @@ text = "Y:"
 
 [node name="Rotation" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 142.0
@@ -311,8 +324,21 @@ theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "Rotation:"
 
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 308.0
+offset_right = 433.0
+offset_bottom = 344.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("23")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Rotation Point:"
+
 [node name="Speed" parent="." instance=ExtResource("3")]
 layout_mode = 0
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 454.0
@@ -346,8 +372,20 @@ theme_override_fonts/normal_font = SubResource("23")
 bbcode_enabled = true
 text = "*only shown in game"
 
+[node name="RotatingPoint" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 354.0
+offset_right = 399.0
+offset_bottom = 431.0
+theme = ExtResource("12_ctb1r")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+allow_reselect = true
+
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]
 [connection signal="text_changed" from="Rotation" to="." method="_on_Rotation_text_changed"]
 [connection signal="text_changed" from="Speed" to="." method="_on_Speed_text_changed"]
+[connection signal="item_selected" from="RotatingPoint" to="." method="_on_rotating_point_item_selected"]

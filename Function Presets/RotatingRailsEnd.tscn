@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dy3eth05o442k"]
+[gd_scene load_steps=26 format=3 uid="uid://dy3eth05o442k"]
 
 [ext_resource type="Script" uid="uid://bb3nuenbrbbs2" path="res://Function Presets/rotating_rails_end.gd" id="1_aav10"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="2_aav10"]
@@ -15,6 +15,9 @@
 
 [sub_resource type="FontFile" id="13"]
 fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -55,6 +58,9 @@ region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="FontFile" id="22"]
 fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -124,6 +130,9 @@ cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="23"]
 fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -262,6 +271,78 @@ cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
 cache/0/36/0/kerning_overrides/21/0 = Vector2(0, 0)
 cache/0/36/0/kerning_overrides/11/0 = Vector2(0, 0)
 cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_aav10"]
+fallbacks = Array[Font]([ExtResource("3_4a7v0")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/41/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/41/0/kerning_overrides/46/0 = Vector2(0, 0)
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/46/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/41/0 = Vector2(0, 0)
+cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 
 [node name="Functions" type="Control"]
 layout_mode = 3
@@ -424,9 +505,10 @@ bbcode_enabled = true
 text = "*only shown in game"
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
-offset_left = 242.0
+layout_mode = 0
+offset_left = 74.0
 offset_top = 319.0
-offset_right = 433.0
+offset_right = 265.0
 offset_bottom = 355.0
 pivot_offset = Vector2(189, 14)
 theme_override_fonts/normal_font = SubResource("FontFile_4a7v0")
@@ -435,9 +517,10 @@ bbcode_enabled = true
 text = "Triggers After:"
 
 [node name="Trigger" type="OptionButton" parent="."]
-offset_left = 225.0
+layout_mode = 0
+offset_left = 57.0
 offset_top = 354.0
-offset_right = 436.0
+offset_right = 268.0
 offset_bottom = 417.0
 theme = ExtResource("12_aav10")
 theme_override_font_sizes/font_size = 61
@@ -475,9 +558,31 @@ popup/item_13/id = 3393
 popup/item_14/text = "DK Hit"
 popup/item_14/id = 3394
 
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+offset_left = 383.0
+offset_top = 308.0
+offset_right = 609.0
+offset_bottom = 344.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("FontFile_aav10")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "Rotation Point:"
+
+[node name="RotatingPoint" type="OptionButton" parent="."]
+offset_left = 378.0
+offset_top = 354.0
+offset_right = 601.0
+offset_bottom = 415.0
+theme = ExtResource("12_aav10")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+allow_reselect = true
+
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]
 [connection signal="text_changed" from="Rotation" to="." method="_on_Rotation_text_changed"]
 [connection signal="text_changed" from="Speed" to="." method="_on_Speed_text_changed"]
 [connection signal="item_selected" from="Trigger" to="." method="_on_trigger_item_selected"]
+[connection signal="item_selected" from="RotatingPoint" to="." method="_on_rotating_point_item_selected"]

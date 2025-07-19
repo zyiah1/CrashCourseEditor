@@ -57,6 +57,7 @@ func LoadTest(filename):
 	loaded = true
 	for node in get_tree().get_nodes_in_group("hide"):
 		node.hide() # hides everything that needs to be gone
+	scene.filepath = fileDialog.current_dir + "/"
 	get_parent().add_child(scene)
 	scene.get_node("Cam").enabled = true
 	scene.get_node("nonmoving/name").text = filename
@@ -224,10 +225,13 @@ func getRail(Railname:String):
 	#if not a moving rail
 	print(Railname)
 	print("RotatingRail:",RailID)
+	
 	if RailID in railIDlist.Invisible:
 		Railscene.invisible = true
 	if RailID in railIDlist.Blue:
 		Railscene.color = Color(.13,.58,.87,1)
+	if RailID[0] == "3": #if rotating rail
+		Railscene = preload("res://Rspin.tscn").instantiate()
 	if RailID in railIDlist.Music:
 		Railscene = preload("res://musicrail.tscn").instantiate()
 	if RailID in railIDlist.RSpin:

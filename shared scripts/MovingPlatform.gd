@@ -1,5 +1,4 @@
 extends Node2D
-signal finish
 
 const point: PackedScene = preload("res://point.tscn")
 

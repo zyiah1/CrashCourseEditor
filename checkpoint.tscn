@@ -17,6 +17,7 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("1")
 offset = Vector2(40, -110)
 script = ExtResource("2_s20m7")
+ObjectName = "Dkb_CheckPoint"
 Param0 = 0.0
 Param1 = 0.0
 Param3 = 0.0

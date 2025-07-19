@@ -293,7 +293,9 @@ func _on_Button_button_up():
 
 
 func _on_slider_value_changed(value):
-	$pitch/number.text = "[center]" + str($pitch/slider.value)
+	$pitch/number.text = "[center]" + str(int($pitch/slider.value))
+	if $pitch/number.text == "[center]-1":
+		$pitch/number.text = "[center]Disabled"
 	end[9] = "              param1: "+str(value)+".00000"
 
 

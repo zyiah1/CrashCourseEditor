@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="7_2hg8k"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
-[ext_resource type="PackedScene" path="res://pointR.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://c8swdau056aah" path="res://pointR.tscn" id="10"]
 
 [sub_resource type="StyleBoxEmpty" id="13"]
 

@@ -8,6 +8,7 @@ var ID = null
 var numberofpoints = 0
 var speed
 var rotation_text
+var rotation_point
 
 func _ready():
 	$HugePanel.hide()
@@ -17,11 +18,14 @@ func _ready():
 		if child.text.begins_with("                  pnt0_y: "):
 			pointsy.append(child)
 			$OptionButton.add_item(str(numberofpoints))
+			$RotatingPoint.add_item(str(numberofpoints))
 			numberofpoints += 1
 		if child.text.begins_with("              param1: "):
 			rotation_text = child
 		if child.text.begins_with("              param2: "):
 			speed = child
+		if child.text.begins_with("              param3: "):
+			rotation_point = child
 		if child.text.begins_with("              param0: ") and child.is_in_group("End"):
 			ID = child
 	$X.text = pointsx[0].text.lstrip("                  pnt0_x: ")
@@ -38,7 +42,9 @@ func _ready():
 	text = rotation_text.text
 	text = text.erase(0,22)
 	$Rotation.text = text
-	
+	text = rotation_point.text
+	text = text.erase(0,22)
+	$RotatingPoint.select(int(text))
 	$Trigger.selected = $Trigger.get_item_index(int(ID.text.erase(0,22)))
 
 func _process(delta):
@@ -71,3 +77,7 @@ func _on_Rotation_text_changed(new_text):
 
 func _on_trigger_item_selected(index):
 	ID.text = "              param0: "+str($Trigger.get_item_id(index))+".00000"
+
+
+func _on_rotating_point_item_selected(index):
+	rotation_point.text = "              param3: " + str(index)

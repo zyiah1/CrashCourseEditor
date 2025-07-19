@@ -35,8 +35,8 @@ var propertypanel: bool = false
 var movingLoop: bool = false
 var stored = null
 var editednode = null
+var filepath: String = Options.filepath
 
-@onready var filepath: String = Options.filepath
 @onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
 @onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
 @onready var graytex = $CanvasLayer3/CanvasLayer2/invisible.icon
@@ -411,44 +411,50 @@ func readd(node:Node):
 		playerstore()
 		
 
+func redo():
+	if historyoffset >= -1: #cant redo more than the end
+		print("No Further Redo History")
+		return
+	historyoffset += 1
+	var currenthistory = history[history.size()+historyoffset]
+	match currenthistory.Type:
+		"Add":
+			readd(currenthistory.Node)
+		"Delete":
+			delete(currenthistory.Node)
+		"Move":
+			print("Redo movedo")
+			currenthistory.Node.position = currenthistory.Data[1]
+
+func undo():
+	if history.size() < -historyoffset: #cant undo more than the start
+		print("No Previous Undo History")
+		return
+	
+	var currenthistory = history[history.size()+historyoffset]
+	match currenthistory.Type:
+		"Add":
+			if lineplacing == false: #special undo if you are currently placing a rail
+				currenthistory.Node.queue_free()
+				lineplacing = true
+				history.erase(currenthistory)
+				Ain()
+				return
+			delete(currenthistory.Node)
+		"Delete":
+			readd(currenthistory.Node)
+		"Move":
+			currenthistory.Node.position = currenthistory.Data[0]
+	historyoffset -= 1
+
 func shortcuts():
 	if not disabledcontrolls:
 		if Input.is_action_just_pressed("id"):
 			movingLoop = not movingLoop
 		if Input.is_action_just_pressed("redo"):
-			if historyoffset >= -1: #cant redo more than the end
-				print("No Further Redo History")
-				return
-			historyoffset += 1
-			var currenthistory = history[history.size()+historyoffset]
-			match currenthistory.Type:
-				"Add":
-					readd(currenthistory.Node)
-				"Delete":
-					delete(currenthistory.Node)
-				"Move":
-					print("Redo movedo")
-					currenthistory.Node.position = currenthistory.Data[1]
+			redo()
 		elif Input.is_action_just_pressed("undo"):
-			if history.size() < -historyoffset: #cant undo more than the start
-				print("No Previous Undo History")
-				return
-			
-			var currenthistory = history[history.size()+historyoffset]
-			match currenthistory.Type:
-				"Add":
-					if lineplacing == false: #special undo if you are currently placing a rail
-						currenthistory.Node.queue_free()
-						lineplacing = true
-						history.erase(currenthistory)
-						Ain()
-						return
-					delete(currenthistory.Node)
-				"Delete":
-					readd(currenthistory.Node)
-				"Move":
-					currenthistory.Node.position = currenthistory.Data[0]
-			historyoffset -= 1
+			undo()
 		if Input.is_action_just_pressed("esc"):
 			if $"CanvasLayer3/Proporties Panel".visible == false:
 				get_tree().change_scene_to_file("res://Loader.tscn")
@@ -456,7 +462,7 @@ func shortcuts():
 				$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox"._on_new_pressed()
 		if Input.is_action_just_pressed("Export"):
 			save()
-			OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+			OS.shell_open(str("file://" + filepath + $nonmoving/name.text + ".txt"))
 		if Input.is_action_just_pressed("save"):
 			save()
 		if Input.is_action_just_pressed("Copy"):
@@ -479,6 +485,11 @@ func shortcuts():
 				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow6
 
 var namefocus = false
+
+func saveas():
+	$CanvasLayer3/SaveAs.popup_centered()
+	$CanvasLayer3/SaveAs.current_dir = filepath
+	get_tree().paused = true
 
 func save():
 	if namefocus == false:
@@ -504,7 +515,7 @@ func save():
 
 func copy():
 	save()
-	var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
+	var file = FileAccess.open(filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
 	DisplayServer.clipboard_set(file.get_as_text())
 
 
@@ -606,15 +617,40 @@ func _on_file_index_pressed(index):
 		0:
 			save()
 		1:
-			pass
+			saveas()
 		2:
 			copy()
 		4:
-			save()
-			OS.shell_open(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+			Input.action_press("Export")
 		5:
 			save()
-			OS.shell_show_in_file_manager(str("file://" + Options.filepath + $nonmoving/name.text + ".txt"))
+			OS.shell_show_in_file_manager(str("file://" + filepath + $nonmoving/name.text + ".txt"))
 		7:
 			save()
 			get_tree().quit()
+
+func _on_edit_index_pressed(index):
+	match index:
+		0:
+			undo()
+		1:
+			redo()
+
+
+func _on_save_as_file_selected(_path):
+	var text = $CanvasLayer3/SaveAs.current_file.erase($CanvasLayer3/SaveAs.current_file.length()-4,4)
+	if text.ends_with(".txt"):
+		text = text.erase(text.length()-4,4)
+	$nonmoving/name.text = text
+	print($nonmoving/name.text)
+	filepath = $CanvasLayer3/SaveAs.current_dir + "/"
+	save()
+	get_tree().paused = false
+
+
+func _on_save_as_canceled():
+	get_tree().paused = false
+
+
+func _on_save_as_confirmed():
+	_on_save_as_file_selected("")
