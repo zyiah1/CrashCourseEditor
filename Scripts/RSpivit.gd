@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const pointscene = preload("res://pointR.tscn")
+const pointscene = preload("res://point.tscn")
 var locked = false
 @onready var id = get_parent().get_parent().nodes.size()
 @onready var idnum = get_parent().get_parent().idnum
@@ -267,13 +267,6 @@ func _process(delta):
 				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
 				return
-	var middle = $start.position
-	var amount = 1
-	for point in points:
-		amount += 1
-		middle += point.position
-	
-	
 	$crank2.position = $crank.position
 	
 	if locked == false:

@@ -1,7 +1,7 @@
 extends Node2D
 
 var drag = false
-var point = preload("res://musicpoint.tscn")
+var pointscene = preload("res://musicpoint.tscn")
 var locked = false
 @onready var id = get_parent().nodes.size()
 var segments = 1
@@ -168,7 +168,7 @@ func _process(delta):
 func newseg():
 	rail.add_point($end.position)
 	rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointscene.instantiate()
 	newpoint.position = $start.position
 	add_child(newpoint)
 	points.append(newpoint)
@@ -207,7 +207,6 @@ func newseg():
 
 func reposition():
 	var currentpoint = 0
-	var currentline = 0
 	var count = -1
 	var first = true
 	var cycles = -1
@@ -237,13 +236,10 @@ func reposition():
 				if first == true:
 					if count >= 2:
 						count = 0
-						currentline += 1
 						first = false
 				points[currentpoint].position.x = int(line.lstrip("                  pnt0_x: "))
 			if line.begins_with("                  pnt0_y: "):
 				points[currentpoint].position.y = -int(line.lstrip("                  pnt0_y: "))
-				if first != true:
-					currentline += 1
 				
 			if line.begins_with("                  pnt1_x: "):
 				data[cycles] = "                  pnt1_x: " + str(points[currentpoint].position.x)
