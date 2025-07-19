@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dalli7fv0djlw" path="res://pivotR.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/filter.gd" id="6"]
-[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/CrankPreview.gd" id="6_j4f67"]
+[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="6_j4f67"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="7_2hg8k"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]

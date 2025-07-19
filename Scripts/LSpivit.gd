@@ -341,7 +341,9 @@ func newseg():
 	segments += 1
 	
 	if segments == 2:
-		newpoint.get_node("start").play("RESET")
+		newpoint.get_node("start").queue_free()
+		newpoint.frame = 0
+
 
 
 func done():

@@ -1,14 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://daf8r71wixk5k"]
+[gd_scene load_steps=19 format=3 uid="uid://drb0tg25rfxfi"]
 
-[ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_b52gp"]
-[ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://bspfcs84t3cp3" path="res://musicpoint.tscn" id="2_2pf8h"]
-[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
-[ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="4_2pf8h"]
-[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5"]
-[ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_6xnkd"]
-[ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="7_8b4ke"]
-[ext_resource type="Texture2D" uid="uid://c7vmsjs2op5vu" path="res://wood.png" id="8_bluix"]
+[ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_sxmit"]
+[ext_resource type="PackedScene" uid="uid://dmncn18nl6sl6" path="res://Bigpoint.tscn" id="2_4dti2"]
+[ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_4dti2"]
+[ext_resource type="Texture2D" uid="uid://f1etgbamm888" path="res://pointinvisible.png" id="3_q6xj1"]
+[ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="4_6fj4e"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5_2adph"]
+[ext_resource type="Texture2D" uid="uid://qy03g08go247" path="res://railinvisible.png" id="5_4dti2"]
+[ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="6_eje4y"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="7_owggh"]
 
 [sub_resource type="StyleBoxEmpty" id="3"]
 
@@ -16,12 +16,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7arx"]
-texture = ExtResource("5_6xnkd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubil0"]
+texture = ExtResource("6_eje4y")
 texture_margin_top = 10.0
 
-[sub_resource type="FontFile" id="FontFile_b52gp"]
-fallbacks = Array[Font]([ExtResource("4")])
+[sub_resource type="FontFile" id="FontFile_aht62"]
+fallbacks = Array[Font]([ExtResource("7_owggh")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
@@ -152,8 +152,8 @@ cache/0/61/0/kerning_overrides/51/0 = Vector2(0, 0)
 cache/0/61/0/kerning_overrides/56/0 = Vector2(0, 0)
 cache/0/61/0/kerning_overrides/61/0 = Vector2(0, 0)
 
-[sub_resource type="Theme" id="5"]
-RichTextLabel/fonts/normal_font = SubResource("FontFile_b52gp")
+[sub_resource type="Theme" id="Theme_ryxr8"]
+RichTextLabel/fonts/normal_font = SubResource("FontFile_aht62")
 
 [sub_resource type="Animation" id="6"]
 length = 0.001
@@ -192,28 +192,25 @@ _data = {
 &"appear": SubResource("7")
 }
 
-[node name="music" type="Node2D" groups=["bridge"]]
-process_priority = 1
+[node name="bridge" type="Node2D" groups=["bridge"]]
 z_index = -1
 z_as_relative = false
-script = ExtResource("1_b52gp")
-music = true
-pointScene = ExtResource("2_2pf8h")
-color = Color(0.9, 0.58, 0.34, 1)
-size = 8.0
-Param0 = "5100"
-Param1 = "0"
+script = ExtResource("1_sxmit")
+pointScene = ExtResource("2_4dti2")
+color = Color(0.745, 0.745, 0.745, 1)
+size = 27.0
+Param0 = "0"
 
 [node name="start" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_q6xj1")
 hframes = 2
 
 [node name="end" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2")
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_q6xj1")
 hframes = 2
 
 [node name="Button" type="Button" parent="end"]
@@ -233,7 +230,7 @@ layout_mode = 3
 anchors_preset = 0
 scale = Vector2(1e-05, 1e-05)
 focus_mode = 2
-script = ExtResource("4_2pf8h")
+script = ExtResource("4_6fj4e")
 
 [node name="slider" type="HSlider" parent="pitch"]
 offset_left = -54.0
@@ -242,8 +239,8 @@ offset_right = 218.0
 offset_bottom = 21.0
 scale = Vector2(0.4, 0.4)
 focus_mode = 0
-theme = ExtResource("5")
-theme_override_styles/slider = SubResource("StyleBoxTexture_g7arx")
+theme = ExtResource("5_2adph")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ubil0")
 min_value = -1.0
 max_value = 7.0
 scrollable = false
@@ -257,7 +254,7 @@ offset_right = 477.0
 offset_bottom = 75.0
 scale = Vector2(0.2, 0.2)
 mouse_filter = 2
-theme = SubResource("5")
+theme = SubResource("Theme_ryxr8")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 61
 text = "0"
@@ -270,10 +267,10 @@ libraries = {
 }
 autoplay = "appear"
 
-[node name="Rail" parent="." instance=ExtResource("7_8b4ke")]
-texture = ExtResource("8_bluix")
-begin_cap_mode = 1
-end_cap_mode = 1
+[node name="Rail" parent="." instance=ExtResource("3_4dti2")]
+width = 40.0
+texture = ExtResource("5_4dti2")
+begin_cap_mode = 0
 
 [connection signal="focus_entered" from="pitch" to="pitch" method="_on_focus_entered"]
 [connection signal="focus_exited" from="pitch" to="pitch" method="_on_focus_exited"]

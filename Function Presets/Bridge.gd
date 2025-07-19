@@ -23,7 +23,7 @@ func _ready():
 		$X.text = "0"
 	if $Y.text == "":
 		$Y.text = "0"
-
+	$Type.selected = $Type.get_item_index(int(railtype.text.erase(0,22)))
 
 func _process(delta):
 	if Input.is_action_just_pressed("accept"):
@@ -54,3 +54,7 @@ func _on_X_text_changed(new_text):
 
 func _on_Y_text_changed(new_text):
 	pointsy[int($OptionButton.text)].text = "                  pnt0_y: " + str(new_text)
+
+
+func _on_type_item_selected(index):
+	railtype.text = "              param0: "+str($Type.get_item_id(index))+".00000"

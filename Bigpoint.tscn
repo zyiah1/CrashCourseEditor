@@ -1,85 +1,92 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://dmncn18nl6sl6"]
 
-[ext_resource path="res://point.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://f1etgbamm888" path="res://pointinvisible.png" id="1_cjtxj"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1.05, 1.05 ) ]
+"values": [Vector2(0.9, 0.9)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ 0 ]
+"values": [0]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "start"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.4 ),
-"transitions": PackedFloat32Array( 0.0853775, 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1.05, 1.05 ), Vector2( 0.9, 0.9 ) ]
+"values": [Vector2(0.9, 0.9)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ 1 ]
+"values": [1]
 }
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjtxj"]
+_data = {
+&"RESET": SubResource("1"),
+&"start": SubResource("2")
+}
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id="5"]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id="3"]
+
+[sub_resource type="StyleBoxEmpty" id="4"]
 
 [node name="point" type="Sprite2D"]
-scale = Vector2( 1.05, 1.05 )
 z_index = 1
-texture = ExtResource( 1 )
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_cjtxj")
 hframes = 2
 
 [node name="start" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cjtxj")
+}
 autoplay = "start"
-anims/RESET = SubResource( 1 )
-anims/start = SubResource( 2 )
 
 [node name="Button" type="Button" parent="."]
 offset_left = -17.0
 offset_top = -17.0
 offset_right = 17.0
 offset_bottom = 17.0
-theme_override_styles/hover = SubResource( 3 )
-theme_override_styles/pressed = SubResource( 4 )
-theme_override_styles/focus = SubResource( 5 )
-theme_override_styles/disabled = SubResource( 5 )
-theme_override_styles/normal = SubResource( 5 )
+theme_override_styles/focus = SubResource("5")
+theme_override_styles/disabled = SubResource("5")
+theme_override_styles/hover = SubResource("3")
+theme_override_styles/pressed = SubResource("4")
+theme_override_styles/normal = SubResource("5")

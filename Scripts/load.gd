@@ -6,6 +6,7 @@ var loaded = false
 var rail = false
 
 var playerposition = Vector2(-216,-397)
+var highestID = 0
 
 var railIDlist = {
 	"Normal":[],
@@ -118,17 +119,24 @@ func LoadTest(filename):
 				matched = true
 				
 				var instance = getRail(railend[8])
+				var id = railend[2].erase(0,27)
+				if int(id) > highestID:
+					highestID = int(id)
+				if railend[8].begins_with("              param0: 2900") or railend[8].begins_with("              param0: 4900"):
+					
+					movingPlatforms[id] = instance
 				if railend[18].begins_with("              param0: 2") or railend[19].begins_with("              param0: 2") or railend[19].begins_with("              param0: 4300") or railend[18].begins_with("              param0: 4300"):#moving platform
 					
-					var Id
 					for railline in railend:
 						if railline.contains("linkID:"):
-							Id = railline.erase(0,30)
+							id = railline.erase(0,30)
+							if int(id) > highestID:
+								highestID = int(id)
 						if railline.begins_with("              param0:"):
 							instance = getRail(railline)
-					var oldrail = movingPlatforms.get(Id)
+					var oldrail = movingPlatforms.get(id)
 					if oldrail == null:
-						print("Repositioned:",Id)
+						print("Repositioned:",id)
 						content += raildata
 						content += railend
 					else:
@@ -141,7 +149,7 @@ func LoadTest(filename):
 						instance.data = raildata
 						instance.endplat = railend
 						oldrail.reposition()
-						movingPlatforms.erase(Id)
+						movingPlatforms.erase(id)
 					
 				else:
 					var prereference = ""
@@ -161,7 +169,6 @@ func LoadTest(filename):
 						
 					
 					if railend[8].begins_with("              param0: 2900") or railend[8].begins_with("              param0: 4900"):
-						var id = railend[2].erase(0,27)
 						movingPlatforms[id] = instance
 					else:#if it isn't a moving rail
 						instance.done()
@@ -177,6 +184,8 @@ func LoadTest(filename):
 	scene.get_node("Cam").position = playerposition
 	scene.get_node("Cam").zoom = Vector2(2.5,2.5)
 	scene.get_node("Cam").toggleUI()
+	scene.idnum = highestID + 1
+	print("HighestID:",highestID)
 	if movingPlatforms.size() != 0:
 		push_error("Not All Platforms Have a Pair!")
 
@@ -215,7 +224,7 @@ func MovingRail(Railname) -> PackedScene:
 	return Railscene
 
 func getRail(Railname:String):
-	var Railscene = preload("res://bridge.tscn").instantiate()
+	var Railscene = preload("res://DefaultRail.tscn").instantiate()
 	var RailID = Railname.erase(26,6).erase(0,22) #the railID with nothing else
 	if Railname.begins_with("              param0: 2") or Railname.begins_with("              param0: 4300") or Railname.begins_with("              param0: 4900.00000"):
 		if RailID in railIDlist.PathRail:
@@ -229,9 +238,9 @@ func getRail(Railname:String):
 	print("RotatingRail:",RailID)
 	
 	if RailID in railIDlist.Invisible:
-		Railscene.invisible = true
+		Railscene = preload("res://InvisibleRail.tscn").instantiate()
 	if RailID in railIDlist.Blue:
-		Railscene.color = Color(.13,.58,.87,1)
+		Railscene = preload("res://BlueRail.tscn").instantiate()
 	if RailID[0] == "3": #if rotating rail
 		Railscene = preload("res://Rspin.tscn").instantiate()
 	if RailID in railIDlist.Music:

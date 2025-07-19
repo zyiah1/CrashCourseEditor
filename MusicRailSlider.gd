@@ -9,6 +9,8 @@ func _ready():
 		firstpress = false
 
 func _process(delta):
+	if Input.is_action_just_pressed("accept"):
+		hide()
 	if Input.is_action_just_pressed("bridge") and firstpress:
 		firstpress = false
 		position = owner.get_node("start").position
@@ -24,7 +26,8 @@ func edit():
 	$AnimationPlayer.play("appear")
 
 func _on_focus_entered():
-	show()
+	if owner.music:
+		show()
 
 
 func _on_focus_exited():

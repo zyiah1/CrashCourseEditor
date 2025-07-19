@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cqm5yqd7r13ri"]
+[gd_scene load_steps=25 format=3 uid="uid://cqm5yqd7r13ri"]
 
 [ext_resource type="Script" uid="uid://dnwiku6r7qs0u" path="res://Function Presets/Bridge.gd" id="1"]
-[ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="4"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="4_c4knb"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="5"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="6"]
 [ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="7"]
@@ -13,19 +13,112 @@
 [ext_resource type="Texture2D" uid="uid://djlgaf38iqw8w" path="res://UI/Triangle.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://dkgrsyt650vc8" path="res://UI/Trianglepressed.png" id="12"]
 
-[sub_resource type="StyleBoxTexture" id="3"]
-
-[sub_resource type="StyleBoxTexture" id="1"]
-texture = ExtResource("5")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="2"]
-texture = ExtResource("4")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="4"]
-texture = ExtResource("5")
-region_rect = Rect2(0, 0, 733, 320)
+[sub_resource type="FontFile" id="FontFile_gkog5"]
+fallbacks = Array[Font]([ExtResource("6")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/26/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/26/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/31/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/31/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/21/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/21/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/11/0/ascent = 0.0
+cache/0/11/0/descent = 0.0
+cache/0/11/0/underline_position = 0.0
+cache/0/11/0/underline_thickness = 0.0
+cache/0/11/0/scale = 1.0
+cache/0/11/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/11/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/36/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/26/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/31/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/21/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/11/0 = Vector2(0, 0)
+cache/0/36/0/kerning_overrides/36/0 = Vector2(0, 0)
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+cache/0/61/0/ascent = 0.0
+cache/0/61/0/descent = 0.0
+cache/0/61/0/underline_position = 0.0
+cache/0/61/0/underline_thickness = 0.0
+cache/0/61/0/scale = 1.0
+cache/0/66/0/ascent = 0.0
+cache/0/66/0/descent = 0.0
+cache/0/66/0/underline_position = 0.0
+cache/0/66/0/underline_thickness = 0.0
+cache/0/66/0/scale = 1.0
+cache/0/71/0/ascent = 0.0
+cache/0/71/0/descent = 0.0
+cache/0/71/0/underline_position = 0.0
+cache/0/71/0/underline_thickness = 0.0
+cache/0/71/0/scale = 1.0
+cache/0/76/0/ascent = 0.0
+cache/0/76/0/descent = 0.0
+cache/0/76/0/underline_position = 0.0
+cache/0/76/0/underline_thickness = 0.0
+cache/0/76/0/scale = 1.0
+cache/0/81/0/ascent = 0.0
+cache/0/81/0/descent = 0.0
+cache/0/81/0/underline_position = 0.0
+cache/0/81/0/underline_thickness = 0.0
+cache/0/81/0/scale = 1.0
 
 [sub_resource type="FontFile" id="13"]
 fallbacks = Array[Font]([ExtResource("6")])
@@ -2945,42 +3038,35 @@ script = ExtResource("1")
 position = Vector2(-122, 400)
 texture = ExtResource("3")
 
-[node name="Color" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 54.0
-offset_right = 388.0
-offset_bottom = 512.0
+[node name="RichTextLabel14" type="RichTextLabel" parent="."]
+offset_left = 129.0
+offset_top = -1.0
+offset_right = 541.0
+offset_bottom = 116.0
+pivot_offset = Vector2(189, 14)
+theme_override_fonts/normal_font = SubResource("FontFile_gkog5")
+theme_override_font_sizes/normal_font_size = 81
+bbcode_enabled = true
+text = "Rail Type:"
 
-[node name="Red" type="Button" parent="Color"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme = ExtResource("2")
-theme_override_styles/focus = SubResource("3")
-theme_override_styles/hover = SubResource("1")
-theme_override_styles/pressed = SubResource("2")
-theme_override_styles/normal = SubResource("4")
-text = "red"
-
-[node name="Blue" type="Button" parent="Color"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme = ExtResource("2")
-theme_override_styles/focus = SubResource("3")
-theme_override_styles/hover = SubResource("1")
-theme_override_styles/pressed = SubResource("2")
-theme_override_styles/normal = SubResource("4")
-text = "blue"
-
-[node name="Invisible" type="Button" parent="Color"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme = ExtResource("2")
-theme_override_styles/focus = SubResource("3")
-theme_override_styles/hover = SubResource("1")
-theme_override_styles/pressed = SubResource("2")
-theme_override_styles/normal = SubResource("4")
-text = "invisible"
+[node name="Type" type="OptionButton" parent="."]
+offset_left = 106.0
+offset_top = 104.0
+offset_right = 531.0
+offset_bottom = 226.0
+theme = ExtResource("4_c4knb")
+theme_override_font_sizes/font_size = 120
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Red"
+popup/item_0/id = 1000
+popup/item_1/text = "Blue"
+popup/item_1/id = 1200
+popup/item_2/text = "Invisible"
+popup/item_2/id = 0
+popup/item_3/text = "Music"
+popup/item_3/id = 5100
 
 [node name="Position" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -3077,9 +3163,7 @@ theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
 text = "Y:"
 
-[connection signal="pressed" from="Color/Red" to="." method="_on_Red_pressed"]
-[connection signal="pressed" from="Color/Blue" to="." method="_on_Blue_pressed"]
-[connection signal="pressed" from="Color/Invisible" to="." method="_on_Invisible_pressed"]
+[connection signal="item_selected" from="Type" to="." method="_on_type_item_selected"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
 [connection signal="text_changed" from="Y" to="." method="_on_Y_text_changed"]

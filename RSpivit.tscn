@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dphlqsbhy5484" path="res://Scripts/RSpivit.gd" id="1"]
 [ext_resource type="Script" uid="uid://cjqb0qyk882wb" path="res://Scripts/rotationTextFilter.gd" id="3"]
-[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/CrankPreview.gd" id="3_my8sy"]
+[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="3_my8sy"]
 [ext_resource type="Texture2D" uid="uid://bm4jdwxs1nkev" path="res://pivotRS.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Texture2D" uid="uid://dkkhc0srthw5r" path="res://railmaroon.png" id="5_1vrlm"]

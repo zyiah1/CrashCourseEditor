@@ -8,7 +8,9 @@ const banana = preload("res://banana.tscn")
 const checkpoint = preload("res://checkpoint.tscn")
 const finalcheck = preload("res://finalcheckpoint.tscn")
 const musicrail = preload("res://musicrail.tscn")
-const bridge = preload("res://bridge.tscn")
+const Rail = preload("res://DefaultRail.tscn")
+const InvisibleRail = preload("res://InvisibleRail.tscn")
+const BlueRail = preload("res://BlueRail.tscn")
 const RightSpin = preload("res://Rspin.tscn")
 const LeftSpin = preload("res://Lspin.tscn")
 const player = preload("res://player.tscn")
@@ -75,7 +77,7 @@ func _ready():
 		$CanvasLayer3/SaveAs.use_native_dialog = true
 	#make the default borders of the level if new level
 	if get_tree().current_scene.name == "Editor": #Not loading screen
-		var borders = [bridge.instantiate(),bridge.instantiate(),bridge.instantiate(),bridge.instantiate()]
+		var borders = [InvisibleRail.instantiate(),InvisibleRail.instantiate(),InvisibleRail.instantiate(),InvisibleRail.instantiate()]
 		borders[0].get_node("start").position = Vector2(495,-555)
 		borders[0].get_node("end").position = Vector2(-495,-555)
 		borders[1].get_node("start").position = Vector2(495,-555)
@@ -86,7 +88,6 @@ func _ready():
 		borders[3].get_node("end").position = Vector2(495,555)
 		for bridgeinst in borders:
 			bridgeinst.loading = true
-			bridgeinst.invisible = true
 			connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 			add_child(bridgeinst)
 			bridgeinst.newseg()
@@ -100,6 +101,7 @@ func _ready():
 	#connect all item and tool buttons
 	for button in get_tree().get_nodes_in_group("button"):
 		button.connect("selected",Callable(self,"itemselected"))
+
 
 var bridgeheader:PackedStringArray = ["        RailInfos:",
 "          PathInfo:"
@@ -262,7 +264,7 @@ var end:PackedStringArray = ["      LayerName: LC",
 "      LayerName: L25"]
 
 
-func _process(delta):
+func _process(_delta):
 	itemplace()
 	shortcuts()
 
@@ -281,7 +283,12 @@ func itemplace():
 			
 			railplace = 1
 			if item == "rail":
-				instance = bridge.instantiate()
+				instance = Rail.instantiate()
+				match mode:
+					2:
+						instance = BlueRail.instantiate()
+					3:
+						instance = InvisibleRail.instantiate()
 			if item == "music":
 				instance = musicrail.instantiate()
 			if item == "endrotate":
@@ -599,14 +606,15 @@ func _on_view_index_pressed(index):
 	#0 Hide UI
 	#1 Loop Movements
 	#2 Whole Level View
-	match index:
-		0:
-			if $Cam.paused == false and propertypanel == false:
-				$Cam.toggleUI()
-		1:
-			movingLoop = not movingLoop
-		2:
-			$Cam.toggleCam()
+	if not disabledcontrolls:
+		match index:
+			0:
+				if $Cam.paused == false and propertypanel == false:
+					$Cam.toggleUI()
+			1:
+				movingLoop = not movingLoop
+			2:
+				$Cam.toggleCam()
 
 
 func _on_file_index_pressed(index):
@@ -616,30 +624,32 @@ func _on_file_index_pressed(index):
 	#4 = Open In File Manager
 	#5 = Show In File Manager
 	#7 = Save And Quit
-	match index:
-		0:
-			save()
-		1:
-			saveas()
-		2:
-			copy()
-		4:
-			Input.action_press("Export")
-		5:
-			save()
-			OS.shell_show_in_file_manager(str("file://" + filepath + $nonmoving/name.text + ".txt"))
-		7:
-			save()
-			get_tree().quit()
+	if not disabledcontrolls:
+		match index:
+			0:
+				save()
+			1:
+				saveas()
+			2:
+				copy()
+			4:
+				Input.action_press("Export")
+			5:
+				save()
+				OS.shell_show_in_file_manager(str("file://" + filepath + $nonmoving/name.text + ".txt"))
+			7:
+				save()
+				get_tree().quit()
 
 func _on_edit_index_pressed(index):
-	match index:
-		0:
-			undo()
-		1:
-			redo()
+	if not disabledcontrolls:
+		match index:
+			0:
+				undo()
+			1:
+				redo()
 
-func _on_help_index_pressed(index):
+func _on_help_index_pressed(_index):
 	#0 = controls, 1 = tutorial for now the same
 	$CanvasLayer3/Controls.show()
 

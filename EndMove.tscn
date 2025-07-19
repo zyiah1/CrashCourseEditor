@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_le88g"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
-[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/MovingPreview.gd" id="4_vbgdc"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="4_vbgdc"]
 [ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="5"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="6"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="6_7xp7g"]

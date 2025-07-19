@@ -1,16 +1,24 @@
 extends Node2D
 
-var pointScene = preload("res://point.tscn")
-var drag = false
-var locked = false
-var segments = 1
+signal edit
+
+@export var music: bool = false
+@export var pointScene:PackedScene = preload("res://point.tscn")
+@export var color:Color = Color.RED - Color(.2,0,0,0)
+@export var size:float = 4.5
+
+@export var Param0:String = "1000"
+@export var Param1:String = "-1"
+
+var loading:bool = false
+var locked:bool = false
+var segments:int = 1 #amount of segments
 var lines = []
 var points = []
-var loading = false
-var color = Color.RED - Color(.2,0,0,0)
+
 var buttons = []
-var invisible = false
-var size = 4.5
+
+
 
 
 @onready var rail = $Rail
@@ -24,15 +32,15 @@ var size = 4.5
 "              link_num: !l 0",
 "              name: レール",
 "              num_pnt: !l 2",
-"              param0: 1000.00000",
-"              param1: -1.00000",
+"              param0: "+Param0+".00000",
+"              param1: "+Param1+".00000",
 "              param2: -1.00000",
 "              param3: -1.00000",
 "              param4:  0.00000",
 "              param5: -1.00000",
 "              param6: -1.00000",
 "              param7: -1.00000",#message that displays?
-"              param8: 0.00000",
+"              param8: -1.00000",
 "              param9: -1.00000",
 "              type: Linear",
 "              unit_name: Path"]
@@ -45,22 +53,6 @@ var size = 4.5
 func _ready():
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
-		if get_parent().mode == 2:
-			color = Color(.13,.58,.87,1)
-		if get_parent().mode == 3:
-			invisible = true
-	if color == Color(.13,.58,.87,1): #if it's blue
-		end[8] = "              param0: 1200.00000"
-		rail.texture = load("res://railblue.png")
-	if invisible == true:
-		pointScene = preload("res://Bigpoint.tscn")
-		$start.scale =  Vector2(.90,.90)
-		$end.scale =  Vector2(.90,.90)
-		size = size*6
-		rail.width = 40
-		end[8] = "              param0: 0.00000"
-		color = Color.GRAY
-	
 	rail.add_point($start.position)
 	
 	data = ["            - Points:",
@@ -125,27 +117,38 @@ var data:PackedStringArray
 func _process(delta):
 	queue_redraw()
 	id = get_parent().nodes.find(self)
-	if get_parent().item == "delete":
-		if drag == true:
-			get_parent().nodes.remove_at(id)
-			queue_free()
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
+	var amount = 0
+	var pressed = false
+	for button in buttons:
+		if button.is_hovered():
+			amount += 1
+		if button.button_pressed:
+			pressed = true
+	
+	if amount != 0: #button is hovered
+		match get_parent().item:
+			"edit":
+				modulate = Color.GREEN_YELLOW
+				if pressed:
+					emit_signal("edit")
+			"delete":
 				modulate = Color.RED
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().item == "proporties":
-		if drag == true:
-			if get_parent().propertypanel == false:
-				get_parent().propertypanel = true
-				get_parent().parse(data)
-				get_parent().parse(end)
-				get_parent().editednode = self
-				return
+				if pressed:
+					get_parent().nodes.remove_at(id)
+					hide()
+					get_parent().undolistadd({"Type":"Delete","Node":self})
+					add_to_group("Limbo")
+			"proporties":
+				modulate = Color.LIGHT_SKY_BLUE
+				if pressed:
+					if get_parent().propertypanel == false:
+						get_parent().propertypanel = true
+						get_parent().parse(data)
+						get_parent().parse(end)
+						get_parent().editednode = self
+						return
+	else:
+		modulate = Color.WHITE
 	if locked == false:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
@@ -165,8 +168,6 @@ func newseg():
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
-	newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-	newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -191,13 +192,13 @@ func newseg():
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
 	data += dataseg
-	$start.position = $end.position
-	$start.frame = 1
 	segments += 1
 	
 	if segments == 2:
-		newpoint.get_node("start").play("RESET")
-
+		newpoint.get_node("start").queue_free()
+		newpoint.frame = 0
+	$start.position = $end.position
+	$start.frame = 1
 
 
 func reposition():
@@ -208,32 +209,51 @@ func reposition():
 	var cycles = -1
 	
 	for line in end:
-		if line.begins_with("              param0: 1"):
-			invisible = false
+		
+		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
+			for point in points: # reset point scale
+				point.texture = preload("res://point.png")
+				if point.frame == 0:
+					point.scale = Vector2(.35,.35)
+				if point.frame == 1:
+					point.scale = Vector2(.25,.25)
+			$start.texture = preload("res://point.png")
+			$end.texture = preload("res://point.png")
+			$start.scale = Vector2(.35,.35)
+			$end.scale = Vector2(.35,.35)
+			size = 4.5
 			rail.width = 8
-			if $start.scale == Vector2(.35,.35)*3:
-				$start.scale = Vector2(.35,.35)
-				$end.scale = Vector2(.35,.35)
-				size = 4.5
-				for point in points:
-					
-					point.scale = point.scale/3
-		if line == "              param0: 1000.00000":
-			color = Color.RED - Color(.2,0,0,0)
-			rail.texture = load("res://rail.png")
-		if line == "              param0: 1200.00000":
-			color = Color(.13,.58,.87,1)
-			rail.texture = load("res://railblue.png")
-		if line == "              param0: 0.00000":
-			invisible = true
-			if $start.scale == Vector2(.35,.35):
-				$start.scale = $start.scale*3
-				$end.scale = $end.scale*3
-				size = size*6
+			
+		match line:
+			"              param0: 1000.00000":
+				music = false
+				color = Color.RED - Color(.2,0,0,0)
+				rail.texture = load("res://rail.png")
+			"              param0: 1200.00000":
+				music = false
+				color = Color(.13,.58,.87,1)
+				rail.texture = load("res://railblue.png")
+			"              param0: 0.00000":
+				music = false
+				rail.width = 40
+				rail.texture = load("res://railinvisible.png")
+				$start.scale = Vector2(.90,.90)
+				$end.scale = Vector2(.90,.90)
+				$start.texture = preload("res://pointinvisible.png")
+				$end.texture = preload("res://pointinvisible.png")
+				size = 27
 				color = Color.GRAY
 				for point in points:
 					point.scale = Vector2(.90,.90)
-	
+					point.texture = preload("res://pointinvisible.png")
+			"              param0: 5100.00000":
+				music = true
+				rail.texture = preload("res://wood.png")
+				for point in points:
+					point.scale = Vector2(.35,.35)
+					point.texture = preload("res://pointmusic.png")
+				$start.texture = preload("res://pointmusic.png")
+				$end.texture = preload("res://pointmusic.png")
 	for line in data:
 		cycles += 1
 		if currentpoint == points.size():
@@ -310,21 +330,7 @@ func _draw():
 	if loading == false:
 		$end.position = get_global_mouse_position().round()
 	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
-	if invisible:
-		rail.hide()
-		for lineb in lines:
-			draw_line(lineb[0],lineb[1],color,size)
-	else:
-		rail.show()
 
 func EXPORT():
-	get_parent().bridgedata += data + end
-
-
-func _on_Button_button_down():
-	drag = true
-	
-
-
-func _on_Button_button_up():
-	drag = false
+	if visible:
+		get_parent().bridgedata += data + end
