@@ -65,11 +65,8 @@ func _on_Button_button_up():
 func _on_Button_button_down():
 	if get_parent().item == "delete":
 		get_parent().nodes.remove_at(id)
-		if get_parent().stored == self:
-			get_parent().playerunstore()
-		hide()
+		get_parent().delete(self)
 		get_parent().undolistadd({"Type":"Delete","Node":self})
-		add_to_group("Limbo")
 	if get_parent().item == "proporties":
 		if get_parent().propertypanel == false:
 			get_parent().propertypanel = true

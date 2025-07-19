@@ -266,13 +266,6 @@ func _process(delta):
 				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
 				return
-	var middle = $start.position
-	var amount = 1
-	for point in points:
-		amount += 1
-		middle += point.position
-	
-	
 	$crank2.position = $crank.position
 	
 	if locked == false:

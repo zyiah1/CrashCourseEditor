@@ -30,7 +30,7 @@ const RightCrank = preload("res://Rcrank.tscn")
 
 var idnum: int = 3
 var mode: int = 1
-var checkpoints: int = 0
+var checkpoints = []
 var railplace: int = -2
 var lineplacing: bool = true
 var propertypanel: bool = false
@@ -348,14 +348,22 @@ func itemplace():
 			instance = preload("res://1up.tscn").instantiate()
 		if item == "checkpoint":
 			instance = checkpoint.instantiate()
-			if checkpoints == 0:
+			if checkpoints.size() == 0:
 				instance = preload("res://firstcheckpoint.tscn").instantiate()
-			instance.Param2 = checkpoints
-			checkpoints += 1
+			var area = 0
+			for value in checkpoints:
+				if area in checkpoints:
+					area += 1
+			instance.Param2 = area
+			checkpoints.append(area)
 		if item == "final":
 			instance = finalcheck.instantiate()
-			instance.Param2 = checkpoints
-			checkpoints += 1
+			var area = 0
+			for value in checkpoints:
+				if area in checkpoints:
+					area += 1
+			instance.Param2 = area
+			checkpoints.append(area)
 		if  item == "coin":
 			instance = coin.instantiate()
 		if item == "door":
@@ -410,7 +418,10 @@ func delete(node:Node):
 	node.add_to_group("Limbo")
 	if node.is_in_group("player"): #if we redo the player, show the icon
 		playerunstore()
-		print("A")
+	if node.is_in_group("checkpoint"): #if we redo the player, show the icon
+		checkpoints.erase(int(node.data[13].erase(0,20)))
+		
+
 
 func readd(node:Node):
 	node.show()
@@ -497,8 +508,8 @@ func shortcuts():
 var namefocus = false
 
 func saveas():
-	$CanvasLayer3/SaveAs.popup_centered()
 	$CanvasLayer3/SaveAs.current_dir = filepath
+	$CanvasLayer3/SaveAs.popup_centered()
 	get_tree().paused = true
 
 func save():

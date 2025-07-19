@@ -328,6 +328,7 @@ alignment = 1
 icon_alignment = 1
 
 [node name="face" type="OptionButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 184.0
 offset_top = 393.0

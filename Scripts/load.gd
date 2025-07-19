@@ -42,6 +42,7 @@ func _process(_delta):
 	if loaded == false:
 		if Input.is_action_just_pressed("Paste"):
 			content = DisplayServer.clipboard_get()
+			fileDialog.current_path = Options.filepath
 			$AnimationPlayer.play("transition")
 			LoadTest("untitled")
 

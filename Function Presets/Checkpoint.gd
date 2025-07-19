@@ -57,6 +57,7 @@ func _ready():
 	if type1.text.begins_with("            param0: 1"):
 		#first
 		$type.select(1)
+		$face.show()
 	if type1.text.begins_with("            param0: 2"):
 		#final
 		$type.select(2)
@@ -92,12 +93,14 @@ func _on_area_text_changed(new_text):
 
 func _on_type_item_selected(index):
 	var newtext = ""
+	$face.hide()
 	match index:
 		
 		0:
 			newtext = " 0.00000"
 		1:
 			newtext = " 1.00000"
+			$face.show()
 		2:
 			newtext = " 2.00000"
 		
