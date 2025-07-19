@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://daf8r71wixk5k"]
+[gd_scene load_steps=19 format=3 uid="uid://daf8r71wixk5k"]
 
 [ext_resource type="Script" uid="uid://bc06qfek4nkgq" path="res://Scripts/musicrail.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="3"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
+[ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="4_2pf8h"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_6xnkd"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="7_8b4ke"]
@@ -192,6 +193,7 @@ _data = {
 }
 
 [node name="music" type="Node2D" groups=["music"]]
+process_priority = 1
 z_index = -1
 z_as_relative = false
 script = ExtResource("1")
@@ -224,9 +226,13 @@ position = Vector2(55, 23)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3")
 
-[node name="pitch" type="Node2D" parent="."]
+[node name="pitch" type="Control" parent="."]
 z_index = 5
+layout_mode = 3
+anchors_preset = 0
 scale = Vector2(1e-05, 1e-05)
+focus_mode = 2
+script = ExtResource("4_2pf8h")
 
 [node name="slider" type="HSlider" parent="pitch"]
 offset_left = -54.0
@@ -253,10 +259,11 @@ mouse_filter = 2
 theme = SubResource("5")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 61
-bbcode_enabled = true
-text = "[center]0"
+text = "0"
+horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pitch"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_my4il")
 }
@@ -267,8 +274,6 @@ texture = ExtResource("8_bluix")
 begin_cap_mode = 1
 end_cap_mode = 1
 
-[connection signal="button_down" from="end/Button" to="." method="_on_Button_button_down"]
-[connection signal="button_up" from="end/Button" to="." method="_on_Button_button_up"]
-[connection signal="focus_entered" from="pitch/slider" to="." method="_on_slider_focus_entered"]
-[connection signal="focus_exited" from="pitch/slider" to="." method="_on_slider_focus_exited"]
-[connection signal="value_changed" from="pitch/slider" to="." method="_on_slider_value_changed"]
+[connection signal="focus_entered" from="pitch" to="pitch" method="_on_focus_entered"]
+[connection signal="focus_exited" from="pitch" to="pitch" method="_on_focus_exited"]
+[connection signal="value_changed" from="pitch/slider" to="pitch" method="_on_slider_value_changed"]

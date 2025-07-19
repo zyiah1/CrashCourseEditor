@@ -1,6 +1,6 @@
 extends Node2D
 
-var drag = false
+signal edit
 var pointscene = preload("res://musicpoint.tscn")
 var locked = false
 @onready var id = get_parent().nodes.size()
@@ -41,10 +41,6 @@ var buttons = []
 func _ready():
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
-		$pitch/slider.grab_focus()
-	else:
-		$pitch.hide()
-	$pitch.position = $start.position
 	rail.add_point($start.position)
 	data = ["            - Points:",
 "                - comment: !l -1",
@@ -109,49 +105,39 @@ func _process(delta):
 	if Input.is_action_just_pressed("accept"):
 		$pitch.hide()
 	
-	
 	queue_redraw()
 	id = get_parent().nodes.find(self)
-	if get_parent().item == "delete":
-		if drag == true:
-			get_parent().nodes.remove_at(id)
-			queue_free()
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
+	
+	
+	var amount = 0
+	var pressed = false
+	for button in buttons:
+		if button.is_hovered():
+			amount += 1
+		if button.button_pressed:
+			pressed = true
+	
+	if amount != 0: #button is hovered
+		match get_parent().item:
+			"edit":
+				modulate = Color.GREEN_YELLOW
+				if pressed:
+					emit_signal("edit")
+			"delete":
 				modulate = Color.RED
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().item == "edit":
-		if drag == true:
-			if end[9][22] == "1":
-				$pitch/slider.value = int("1"+end[9].lstrip("              param1:"))
-			else:
-				$pitch/slider.value = int(end[9].lstrip("              param1:"))
-			
-			$pitch.show()
-			$pitch/slider.grab_focus()
-			
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
-				modulate = Color.LIGHT_BLUE
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().item == "proporties":
-		if drag == true:
-			if get_parent().propertypanel == false:
-				get_parent().propertypanel = true
-				get_parent().parse(data)
-				get_parent().parse(end)
-				get_parent().editednode = self
-				return
+				if pressed:
+					get_parent().nodes.remove_at(id)
+			"proporties":
+				modulate = Color.LIGHT_SKY_BLUE
+				if pressed:
+					if get_parent().propertypanel == false:
+						get_parent().propertypanel = true
+						get_parent().parse(data)
+						get_parent().parse(end)
+						get_parent().editednode = self
+						return
+	else:
+		modulate = Color.WHITE
 	if locked == false:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
@@ -274,27 +260,3 @@ func _draw():
 
 func EXPORT():
 	get_parent().bridgedata += data + end
-
-
-func _on_Button_button_down():
-	drag = true
-	
-
-
-func _on_Button_button_up():
-	drag = false
-
-
-func _on_slider_value_changed(value):
-	$pitch/number.text = "[center]" + str(int($pitch/slider.value))
-	if $pitch/number.text == "[center]-1":
-		$pitch/number.text = "[center]Disabled"
-	end[9] = "              param1: "+str(value)+".00000"
-
-
-func _on_slider_focus_entered():
-	$pitch.show()
-
-
-func _on_slider_focus_exited():
-	$pitch.hide()

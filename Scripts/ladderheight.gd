@@ -1,10 +1,10 @@
-extends Node2D
+extends Control
 
 var loading = false
 
 func _ready():
 	if loading == false:
-		$slider.grab_focus()
+		grab_focus()
 	else:
 		hide()
 
@@ -35,7 +35,7 @@ func _process(delta):
 				6:
 					ladderframe = -5
 		show()
-		$slider.grab_focus()
+		grab_focus()
 		$slider.value = ladderframe
 	match int(owner.data[9].lstrip("            param0: ")):
 		1:
@@ -49,16 +49,7 @@ func _process(delta):
 		6:
 			owner.texture = preload("res://ladder6.png")
 
-func _on_slider_focus_entered():
-	show()
 
-func _on_slider_focus_exited():
-	hide()
-	if owner.flip_v == true:
-		owner.rotation_degrees = 180
-	else:
-		owner.rotation_degrees = 0
-	owner.flip_v = false
 
 func _on_slider_value_changed(value):
 	var laddernumber = value
@@ -101,3 +92,15 @@ func _on_slider_value_changed(value):
 			owner.texture = preload("res://ladder6.png")
 			laddernumber = 6
 	owner.data[9] = "            param0: "+str(laddernumber)+".00000"
+
+
+func _on_focus_entered():
+	show()
+
+func _on_focus_exited():
+	hide()
+	if owner.flip_v == true:
+		owner.rotation_degrees = 180
+	else:
+		owner.rotation_degrees = 0
+	owner.flip_v = false

@@ -99,18 +99,22 @@ theme_override_styles/hover = SubResource("5")
 theme_override_styles/pressed = SubResource("6")
 theme_override_styles/normal = SubResource("7")
 
-[node name="pitch" type="Node2D" parent="."]
+[node name="pitch" type="Control" parent="."]
 z_index = 5
-position = Vector2(-3.12639e-13, -87.3016)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -87.3016
+offset_bottom = -87.3016
 rotation = -1.5708
 scale = Vector2(1e-05, 1e-05)
+focus_mode = 2
 script = ExtResource("4_ce6es")
 
 [node name="slider" type="HSlider" parent="pitch"]
-offset_left = -47.619
-offset_top = -35.7143
-offset_right = 102.381
-offset_bottom = 25.2857
+offset_left = -74.0318
+offset_top = -36.0
+offset_right = 225.968
+offset_bottom = 25.0
 scale = Vector2(0.4, 0.4)
 focus_mode = 0
 theme = ExtResource("1")
@@ -132,6 +136,6 @@ autoplay = "appear"
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
-[connection signal="focus_entered" from="pitch/slider" to="pitch" method="_on_slider_focus_entered"]
-[connection signal="focus_exited" from="pitch/slider" to="pitch" method="_on_slider_focus_exited"]
+[connection signal="focus_entered" from="pitch" to="pitch" method="_on_focus_entered"]
+[connection signal="focus_exited" from="pitch" to="pitch" method="_on_focus_exited"]
 [connection signal="value_changed" from="pitch/slider" to="pitch" method="_on_slider_value_changed"]
