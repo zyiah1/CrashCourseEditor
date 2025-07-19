@@ -53,15 +53,23 @@ extends Sprite2D
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
 
+var previouspos: Vector2
+
 func _ready():
 	get_parent().idnum += 1
+
+func _on_Button_button_up():
+	if previouspos != position and get_parent().item != "delete" and get_parent().item != "proporties" :
+		get_parent().undolistadd({"Type":"Move","Data":[previouspos,position],"Node":self})
 
 func _on_Button_button_down():
 	if get_parent().item == "delete":
 		get_parent().nodes.remove_at(id)
 		if get_parent().stored == self:
 			get_parent().playerunstore()
-		queue_free()
+		hide()
+		get_parent().undolistadd({"Type":"Delete","Node":self})
+		add_to_group("Limbo")
 	if get_parent().item == "proporties":
 		if get_parent().propertypanel == false:
 			get_parent().propertypanel = true
@@ -70,15 +78,21 @@ func _on_Button_button_down():
 			get_parent().parse(data)
 			get_parent().editednode = self
 			return
+	previouspos = position
 
 func _process(delta):
 	id = get_parent().nodes.find(self)
-	if get_parent().item == "delete":
-		if $Button.is_hovered():
-			modulate = Color.RED
-	if get_parent().item != "delete" or not $Button.is_hovered():
+	if $Button.is_hovered():
+		match get_parent().item:
+			"edit":
+				modulate = Color.GREEN_YELLOW
+			"delete":
+				modulate = Color.RED
+			"proporties":
+				modulate = Color.LIGHT_SKY_BLUE
+	else:
 		modulate = Color.WHITE
-	if get_parent().item != "proporties" and $Button.button_pressed:
+	if get_parent().item != "proporties" and get_parent().item != "edit" and $Button.button_pressed:
 		position = get_global_mouse_position().round()
 
 
@@ -93,6 +107,7 @@ func reposition():
 		rotation_degrees = float(data[3].lstrip("            dir_z: "))
 
 func EXPORT():
-	data[21] = "            pos_x: " + str(position.x)
-	data[22] = "            pos_y: " + str(-position.y)
-	get_parent().objects += data
+	if visible:
+		data[21] = "            pos_x: " + str(position.x)
+		data[22] = "            pos_y: " + str(-position.y)
+		get_parent().objects += data

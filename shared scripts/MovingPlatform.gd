@@ -207,11 +207,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-			if segments == 1:
-				get_parent().lineplacing = true
-				queue_free()
-				
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 			
@@ -290,6 +285,7 @@ func _draw():
 	
 	#draw the image that appears between the points (fan)
 	if midImage != null:
+		$Mid.show()
 		$Mid.texture = midImage
 		var amount = 1
 		var combinedpositions = $end.position
@@ -302,6 +298,8 @@ func _draw():
 			amount += 1
 			combinedpositions += node.position
 		$Mid.position = (combinedpositions)/amount
+	else:
+		$Mid.hide()
 
 func EXPORT():
 	get_parent().get_parent().bridgedata += get_parent().data + get_parent().end + data + endplat

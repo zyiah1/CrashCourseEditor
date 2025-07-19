@@ -153,12 +153,6 @@ func _process(delta):
 				get_parent().editednode = self
 				return
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-			if segments == 1:
-				get_parent().idnum-=1
-				get_parent().lineplacing = true
-				queue_free()
-				
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 			

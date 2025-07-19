@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cukbjxixqekce"]
+[gd_scene load_steps=8 format=3 uid="uid://tuygmk1ig5nf"]
 
-[ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://fincheckpoint.png" id="1"]
-[ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2_ut40l"]
-[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4_ut40l"]
-[ext_resource type="Script" uid="uid://de08rr4bnrvx0" path="res://Scripts/CheckpointArea.gd" id="5_qbhol"]
+[ext_resource type="Texture2D" uid="uid://d0to5kwvj5jt" path="res://firstcheckpoint.png" id="1_4yjw8"]
+[ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2_j2wno"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3_0o6ww"]
+[ext_resource type="Script" uid="uid://de08rr4bnrvx0" path="res://Scripts/CheckpointArea.gd" id="4_0gbot"]
 
 [sub_resource type="StyleBoxEmpty" id="3"]
 
@@ -11,17 +11,18 @@
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[node name="final" type="Sprite2D" groups=["checkpoint"]]
+[node name="first" type="Sprite2D" groups=["checkpoint"]]
 z_as_relative = false
 scale = Vector2(0.18, 0.18)
-texture = ExtResource("1")
+texture = ExtResource("1_4yjw8")
 offset = Vector2(40, -110)
-script = ExtResource("2_ut40l")
+script = ExtResource("2_j2wno")
 ObjectName = "Dkb_CheckPoint"
-Param0 = 2.0
-Param1 = 2.0
-Param3 = 1000.0
-Param4 = 3000.0
+Param0 = 1.0
+Param1 = 1.0
+Param2 = 0.0
+Param3 = 0.0
+Param4 = 0.0
 rotatable = false
 scalable = false
 
@@ -43,11 +44,10 @@ offset_top = -272.0
 offset_right = 400.5
 offset_bottom = -191.0
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("4_ut40l")
+theme_override_fonts/font = ExtResource("3_0o6ww")
 theme_override_font_sizes/font_size = 41
-text = "12"
 horizontal_alignment = 1
-script = ExtResource("5_qbhol")
+script = ExtResource("4_0gbot")
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

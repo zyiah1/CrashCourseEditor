@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[node name="Dkb_Player" type="Sprite2D"]
+[node name="Dkb_Player" type="Sprite2D" groups=["player"]]
 z_as_relative = false
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2")

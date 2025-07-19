@@ -184,16 +184,25 @@ func reposition():
 			var pointtexture = preload("res://point.png")
 			childrail.get_node("preview").rail.texture = preload("res://railPurple.png")
 			childrail.rail.texture = preload("res://rail.png")
+			childrail.midImage = null
+			#fan
+			if line.begins_with("              param0: 2150"):
+				childrail.midImage = preload("res://fan.png")
+				childrail.rail.texture = preload("res://railwhite.png")
 			#L points
-			if not line.begins_with("              param0: 2150") and line.begins_with("              param0: 21"):
+			elif line.begins_with("              param0: 21"):
 				pointtexture = preload("res://pointL.png")
 				childrail.get_node("preview").rail.texture = preload("res://raildarkblue.png")
 				childrail.rail.texture = preload("res://railwhite.png")
+			if line.begins_with("              param0: 2110"):
+				childrail.midImage = preload("res://crankL.png")
 			#R points
 			if line.begins_with("              param0: 2141") or line.begins_with("              param0: 2111"):
 				pointtexture = preload("res://pointR.png")
 				childrail.get_node("preview").rail.texture = preload("res://railmaroon.png")
 				childrail.rail.texture = preload("res://railwhite.png")
+			if line.begins_with("              param0: 2111"):
+				childrail.midImage = preload("res://crankR.png")
 			#Auto points
 			if line.begins_with("              param0: 2200") or line.begins_with("              param0: 2300") or line.begins_with("              param0: 2000") or line.begins_with("              param0: 4300"):
 				pointtexture = preload("res://pointA.png")
@@ -370,10 +379,6 @@ func _process(delta):
 			mode = 69
 			
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-			if segments == 1:
-				get_parent().idnum-=1
-				get_parent().lineplacing = true
 		if Input.is_action_just_pressed("addpoint"):
 				newseg()
 				

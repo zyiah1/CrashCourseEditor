@@ -3,10 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://b5m71reoyb3rd" path="res://LineEdit.tscn" id="1"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="2"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="3"]
-[ext_resource type="Script" path="res://Function Presets/Object.gd" id="4"]
+[ext_resource type="Script" uid="uid://dx3wo655lvaq5" path="res://Function Presets/Object.gd" id="4"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -136,6 +139,9 @@ cache/0/45/0/kerning_overrides/45/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("2")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

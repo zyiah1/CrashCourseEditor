@@ -147,11 +147,6 @@ func _process(delta):
 				get_parent().editednode = self
 				return
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-			if segments == 1:
-				get_parent().lineplacing = true
-				queue_free()
-				
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 			
@@ -159,10 +154,6 @@ func _process(delta):
 			loading = true
 			done()
 		
-	if is_queued_for_deletion():
-		get_parent().Ain()
-		get_parent().railplace = -420
-		get_parent().lineplacing = true
 
 func newseg():
 	lines.append([$start.position,$end.position])

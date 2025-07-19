@@ -263,7 +263,7 @@ func getObject(Objectname:String) -> Node:
 			else:
 				Objectscene = preload("res://checkpoint.tscn").instantiate()
 				if Objectname.begins_with("            param0: 1"):
-					Objectscene.changetofirst()
+					Objectscene = preload("res://firstcheckpoint.tscn").instantiate()
 			if content[24] == "            scale_x: -1.00000":
 				Objectscene.flip_h = true
 		"            name: Dkb_Banana":
@@ -284,31 +284,18 @@ func getObject(Objectname:String) -> Node:
 			Objectscene = preload("res://pauline.tscn").instantiate()
 		"            name: Dkb_ChalkBag":
 			Objectscene = preload("res://purse.tscn").instantiate()
-		"            name: Dkb_ChalkYajirushi_Kaiten":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
-			Objectscene.type = "rotate"
-		"            name: Dkb_ChalkYajirushi_Arrow":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
-			Objectscene.type = "big"
-		"            name: Dkb_ChalkYajirushi_45":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
-			Objectscene.type = "45"
-		"            name: Dkb_ChalkYajirushi_90":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
-			Objectscene.type = "90"
-		"            name: Dkb_ChalkYajirushi_180":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
-			Objectscene.type = "180"
-		"            name: Dkb_ChalkYajirushi_00":
-			Objectscene = preload("res://Arrow.tscn").instantiate()
 		"            name: Dkb_ChalkUmbrella":
 			Objectscene = preload("res://hammer.tscn").instantiate()
 		"            name: Dkb_ChalkLadder":
 			Objectscene = preload("res://ladder.tscn").instantiate()
-			Objectscene.loading = true
+			Objectscene.get_node("pitch").loading = true
 			
 		"            name: Dkb_ChalkBarrel":
 			Objectscene = preload("res://barrel.tscn").instantiate()
+	#Decide the type of arrow
+	if Objectname.begins_with("            name: Dkb_ChalkYajirushi"):
+		Objectscene = preload("res://Arrow.tscn").instantiate()
+		Objectscene.ObjectName = Objectname.erase(0,18)
 	return Objectscene
 
 func _on_FileDialog_file_selected(path):

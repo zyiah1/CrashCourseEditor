@@ -343,10 +343,6 @@ func _process(delta):
 				get_parent().get_parent().editednode = self
 				return
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-				get_parent().get_parent().lineplacing = true
-				queue_free()
-				
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 			

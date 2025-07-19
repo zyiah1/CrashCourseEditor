@@ -6,7 +6,6 @@ var locked = false
 @onready var id = get_parent().get_parent().nodes.size()
 @onready var idnum = get_parent().get_parent().idnum
 var segments = 1
-var line = null
 var lines = []
 var points = []
 var loading = false
@@ -278,10 +277,6 @@ func _process(delta):
 	$crank2.position = $crank.position
 	
 	if locked == false:
-		if Input.is_action_just_pressed("undo"):
-				get_parent().get_parent().line = true
-				queue_free()
-				
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 		if Input.is_action_just_pressed("bridge"):

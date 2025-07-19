@@ -36,7 +36,7 @@ var movingLoop: bool = false
 var stored = null
 var editednode = null
 
-
+@onready var filepath: String = Options.filepath
 @onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
 @onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
 @onready var graytex = $CanvasLayer3/CanvasLayer2/invisible.icon
@@ -61,7 +61,8 @@ signal EXPORT
 var objects:PackedStringArray = []
 
 var nodes = []
-
+var history = []
+var historyoffset = -1
 var disabledcontrolls = false
 
 func _ready():
@@ -323,6 +324,7 @@ func itemplace():
 				out()
 				connect("EXPORT", Callable(instance, "EXPORT"))
 				nodes.append(instance)
+				undolistadd({"Type":"Add","Node":instance})
 				return
 			
 	if Input.is_action_just_pressed("bridge") or Input.is_action_pressed("control") and Input.is_action_pressed("bridge"):
@@ -339,10 +341,13 @@ func itemplace():
 		if item == "checkpoint":
 			instance = checkpoint.instantiate()
 			if checkpoints == 0:
-				instance.first = true
-				instance.changetofirst()
+				instance = preload("res://firstcheckpoint.tscn").instantiate()
+			instance.Param2 = checkpoints
+			checkpoints += 1
 		if item == "final":
 			instance = finalcheck.instantiate()
+			instance.Param2 = checkpoints
+			checkpoints += 1
 		if  item == "coin":
 			instance = coin.instantiate()
 		if item == "door":
@@ -362,41 +367,88 @@ func itemplace():
 		if item == "arrow":
 			instance = preload("res://Arrow.tscn").instantiate()
 			if mode == 2:
-				instance.type = "big"
+				instance.ObjectName = "Dkb_ChalkYajirushi_Arrow"
 			if mode == 3:
-				instance.type = "rotate"
+				instance.ObjectName = "Dkb_ChalkYajirushi_Kaiten"
 		if item == "arrow2":
 			instance = preload("res://Arrow.tscn").instantiate()
-			instance.type = "45"
+			instance.ObjectName = "Dkb_ChalkYajirushi_45"
 			if mode == 2:
-				instance.type = "90"
+				instance.ObjectName = "Dkb_ChalkYajirushi_90"
 			if mode == 3:
-				instance.type = "180"
+				instance.ObjectName = "Dkb_ChalkYajirushi_180"
 		if instance != null:
 			instance.position = get_global_mouse_position().round()
 			add_child(instance)
 			nodes.append(instance)
+			undolistadd({"Type":"Add","Node":instance})
 			connect("EXPORT", Callable(instance, "EXPORT"))
 
 
 
+func undolistadd(dictionary):
+	if not history.size()+historyoffset == history.size()-1: #then there's nothing after this point in history
+		print("Remove Future")
+		while historyoffset < -1:
+			history.remove_at(history.size()-1)
+			historyoffset += 1
+		historyoffset = -1
+		for node in get_tree().get_nodes_in_group("Limbo"):
+			node.queue_free() #gets rid of hidden "deleted" objects that wont be used
+	history.append(dictionary)
 
+func delete(node:Node):
+	node.hide()
+	node.add_to_group("Limbo")
+	if node.is_in_group("player"): #if we redo the player, show the icon
+		playerunstore()
+		print("A")
+
+func readd(node:Node):
+	node.show()
+	node.remove_from_group("Limbo")
+	if node.is_in_group("player"): #if we undo the player, hide the icon
+		playerstore()
+		
 
 func shortcuts():
 	if not disabledcontrolls:
 		if Input.is_action_just_pressed("id"):
 			movingLoop = not movingLoop
-		if Input.is_action_just_pressed("undo"):
-			if nodes.size() != 0:
-				if nodes[nodes.size() - 1] == stored: #if we undo the player, call the animation
-					playerunstore()
-					print("woah")
-				
-				var target = str(nodes[nodes.size() - 1])
-				print("Undid ",target)
-				
-				nodes[nodes.size() - 1].queue_free()
-				nodes.remove_at(nodes.size() - 1)
+		if Input.is_action_just_pressed("redo"):
+			if historyoffset >= -1: #cant redo more than the end
+				print("No Further Redo History")
+				return
+			historyoffset += 1
+			var currenthistory = history[history.size()+historyoffset]
+			match currenthistory.Type:
+				"Add":
+					readd(currenthistory.Node)
+				"Delete":
+					delete(currenthistory.Node)
+				"Move":
+					print("Redo movedo")
+					currenthistory.Node.position = currenthistory.Data[1]
+		elif Input.is_action_just_pressed("undo"):
+			if history.size() < -historyoffset: #cant undo more than the start
+				print("No Previous Undo History")
+				return
+			
+			var currenthistory = history[history.size()+historyoffset]
+			match currenthistory.Type:
+				"Add":
+					if lineplacing == false: #special undo if you are currently placing a rail
+						currenthistory.Node.queue_free()
+						lineplacing = true
+						history.erase(currenthistory)
+						Ain()
+						return
+					delete(currenthistory.Node)
+				"Delete":
+					readd(currenthistory.Node)
+				"Move":
+					currenthistory.Node.position = currenthistory.Data[0]
+			historyoffset -= 1
 		if Input.is_action_just_pressed("esc"):
 			if $"CanvasLayer3/Proporties Panel".visible == false:
 				get_tree().change_scene_to_file("res://Loader.tscn")
@@ -438,7 +490,7 @@ func save():
 			objects = []
 			bridgedata = []
 			emit_signal("EXPORT")
-			var file = FileAccess.open(Options.filepath + $nonmoving/name.text + ".txt", FileAccess.WRITE)
+			var file = FileAccess.open(filepath + $nonmoving/name.text + ".txt", FileAccess.WRITE)
 			var __my_text = map + objects + bridgeheader + bridgedata + end
 			
 			
@@ -496,6 +548,13 @@ func playerunstore():
 	$CanvasLayer3/CanvasLayer/Control/player.disabled = false
 	stored = null
 
+func playerstore():
+	$CanvasLayer3/CanvasLayer/buttons.play("out")
+	$CanvasLayer3/CanvasLayer/Control/player.disabled = true
+	for node in get_tree().get_nodes_in_group("player"):
+		if node.visible:
+			stored = node
+
 var Groupnum = 0
 
 func parse(data):
@@ -546,6 +605,8 @@ func _on_file_index_pressed(index):
 	match index:
 		0:
 			save()
+		1:
+			pass
 		2:
 			copy()
 		4:

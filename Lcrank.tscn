@@ -83,9 +83,6 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("2")
 hframes = 2
 
-[node name="Mid" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
-
 [node name="end" type="Sprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2")
@@ -101,6 +98,10 @@ theme_override_styles/disabled = SubResource("7")
 theme_override_styles/hover = SubResource("5")
 theme_override_styles/pressed = SubResource("6")
 theme_override_styles/normal = SubResource("7")
+
+[node name="Mid" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(0.35, 0.35)
 
 [node name="preview" type="Node2D" parent="."]
 script = ExtResource("5_dhpds")
