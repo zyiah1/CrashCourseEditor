@@ -1,6 +1,6 @@
 extends Node2D
 
-const point: PackedScene = preload("res://point.tscn")
+const pointscene: PackedScene = preload("res://point.tscn")
 
 @export var pointtexture: Texture2D = preload("res://pointR.png")
 @export var railtexture: Texture2D = preload("res://railwhite.png")
@@ -210,17 +210,13 @@ func _process(delta):
 			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			if mode == 0:
 				locked = true
 				
 				get_parent().get_parent().lineplacing = true
 				$rotation.grab_focus()
 				$rotation.set_caret_column(3)
-	if is_queued_for_deletion():
-		get_parent().get_parent().Ain()
-		get_parent().get_parent().railplace = -420
-		get_parent().queue_free()
-		get_parent().get_parent().lineplacing = true
 
 
 func newseg():
@@ -229,7 +225,7 @@ func newseg():
 	$preview.rail.add_point($end.position)
 	rail.add_point($end.position)
 	$preview.rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointscene.instantiate()
 	newpoint.texture = pointtexture
 	newpoint.position = $start.position
 	add_child(newpoint)

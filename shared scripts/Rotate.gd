@@ -1,6 +1,8 @@
 extends Node2D
 
-@export var pointScene: PackedScene = preload("res://pointL.tscn")
+const pointscene: PackedScene = preload("res://point.tscn")
+
+@export var pointtexture: Texture2D = preload("res://pointR.png")
 @export var Param0: int = 3140
 @export var rotationpoint: int = 0 
 @export var color: Color = Color(.92,.98,.98)
@@ -349,6 +351,7 @@ func _process(delta):
 			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			loading = true
 			locked = true
 			end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
@@ -358,9 +361,6 @@ func _process(delta):
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
 	$crank.target = int($rotation.text)
-	if is_queued_for_deletion():
-		get_parent().get_parent().Ain()
-		get_parent().get_parent().railplace = -420
 		
 
 func newseg():
@@ -369,7 +369,8 @@ func newseg():
 	$crank.rail.add_point($end.position)
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	var newpoint = pointScene.instantiate()
+	var newpoint = pointscene.instantiate()
+	newpoint.texture = pointtexture
 	newpoint.position = $start.position
 	if first == true:
 		newpoint.hide()

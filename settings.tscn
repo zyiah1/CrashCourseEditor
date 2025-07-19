@@ -164,6 +164,7 @@ mode_overrides_title = false
 file_mode = 2
 access = 2
 filters = PackedStringArray("folder")
+use_native_dialog = true
 
 [node name="setting5" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -201,6 +202,15 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_sbm2w")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_sbm2w")
 text = "100"
 
+[node name="setting6" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
+button_pressed = true
+text = "Use OS filemanager"
+alignment = 1
+
 [node name="back" type="Button" parent="."]
 offset_left = 1.0
 offset_top = 448.0
@@ -225,5 +235,6 @@ text = "auto fullscreen"
 [connection signal="pressed" from="Buttons/setting4" to="Buttons/setting4" method="_on_setting4_pressed"]
 [connection signal="dir_selected" from="Buttons/setting4/Node2D/FileWindoe" to="." method="_on_FileWindoe_dir_selected"]
 [connection signal="text_changed" from="Buttons/setting5/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="Buttons/setting6" to="." method="_on_setting_6_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="back" to="back" method="_on_back_pressed"]

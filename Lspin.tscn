@@ -84,6 +84,7 @@ script = ExtResource("8")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
 script = ExtResource("10")
+pointtexture = ExtResource("1")
 Param0 = 3110
 
 [node name="start" type="Sprite2D" parent="Spin"]

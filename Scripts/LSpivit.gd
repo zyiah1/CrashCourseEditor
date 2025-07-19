@@ -1,7 +1,7 @@
 extends Node2D
 
 
-const point = preload("res://pointL.tscn")
+const pointscene = preload("res://point.tscn")
 var locked = false
 @onready var id = get_parent().get_parent().nodes.size()
 @onready var idnum = get_parent().get_parent().idnum
@@ -279,6 +279,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			loading = true
 			locked = true
 			end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
@@ -289,11 +290,7 @@ func _process(delta):
 			$rotation.set_caret_column(3)
 	$crank.target = int($rotation.text)
 	$crank2.target = -int($rotation.text)
-	
-	if is_queued_for_deletion():
-		get_parent().get_parent().Ain()
-		get_parent().get_parent().railplace = -420
-		
+
 
 func newseg():
 	lines.append([$start.position,$end.position])
@@ -303,7 +300,8 @@ func newseg():
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	$crank2.rail.add_point($end.position)
-	var newpoint = point.instantiate()
+	var newpoint = pointscene.instantiate()
+	newpoint.texture = preload("res://pointL.png")
 	newpoint.position = $start.position
 	if first == true:
 		newpoint.hide()

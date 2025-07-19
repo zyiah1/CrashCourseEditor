@@ -7,29 +7,22 @@ var interval = 60
 
 
 func _ready():
-	if get_node_or_null("Buttons/setting1") != null:
-		if Options.scrollbg == "false":
-			$Buttons/setting1.button_pressed = false
-		if Options.scrollbg == "true":
-			$Buttons/setting1.button_pressed = true
-	if get_node_or_null("setting5/TextEdit") != null:
-		$Buttons/setting5/TextEdit.text = str(Options.interval)
+	if Options.scrollbg == "false":
+		$Buttons/setting1.button_pressed = false
+	if Options.scrollbg == "true":
+		$Buttons/setting1.button_pressed = true
 		
-		
-		
+	$Buttons/setting5/TextEdit.text = str(Options.interval)
+	if Options.OSFileManager == "false":
+		$Buttons/setting6.button_pressed = false
+	if Options.OSFileManager == "true":
+		$Buttons/setting6.button_pressed = true
+	
+	
 
 
 func _on_back_pressed():
-	var content = [Options.scrollbg,
-	Options.colorbg,
-	Options.filepath,
-	Options.interval,
-	"end"]
-	
-	var file = FileAccess.open("res://Dkb.settings", FileAccess.WRITE)
-	for line in content:
-		file.store_line(str(line))
-	file.close()
+	Options.save()
 
 
 
@@ -55,3 +48,10 @@ func _on_FileWindoe_dir_selected(dir):
 
 func _on_TextEdit_text_changed():
 	Options.interval = int($Buttons/setting5/TextEdit.text)
+
+
+func _on_setting_6_pressed():
+	if $Buttons/setting6.button_pressed == false:
+		Options.OSFileManager = "false"
+	if $Buttons/setting6.button_pressed == true:
+		Options.OSFileManager = "true"

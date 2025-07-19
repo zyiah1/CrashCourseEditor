@@ -234,6 +234,7 @@ offset_top = -40.0
 offset_right = 218.0
 offset_bottom = 21.0
 scale = Vector2(0.4, 0.4)
+focus_mode = 0
 theme = ExtResource("5")
 theme_override_styles/slider = SubResource("StyleBoxTexture_g7arx")
 min_value = -1.0

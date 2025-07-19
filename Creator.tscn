@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=88 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -562,6 +562,9 @@ _data = {
 &"RESET": SubResource("25")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tll4m"]
+bg_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+
 [sub_resource type="FontFile" id="28"]
 fallbacks = Array[Font]([ExtResource("58")])
 subpixel_positioning = 0
@@ -579,6 +582,7 @@ z_index = -2
 script = ExtResource("1")
 
 [node name="bfg" parent="." instance=ExtResource("2_ceeig")]
+pivot_offset = Vector2(20000, 20000)
 
 [node name="stage" type="Sprite2D" parent="." groups=["ed"]]
 z_index = -2
@@ -594,10 +598,7 @@ zoom = Vector2(0.76, 0.76)
 [node name="Cam" type="Camera2D" parent="." groups=["ed"]]
 position = Vector2(-216, -397)
 zoom = Vector2(2.5, 2.5)
-limit_left = -2000
-limit_top = -2000
-limit_right = 2000
-limit_bottom = 2000
+limit_smoothed = true
 position_smoothing_speed = 20.0
 script = ExtResource("5")
 
@@ -1444,6 +1445,45 @@ theme = ExtResource("51_0rgi5")
 access = 2
 filters = PackedStringArray("*.txt")
 
+[node name="Controls" type="ScrollContainer" parent="CanvasLayer3"]
+visible = false
+offset_left = 299.0
+offset_top = 19.0
+offset_right = 1304.0
+offset_bottom = 887.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tll4m")
+
+[node name="shortcuts2" type="RichTextLabel" parent="CanvasLayer3/Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("52_cmovo")
+theme_override_font_sizes/normal_font_size = 60
+text = "WASD/Arrow Keys = move
++/- or Mouse wheel = zoom in/out
+Ctrl+Z = Undo
+Ctrl+Shift+Z/Ctrl+Y = Redo
+Ctrl+S = Save
+Ctrl+Shift+S = Save As...
+Ctrl+E = Open file in text edit
+Ctrl+C = Copies level data to clipboard
+Esc = Go to Main Menu
+M = lock mouse X
+N = lock mouse Y
+H/f2 =  hide Hud
+Shift = toggle rails/objects
+"
+
+[node name="Button" type="Button" parent="CanvasLayer3/Controls/shortcuts2"]
+custom_minimum_size = Vector2(105.825, 89.435)
+layout_mode = 2
+offset_left = 232.0
+offset_top = 798.0
+offset_right = 810.0
+offset_bottom = 887.435
+theme = ExtResource("51_0rgi5")
+text = "Okay I Understand The Controls and Wish To Go Back Into The Editor Now"
+
 [node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev"]]
 visible = false
 z_index = 20
@@ -1496,9 +1536,11 @@ text = "From Default Level 2&4:"
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/Edit" to="." method="_on_edit_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/View" to="." method="_on_view_index_pressed"]
+[connection signal="index_pressed" from="CanvasLayer3/MenuBar/Help" to="." method="_on_help_index_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/close" to="CanvasLayer3/Proporties Panel/ScrollContainer/VBox" method="_on_new_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Property" to="CanvasLayer3/Proporties Panel" method="_on_Property_pressed"]
 [connection signal="pressed" from="CanvasLayer3/Proporties Panel/Functions" to="CanvasLayer3/Proporties Panel" method="_on_Functions_pressed"]
 [connection signal="canceled" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_canceled"]
 [connection signal="confirmed" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_confirmed"]
 [connection signal="file_selected" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_file_selected"]
+[connection signal="pressed" from="CanvasLayer3/Controls/shortcuts2/Button" to="." method="_on_button_pressed"]

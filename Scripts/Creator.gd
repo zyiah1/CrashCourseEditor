@@ -67,11 +67,12 @@ var disabledcontrolls = false
 
 func _ready():
 	
-	$nonmoving/save/Timer.wait_time = int(Options.interval)
+	$nonmoving/save/Timer.wait_time = int(Options.interval+1)
 	if Options.scrollbg == "false":
 		$Animation.speed_scale = 1000
 		$CanvasLayer3/CanvasLayer/buttons.speed_scale = 1000
-	
+	if Options.OSFileManager == "true":
+		$CanvasLayer3/SaveAs.use_native_dialog = true
 	#make the default borders of the level if new level
 	if get_tree().current_scene.name == "Editor": #Not loading screen
 		var borders = [bridge.instantiate(),bridge.instantiate(),bridge.instantiate(),bridge.instantiate()]
@@ -465,6 +466,8 @@ func shortcuts():
 			OS.shell_open(str("file://" + filepath + $nonmoving/name.text + ".txt"))
 		if Input.is_action_just_pressed("save"):
 			save()
+		if Input.is_action_just_pressed("Save As"):
+			saveas()
 		if Input.is_action_just_pressed("Copy"):
 			copy()
 		if Input.is_action_just_pressed("shift"):
@@ -636,6 +639,10 @@ func _on_edit_index_pressed(index):
 		1:
 			redo()
 
+func _on_help_index_pressed(index):
+	#0 = controls, 1 = tutorial for now the same
+	$CanvasLayer3/Controls.show()
+
 
 func _on_save_as_file_selected(_path):
 	var text = $CanvasLayer3/SaveAs.current_file.erase($CanvasLayer3/SaveAs.current_file.length()-4,4)
@@ -654,3 +661,7 @@ func _on_save_as_canceled():
 
 func _on_save_as_confirmed():
 	_on_save_as_file_selected("")
+
+
+func _on_button_pressed():
+	$CanvasLayer3/Controls.hide()

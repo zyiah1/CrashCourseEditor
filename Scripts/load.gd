@@ -32,6 +32,8 @@ var railIDlist = {
 
 func _on_load_pressed():
 	fileDialog.current_path = Options.filepath
+	if Options.OSFileManager == "true":
+		fileDialog.use_native_dialog = true
 	fileDialog.popup_centered(Vector2(1600,800))
 
 

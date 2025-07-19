@@ -381,6 +381,7 @@ func _process(delta):
 				newseg()
 				
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			if mode == 0:
 				get_parent().idnum += 2
 				mode = 1
@@ -388,10 +389,7 @@ func _process(delta):
 				buttons.append(get_node("end/Button"))
 				add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
 				print(str(rail.resource_path).lstrip("res://").rstrip(".tscn"))
-	if is_queued_for_deletion():
-		get_parent().Ain()
-		get_parent().railplace = -420
-		get_parent().lineplacing = true
+
 
 func newseg():
 	if mode == 0:

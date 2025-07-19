@@ -3394,6 +3394,7 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.txt")
+use_native_dialog = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." groups=["hide"]]
 offset_left = 1.0
@@ -3497,8 +3498,10 @@ theme_override_font_sizes/normal_font_size = 60
 text = "In Editor:
 WASD/Arrow Keys = move
 +/- or Mouse wheel = zoom in/out
-Ctrl+Z = Delete Last Object Placed
+Ctrl+Z = Undo
+Ctrl+Shift+Z/Ctrl+Y = Redo
 Ctrl+S = Save
+Ctrl+Shift+S = Save As...
 Ctrl+E = Open file in text edit
 Ctrl+C = Copies level data to clipboard
 Esc = Go to Main Menu

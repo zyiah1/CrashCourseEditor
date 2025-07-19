@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b672m6mteuaov"]
+[gd_scene load_steps=21 format=3 uid="uid://b672m6mteuaov"]
 
 [ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dalli7fv0djlw" path="res://pivotR.png" id="4"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="7_2hg8k"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
-[ext_resource type="PackedScene" uid="uid://c8swdau056aah" path="res://pointR.tscn" id="10"]
 
 [sub_resource type="StyleBoxEmpty" id="13"]
 
@@ -86,7 +85,6 @@ script = ExtResource("8")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
 script = ExtResource("1")
-pointScene = ExtResource("10")
 Param0 = 3141
 
 [node name="start" type="Sprite2D" parent="Spin"]

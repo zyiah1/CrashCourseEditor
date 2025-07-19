@@ -1,8 +1,6 @@
 extends Button
 
 func _ready():
-	
-	
 	if not FileAccess.open("Dkb.settings",FileAccess.READ_WRITE):
 		print("WELCOME")
 		$Node2D/FileWindoe.popup(Rect2(-790,-429,1022,580))

@@ -151,6 +151,7 @@ func _process(delta):
 			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			loading = true
 			done()
 		

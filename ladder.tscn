@@ -112,6 +112,7 @@ offset_top = -35.7143
 offset_right = 102.381
 offset_bottom = 25.2857
 scale = Vector2(0.4, 0.4)
+focus_mode = 0
 theme = ExtResource("1")
 theme_override_icons/grabber = ExtResource("5")
 theme_override_icons/grabber_highlight = ExtResource("5")

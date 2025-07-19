@@ -157,16 +157,13 @@ func _process(delta):
 			newseg()
 			
 		if Input.is_action_just_pressed("bridge"):
+			newseg()
 			loading = true
 			locked = true
 			get_parent().idnum += 1
 			get_parent().lineplacing = true
 			buttons.append(get_node("end/Button"))
-		
-	if is_queued_for_deletion():
-		get_parent().Ain()
-		get_parent().railplace = -420
-		get_parent().lineplacing = true
+
 
 func newseg():
 	rail.add_point($end.position)
