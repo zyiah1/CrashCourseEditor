@@ -50,35 +50,46 @@ extends Sprite2D
 			"            scale_y: 1.00000",
 			"            scale_z: 1.00000"]
 
-var previouspos: Vector2
+
+
+var previoustransform: Transform2D
 var previousdata: PackedStringArray
 
+var drag = false
 
 func _ready():
 	get_parent().idnum += 1
 
 func _on_Button_button_up():
-	if previouspos != position and get_parent().item != "delete" and get_parent().item != "proporties" :
-		get_parent().undolistadd({"Type":"Move","Data":[previouspos,position],"Node":self})
+	if previoustransform != transform and get_parent().item != "delete" and get_parent().item != "proporties" :
+		get_parent().undolistadd({"Type":"Transform","Data":[previoustransform,transform],"Node":self})
 
 func _on_Button_button_down():
-	if get_parent().item == "delete":
-		get_parent().delete(self)
-		get_parent().undolistadd({"Type":"Delete","Node":self})
-	if get_parent().item == "proporties":
-		if get_parent().propertypanel == false:
-			get_parent().propertypanel = true
-			data[21] = "            pos_x: " + str(position.x)
-			data[22] = "            pos_y: " + str(-position.y)
-			get_parent().parse(data)
-			get_parent().editednode = self
-			previousdata = data
-			return
-	previouspos = position
+	match get_parent().item: 
+		"delete":
+			get_parent().delete(self)
+			get_parent().undolistadd({"Type":"Delete","Node":self})
+		"proporties":
+			if get_parent().propertypanel == false:
+				get_parent().editednode = self
+				get_parent().propertypanel = true
+				data[3] = "            dir_z: " + str(-rotation_degrees)
+				data[21] = "            pos_x: " + str(position.x)
+				data[22] = "            pos_y: " + str(-position.y)
+				data[24] = "            scale_x: " + str(scale.x/defaultSize.x)
+				data[25] = "            scale_y: " + str(scale.y/defaultSize.y)
+				get_parent().parse([data])
+				previousdata = data
+				return
+	previoustransform = transform
 
 func _process(delta):
-	if $Button.is_hovered():
+	if $Button.is_hovered() or $Button.button_pressed:
 		match get_parent().item:
+			"move":
+				modulate = Color.CORAL
+				if Input.is_action_just_pressed("addpoint"):
+					drag = not drag
 			"edit":
 				modulate = Color.GREEN_YELLOW
 			"delete":
@@ -87,15 +98,21 @@ func _process(delta):
 				modulate = Color.LIGHT_SKY_BLUE
 	else:
 		modulate = Color.WHITE
-	if get_parent().item != "proporties" and get_parent().item != "edit" and $Button.button_pressed:
+	
+	if drag and get_parent().item == "move" and Input.is_action_pressed("addpoint"):
 		position = get_global_mouse_position().round()
-
+		if rotatable:
+			rotation_degrees += Input.get_axis("ui_left","ui_right")*25*delta
+		if scalable:
+			scale += defaultSize*Vector2(Input.get_axis("ui_down","ui_up"),Input.get_axis("ui_down","ui_up"))*delta
+	else:
+		drag = false
 
 func propertyclose():
 	#add the undo log
 	if data != previousdata:
 		get_parent().undolistadd({"Type":"Property","Data":[previousdata,data],"Node":self})
-		data = previousdata
+		previousdata = data
 
 func reposition():
 	position.x = float(data[21].lstrip("            pos_x: "))
@@ -105,7 +122,7 @@ func reposition():
 		scale.y = float(data[25].lstrip("            scale_y: "))
 		scale = scale*defaultSize #cause I'm stupid and everythings default scale is not 1
 	if rotatable:
-		rotation_degrees = float(data[3].lstrip("            dir_z: "))
+		rotation_degrees = -float(data[3].lstrip("            dir_z: "))
 
 func EXPORT():
 	if visible:

@@ -4,7 +4,7 @@ extends Camera2D
 var paused = false
 var zoom_minimum = Vector2(.500001,.50001)
 var zoom_maximum = Vector2(20.00001,20.00001)
-var zoom_speed = Vector2(.000100001,.000100001)
+var zoom_speed = Vector2(.120001,.120001)
 var mouse_start_pos
 var screen_start_pos
 var dragging = false
@@ -64,15 +64,14 @@ func _input(event): #mouse inputs
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		position = Vector2(1,1)/zoom * (mouse_start_pos - event.position) + screen_start_pos
-	if get_parent().propertypanel == false: # zooming
-		if event is InputEventMouseButton:
-			if event.is_pressed():
-				if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-					if zoom > zoom_minimum:
-						zoom -= zoom_speed
-				if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-					if zoom < zoom_maximum:
-						zoom += zoom_speed
+	if event is InputEventMouseButton: # zooming
+		if event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				if zoom > zoom_minimum:
+					zoom -= zoom_speed
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				if zoom < zoom_maximum:
+					zoom += zoom_speed
 	
 
 func _on_name_focus_exited():

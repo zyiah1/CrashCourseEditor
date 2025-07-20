@@ -269,10 +269,9 @@ func _process(delta):
 	if get_parent().get_parent().item == "proporties":
 		if drag == true:
 			if get_parent().get_parent().propertypanel == false:
-				get_parent().get_parent().propertypanel = true
-				get_parent().get_parent().parse(data)
-				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
+				get_parent().get_parent().propertypanel = true
+				get_parent().get_parent().parse([data,end])
 				previousdata = data
 				previousend = end
 				return

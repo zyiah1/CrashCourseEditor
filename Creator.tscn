@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=97 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -39,17 +39,18 @@
 [ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/PivotA.png" id="36"]
 [ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="38"]
 [ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="39"]
-[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/trash.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/tooltrash.png" id="40"]
 [ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://railart/Arrow.png" id="41"]
-[ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/edit.png" id="43"]
+[ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/tooledit.png" id="43"]
 [ext_resource type="Texture2D" uid="uid://dmu6owm5oi5ir" path="res://railart/invisible.png" id="44"]
 [ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/arrow45.png" id="45"]
 [ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/PivotEnd.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="47"]
+[ext_resource type="Texture2D" uid="uid://pf2g7r3n5yta" path="res://railart/toolmove.png" id="47_nge0o"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="48"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="50"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="51_0rgi5"]
-[ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/property.png" id="52"]
+[ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/toolproperty.png" id="52"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="52_cmovo"]
 [ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="53"]
 [ext_resource type="Script" uid="uid://c3kne8dxowgwf" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
@@ -304,34 +305,6 @@ _data = {
 &"RESET": SubResource("14")
 }
 
-[sub_resource type="Animation" id="Animation_cmovo"]
-resource_name = "saving"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/saving:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["saving"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/saving:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.54902)]
-}
-
 [sub_resource type="Animation" id="Animation_nge0o"]
 length = 0.001
 tracks/0/type = "value"
@@ -357,6 +330,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tll4m"]
+resource_name = "copied"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/saving:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.5),
+"transitions": PackedFloat32Array(1.41421, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/saving:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[color=cyan]copied!"]
 }
 
 [sub_resource type="Animation" id="Animation_v4qg3"]
@@ -387,32 +388,32 @@ tracks/1/keys = {
 "values": ["[color=yellow]saved!"]
 }
 
-[sub_resource type="Animation" id="Animation_tll4m"]
-resource_name = "copied"
-length = 0.5
+[sub_resource type="Animation" id="Animation_cmovo"]
+resource_name = "saving"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("nonmoving/saving:modulate")
+tracks/0/path = NodePath("nonmoving/saving:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.166667, 0.5),
-"transitions": PackedFloat32Array(1.41421, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["saving"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/saving:text")
+tracks/1/path = NodePath("nonmoving/saving:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["[color=cyan]copied!"]
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nge0o"]
@@ -1415,6 +1416,21 @@ offset_bottom = 242.0
 scale = Vector2(0.35, 0.35)
 alignment = 1
 
+[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme = ExtResource("7")
+theme_override_styles/disabled = SubResource("11")
+theme_override_styles/hover = SubResource("7")
+theme_override_styles/pressed = SubResource("11")
+theme_override_styles/normal = SubResource("7")
+button_mask = 5
+icon = ExtResource("47_nge0o")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
+
 [node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1564,6 +1580,7 @@ offset = Vector2(3054, 444)
 script = ExtResource("53_itqlb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer3/Proporties Panel"]
+visible = false
 offset_left = 3171.0
 offset_top = 65.0
 offset_right = 3813.0
@@ -1577,7 +1594,6 @@ layout_mode = 2
 script = ExtResource("55_y28lh")
 
 [node name="FunctionContainer" type="ScrollContainer" parent="CanvasLayer3/Proporties Panel"]
-visible = false
 offset_left = 3171.0
 offset_top = 65.0
 offset_right = 3813.0
@@ -1595,13 +1611,15 @@ theme_override_font_sizes/font_size = 45
 text = "Close"
 
 [node name="Property" type="Button" parent="CanvasLayer3/Proporties Panel"]
-offset_left = 3169.0
-offset_top = 31.0
-offset_right = 3339.0
-offset_bottom = 63.0
+offset_left = 3625.0
+offset_top = 7.0
+offset_right = 3810.0
+offset_bottom = 39.0
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("23")
@@ -1612,13 +1630,15 @@ theme_override_styles/normal = SubResource("23")
 text = "Property Panel"
 
 [node name="Functions" type="Button" parent="CanvasLayer3/Proporties Panel"]
-offset_left = 3639.0
-offset_top = 34.0
-offset_right = 3809.0
-offset_bottom = 66.0
+offset_left = 3151.0
+offset_top = 10.0
+offset_right = 3321.0
+offset_bottom = 42.0
 theme_override_colors/font_hover_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.760784, 0.760784, 0.760784, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = SubResource("22")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("23")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bton0ikkk3daf"
-path="res://.godot/imported/property.png-4bb464854f2c66b9d87efd9aaab708f9.ctex"
+uid="uid://hueoh8p1imf3"
+path="res://.godot/imported/tooltrash.png-089326ead604be1b6ad387f29380f4ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://railart/property.png"
-dest_files=["res://.godot/imported/property.png-4bb464854f2c66b9d87efd9aaab708f9.ctex"]
+source_file="res://railart/tooltrash.png"
+dest_files=["res://.godot/imported/tooltrash.png-089326ead604be1b6ad387f29380f4ba.ctex"]
 
 [params]
 

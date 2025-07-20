@@ -266,6 +266,10 @@ var end:PackedStringArray = ["      LayerName: LC",
 func _process(_delta):
 	itemplace()
 	shortcuts()
+	if item == "move" and Input.is_action_pressed("addpoint"):
+		$Cam.paused = true
+	else:
+		$Cam.paused = false
 
 func itemselected(item_name):
 	item = item_name
@@ -401,13 +405,17 @@ func itemplace():
 
 func undolistadd(dictionary):
 	if not history.size()+historyoffset == history.size()-1: #then there's nothing after this point in history
+		var deletedhistory = []
 		print("Remove Future")
 		while historyoffset < -1:
+			deletedhistory.append(history[history.size()-1])
 			history.remove_at(history.size()-1)
 			historyoffset += 1
 		historyoffset = -1
-		for node in get_tree().get_nodes_in_group("Limbo"):
-			node.queue_free() #gets rid of hidden "deleted" objects that wont be used
+		for part in deletedhistory:
+			if part.Type == "Add":
+				if part.Node.is_in_group("Limbo"):
+					part.Node.queue_free() #gets rid of hidden "deleted" objects that wont be used
 	history.append(dictionary)
 
 func delete(node:Node):
@@ -441,8 +449,8 @@ func redo():
 			readd(currenthistory.Node)
 		"Delete":
 			delete(currenthistory.Node)
-		"Move":
-			currenthistory.Node.position = currenthistory.Data[1]
+		"Transform":
+			currenthistory.Node.transform = currenthistory.Data[1]
 		"Property":
 			currenthistory.Node.data = currenthistory.Data[1]
 			currenthistory.Node.reposition()
@@ -471,14 +479,14 @@ func undo():
 			if lineplacing == false: #special undo if you are currently placing a rail
 				currenthistory.Node.queue_free()
 				lineplacing = true
-				history.erase(currenthistory)
+				history.erase(currenthistory) #removes rail adding from the history
 				Ain()
 				return
 			delete(currenthistory.Node)
 		"Delete":
 			readd(currenthistory.Node)
-		"Move":
-			currenthistory.Node.position = currenthistory.Data[0]
+		"Transform":
+			currenthistory.Node.transform = currenthistory.Data[0]
 		"Property":
 			currenthistory.Node.data = currenthistory.Data[0]
 			currenthistory.Node.reposition()
@@ -613,28 +621,31 @@ func playerstore():
 
 var Groupnum = 0
 
-func parse(data):
-	for line in data:
-		var Edit = preload("res://LineEdit.tscn").instantiate()
-		Edit.text = line
-		match Groupnum:
-			0:
-				Edit.add_to_group("Data")
-			1:
-				Edit.add_to_group("End")
-			2:
-				Edit.add_to_group("ChildData")
-			3:
-				Edit.add_to_group("ChildEnd")
-		$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox".add_child(Edit)
-		#Edit.connect("text_changed",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
-		Edit.connect("text_set",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
-		
-	Groupnum += 1
+func parse(data:Array):
+	for array in data:
+		for line in array:
+			var Edit = preload("res://LineEdit.tscn").instantiate()
+			Edit.text = line
+			match Groupnum:
+				0:
+					Edit.add_to_group("Data")
+				1:
+					Edit.add_to_group("End")
+				2:
+					Edit.add_to_group("ChildData")
+				3:
+					Edit.add_to_group("ChildEnd")
+			$"CanvasLayer3/Proporties Panel/ScrollContainer/VBox".add_child(Edit)
+			#Edit.connect("text_changed",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
+			Edit.connect("text_set",Callable($"CanvasLayer3/Proporties Panel","datachanged"))
+			
+		Groupnum += 1
 	if Options.scrollbg == "true":
 		$"CanvasLayer3/Proporties Panel/Panel".play("IN")
 	else:
 		$"CanvasLayer3/Proporties Panel".show()
+	$"CanvasLayer3/Proporties Panel".add_function_preset()
+
 
 
 func _on_view_index_pressed(index):

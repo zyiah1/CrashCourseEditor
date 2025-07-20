@@ -346,10 +346,9 @@ func _process(delta):
 			"proporties":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed and owner.get_parent().propertypanel == false:
-					get_parent().get_parent().propertypanel = true
-					get_parent().get_parent().parse(data)
-					get_parent().get_parent().parse(end)
 					get_parent().get_parent().editednode = self
+					get_parent().get_parent().propertypanel = true
+					get_parent().get_parent().parse([data,end])
 					previousdata = data
 					previousend = end
 					return

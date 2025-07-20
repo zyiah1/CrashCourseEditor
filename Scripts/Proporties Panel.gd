@@ -10,12 +10,9 @@ const rotating = preload("res://Function Presets/RotatingRails.tscn")
 const endrotate = preload("res://Function Presets/RotatingRailsEnd.tscn")
 const apivot = preload("res://Function Presets/AutoRotate.tscn")
 
-func _on_Functions_pressed():
-	if $ScrollContainer.visible == true:
+func add_function_preset():
 		for node in $FunctionContainer.get_children():
 			$FunctionContainer.remove_child(node)
-		$ScrollContainer.hide()
-		$FunctionContainer.show()
 		
 		#give it the right presets
 		
@@ -58,6 +55,12 @@ func _on_Functions_pressed():
 				for node in instance.get_children():
 					if node.is_in_group("rotate"):
 						node.show()
+
+func _on_Functions_pressed():
+	$ScrollContainer.hide()
+	$FunctionContainer.show()
+	
+
 
 func _on_Property_pressed():
 	$ScrollContainer.show()

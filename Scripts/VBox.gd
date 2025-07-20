@@ -14,7 +14,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("undo"):
 		for node in get_children():
 			node.queue_free()
-		owner.propertypanel = false
 		clear()
 
 
@@ -42,8 +41,7 @@ func applydata():
 	targetnode.reposition()
 
 func _on_new_pressed():
-	get_parent().get_parent()._on_Property_pressed() # change back to normal tab
-	owner.propertypanel = false
+	# change back to normal tab
 	applydata()
 	for node in get_children():
 		node.queue_free()
@@ -51,7 +49,9 @@ func _on_new_pressed():
 	owner.editednode.propertyclose() #undo history
 
 func clear():
+	get_parent().get_parent()._on_Functions_pressed()
 	owner.Groupnum = 0
+	owner.propertypanel = false
 	get_parent().get_parent().hide()
 	data = []
 	end = []

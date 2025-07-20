@@ -27,8 +27,8 @@ func _ready():
 			ArrowButton.position = Vector2(-118,-206)
 			ArrowButton.size = Vector2(287,199)
 
-func _process(delta):
-	if owner.data[3] == "            dir_z: 45.00000":
-		owner.scale.x = -0.136
-	else:
-		owner.scale.x = 0.136
+#func _process(delta):
+#	if owner.data[3] == "            dir_z: 45.00000":
+#		owner.scale.x = -0.136
+#	else:
+#		owner.scale.x = 0.136

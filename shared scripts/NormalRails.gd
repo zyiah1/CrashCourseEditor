@@ -138,10 +138,9 @@ func _process(delta):
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed:
 					if get_parent().propertypanel == false:
-						get_parent().propertypanel = true
-						get_parent().parse(data)
-						get_parent().parse(end)
 						get_parent().editednode = self
+						get_parent().propertypanel = true
+						get_parent().parse([data,end])
 						previousdata = data
 						previousend = end
 						return

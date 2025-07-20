@@ -238,8 +238,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
 	if get_parent().get_parent().item == "delete":
-		if drag == true:
-			get_parent().queue_free()
 		var buttonamount = 0
 		
 		for button in buttons:
@@ -266,10 +264,9 @@ func _process(delta):
 	if get_parent().get_parent().item == "proporties":
 		if drag == true:
 			if get_parent().get_parent().propertypanel == false:
-				get_parent().get_parent().propertypanel = true
-				get_parent().get_parent().parse(data)
-				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
+				get_parent().get_parent().propertypanel = true
+				get_parent().get_parent().parse([data,end])
 				previousdata = data
 				previousend = end
 				return

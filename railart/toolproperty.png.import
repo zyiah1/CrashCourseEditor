@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hueoh8p1imf3"
-path="res://.godot/imported/trash.png-c8c97940938112ff1d31a2984a8c50fe.ctex"
+uid="uid://bton0ikkk3daf"
+path="res://.godot/imported/toolproperty.png-e4a8f0adffa45d8919219535427a3a6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://railart/trash.png"
-dest_files=["res://.godot/imported/trash.png-c8c97940938112ff1d31a2984a8c50fe.ctex"]
+source_file="res://railart/toolproperty.png"
+dest_files=["res://.godot/imported/toolproperty.png-e4a8f0adffa45d8919219535427a3a6b.ctex"]
 
 [params]
 

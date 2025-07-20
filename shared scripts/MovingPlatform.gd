@@ -277,12 +277,10 @@ func _draw():
 	if locked == false and loading == false:
 		$end.position = get_global_mouse_position()
 	draw_line($start.position,$end.position,color,4.5)
-	
 	#draw the image that appears between the points (fan)
 	if midImage != null:
 		$Mid.show()
 		$Mid.texture = midImage
-		var amount = 1
 		$Mid.position = get_parent().points[0].position
 	else:
 		$Mid.hide()
