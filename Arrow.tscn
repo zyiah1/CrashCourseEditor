@@ -13,8 +13,9 @@
 [node name="Arrow" type="Sprite2D"]
 z_index = -2
 z_as_relative = false
-scale = Vector2(0.136, 0.136)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2")
+offset = Vector2(130, -126)
 script = ExtResource("2_08ca5")
 ObjectName = "Dkb_ChalkYajirushi_00"
 PosZ = -6.9

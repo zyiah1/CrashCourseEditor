@@ -825,16 +825,6 @@ theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"
 
-[node name="name?" type="RichTextLabel" parent="nonmoving"]
-visible = false
-offset_left = 368.0
-offset_top = 535.333
-offset_right = 513.0
-offset_bottom = 773.333
-theme_override_fonts/normal_font = SubResource("15")
-theme_override_font_sizes/normal_font_size = 40
-text = "Name:"
-
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
 modulate = Color(1, 1, 1, 0)
 offset_top = 521.0

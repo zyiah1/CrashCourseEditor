@@ -257,6 +257,14 @@ func reposition():
 					point.texture = preload("res://pointmusic.png")
 				$start.texture = preload("res://pointmusic.png")
 				$end.texture = preload("res://pointmusic.png")
+			"              param0: 5260.00000":
+				music = false
+				color = Color.ORANGE_RED
+				rail.texture = load("res://railorange.png")
+			"              param0: 5060.00000":
+				music = false
+				color = Color.ORANGE_RED
+				rail.texture = load("res://railorange.png")
 	for line in data:
 		cycles += 1
 		if currentpoint == points.size():

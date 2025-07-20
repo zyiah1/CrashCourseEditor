@@ -41,7 +41,6 @@ func applydata():
 	targetnode.reposition()
 
 func _on_new_pressed():
-	# change back to normal tab
 	applydata()
 	for node in get_children():
 		node.queue_free()
@@ -49,7 +48,6 @@ func _on_new_pressed():
 	owner.editednode.propertyclose() #undo history
 
 func clear():
-	get_parent().get_parent()._on_Functions_pressed()
 	owner.Groupnum = 0
 	owner.propertypanel = false
 	get_parent().get_parent().hide()

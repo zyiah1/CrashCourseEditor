@@ -131,11 +131,10 @@ var data:PackedStringArray
 "              type: Linear",
 "              unit_name: Path"]
 
-
 #Param 0 documentation
 #0 invisible collision used for the map edges
 #1000 Normal
-#1100 unused
+#1100 Shows up as a music rail
 #1200 blue normal
 #2000 Automove but it stays and doesn't go back
 #2011 unused
@@ -163,6 +162,7 @@ var data:PackedStringArray
 #2392 move when level beat
 #2393 used for that DK dying cutscene where the rails move to the fallen position after a brief delay
 #2394 same as ^^^^ but more delay?
+#2900 PathRail
 #3110 Lspin unused
 #3111 Rspin
 #3112 MLtilt
@@ -186,16 +186,17 @@ var data:PackedStringArray
 #3392 Rotate when level beat
 #4300 param6 is how much to move camera y position (- = down)
 #4900 invisble when I tried to load it (Might just be another way to do invisible track
-#5013 normal rail
-#5040 normal rail
-#5041 normal rail
-#5060 appears in game as a normal rail, used in normal level as a path for end moving rail to follow despite having collision
+#5013 Red| Tilt R Stick Message
+#5040 Red| Press L Message
+#5041 Red| Press R Message
+#5060 Red| Be brave Message
 #5100 ACTUAL MUSIC TILE
-#5211 
-#5240 
-#5241 
-#5260 Message Param7 chooses which thing to say, 0 == be brave
-#2900 PathRail
+#5210 Blue| Rotate L Stick Message
+#5211 Blue| Rotate R Stick Message
+#5240 Blue| Press L Message
+#5241 Blue| Press R Message
+#5260 Blue| Be Brave Message
+
 
 
 func _process(delta):

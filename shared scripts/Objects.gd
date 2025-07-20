@@ -131,6 +131,7 @@ func EXPORT():
 		data[3] = "            dir_z: " + str(-rotation_degrees)
 		data[21] = "            pos_x: " + str(position.x)
 		data[22] = "            pos_y: " + str(-position.y)
-		data[24] = "            scale_x: " + str(scale.x/defaultSize.x)
-		data[25] = "            scale_y: " + str(scale.y/defaultSize.y)
+		if scalable:
+			data[24] = "            scale_x: " + str(scale.x/defaultSize.x)
+			data[25] = "            scale_y: " + str(scale.y/defaultSize.y)
 		get_parent().objects += data

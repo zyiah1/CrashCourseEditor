@@ -15,7 +15,7 @@
 z_as_relative = false
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("1")
-offset = Vector2(40, -110)
+offset = Vector2(0, -110)
 script = ExtResource("2_ut40l")
 ObjectName = "Dkb_CheckPoint"
 Param0 = 2.0
@@ -45,7 +45,6 @@ offset_bottom = -191.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_ut40l")
 theme_override_font_sizes/font_size = 41
-text = "12"
 horizontal_alignment = 1
 script = ExtResource("5_qbhol")
 

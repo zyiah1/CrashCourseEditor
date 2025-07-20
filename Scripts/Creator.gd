@@ -268,7 +268,7 @@ func _process(_delta):
 	shortcuts()
 	if item == "move" and Input.is_action_pressed("addpoint"):
 		$Cam.paused = true
-	else:
+	if item == "move" and Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
 		$Cam.paused = false
 
 func itemselected(item_name):
