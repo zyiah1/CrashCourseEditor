@@ -1,9 +1,6 @@
 extends Sprite2D
 
-@onready var id = get_parent().nodes.size()
-
 @export var ObjectName:String = "Dkb_Banana"
-
 @export var Param0: float = -1
 @export var Param1: float = -1
 @export var Param10: float = -1
@@ -66,7 +63,6 @@ func _on_Button_button_up():
 
 func _on_Button_button_down():
 	if get_parent().item == "delete":
-		get_parent().nodes.remove_at(id)
 		get_parent().delete(self)
 		get_parent().undolistadd({"Type":"Delete","Node":self})
 	if get_parent().item == "proporties":
@@ -81,7 +77,6 @@ func _on_Button_button_down():
 	previouspos = position
 
 func _process(delta):
-	id = get_parent().nodes.find(self)
 	if $Button.is_hovered():
 		match get_parent().item:
 			"edit":

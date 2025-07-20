@@ -18,8 +18,8 @@ func _ready():
 			var lineEdit = preload("res://LineNOTEdit.tscn")
 			if int(dictionary[1]) > currentNumberOfUpdates:
 				print("OLD OLD OLD OLD OLD")
-				for nodes in get_tree().get_nodes_in_group("update"):
-					nodes.show()
+				for node in get_tree().get_nodes_in_group("update"):
+					node.show()
 				for array in dictionary[2][0]._aChangeLog:
 					var inst = lineEdit.instantiate()
 					inst.text = array.text
@@ -61,5 +61,5 @@ func _on_accept_pressed():
 
 
 func _on_decline_pressed():
-	for nodes in get_tree().get_nodes_in_group("update"):
-		nodes.hide()
+	for node in get_tree().get_nodes_in_group("update"):
+		node.hide()

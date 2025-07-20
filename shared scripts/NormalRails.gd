@@ -22,7 +22,6 @@ var buttons = []
 
 
 @onready var rail = $Rail
-@onready var id = get_parent().nodes.size()
 @onready var idnum = get_parent().idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
@@ -116,7 +115,6 @@ var previousend:PackedStringArray
 
 func _process(delta):
 	queue_redraw()
-	id = get_parent().nodes.find(self)
 	var amount = 0
 	var pressed = false
 	for button in buttons:
@@ -134,7 +132,6 @@ func _process(delta):
 			"delete":
 				modulate = Color.RED
 				if pressed:
-					get_parent().nodes.remove_at(id)
 					get_parent().delete(self)
 					get_parent().undolistadd({"Type":"Delete","Node":self})
 			"proporties":

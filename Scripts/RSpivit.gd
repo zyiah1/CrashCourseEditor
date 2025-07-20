@@ -3,7 +3,6 @@ extends Node2D
 
 const pointscene = preload("res://point.tscn")
 var locked = false
-@onready var id = get_parent().get_parent().nodes.size()
 @onready var idnum = get_parent().get_parent().idnum
 var segments = 1
 var lines = []
@@ -241,10 +240,8 @@ func _process(delta):
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
-	id = get_parent().get_parent().nodes.find(get_parent())
 	if get_parent().get_parent().item == "delete":
 		if drag == true:
-			get_parent().get_parent().nodes.remove_at(id)
 			get_parent().queue_free()
 		var amount = 0
 		

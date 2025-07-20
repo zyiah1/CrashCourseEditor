@@ -8,7 +8,6 @@ const pointscene: PackedScene = preload("res://point.tscn")
 @export var color: Color = Color(.92,.98,.98)
 @export var railtexture: Texture2D = load("res://railwhite.png")
 @onready var idnum = get_parent().get_parent().idnum
-@onready var id = get_parent().get_parent().nodes.size()
 
 var locked = false
 var segments = 1
@@ -320,7 +319,7 @@ func _process(delta):
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
-	id = get_parent().get_parent().nodes.find(get_parent())
+
 	
 	var amount = 0
 	var pressed = false
@@ -341,7 +340,7 @@ func _process(delta):
 			"delete":
 				modulate = Color.RED
 				if pressed:
-					owner.get_parent().nodes.remove_at(id)
+
 					owner.get_parent().delete(owner)
 					owner.get_parent().undolistadd({"Type":"Delete","Node":owner})
 			"proporties":

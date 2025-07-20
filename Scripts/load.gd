@@ -93,7 +93,6 @@ func LoadTest(filename):
 				matched = true
 				var instance = getObject(objectdata[8])
 				if instance != null:
-					scene.nodes.append(instance)
 					scene.add_child(instance)
 					instance.data = objectdata
 					instance.reposition()
@@ -160,7 +159,6 @@ func LoadTest(filename):
 						prereference = "Spin/"# add this to get node calls if it's a rotate rail
 					instance.get_node(prereference+"start").position = Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: ")))
 					AddPoints(raildata,instance,prereference)
-					scene.nodes.append(instance)
 					if prereference == "":
 						instance.data = raildata
 						instance.end = railend

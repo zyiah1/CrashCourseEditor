@@ -195,7 +195,7 @@ var data:PackedStringArray
 #5240 
 #5241 
 #5260 Message Param7 chooses which thing to say, 0 == be brave
-#2900 Track
+#2900 PathRail
 
 
 func _process(delta):
@@ -283,16 +283,7 @@ func _draw():
 		$Mid.show()
 		$Mid.texture = midImage
 		var amount = 1
-		var combinedpositions = $end.position
-		
-		if locked == false:
-			amount = 2
-			combinedpositions = $end.position+$start.position
-		
-		for node in points:
-			amount += 1
-			combinedpositions += node.position
-		$Mid.position = (combinedpositions)/amount
+		$Mid.position = get_parent().points[0].position
 	else:
 		$Mid.hide()
 

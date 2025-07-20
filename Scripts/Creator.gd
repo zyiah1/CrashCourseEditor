@@ -62,7 +62,6 @@ signal EXPORT
 "        ObjInfo:"]
 var objects:PackedStringArray = []
 
-var nodes = []
 var history = []
 var historyoffset = -1
 var disabledcontrolls = false
@@ -331,7 +330,6 @@ func itemplace():
 				lineplacing = false
 				out()
 				connect("EXPORT", Callable(instance, "EXPORT"))
-				nodes.append(instance)
 				undolistadd({"Type":"Add","Node":instance})
 				return
 			
@@ -396,7 +394,6 @@ func itemplace():
 		if instance != null:
 			instance.position = get_global_mouse_position().round()
 			add_child(instance)
-			nodes.append(instance)
 			undolistadd({"Type":"Add","Node":instance})
 			connect("EXPORT", Callable(instance, "EXPORT"))
 
