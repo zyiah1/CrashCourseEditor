@@ -6,8 +6,9 @@ signal selected
 		#print(name)
 
 func _pressed():
-	for buttons in get_tree().get_nodes_in_group("button"):
-		buttons.disabled = false
-	disabled = true
-	
-	emit_signal("selected",str(name))
+	if owner.propertypanel == false:
+		for buttons in get_tree().get_nodes_in_group("button"):
+			buttons.disabled = false
+		disabled = true
+		
+		emit_signal("selected",str(name))

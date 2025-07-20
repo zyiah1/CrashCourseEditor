@@ -652,6 +652,7 @@ func _on_view_index_pressed(index):
 	#0 Hide UI
 	#1 Loop Movements
 	#2 Whole Level View
+	#3 reset cam pos
 	if not disabledcontrolls:
 		match index:
 			0:
@@ -661,6 +662,8 @@ func _on_view_index_pressed(index):
 				movingLoop = not movingLoop
 			2:
 				$Cam.toggleCam()
+			3:
+				$Cam.position = Vector2(-216,-397)
 
 
 func _on_file_index_pressed(index):

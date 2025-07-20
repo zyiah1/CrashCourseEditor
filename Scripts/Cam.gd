@@ -45,7 +45,9 @@ func toggleCam():
 	if enabled:
 		get_parent().get_node("ZoomOut").enabled = true
 		enabled = false
+		paused = true
 	else:
+		paused = false
 		enabled = true
 		get_parent().get_node("ZoomOut").enabled = false
 
@@ -64,7 +66,7 @@ func _input(event): #mouse inputs
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		position = Vector2(1,1)/zoom * (mouse_start_pos - event.position) + screen_start_pos
-	if event is InputEventMouseButton: # zooming
+	if event is InputEventMouseButton and get_parent().propertypanel == false: # zooming
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				if zoom > zoom_minimum:

@@ -27,9 +27,10 @@ RichTextLabel/fonts/normal_font = SubResource("3")
 [node name="DK" type="Sprite2D"]
 z_index = -2
 z_as_relative = false
+position = Vector2(1.19209e-07, 0)
 scale = Vector2(0.136, 0.136)
 texture = ExtResource("1")
-offset = Vector2(0, -70)
+offset = Vector2(10, -70)
 script = ExtResource("2")
 ObjectName = "Dkb_ChalkDonkey"
 PosZ = -6.9

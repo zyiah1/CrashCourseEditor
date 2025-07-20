@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbneaewbsqv85"]
 
 [ext_resource type="Texture2D" uid="uid://cig5thn0gsq3a" path="res://UI/bgg.png" id="1_aih5r"]
-[ext_resource type="Script" path="res://Scripts/bfg.gd" id="2_0uew1"]
+[ext_resource type="Script" uid="uid://bqi30pomd5c5i" path="res://Scripts/bfg.gd" id="2_0uew1"]
 
 [node name="bfg" type="TextureRect" groups=["hide"]]
 modulate = Color(1, 1, 1, 0.270588)
