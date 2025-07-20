@@ -49,6 +49,8 @@ func _on_FileWindoe_dir_selected(dir):
 func _on_TextEdit_text_changed():
 	Options.interval = int($Buttons/setting5/TextEdit.text)
 
+func _on_setting_4_pressed():
+	$Buttons/setting4/Node2D/FileWindoe.popup(Rect2(-790,-429,1022,580))
 
 func _on_setting_6_pressed():
 	if $Buttons/setting6.button_pressed == false:

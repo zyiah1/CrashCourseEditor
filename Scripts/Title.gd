@@ -63,3 +63,7 @@ func _on_accept_pressed():
 func _on_decline_pressed():
 	for node in get_tree().get_nodes_in_group("update"):
 		node.hide()
+
+
+func _on_quit_pressed():
+	get_tree().quit(1)

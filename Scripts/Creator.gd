@@ -504,7 +504,7 @@ func undo():
 
 func shortcuts():
 	if not disabledcontrolls:
-		if Input.is_action_just_pressed("id"):
+		if Input.is_action_just_pressed("Loop"):
 			movingLoop = not movingLoop
 		if Input.is_action_just_pressed("redo"):
 			redo()
@@ -524,7 +524,7 @@ func shortcuts():
 			saveas()
 		if Input.is_action_just_pressed("Copy"):
 			copy()
-		if Input.is_action_just_pressed("shift"):
+		if Input.is_action_just_pressed("ChangeType"):
 			mode += 1
 			if mode == 4:
 				mode = 1

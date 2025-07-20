@@ -5,6 +5,7 @@ var scaleamount = Vector2(4.5,4.5)
 
 func _ready():
 	modulate = color
+	scale = scaleamount
 
 func _process(delta):
 	modulate = color

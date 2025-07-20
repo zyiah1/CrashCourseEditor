@@ -55,4 +55,3 @@ func _on_setting2_item_selected(index):
 		7:
 			Options.colorbg = Color(0.1,0.1,0.1)
 		
-

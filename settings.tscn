@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://xuf656scs7ed" path="res://settingsScreen.gd" id="1_o34gw"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_2x6o2"]
-[ext_resource type="Script" uid="uid://c2mtn152mb3t4" path="res://Scripts/back.gd" id="3"]
 [ext_resource type="Script" uid="uid://uwgc3c4svmap" path="res://Scripts/optionbutton.gd" id="6"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="6_vm8ls"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="8"]
 [ext_resource type="Script" uid="uid://dhcwxw85nb8u5" path="res://Scripts/custom.gd" id="9"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="11"]
-[ext_resource type="Script" uid="uid://cjgl588miqtwm" path="res://Scripts/setting4.gd" id="12"]
 [ext_resource type="Texture2D" uid="uid://dihnq7e2jea0v" path="res://UI/eyedroper.png" id="13"]
+[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="13_7eiv2"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="13_g1xid"]
+[ext_resource type="PackedScene" uid="uid://cx82h5vmx6lkn" path="res://Loader.tscn" id="14_tk3m0"]
 
 [sub_resource type="StyleBoxTexture" id="11"]
 
@@ -151,7 +151,6 @@ theme_override_styles/hover = SubResource("14")
 theme_override_styles/pressed = SubResource("15")
 theme_override_styles/normal = SubResource("14")
 text = "Change file path"
-script = ExtResource("12")
 
 [node name="Node2D" type="Node2D" parent="Buttons/setting4"]
 
@@ -218,7 +217,8 @@ offset_right = 181.0
 offset_bottom = 600.0
 theme = ExtResource("2")
 text = "back"
-script = ExtResource("3")
+script = ExtResource("13_7eiv2")
+scene = ExtResource("14_tk3m0")
 
 [node name="setting3" type="CheckButton" parent="."]
 visible = false
@@ -232,7 +232,7 @@ text = "auto fullscreen"
 [connection signal="pressed" from="Buttons/setting1" to="." method="_on_setting1_pressed"]
 [connection signal="item_selected" from="Buttons/setting2" to="Buttons/setting2" method="_on_setting2_item_selected"]
 [connection signal="pressed" from="Buttons/setting2/custom" to="Buttons/setting2/custom" method="_on_custom_pressed"]
-[connection signal="pressed" from="Buttons/setting4" to="Buttons/setting4" method="_on_setting4_pressed"]
+[connection signal="pressed" from="Buttons/setting4" to="." method="_on_setting_4_pressed"]
 [connection signal="dir_selected" from="Buttons/setting4/Node2D/FileWindoe" to="." method="_on_FileWindoe_dir_selected"]
 [connection signal="text_changed" from="Buttons/setting5/TextEdit" to="." method="_on_TextEdit_text_changed"]
 [connection signal="pressed" from="Buttons/setting6" to="." method="_on_setting_6_pressed"]

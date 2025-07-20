@@ -1,10 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cx82h5vmx6lkn"]
+[gd_scene load_steps=24 format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
-[ext_resource type="Script" uid="uid://cu3xvdk0wvaac" path="res://Scripts/quit.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
-[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/new.gd" id="5"]
+[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="5"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
 [ext_resource type="Script" uid="uid://dmx5s8xk86lkk" path="res://Scripts/settings.gd" id="8"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
@@ -14,7 +13,7 @@
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="13"]
 [ext_resource type="Script" uid="uid://c3w17m7uishwy" path="res://Scripts/load.gd" id="14_hbknu"]
 [ext_resource type="Texture2D" uid="uid://dbm577q8s8f8g" path="res://UI/box.png" id="16"]
-[ext_resource type="Script" uid="uid://bb1lsqiy43rje" path="res://Scripts/apiRequest.gd" id="19"]
+[ext_resource type="Script" uid="uid://bb1lsqiy43rje" path="res://Scripts/Title.gd" id="19"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="20"]
 [ext_resource type="FontFile" uid="uid://cl2vm8bf54k8i" path="res://fonts/ARIALBD 1.TTF" id="21"]
 [ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="22"]
@@ -3354,7 +3353,7 @@ cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 [node name="Title" type="Node2D"]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("19")
-currentNumberOfUpdates = 7
+currentNumberOfUpdates = 8
 
 [node name="bfg" parent="." instance=ExtResource("2_a7f5f")]
 offset_left = -224.0
@@ -3384,7 +3383,6 @@ offset_right = 181.0
 offset_bottom = 597.0
 theme = ExtResource("3")
 text = "Quit"
-script = ExtResource("2")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -3402,7 +3400,7 @@ offset_top = 3.0
 offset_right = 145.0
 offset_bottom = 113.0
 theme_override_fonts/normal_font = SubResource("3")
-text = "1.5"
+text = "1.6 Dev"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
 offset_left = 884.0
@@ -3675,27 +3673,28 @@ caret_blink_interval = 0.5
 
 [node name="accept" type="Button" parent="." groups=["update"]]
 visible = false
-offset_left = 590.0
-offset_top = 440.0
+offset_left = 635.0
+offset_top = 524.333
 offset_right = 787.0
-offset_bottom = 624.0
+offset_bottom = 597.333
 pivot_offset = Vector2(87.3334, 13.3334)
 theme = ExtResource("3")
+theme_override_font_sizes/font_size = 20
 text = "Update Now"
 
 [node name="decline" type="Button" parent="." groups=["update"]]
 visible = false
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
-offset_left = 244.667
-offset_top = 440.0
-offset_right = 428.667
-offset_bottom = 624.0
+offset_left = 234.0
+offset_top = 525.333
+offset_right = 401.0
+offset_bottom = 595.333
 pivot_offset = Vector2(87.3334, 13.3334)
 theme = ExtResource("3")
+theme_override_font_sizes/font_size = 20
 text = "Later"
 
-[connection signal="pressed" from="new" to="new" method="_on_new_pressed"]
-[connection signal="pressed" from="quit" to="quit" method="_on_quit_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="file_selected" from="FileDialog" to="load" method="_on_FileDialog_file_selected"]
 [connection signal="pressed" from="settings" to="settings" method="_on_settings_pressed"]
 [connection signal="dir_selected" from="settings/Node2D/FileWindoe" to="settings" method="_on_FileWindoe_dir_selected"]

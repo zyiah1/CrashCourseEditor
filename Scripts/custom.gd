@@ -13,4 +13,3 @@ func _on_custom_pressed():
 func _process(delta):
 	if custom == true:
 		Options.colorbg = $ColorPicker.color
-

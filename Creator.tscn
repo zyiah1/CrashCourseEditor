@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=98 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -54,6 +54,7 @@
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="52_cmovo"]
 [ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="53"]
 [ext_resource type="Script" uid="uid://c3kne8dxowgwf" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
+[ext_resource type="Script" uid="uid://o8gt23bphkhe" path="res://Scripts/menu_bar.gd" id="54_v4qg3"]
 [ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="55"]
 [ext_resource type="Script" uid="uid://drbjwufj6kvsp" path="res://Scripts/VBox.gd" id="55_y28lh"]
 [ext_resource type="Texture2D" uid="uid://drdwsg8jgaaa8" path="res://UI/Cameraborderbottom.png" id="56"]
@@ -74,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.392292, 1),
 "update": 0,
-"values": [Vector2(-39, -150), Vector2(-39, 0)]
+"values": [Vector2(-39, -150), Vector2(-39, -13.8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -98,7 +99,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 142)]
+"values": [Vector2(-1, 128)]
 }
 
 [sub_resource type="Animation" id="19"]
@@ -114,7 +115,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.392292, 1),
 "update": 0,
-"values": [Vector2(0, -150), Vector2(0, 0)]
+"values": [Vector2(0, -150), Vector2(0, -13.8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -150,7 +151,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 142)]
+"values": [Vector2(-1, 128)]
 }
 
 [sub_resource type="Animation" id="16"]
@@ -166,7 +167,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.307786, 1),
 "update": 0,
-"values": [Vector2(-39, 0), Vector2(-39, -300)]
+"values": [Vector2(-39, -13.8), Vector2(-39, -300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -190,7 +191,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, 142), Vector2(-1, 100)]
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
 }
 
 [sub_resource type="Animation" id="17"]
@@ -206,7 +207,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.307786, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -300)]
+"values": [Vector2(0, -13.8), Vector2(0, -300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -242,7 +243,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1, 142), Vector2(-1, 100)]
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
 }
 
 [sub_resource type="Animation" id="14"]
@@ -269,7 +270,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 142)]
+"values": [Vector2(-1, 128)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -293,7 +294,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -13.8)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -305,7 +306,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(12, -691)]
+"values": [Vector2(12, -695.81)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
@@ -549,7 +550,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 11)]
+"values": [Vector2(6, -36)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -561,7 +562,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -13.8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -600,7 +601,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.4),
 "transitions": PackedFloat32Array(0.574349, 0.965938, 4.92458),
 "update": 0,
-"values": [Vector2(6, -370), Vector2(6, 70), Vector2(6, 11)]
+"values": [Vector2(6, -370), Vector2(6, 30), Vector2(6, -36)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -612,7 +613,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.7),
 "transitions": PackedFloat32Array(0.435275, 0.435275, 1),
 "update": 0,
-"values": [Vector2(-39, 0), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(-39, -13.8), Vector2(0, -13.8), Vector2(0, -13.8)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -639,7 +640,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.4),
 "transitions": PackedFloat32Array(4.92458, 4.75684, 1),
 "update": 0,
-"values": [Vector2(6, 11), Vector2(6, 70), Vector2(6, -503)]
+"values": [Vector2(6, -36), Vector2(6, 70), Vector2(6, -503)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -651,7 +652,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 0.435275, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-39, 0)]
+"values": [Vector2(0, -13.8), Vector2(0, -13.8), Vector2(-39, -13.8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ccfl"]
@@ -841,9 +842,9 @@ autostart = true
 
 [node name="tutorial" type="RichTextLabel" parent="nonmoving"]
 offset_left = 12.0
-offset_top = -691.0
+offset_top = -695.81
 offset_right = 1032.99
-offset_bottom = -448.0
+offset_bottom = -452.81
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"
@@ -915,9 +916,9 @@ scale = Vector2(0.2, 0.2)
 [node name="player" type="Button" parent="CanvasLayer3/CanvasLayer/Control" groups=["button"]]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 11.0
+offset_top = -36.0
 offset_right = 356.0
-offset_bottom = 301.0
+offset_bottom = 254.0
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("9")
 theme_override_styles/hover = SubResource("10")
@@ -936,8 +937,9 @@ libraries = {
 }
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="CanvasLayer3"]
+offset = Vector2(0, -13.8)
 scale = Vector2(1.5, 1.5)
-transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, -13.8)
 
 [node name="blue" type="Button" parent="CanvasLayer3/CanvasLayer2"]
 visible = false
@@ -1197,9 +1199,9 @@ script = ExtResource("3")
 
 [node name="rails" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2"]
 offset_left = 33.0
-offset_top = 83.0
-offset_right = 2934.0
-offset_bottom = 245.0
+offset_top = 71.3333
+offset_right = 3276.0
+offset_bottom = 233.333
 scale = Vector2(0.31, 0.33)
 alignment = 1
 
@@ -1426,9 +1428,9 @@ script = ExtResource("3")
 
 [node name="tools" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2"]
 offset_left = -1.0
-offset_top = 142.0
+offset_top = 128.0
 offset_right = 2930.0
-offset_bottom = 242.0
+offset_bottom = 228.0
 scale = Vector2(0.35, 0.35)
 alignment = 1
 
@@ -1524,6 +1526,7 @@ icon_alignment = 1
 script = ExtResource("3")
 
 [node name="MenuBar" type="MenuBar" parent="CanvasLayer3"]
+z_index = 1
 offset_right = 229.0
 offset_bottom = 33.0
 theme = ExtResource("51_0rgi5")
@@ -1537,8 +1540,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_cmovo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_v4qg3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_cmovo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cmovo")
+script = ExtResource("54_v4qg3")
 
 [node name="File" type="PopupMenu" parent="CanvasLayer3/MenuBar"]
+size = Vector2i(500, 230)
 theme = ExtResource("51_0rgi5")
 item_count = 8
 item_0/text = "Save"
