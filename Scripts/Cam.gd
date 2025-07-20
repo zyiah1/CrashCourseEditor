@@ -27,10 +27,10 @@ func _physics_process(delta):
 			if Input.is_action_pressed("ui_down"):
 				if not Input.is_action_pressed("save"):
 					position.y += 5 * zoom.x 
-			if Input.is_action_just_pressed("zoom_in"):
+			if Input.is_action_just_pressed("zoom_out"):
 				if zoom.x < 3:
 					zoom += Vector2(.25,.25)
-			if Input.is_action_just_pressed("zoom_out"):
+			if Input.is_action_just_pressed("zoom_in"):
 				if zoom.x - .25 >= 0.5:
 					zoom += Vector2(-.25,-.25)
 			if Input.is_action_just_pressed("hide"):
@@ -68,10 +68,10 @@ func _input(event): #mouse inputs
 		position = Vector2(1,1)/zoom * (mouse_start_pos - event.position) + screen_start_pos
 	if event is InputEventMouseButton and get_parent().propertypanel == false: # zooming
 		if event.is_pressed():
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				if zoom > zoom_minimum:
 					zoom -= zoom_speed
-			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				if zoom < zoom_maximum:
 					zoom += zoom_speed
 	

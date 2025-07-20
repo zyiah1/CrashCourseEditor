@@ -576,18 +576,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../CanvasLayer2/tools/delete:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1311, 0)]
-}
 
 [sub_resource type="Animation" id="5"]
 resource_name = "in"
@@ -614,18 +602,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.435275, 0.435275, 1),
 "update": 0,
 "values": [Vector2(-39, -13.8), Vector2(0, -13.8), Vector2(0, -13.8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../CanvasLayer2/tools/delete:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1311, 0)]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -1434,7 +1410,7 @@ offset_bottom = 228.0
 scale = Vector2(0.35, 0.35)
 alignment = 1
 
-[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Transform", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1449,7 +1425,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+[node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Delete", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1464,7 +1440,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="edit" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+[node name="edit" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Edit", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1479,7 +1455,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+[node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Property", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")

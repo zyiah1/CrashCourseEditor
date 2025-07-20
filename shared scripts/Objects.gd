@@ -85,6 +85,8 @@ func _on_Button_button_down():
 
 func _process(delta):
 	if $Button.is_hovered() or $Button.button_pressed:
+		if Input.is_action_just_pressed("MoveToBack"):
+			get_parent().move_child(self,10)
 		match get_parent().item:
 			"move":
 				modulate = Color.CORAL

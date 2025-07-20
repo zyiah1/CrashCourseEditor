@@ -510,6 +510,11 @@ func shortcuts():
 			redo()
 		elif Input.is_action_just_pressed("undo"):
 			undo()
+		elif Input.is_action_just_pressed("Transform"):
+			get_tree().get_first_node_in_group("Transform")._pressed()
+		if Input.is_action_just_pressed("Delete"):
+			get_tree().get_first_node_in_group("Delete")._pressed()
+		
 		if Input.is_action_just_pressed("esc"):
 			if $"CanvasLayer3/Proporties Panel".visible == false:
 				get_tree().change_scene_to_file("res://Loader.tscn")
@@ -524,6 +529,10 @@ func shortcuts():
 			saveas()
 		if Input.is_action_just_pressed("Copy"):
 			copy()
+		elif Input.is_action_just_pressed("Edit"):
+			get_tree().get_first_node_in_group("Edit")._pressed()
+		elif Input.is_action_just_pressed("Property"):
+			get_tree().get_first_node_in_group("Property")._pressed()
 		if Input.is_action_just_pressed("ChangeType"):
 			mode += 1
 			if mode == 4:
