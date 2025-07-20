@@ -62,7 +62,7 @@
 
 [sub_resource type="Animation" id="18"]
 resource_name = "In1"
-length = 9999.0
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,7 +102,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="19"]
 resource_name = "In2"
-length = 99999.0
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -154,6 +154,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="16"]
 resource_name = "Out1"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,6 +194,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="17"]
 resource_name = "Out2"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
