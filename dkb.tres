@@ -23,15 +23,14 @@ region_rect = Rect2(0, 0, 733, 733)
 
 [sub_resource type="StyleBoxEmpty" id="7"]
 
-[sub_resource type="StyleBoxTexture" id="8"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6oir"]
 texture = ExtResource("3_exn2c")
-region_rect = Rect2(0, 0, 733, 733)
+modulate_color = Color(0.8, 0.8, 0.8, 1)
 
-[sub_resource type="StyleBoxTexture" id="6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a550"]
 texture = ExtResource("3_exn2c")
-region_rect = Rect2(0, 0, 733, 733)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6nq6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11oqp"]
 texture = ExtResource("2_hoxa6")
 
 [sub_resource type="ImageTexture" id="16"]
@@ -95,9 +94,9 @@ Button/font_sizes/font_size = 28
 Button/fonts/font = SubResource("FontVariation_8q65v")
 Button/styles/disabled = SubResource("10")
 Button/styles/focus = SubResource("7")
-Button/styles/hover = SubResource("8")
-Button/styles/normal = SubResource("6")
-Button/styles/pressed = SubResource("StyleBoxTexture_f6nq6")
+Button/styles/hover = SubResource("StyleBoxTexture_p6oir")
+Button/styles/normal = SubResource("StyleBoxTexture_0a550")
+Button/styles/pressed = SubResource("StyleBoxTexture_11oqp")
 CheckButton/icons/checked = ExtResource("5_ynsp6")
 CheckButton/icons/off = ExtResource("4_3oa3o")
 CheckButton/icons/off_disabled = SubResource("16")

@@ -39,8 +39,6 @@ func _ready():
 	rail.texture = railtexture
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
-	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
-	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	if loading == false:
 		$start.position = get_global_mouse_position().round()
 	else:
@@ -106,6 +104,9 @@ func _ready():
 
 var data:PackedStringArray
 
+var previousdata:PackedStringArray
+var previousend:PackedStringArray
+
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(idnum),
@@ -127,6 +128,12 @@ var data:PackedStringArray
 "              type: Linear",
 "              unit_name: Path"]
 
+func propertyclose():
+	#add the undo log
+	if data != previousdata or end != previousend:
+		owner.get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,data,previousend,end],"Node":self})
+		previousdata = data
+		previousend = end
 
 func reposition():
 	var currentpoint = 0
@@ -265,7 +272,11 @@ func reposition():
 	$crank.position = points[0].position
 	var text = end[9]
 	text = text.erase(0,22)
-	$rotation.text = str(-float(text))
+	if -float(text) == -int(text): #keeps number simple
+		$rotation.text = str(-int(text))
+	else:
+		$rotation.text = str(-float(text))
+	
 	$crank.target = float($rotation.text)
 	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0
@@ -305,47 +316,46 @@ func changepivotpoint():
 	$start.position = $end.position
 
 func _process(delta):
-	
 	#update the lines
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
 	id = get_parent().get_parent().nodes.find(get_parent())
-	if get_parent().get_parent().item == "delete":
-		if drag == true:
-			get_parent().get_parent().nodes.remove_at(id)
-			get_parent().queue_free()
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
+	
+	var amount = 0
+	var pressed = false
+	for button in buttons:
+		if button.is_hovered():
+			amount += 1
+		if button.button_pressed:
+			pressed = true
+	
+	if amount != 0: #button is hovered
+		match owner.get_parent().item:
+			"edit":
+				modulate = Color.GREEN_YELLOW
+				if pressed:
+					get_node("rotation").show()
+					get_node("rotation").grab_focus()
+					get_node("rotation").set_caret_column(7)
+			"delete":
 				modulate = Color.RED
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().get_parent().item == "edit":
-		if drag == true:
-			get_node("rotation").show()
-			get_node("rotation").grab_focus()
-			get_node("rotation").set_caret_column(7)
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
-				modulate = Color.LIGHT_BLUE
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().get_parent().item == "proporties":
-		if drag == true:
-			if get_parent().get_parent().propertypanel == false:
-				get_parent().get_parent().propertypanel = true
-				get_parent().get_parent().parse(data)
-				get_parent().get_parent().parse(end)
-				get_parent().get_parent().editednode = self
-				return
+				if pressed:
+					owner.get_parent().nodes.remove_at(id)
+					owner.get_parent().delete(owner)
+					owner.get_parent().undolistadd({"Type":"Delete","Node":owner})
+			"proporties":
+				modulate = Color.LIGHT_SKY_BLUE
+				if pressed and owner.get_parent().propertypanel == false:
+					get_parent().get_parent().propertypanel = true
+					get_parent().get_parent().parse(data)
+					get_parent().get_parent().parse(end)
+					get_parent().get_parent().editednode = self
+					previousdata = data
+					previousend = end
+					return
+	else:
+		modulate = Color.WHITE
 	if locked == false:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
@@ -379,8 +389,6 @@ func newseg():
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
-	newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-	newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 	dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -434,15 +442,6 @@ func EXPORT():
 			end[9] = "              param1: " + str(-$crank.target)
 			get_parent().get_parent().bridgedata += data + end
 
-
-
-func _on_Button_button_down():
-	drag = true
-	
-
-
-func _on_Button_button_up():
-	drag = false
 
 
 func _on_rotation_rotationupdated(text):

@@ -54,6 +54,8 @@ extends Sprite2D
 			"            scale_z: 1.00000"]
 
 var previouspos: Vector2
+var previousdata: PackedStringArray
+
 
 func _ready():
 	get_parent().idnum += 1
@@ -74,6 +76,7 @@ func _on_Button_button_down():
 			data[22] = "            pos_y: " + str(-position.y)
 			get_parent().parse(data)
 			get_parent().editednode = self
+			previousdata = data
 			return
 	previouspos = position
 
@@ -92,6 +95,12 @@ func _process(delta):
 	if get_parent().item != "proporties" and get_parent().item != "edit" and $Button.button_pressed:
 		position = get_global_mouse_position().round()
 
+
+func propertyclose():
+	#add the undo log
+	if data != previousdata:
+		get_parent().undolistadd({"Type":"Property","Data":[previousdata,data],"Node":self})
+		data = previousdata
 
 func reposition():
 	position.x = float(data[21].lstrip("            pos_x: "))

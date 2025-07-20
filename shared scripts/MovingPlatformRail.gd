@@ -13,13 +13,16 @@ var points = []
 var mode = 0 #0 = path 1 = platform
 var childrail = null
 var loading = false
-var drag = false
 var buttons = []
 var Param1: int = -1 #visiblie
 var color = Color(.2,.2,.2)
 @export var rail: PackedScene = preload("res://RMove.tscn")
 
 
+var previousdata: PackedStringArray
+var previousend: PackedStringArray
+var previousplatdata: PackedStringArray
+var previousplatend: PackedStringArray
 
 
 @onready var dataseg:PackedStringArray = ["                - comment: !l -1",
@@ -102,6 +105,15 @@ func _ready():
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
+
+func propertyclose():
+	#add the undo log
+	if data != previousdata or end != previousend or childrail.data != previousplatdata or childrail.endplat != previousplatend:
+		get_parent().undolistadd({"Type":"PropertyMoveRail","Data":[previousdata,data,previousend,end,previousplatdata,childrail.data,previousplatend,childrail.endplat],"Node":self})
+		previousdata = data
+		previousend = end
+		previousplatdata = childrail.data
+		previousplatend = childrail.endplat
 
 func reposition():
 	var currentpoint = 0
@@ -239,7 +251,10 @@ func reposition():
 			childrail.get_node("start").texture = pointtexture
 		if line.begins_with("              param2: "):
 			var text = line
-			text = text.erase(0,22)
+			if float(text.erase(0,22)) == int(text.erase(0,22)): #keeps number simple
+				text = str(int(text.erase(0,22)))
+			else:
+				text = str(float(text.erase(0,22)))
 			childrail.get_node("rotation").text = text
 			childrail._on_rotation_change()
 	
@@ -327,45 +342,46 @@ func reposition():
 func _process(delta):
 	queue_redraw()
 	id = get_parent().nodes.find(self)
-	if get_parent().item == "delete":
-		if drag == true:
-			get_parent().nodes.remove_at(id)
-			queue_free()
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
+	
+	var amount = 0
+	var pressed = false
+	for button in buttons:
+		if button.is_hovered():
+			amount += 1
+		if button.button_pressed:
+			pressed = true
+	
+	if amount != 0: #button is hovered
+		match get_parent().item:
+			"edit":
+				modulate = Color.GREEN_YELLOW
+				if pressed and childrail != null:
+					childrail.get_node("rotation").show()
+					childrail.get_node("rotation").grab_focus()
+					childrail.get_node("rotation").set_caret_column(7)
+			"delete":
 				modulate = Color.RED
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().item == "edit":
-		if drag == true:
-			if childrail != null:
-				childrail.get_node("rotation").show()
-				childrail.get_node("rotation").grab_focus()
-				childrail.get_node("rotation").set_caret_column(7)
-		var amount = 0
-		
-		for button in buttons:
-			if button.is_hovered():
-				modulate = Color.LIGHT_BLUE
-				amount += 1
-			if amount == 0:
-				modulate = Color.WHITE
-				drag = false
-	if get_parent().item == "proporties":
-		if drag == true:
-			if get_parent().propertypanel == false:
-				get_parent().propertypanel = true
-				get_parent().parse(data)
-				get_parent().parse(end)
-				get_parent().parse(childrail.data)
-				get_parent().parse(childrail.endplat)
-				get_parent().editednode = self
-				return
-			
+				if pressed:
+					get_parent().nodes.remove_at(id)
+					get_parent().delete(self)
+					get_parent().undolistadd({"Type":"Delete","Node":self})
+			"proporties":
+				modulate = Color.LIGHT_SKY_BLUE
+				if pressed and get_parent().propertypanel == false:
+					get_parent().propertypanel = true
+					get_parent().parse(data)
+					get_parent().parse(end)
+					get_parent().parse(childrail.data)
+					get_parent().parse(childrail.endplat)
+					get_parent().editednode = self
+					previousdata = data
+					previousend = end
+					previousplatdata = childrail.data
+					previousplatend = childrail.endplat
+					return
+	else:
+		modulate = Color.WHITE
+	
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
 			var railinst = rail.instantiate()
@@ -400,8 +416,6 @@ func newseg():
 		add_child(newpoint)
 		points.append(newpoint)
 		buttons.append(newpoint.get_node("Button"))
-		newpoint.get_node("Button").connect("button_down", Callable(self, "_on_Button_button_down"))
-		newpoint.get_node("Button").connect("button_up", Callable(self, "_on_Button_button_up"))
 		dataseg = ["                - dir_x: 0.00000",
 "                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
@@ -461,11 +475,3 @@ func _draw():
 func EXPORT():
 	if childrail != null and visible:
 		childrail.EXPORT()
-
-func _on_Button_button_down():
-	drag = true
-	
-
-
-func _on_Button_button_up():
-	drag = false

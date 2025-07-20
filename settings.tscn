@@ -213,9 +213,9 @@ alignment = 1
 
 [node name="back" type="Button" parent="."]
 offset_left = 1.0
-offset_top = 448.0
+offset_top = 496.0
 offset_right = 181.0
-offset_bottom = 641.0
+offset_bottom = 600.0
 theme = ExtResource("2")
 text = "back"
 script = ExtResource("3")

@@ -162,10 +162,6 @@ autoplay = "start"
 
 [connection signal="timeout" from="Spin/crank/Timer" to="Spin/crank" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
-[connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
-[connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
-[connection signal="button_down" from="Spin/end/Button" to="Spin" method="_on_Button_button_down"]
-[connection signal="button_up" from="Spin/end/Button" to="Spin" method="_on_Button_button_up"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank" method="_on_rotation_rotationupdated"]
 [connection signal="text_changed" from="Spin/rotation" to="Spin/rotation" method="_on_rotation_text_changed"]

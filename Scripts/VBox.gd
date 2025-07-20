@@ -14,14 +14,16 @@ func _process(delta):
 	if Input.is_action_just_pressed("undo"):
 		for node in get_children():
 			node.queue_free()
+		owner.propertypanel = false
 		clear()
+
 
 func applydata():
 	data = []
 	end = []
 	childData = []
 	childEnd = []
-	targetnode = get_parent().get_parent().get_parent().get_parent().editednode
+	targetnode = owner.editednode
 	for node in get_children():
 		if node.is_in_group("Data"):
 			data.append(node.text)
@@ -41,14 +43,15 @@ func applydata():
 
 func _on_new_pressed():
 	get_parent().get_parent()._on_Property_pressed() # change back to normal tab
+	owner.propertypanel = false
 	applydata()
 	for node in get_children():
 		node.queue_free()
 	clear()
+	owner.editednode.propertyclose() #undo history
 
 func clear():
-	get_parent().get_parent().get_parent().get_parent().Groupnum = 0
-	get_parent().get_parent().get_parent().get_parent().propertypanel = false
+	owner.Groupnum = 0
 	get_parent().get_parent().hide()
 	data = []
 	end = []

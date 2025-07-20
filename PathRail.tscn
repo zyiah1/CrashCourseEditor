@@ -39,6 +39,3 @@ visible = false
 position = Vector2(55, 23)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_naf2b")
-
-[connection signal="button_down" from="end/Button" to="." method="_on_Button_button_down"]
-[connection signal="button_up" from="end/Button" to="." method="_on_Button_button_up"]

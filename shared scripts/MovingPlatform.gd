@@ -37,8 +37,6 @@ func _ready():
 	rail.texture = railtexture
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
-	$end/Button.connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
-	$end/Button.connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
 	get_parent().buttons.append($end/Button)
 	$rotation.text = str(speed)
 	if loading == false:

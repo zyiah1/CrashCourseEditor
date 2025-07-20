@@ -35,7 +35,7 @@ func changepivotpoint():
 			$crank.position = points[int(line.lstrip("              param: "))].position
 			targetswappoint = points[int(line.lstrip("              param: "))]
 		targetswappoint.position = oldpos
-	$crank2.position = $crank.position
+
 	$start.position = $end.position
 
 func _ready():
@@ -59,7 +59,7 @@ func _ready():
 	buttons.append($crank/Button)
 	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
-	$crank2.rail.add_point($start.position)
+
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -85,6 +85,9 @@ func _ready():
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
+
+var previousdata:PackedStringArray
+var previousend:PackedStringArray
 
 @onready var dataseg:PackedStringArray = ["                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -133,6 +136,13 @@ var data:PackedStringArray
 "              param9: -1.00000",
 "              type: Linear",
 "              unit_name: Path"]
+
+func propertyclose():
+	#add the undo log
+	if data != previousdata or end != previousend:
+		owner.get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,data,previousend,end],"Node":self})
+		previousdata = data
+		previousend = end
 
 
 func reposition():
@@ -203,28 +213,28 @@ func reposition():
 	text = text.erase(0,22)
 	$rotation.text = str(-int(text))
 	$crank.target = int($rotation.text)
-	$crank2.target = int($rotation.text)
+
 	$rotation.prev = $rotation.text
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	$crank.rotation_degrees = 0
-	$crank2.rotation_degrees = 0
+
 	#update the visuals
 	rail.points = []
 	$crank.rail.points = []
-	$crank2.rail.points = []
+
 	for point in points:
 		rail.add_point(point.position)
 		$crank.rail.add_point(point.position)
-		$crank2.rail.add_point(point.position)
+
 		rail.add_point(point.position)
 		$crank.rail.add_point(point.position)
-		$crank2.rail.add_point(point.position)
+
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	$crank2.rail.add_point($end.position)
+
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	$crank2.rail.add_point($end.position)
+
 	changepivotpoint()
 
 func _process(delta):
@@ -266,8 +276,10 @@ func _process(delta):
 				get_parent().get_parent().parse(data)
 				get_parent().get_parent().parse(end)
 				get_parent().get_parent().editednode = self
+				previousdata = data
+				previousend = end
 				return
-	$crank2.position = $crank.position
+
 	
 	if locked == false:
 		if Input.is_action_just_pressed("addpoint"):
@@ -283,17 +295,17 @@ func _process(delta):
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
 	$crank.target = int($rotation.text)
-	$crank2.target = -int($rotation.text)
+
 
 
 func newseg():
 	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	$crank2.rail.add_point($end.position)
+
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
-	$crank2.rail.add_point($end.position)
+
 	var newpoint = pointscene.instantiate()
 	newpoint.texture = preload("res://pointR.png")
 	newpoint.position = $start.position

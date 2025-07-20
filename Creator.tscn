@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=96 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -268,6 +268,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-1, 142)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
 _data = {
@@ -276,6 +300,162 @@ _data = {
 &"Out1": SubResource("16"),
 &"Out2": SubResource("17"),
 &"RESET": SubResource("14")
+}
+
+[sub_resource type="Animation" id="Animation_cmovo"]
+resource_name = "saving"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["saving"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/saving:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902)]
+}
+
+[sub_resource type="Animation" id="Animation_nge0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/saving:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["saving"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/saving:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v4qg3"]
+resource_name = "saved"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/saving:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.5),
+"transitions": PackedFloat32Array(1.41421, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/saving:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[color=yellow]saved!"]
+}
+
+[sub_resource type="Animation" id="Animation_tll4m"]
+resource_name = "copied"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/saving:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.5),
+"transitions": PackedFloat32Array(1.41421, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/saving:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[color=cyan]copied!"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nge0o"]
+_data = {
+&"RESET": SubResource("Animation_nge0o"),
+&"copied": SubResource("Animation_tll4m"),
+&"saved": SubResource("Animation_v4qg3"),
+&"saving": SubResource("Animation_cmovo")
+}
+
+[sub_resource type="Animation" id="Animation_36swt"]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/undo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fwsg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("nonmoving/undo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwsg3"]
+_data = {
+&"Fade": SubResource("Animation_36swt"),
+&"RESET": SubResource("Animation_fwsg3")
 }
 
 [sub_resource type="FontFile" id="15"]
@@ -326,9 +506,13 @@ variation_embolden = 0.39
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t780s"]
 texture = ExtResource("8_366nk")
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1c3ri"]
 texture = ExtResource("7_cbhmo")
+expand_margin_left = 6.0
+expand_margin_right = 6.0
 
 [sub_resource type="StyleBoxTexture" id="9"]
 texture = ExtResource("10_l2bps")
@@ -610,26 +794,37 @@ libraries = {
 &"": SubResource("AnimationLibrary_rqhxc")
 }
 
+[node name="SaveMessage" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nge0o")
+}
+
+[node name="UndoMessage" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fwsg3")
+}
+
 [node name="nonmoving" type="CanvasLayer" parent="." groups=["ed"]]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
 [node name="save" type="Button" parent="nonmoving"]
-offset_left = 7.0
-offset_top = 455.0
-offset_right = 208.0
-offset_bottom = 639.0
+offset_left = 1.0
+offset_top = 529.0
+offset_right = 113.0
+offset_bottom = 599.0
 theme = ExtResource("7")
+theme_override_font_sizes/font_size = 26
 text = "save"
 
 [node name="Timer" type="Timer" parent="nonmoving/save"]
 autostart = true
 
 [node name="tutorial" type="RichTextLabel" parent="nonmoving"]
-offset_left = 12.0
-offset_top = -691.0
-offset_right = 1032.99
-offset_bottom = -448.0
+offset_left = 2.0
+offset_top = -199.995
+offset_right = 1022.99
+offset_bottom = 43.005
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"
@@ -645,31 +840,41 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Name:"
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
-visible = false
-modulate = Color(1, 1, 1, 0.54902)
-offset_left = 8.0
-offset_top = 487.0
-offset_right = 190.0
-offset_bottom = 725.0
+modulate = Color(1, 1, 1, 0)
+offset_top = 521.0
+offset_right = 282.0
+offset_bottom = 577.0
 scale = Vector2(0.4, 0.4)
+mouse_filter = 2
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
 text = "saving"
+horizontal_alignment = 1
+
+[node name="undo" type="RichTextLabel" parent="nonmoving"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 592.0
+offset_top = 527.0
+offset_right = 1172.0
+offset_bottom = 570.0
+scale = Vector2(0.4, 0.4)
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("15")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+vertical_alignment = 2
 
 [node name="name" type="LineEdit" parent="nonmoving"]
-offset_left = 482.0
-offset_top = 524.0
-offset_right = 1066.0
-offset_bottom = 593.0
+offset_left = 591.0
+offset_top = 543.0
+offset_right = 1061.0
+offset_bottom = 600.0
 theme_override_fonts/font = SubResource("FontVariation_r337g")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "untitled"
-
-[node name="delay" type="Timer" parent="nonmoving"]
-wait_time = 0.05
-one_shot = true
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["ed"]]
 
@@ -1378,10 +1583,10 @@ offset_bottom = 820.0
 theme = ExtResource("50")
 
 [node name="close" type="Button" parent="CanvasLayer3/Proporties Panel"]
-offset_left = 3664.0
-offset_top = 736.0
-offset_right = 3964.0
-offset_bottom = 1036.0
+offset_left = 3599.0
+offset_top = 741.0
+offset_right = 4057.0
+offset_bottom = 1029.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("7")
 theme_override_font_sizes/font_size = 45
@@ -1427,9 +1632,9 @@ libraries = {
 }
 
 [node name="RealTime" type="CheckButton" parent="CanvasLayer3/Proporties Panel"]
-offset_left = 3471.0
+offset_left = 3407.0
 offset_top = 810.0
-offset_right = 3852.0
+offset_right = 3790.0
 offset_bottom = 891.0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("7")
@@ -1532,7 +1737,6 @@ text = "From Default Level 2&4:"
 [connection signal="focus_entered" from="nonmoving/name" to="Cam" method="_on_name_focus_entered"]
 [connection signal="focus_exited" from="nonmoving/name" to="." method="_on_name_focus_exited"]
 [connection signal="focus_exited" from="nonmoving/name" to="Cam" method="_on_name_focus_exited"]
-[connection signal="timeout" from="nonmoving/delay" to="." method="_on_delay_timeout"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/Edit" to="." method="_on_edit_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/View" to="." method="_on_view_index_pressed"]

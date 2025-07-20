@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5f2vbngahn1e"]
+[gd_scene load_steps=23 format=3 uid="uid://b5f2vbngahn1e"]
 
 [ext_resource type="Script" uid="uid://b2xbqdyfwipq1" path="res://Scripts/LSpivit.gd" id="1"]
 [ext_resource type="Script" uid="uid://cjqb0qyk882wb" path="res://Scripts/rotationTextFilter.gd" id="3"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
 [ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="5_1v6ii"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="7"]
+[ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="7_anwjs"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="7_udt58"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
@@ -99,7 +100,7 @@ hframes = 2
 
 [node name="crank" type="Node2D" parent="Spin"]
 script = ExtResource("3_lgwtf")
-previewtexture = ExtResource("5_1v6ii")
+previewtexture = ExtResource("7_udt58")
 
 [node name="Timer" type="Timer" parent="Spin/crank"]
 one_shot = true
@@ -125,20 +126,14 @@ theme_override_styles/pressed = SubResource("12")
 theme_override_styles/normal = SubResource("13")
 
 [node name="crank2" type="Node2D" parent="Spin"]
-script = ExtResource("3_lgwtf")
-previewtexture = ExtResource("7_udt58")
-
-[node name="Timer" type="Timer" parent="Spin/crank2"]
-one_shot = true
+script = ExtResource("7_anwjs")
+previewtexture = ExtResource("5_1v6ii")
 
 [node name="crank2" type="Sprite2D" parent="Spin/crank2"]
 z_index = -1
 z_as_relative = false
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("4")
-
-[node name="cooldown" type="Timer" parent="Spin/crank2"]
-autostart = true
 
 [node name="end" type="Sprite2D" parent="Spin"]
 scale = Vector2(0.35, 0.35)
@@ -186,10 +181,8 @@ autoplay = "start"
 [connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
 [connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
 [connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
-[connection signal="timeout" from="Spin/crank2/Timer" to="Spin/crank2" method="_on_Timer_timeout"]
 [connection signal="button_down" from="Spin/end/Button" to="Spin" method="_on_Button_button_down"]
 [connection signal="button_up" from="Spin/end/Button" to="Spin" method="_on_Button_button_up"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank" method="_on_rotation_rotationupdated"]
-[connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank2" method="_on_rotation_rotationupdated"]
 [connection signal="text_changed" from="Spin/rotation" to="Spin/rotation" method="_on_rotation_text_changed"]

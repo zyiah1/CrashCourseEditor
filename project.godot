@@ -51,7 +51,7 @@ folder_colors={
 
 [gui]
 
-common/drop_mouse_on_gui_input_disabled=true
+common/drop_mouse_on_gui_input_disabled=false
 
 [importer_defaults]
 

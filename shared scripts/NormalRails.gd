@@ -109,8 +109,8 @@ func _ready():
 
 var data:PackedStringArray
 
-
-
+var previousdata:PackedStringArray
+var previousend:PackedStringArray
 
 
 
@@ -135,9 +135,8 @@ func _process(delta):
 				modulate = Color.RED
 				if pressed:
 					get_parent().nodes.remove_at(id)
-					hide()
+					get_parent().delete(self)
 					get_parent().undolistadd({"Type":"Delete","Node":self})
-					add_to_group("Limbo")
 			"proporties":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed:
@@ -146,6 +145,8 @@ func _process(delta):
 						get_parent().parse(data)
 						get_parent().parse(end)
 						get_parent().editednode = self
+						previousdata = data
+						previousend = end
 						return
 	else:
 		modulate = Color.WHITE
@@ -200,6 +201,12 @@ func newseg():
 	$start.position = $end.position
 	$start.frame = 1
 
+func propertyclose():
+	#add the undo log
+	if data != previousdata or end != previousend:
+		get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,data,previousend,end],"Node":self})
+		previousdata = data
+		previousend = end
 
 func reposition():
 	var currentpoint = 0

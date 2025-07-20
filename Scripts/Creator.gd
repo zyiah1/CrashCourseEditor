@@ -431,26 +431,44 @@ func readd(node:Node):
 		
 
 func redo():
+	$UndoMessage.play("RESET")
+	$UndoMessage.play("Fade")
 	if historyoffset >= -1: #cant redo more than the end
-		print("No Further Redo History")
+		$nonmoving/undo.text = "No Further Redo History"
 		return
 	historyoffset += 1
 	var currenthistory = history[history.size()+historyoffset]
+	$nonmoving/undo.text = "Redid "+currenthistory.Type
 	match currenthistory.Type:
 		"Add":
 			readd(currenthistory.Node)
 		"Delete":
 			delete(currenthistory.Node)
 		"Move":
-			print("Redo movedo")
 			currenthistory.Node.position = currenthistory.Data[1]
+		"Property":
+			currenthistory.Node.data = currenthistory.Data[1]
+			currenthistory.Node.reposition()
+		"PropertyRail":
+			currenthistory.Node.data = currenthistory.Data[1]
+			currenthistory.Node.end = currenthistory.Data[3]
+			currenthistory.Node.reposition()
+		"PropertyMoveRail":
+			currenthistory.Node.data = currenthistory.Data[1]
+			currenthistory.Node.end = currenthistory.Data[3]
+			currenthistory.Node.childrail.data = currenthistory.Data[5]
+			currenthistory.Node.childrail.endplat = currenthistory.Data[7]
+			currenthistory.Node.reposition()
 
 func undo():
+	$UndoMessage.play("RESET")
+	$UndoMessage.play("Fade")
 	if history.size() < -historyoffset: #cant undo more than the start
-		print("No Previous Undo History")
+		$nonmoving/undo.text = "No Previous Undo History"
 		return
 	
 	var currenthistory = history[history.size()+historyoffset]
+	$nonmoving/undo.text = "Undid "+currenthistory.Type
 	match currenthistory.Type:
 		"Add":
 			if lineplacing == false: #special undo if you are currently placing a rail
@@ -464,6 +482,19 @@ func undo():
 			readd(currenthistory.Node)
 		"Move":
 			currenthistory.Node.position = currenthistory.Data[0]
+		"Property":
+			currenthistory.Node.data = currenthistory.Data[0]
+			currenthistory.Node.reposition()
+		"PropertyRail":
+			currenthistory.Node.data = currenthistory.Data[0]
+			currenthistory.Node.end = currenthistory.Data[2]
+			currenthistory.Node.reposition()
+		"PropertyMoveRail":
+			currenthistory.Node.data = currenthistory.Data[0]
+			currenthistory.Node.end = currenthistory.Data[2]
+			currenthistory.Node.childrail.data = currenthistory.Data[4]
+			currenthistory.Node.childrail.endplat = currenthistory.Data[6]
+			currenthistory.Node.reposition()
 	historyoffset -= 1
 
 func shortcuts():
@@ -518,7 +549,7 @@ func save():
 			
 			
 			saving = true
-			$nonmoving/saving.show()
+			$SaveMessage.play("saving")
 			objects = []
 			bridgedata = []
 			emit_signal("EXPORT")
@@ -529,7 +560,7 @@ func save():
 			for line2 in __my_text:
 				file.store_line(line2)
 			file.close()
-			$nonmoving/delay.start()
+			$SaveMessage.play("saved")
 			bridgedata = []
 			objects = []
 			saving = false
@@ -538,7 +569,7 @@ func copy():
 	save()
 	var file = FileAccess.open(filepath + $nonmoving/name.text + ".txt", FileAccess.READ)
 	DisplayServer.clipboard_set(file.get_as_text())
-
+	$SaveMessage.play("copied")
 
 
 
@@ -561,10 +592,6 @@ func Ain():
 
 func _on_Timer_timeout():
 	save()
-
-
-func _on_delay_timeout():
-	$nonmoving/saving.hide()
 
 
 func _on_name_focus_entered():
