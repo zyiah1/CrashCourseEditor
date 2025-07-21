@@ -227,44 +227,41 @@ func reposition():
 			size = 4.5
 			rail.width = 8
 			
-		match line:
-			"              param0: 1000.00000":
-				music = false
-				color = Color.RED - Color(.2,0,0,0)
-				rail.texture = load("res://rail.png")
-			"              param0: 1200.00000":
-				music = false
-				color = Color(.13,.58,.87,1)
-				rail.texture = load("res://railblue.png")
-			"              param0: 0.00000":
-				music = false
-				rail.width = 40
-				rail.texture = load("res://railinvisible.png")
-				$start.scale = Vector2(.90,.90)
-				$end.scale = Vector2(.90,.90)
-				$start.texture = preload("res://pointinvisible.png")
-				$end.texture = preload("res://pointinvisible.png")
-				size = 27
-				color = Color.GRAY
-				for point in points:
-					point.scale = Vector2(.90,.90)
-					point.texture = preload("res://pointinvisible.png")
-			"              param0: 5100.00000":
-				music = true
-				rail.texture = preload("res://wood.png")
-				for point in points:
-					point.scale = Vector2(.35,.35)
-					point.texture = preload("res://pointmusic.png")
-				$start.texture = preload("res://pointmusic.png")
-				$end.texture = preload("res://pointmusic.png")
-			"              param0: 5260.00000":
-				music = false
-				color = Color.ORANGE_RED
-				rail.texture = load("res://railorange.png")
-			"              param0: 5060.00000":
-				music = false
-				color = Color.ORANGE_RED
-				rail.texture = load("res://railorange.png")
+		
+		if line.begins_with("              param0: 1000") or line.begins_with("              param0: 50"):
+			music = false
+			color = Color.RED - Color(.2,0,0,0)
+			rail.texture = load("res://rail.png")
+		if line.begins_with("              param0: 1200") or line.begins_with("              param0: 52"):
+			music = false
+			color = Color(.13,.58,.87,1)
+			rail.texture = load("res://railblue.png")
+		if line.begins_with("              param0: 0"):
+			music = false
+			rail.width = 40
+			rail.texture = load("res://railinvisible.png")
+			$start.scale = Vector2(.90,.90)
+			$end.scale = Vector2(.90,.90)
+			$start.texture = preload("res://pointinvisible.png")
+			$end.texture = preload("res://pointinvisible.png")
+			size = 27
+			color = Color.GRAY
+			for point in points:
+				point.scale = Vector2(.90,.90)
+				point.texture = preload("res://pointinvisible.png")
+		if line.begins_with("              param0: 5100.00000"):
+			music = true
+			rail.texture = preload("res://wood.png")
+			for point in points:
+				point.scale = Vector2(.35,.35)
+				point.texture = preload("res://pointmusic.png")
+			$start.texture = preload("res://pointmusic.png")
+			$end.texture = preload("res://pointmusic.png")
+		elif line.begins_with("              param0: 5"): #probably a message Rail
+			for point in points:
+				point.texture = preload("res://pointmessage.png")
+			$start.texture = preload("res://pointmessage.png")
+			$end.texture = preload("res://pointmessage.png")
 	for line in data:
 		cycles += 1
 		if currentpoint == points.size():

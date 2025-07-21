@@ -186,6 +186,9 @@ var data:PackedStringArray
 #3392 Rotate when level beat
 #4300 param6 is how much to move camera y position (- = down)
 #4900 invisble when I tried to load it (Might just be another way to do invisible track
+#5010 Red| Rotate L Stick Message (Message things dont show if Param7 == -1, I think its delay before the message is shown)
+#5011 Red| Rotate R Stick Message
+#5012 Red| Tilt L Stick Message
 #5013 Red| Tilt R Stick Message
 #5040 Red| Press L Message
 #5041 Red| Press R Message
@@ -193,6 +196,8 @@ var data:PackedStringArray
 #5100 ACTUAL MUSIC TILE
 #5210 Blue| Rotate L Stick Message
 #5211 Blue| Rotate R Stick Message
+#5212 Blue| Tilt L Stick Message
+#5213 Blue| Tilt R Stick Message
 #5240 Blue| Press L Message
 #5241 Blue| Press R Message
 #5260 Blue| Be Brave Message

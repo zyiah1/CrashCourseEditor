@@ -3039,6 +3039,7 @@ position = Vector2(-122, 400)
 texture = ExtResource("3")
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 129.0
 offset_top = -1.0
 offset_right = 541.0
@@ -3050,15 +3051,16 @@ bbcode_enabled = true
 text = "Rail Type:"
 
 [node name="Type" type="OptionButton" parent="."]
-offset_left = 106.0
-offset_top = 104.0
-offset_right = 531.0
-offset_bottom = 226.0
+layout_mode = 0
+offset_left = 5.0
+offset_top = 123.0
+offset_right = 635.0
+offset_bottom = 197.0
 theme = ExtResource("4_c4knb")
-theme_override_font_sizes/font_size = 120
+theme_override_font_sizes/font_size = 60
 alignment = 1
 selected = 0
-item_count = 4
+item_count = 18
 popup/item_0/text = "Red"
 popup/item_0/id = 1000
 popup/item_1/text = "Blue"
@@ -3067,13 +3069,41 @@ popup/item_2/text = "Invisible"
 popup/item_2/id = 0
 popup/item_3/text = "Music"
 popup/item_3/id = 5100
+popup/item_4/text = "Red Message Rotate L"
+popup/item_4/id = 5010
+popup/item_5/text = "Red Message Rotate R"
+popup/item_5/id = 5011
+popup/item_6/text = "Red Message Tilt L"
+popup/item_6/id = 5012
+popup/item_7/text = "Red Message Tilt R"
+popup/item_7/id = 5013
+popup/item_8/text = "Red Message Press L"
+popup/item_8/id = 5040
+popup/item_9/text = "Red Message Press R"
+popup/item_9/id = 5041
+popup/item_10/text = "Red Message Be Brave!"
+popup/item_10/id = 5060
+popup/item_11/text = "Blue Message Rotate L"
+popup/item_11/id = 5210
+popup/item_12/text = "Blue Message Rotate R"
+popup/item_12/id = 5211
+popup/item_13/text = "Blue Message Tilt L"
+popup/item_13/id = 5212
+popup/item_14/text = "Blue Message Tilt R"
+popup/item_14/id = 5213
+popup/item_15/text = "Blue Message Press L"
+popup/item_15/id = 5240
+popup/item_16/text = "Blue Message Press R"
+popup/item_16/id = 5241
+popup/item_17/text = "Blue Message Be Brave!"
+popup/item_17/id = 5260
 
 [node name="Position" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 394.0
-offset_top = 53.0
-offset_right = 622.0
-offset_bottom = 363.0
+offset_left = 345.0
+offset_top = 228.0
+offset_right = 573.0
+offset_bottom = 487.0
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 0
