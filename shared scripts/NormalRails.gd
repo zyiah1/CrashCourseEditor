@@ -204,13 +204,73 @@ func propertyclose():
 		previousdata = data
 		previousend = end
 
-func reposition():
+
+func changepoints(raildata:PackedStringArray,startpoint:Node,endpoint:Node,pointarray:Array,linearray:Array) -> Array:
 	var currentpoint = 0
 	var currentline = 0
 	var count = -1
 	var first = true
 	var cycles = -1
 	
+	for line in raildata:
+		cycles += 1
+		if currentpoint == pointarray.size():
+			if line.begins_with("                  pnt0_x: "):
+				startpoint.position.x = float(line.lstrip("                  pnt0_x: "))
+				currentline = linearray.size() - 1
+			if line.begins_with("                  pnt0_y: "):
+				startpoint.position.y = -float(line.lstrip("                  pnt0_y: "))
+				endpoint.position = startpoint.position
+				linearray[currentline][1] = endpoint.position
+				if pointarray.size() >= 2:
+					linearray[currentline][0] = linearray[currentline-1][1]
+			if line.begins_with("                  pnt1_x: "):
+				raildata[cycles] = "                  pnt1_x: " + str(endpoint.position.x)
+			if line.begins_with("                  pnt1_y: "):
+				raildata[cycles] = "                  pnt1_y: " + str(-endpoint.position.y)
+				
+			if line.begins_with("                  pnt2_x: "):
+				raildata[cycles] = "                  pnt2_x: " + str(endpoint.position.x)
+			if line.begins_with("                  pnt2_y: "):
+				raildata[cycles] = "                  pnt2_y: " + str(-endpoint.position.y)
+		else:
+			if line.begins_with("                  pnt0_x: "):
+				count += 1
+				if first == true:
+					if count >= 2:
+						count = 0
+						currentline += 1
+						first = false
+				pointarray[currentpoint].position.x = float(line.lstrip("                  pnt0_x: "))
+				if first == true:
+					linearray[currentline][count].x = pointarray[currentpoint].position.x
+				else:
+					linearray[currentline][0].x = linearray[currentline - 1][1].x
+					linearray[currentline][1].x = pointarray[currentpoint].position.x
+			if line.begins_with("                  pnt0_y: "):
+				pointarray[currentpoint].position.y = -float(line.lstrip("                  pnt0_y: "))
+				if first == true:
+					linearray[currentline][count].y = pointarray[currentpoint].position.y
+				else:
+					linearray[currentline][0].y = linearray[currentline - 1][1].y
+					linearray[currentline][1].y = pointarray[currentpoint].position.y
+					currentline += 1
+				
+			if line.begins_with("                  pnt1_x: "):
+				raildata[cycles] = "                  pnt1_x: " + str(pointarray[currentpoint].position.x)
+			if line.begins_with("                  pnt1_y: "):
+				raildata[cycles] = "                  pnt1_y: " + str(-pointarray[currentpoint].position.y)
+				
+			if line.begins_with("                  pnt2_x: "):
+				raildata[cycles] = "                  pnt2_x: " + str(pointarray[currentpoint].position.x)
+			if line.begins_with("                  pnt2_y: "):
+				raildata[cycles] = "                  pnt2_y: " + str(-pointarray[currentpoint].position.y)
+				
+				currentpoint += 1
+	return linearray
+
+func reposition():
+	lines = changepoints(data,$start,$end,points,lines)
 	for line in end:
 		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
@@ -262,61 +322,6 @@ func reposition():
 				point.texture = preload("res://pointmessage.png")
 			$start.texture = preload("res://pointmessage.png")
 			$end.texture = preload("res://pointmessage.png")
-	for line in data:
-		cycles += 1
-		if currentpoint == points.size():
-			if line.begins_with("                  pnt0_x: "):
-				$start.position.x = int(line.lstrip("                  pnt0_x: "))
-				currentline = lines.size() - 1
-			if line.begins_with("                  pnt0_y: "):
-				$start.position.y = -int(line.lstrip("                  pnt0_y: "))
-				$end.position = $start.position
-				lines[currentline][1] = $end.position
-				if points.size() >= 2:
-					lines[currentline][0] = lines[currentline-1][1]
-			if line.begins_with("                  pnt1_x: "):
-				data[cycles] = "                  pnt1_x: " + str($end.position.x)
-			if line.begins_with("                  pnt1_y: "):
-				data[cycles] = "                  pnt1_y: " + str(-$end.position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				data[cycles] = "                  pnt2_x: " + str($end.position.x)
-			if line.begins_with("                  pnt2_y: "):
-				data[cycles] = "                  pnt2_y: " + str(-$end.position.y)
-		else:
-			if line.begins_with("                  pnt0_x: "):
-				count += 1
-				if first == true:
-					if count >= 2:
-						count = 0
-						currentline += 1
-						first = false
-				points[currentpoint].position.x = int(line.lstrip("                  pnt0_x: "))
-				if first == true:
-					lines[currentline][count].x = points[currentpoint].position.x
-				else:
-					lines[currentline][0].x = lines[currentline - 1][1].x
-					lines[currentline][1].x = points[currentpoint].position.x
-			if line.begins_with("                  pnt0_y: "):
-				points[currentpoint].position.y = -int(line.lstrip("                  pnt0_y: "))
-				if first == true:
-					lines[currentline][count].y = points[currentpoint].position.y
-				else:
-					lines[currentline][0].y = lines[currentline - 1][1].y
-					lines[currentline][1].y = points[currentpoint].position.y
-					currentline += 1
-				
-			if line.begins_with("                  pnt1_x: "):
-				data[cycles] = "                  pnt1_x: " + str(points[currentpoint].position.x)
-			if line.begins_with("                  pnt1_y: "):
-				data[cycles] = "                  pnt1_y: " + str(-points[currentpoint].position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				data[cycles] = "                  pnt2_x: " + str(points[currentpoint].position.x)
-			if line.begins_with("                  pnt2_y: "):
-				data[cycles] = "                  pnt2_y: " + str(-points[currentpoint].position.y)
-				
-				currentpoint += 1
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []
