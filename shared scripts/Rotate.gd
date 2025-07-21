@@ -204,6 +204,8 @@ func reposition():
 			$crank.rail.texture = preload("res://railPurple.png")
 			rail.texture = preload("res://rail.png")
 			$crank2.hide()
+			remove_from_group("EndSpin")
+			remove_from_group("AutoSpin")
 			
 			#L points
 			if line.begins_with("              param0: 3140") or line.begins_with("              param0: 3150"):
@@ -218,6 +220,7 @@ func reposition():
 				rail.texture = preload("res://railwhite.png")
 			#Auto points
 			if line.begins_with("              param0: 3200") or line.begins_with("              param0: 3300") or line.begins_with("              param0: 3322") or line.begins_with("              param0: 3423"):
+				add_to_group("Autospin")
 				newpointtexture = preload("res://pointA.png")
 				$crank.rail.texture = preload("res://railGreen.png")
 				rail.texture = preload("res://railwhite.png")
@@ -279,6 +282,9 @@ func reposition():
 				rotatetexture = preload("res://pivotRS.png")
 			for point in points:
 				point.texture = newpointtexture
+			
+			if $crank.rail.texture == preload("res://railPurple.png"):
+				add_to_group("EndSpin")
 			
 			$end.texture = newpointtexture
 			$start.texture = newpointtexture

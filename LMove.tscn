@@ -69,7 +69,7 @@ _data = {
 &"start": SubResource("4")
 }
 
-[node name="Lplat" type="Node2D"]
+[node name="LMove" type="Node2D" groups=["Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_h6hrl")

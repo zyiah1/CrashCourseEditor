@@ -50,6 +50,16 @@ folder_colors={
 "res://shared scripts/": "green"
 }
 
+[global_group]
+
+Moving="MovingPlatforms"
+EndMove=""
+AutoMove=""
+Spin=""
+AutoSpin=""
+Rail=""
+PathRail=""
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=false

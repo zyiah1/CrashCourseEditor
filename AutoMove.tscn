@@ -72,7 +72,7 @@ _data = {
 &"start": SubResource("4")
 }
 
-[node name="Autoplat" type="Node2D"]
+[node name="AutoMove" type="Node2D" groups=["AutoMove", "Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_tf7kc")

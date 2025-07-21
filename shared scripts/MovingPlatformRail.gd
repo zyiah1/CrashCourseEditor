@@ -79,6 +79,7 @@ func _ready():
 		color = Color(.2,.2,.2)
 	if loading == false:
 		$start.position = get_global_mouse_position()
+	
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -194,6 +195,9 @@ func reposition():
 			childrail.get_node("preview").rail.texture = preload("res://railPurple.png")
 			childrail.rail.texture = preload("res://rail.png")
 			childrail.midImage = null
+			remove_from_group("AutoMove")
+			remove_from_group("EndMove")
+			
 			#fan
 			if line.begins_with("              param0: 2150"):
 				childrail.midImage = preload("res://fan.png")
@@ -214,6 +218,7 @@ func reposition():
 				childrail.midImage = preload("res://crankR.png")
 			#Auto points
 			if line.begins_with("              param0: 2200") or line.begins_with("              param0: 2300") or line.begins_with("              param0: 2000") or line.begins_with("              param0: 4300"):
+				add_to_group("AutoMove")
 				pointtexture = preload("res://pointA.png")
 				childrail.get_node("preview").rail.texture = preload("res://railGreen.png")
 				childrail.rail.texture = preload("res://railwhite.png")
@@ -246,6 +251,8 @@ func reposition():
 				pointtexture = preload("res://pointE.png")
 			for point in childrail.points:
 				point.texture = pointtexture
+			if childrail.get_node("preview").rail.texture == preload("res://railPurple.png"):
+				add_to_group("EndMove")
 			childrail.get_node("end").texture = pointtexture
 			childrail.get_node("start").texture = pointtexture
 		if line.begins_with("              param2: "):
@@ -383,6 +390,9 @@ func _process(delta):
 			railinst.path.append($end.position)
 			add_child(railinst)
 			childrail = railinst
+			for group in childrail.get_groups():
+				add_to_group(group)
+			
 			mode = 69
 			
 	if locked == false:
@@ -396,9 +406,6 @@ func _process(delta):
 				mode = 1
 				locked = true
 				buttons.append(get_node("end/Button"))
-				add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
-				print(str(rail.resource_path).lstrip("res://").rstrip(".tscn"))
-
 
 func newseg():
 	if mode == 0:
@@ -443,7 +450,6 @@ func done(pos):
 		locked = true
 		child(pos)
 		buttons.append(get_node("end/Button"))
-		add_to_group(str(rail.resource_path).lstrip("res://").rstrip(".tscn")) #adds to group depending on the type of object
 
 func child(pos):
 	if mode == 1:
@@ -456,6 +462,8 @@ func child(pos):
 		railinst.speed = speed
 		add_child(railinst)
 		childrail = railinst
+		for group in childrail.get_groups():
+			add_to_group(group)
 		mode = 69 #nice
 
 func _draw():

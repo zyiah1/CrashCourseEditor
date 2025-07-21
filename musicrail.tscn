@@ -192,7 +192,7 @@ _data = {
 &"appear": SubResource("7")
 }
 
-[node name="music" type="Node2D" groups=["bridge"]]
+[node name="music" type="Node2D" groups=["Rail"]]
 process_priority = 1
 z_index = -1
 z_as_relative = false
@@ -236,6 +236,7 @@ focus_mode = 2
 script = ExtResource("4_2pf8h")
 
 [node name="slider" type="HSlider" parent="pitch"]
+layout_mode = 0
 offset_left = -54.0
 offset_top = -40.0
 offset_right = 218.0
@@ -251,6 +252,7 @@ tick_count = 9
 ticks_on_borders = true
 
 [node name="number" type="RichTextLabel" parent="pitch"]
+layout_mode = 0
 offset_left = -53.0
 offset_top = -61.0
 offset_right = 477.0

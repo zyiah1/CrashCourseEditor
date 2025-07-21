@@ -86,7 +86,7 @@ _data = {
 [node name="rotate" type="Sprite2D"]
 script = ExtResource("1_dun2s")
 
-[node name="Spin" type="Node2D" parent="." groups=["Autospin"]]
+[node name="Spin" type="Node2D" parent="." groups=["AutoSpin", "Spin"]]
 script = ExtResource("2_octuf")
 pointtexture = ExtResource("4_m8ug4")
 Param0 = 3300

@@ -190,7 +190,7 @@ _data = {
 &"appear": SubResource("7")
 }
 
-[node name="bridge" type="Node2D" groups=["bridge"]]
+[node name="bridge" type="Node2D" groups=["Rail"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_j0uo1")

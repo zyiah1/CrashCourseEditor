@@ -10,51 +10,51 @@ const rotating = preload("res://Function Presets/RotatingRails.tscn")
 const endrotate = preload("res://Function Presets/RotatingRailsEnd.tscn")
 const apivot = preload("res://Function Presets/AutoRotate.tscn")
 
-func add_function_preset():
-		for node in $FunctionContainer.get_children():
-			$FunctionContainer.remove_child(node)
-		
-		#give it the right presets
-		
-		
-		if get_parent().get_parent().editednode.is_in_group("bridge"):
-			$FunctionContainer.add_child(bridge.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("music"):
-			$FunctionContainer.add_child(bridge.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("FanMove"):
-			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("RMove"):
-			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("LMove"):
-			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("AutoMove"):
+var previousParam0 = ""
+
+func add_function_preset():#give it the right presets
+	for node in $FunctionContainer.get_children():
+		$FunctionContainer.remove_child(node)
+	
+	if not owner.editednode.is_in_group("Object"):
+		previousParam0 = owner.editednode.end[8]
+		if owner.editednode.is_in_group("PathRail"):
+			previousParam0 = owner.editednode.childrail.endplat[18]
+		print(previousParam0)
+	if owner.editednode.is_in_group("Rail"):
+		$FunctionContainer.add_child(bridge.instantiate())
+	#Moving Platforms
+	if owner.editednode.is_in_group("Moving"):
+		if owner.editednode.is_in_group("AutoMove"):
 			$FunctionContainer.add_child(auto.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("Autospin"):
-			$FunctionContainer.add_child(apivot.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("Lcrank"):
-			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("Rcrank"):
-			$FunctionContainer.add_child(moving.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("EndMove"):
+		elif owner.editednode.is_in_group("EndMove"):
 			$FunctionContainer.add_child(movingend.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("Spin"):
-			if get_parent().get_parent().editednode.is_in_group("EndSpin"):
-				$FunctionContainer.add_child(endrotate.instantiate())
-			else:
-				$FunctionContainer.add_child(rotating.instantiate())
-		if get_parent().get_parent().editednode.is_in_group("checkpoint"):
-			$FunctionContainer.add_child(check.instantiate())
-		if $FunctionContainer.get_child_count() == 0:
-			var instance = object.instantiate()
-			$FunctionContainer.add_child(instance)
-			if get_parent().get_parent().editednode.scalable == true:
-				for node in instance.get_children():
-					if node.is_in_group("scale"):
-						node.show()
-			if get_parent().get_parent().editednode.rotatable == true:
-				for node in instance.get_children():
-					if node.is_in_group("rotate"):
-						node.show()
+		else:
+			$FunctionContainer.add_child(moving.instantiate())
+	#Rotating Platforms
+	if owner.editednode.is_in_group("Spin"):
+		if owner.editednode.is_in_group("EndSpin"):
+			$FunctionContainer.add_child(endrotate.instantiate())
+		elif owner.editednode.is_in_group("AutoSpin"):
+			$FunctionContainer.add_child(apivot.instantiate())
+		else:
+			$FunctionContainer.add_child(rotating.instantiate())
+			
+	
+	#Objects
+	if owner.editednode.is_in_group("checkpoint"):
+		$FunctionContainer.add_child(check.instantiate())
+	if $FunctionContainer.get_child_count() == 0:
+		var instance = object.instantiate()
+		$FunctionContainer.add_child(instance)
+		if owner.editednode.scalable == true:
+			for node in instance.get_children():
+				if node.is_in_group("scale"):
+					node.show()
+		if owner.editednode.rotatable == true:
+			for node in instance.get_children():
+				if node.is_in_group("rotate"):
+					node.show()
 
 func _on_Functions_pressed():
 	$ScrollContainer.hide()
@@ -69,3 +69,12 @@ func _on_Property_pressed():
 func datachanged(_text):
 	if $RealTime.button_pressed: #if it's realtime
 		$ScrollContainer/VBox.applydata()
+		if not owner.editednode.is_in_group("Object"):
+			if owner.editednode.is_in_group("PathRail"):
+				if previousParam0 != owner.editednode.childrail.endplat[18]:
+					add_function_preset()
+					previousParam0 = owner.editednode.childrail.endplat[18]
+			else:
+				if previousParam0 != owner.editednode.end[8]:
+					add_function_preset()
+					previousParam0 = owner.editednode.end[8]

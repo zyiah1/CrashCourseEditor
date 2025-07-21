@@ -70,7 +70,7 @@ _data = {
 &"start": SubResource("4")
 }
 
-[node name="Rcrank" type="Node2D"]
+[node name="Rcrank" type="Node2D" groups=["Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1")

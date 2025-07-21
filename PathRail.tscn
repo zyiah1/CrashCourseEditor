@@ -11,7 +11,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="2"]
 
-[node name="PathRail" type="Node2D"]
+[node name="PathRail" type="Node2D" groups=["PathRail"]]
 script = ExtResource("1_yntsw")
 rail = ExtResource("2_3cph7")
 
