@@ -83,7 +83,7 @@ _data = {
 &"start": SubResource("14")
 }
 
-[node name="rotate" type="Sprite2D"]
+[node name="AutoRotate" type="Sprite2D"]
 script = ExtResource("1_dun2s")
 
 [node name="Spin" type="Node2D" parent="." groups=["AutoSpin", "Spin"]]

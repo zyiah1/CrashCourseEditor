@@ -81,3 +81,7 @@ func _on_trigger_item_selected(index):
 
 func _on_rotating_point_item_selected(index):
 	rotation_point.text = "              param3: " + str(index)
+
+func _on_type_item_selected(index):
+	var id = $Type.get_item_id(index)
+	ID.text = "              param0: "+str(id)+".00000"

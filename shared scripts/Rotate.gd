@@ -210,6 +210,18 @@ func reposition():
 			remove_from_group("EndSpin")
 			remove_from_group("AutoSpin")
 			
+			
+			#spin
+			if line.begins_with("              param0: 3110"):
+				newpointtexture = preload("res://pointL.png")
+				$crank.rail.texture = preload("res://railblue.png")
+				rail.texture = preload("res://railwhite.png")
+				rotatetexture = preload("res://crankL.png")
+			if line.begins_with("              param0: 3111"):
+				newpointtexture = preload("res://pointR.png")
+				$crank.rail.texture = preload("res://rail.png")
+				rail.texture = preload("res://railwhite.png")
+				rotatetexture = preload("res://crankR.png")
 			#L points
 			if line.begins_with("              param0: 3140") or line.begins_with("              param0: 3150"):
 				newpointtexture = preload("res://pointL.png")

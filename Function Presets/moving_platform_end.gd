@@ -118,3 +118,7 @@ func _on_reset_pressed():
 
 func _on_trigger_item_selected(index):
 	ID.text = "              param0: "+str($Trigger.get_item_id(index))+".00000"
+
+func _on_type_item_selected(index):
+	var id = $Type.get_item_id(index)
+	ID.text = "              param0: "+str(id)+".00000"

@@ -4,7 +4,7 @@ extends Control
 var trackvisible = null
 var speed = null
 var reset = null
-var id = null
+var ID = null
 var pointsx = []
 var pointsy = []
 var childpointsx = []
@@ -34,7 +34,7 @@ func _ready():
 				numberofpoints += 1
 			if child.is_in_group("ChildEnd"):
 				if child.text.begins_with("              param0: "):
-					id = child
+					ID = child
 				if child.text.begins_with("              param2: "):
 					speed = child
 				if child.text.begins_with("              param3: "):
@@ -65,10 +65,10 @@ func _ready():
 	if reset.text.begins_with("              param3: -1"):
 		$reset.button_pressed = false
 	
-	if id.text.begins_with("              param0: 2300") or id.text.begins_with("              param0: 2000") :
+	if ID.text.begins_with("              param0: 2300") or ID.text.begins_with("              param0: 2000") :
 		$returns.button_pressed = false
 	
-	if id.text.begins_with("              param0: 4300"):
+	if ID.text.begins_with("              param0: 4300"):
 		$camera/check.button_pressed = true
 		$AnimationPlayer.play("Move Camera3D On")
 		$camera/CamY.text = cameramoveY.text.lstrip("              param6:")
@@ -136,18 +136,18 @@ func _on_reset_pressed():
 
 func _on_returns_pressed():
 	if $returns.button_pressed:
-		id.text = "              param0: 2200.00000"
+		ID.text = "              param0: 2200.00000"
 	else:
-		id.text = "              param0: 2300.00000"
+		ID.text = "              param0: 2300.00000"
 
 
 
 func _on_camera_pressed():
 	if $camera/check.button_pressed:
-		id.text = "              param0: 4300.00000"
+		ID.text = "              param0: 4300.00000"
 		$AnimationPlayer.play("Move Camera3D On")
 	else:
-		id.text = "              param0: 2300.00000"
+		ID.text = "              param0: 2300.00000"
 		$returns.button_pressed = false
 		$AnimationPlayer.play("Move Camera3D Off")
 		cameramoveY.text = "              param6: -1.00000"
@@ -156,3 +156,7 @@ func _on_camera_pressed():
 
 func _on_CamY_text_changed(new_text):
 	cameramoveY.text = "              param6: " + new_text
+
+func _on_type_item_selected(index):
+	var id = $Type.get_item_id(index)
+	ID.text = "              param0: "+str(id)+".00000"

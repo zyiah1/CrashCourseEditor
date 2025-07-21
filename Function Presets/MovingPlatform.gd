@@ -113,3 +113,7 @@ func _on_reset_pressed():
 		reset.text = "              param3: 1"
 	else:
 		reset.text = "              param3: -1"
+
+func _on_type_item_selected(index):
+	var id = $Type.get_item_id(index)
+	ID.text = "              param0: "+str(id)+".00000"

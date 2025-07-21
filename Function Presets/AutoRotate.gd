@@ -6,7 +6,7 @@ var pointsy = []
 var numberofpoints = 0
 var speed
 var rotation_text
-var id
+var ID
 var rotation_point
 
 func _ready():
@@ -20,7 +20,7 @@ func _ready():
 			$RotatingPoint.add_item(str(numberofpoints))
 			numberofpoints += 1
 		if child.text.begins_with("              param0: "):
-			id = child
+			ID = child
 		if child.text.begins_with("              param1: "):
 			rotation_text = child
 		if child.text.begins_with("              param2: "):
@@ -41,7 +41,7 @@ func _ready():
 	text = rotation_text.text
 	text = text.erase(0,22)
 	$Rotation.text = text
-	if id.text == "              param0: 3200.00000":
+	if ID.text == "              param0: 3200.00000":
 		$returns.button_pressed = true
 	text = rotation_point.text
 	text = text.erase(0,22)
@@ -78,10 +78,14 @@ func _on_Rotation_text_changed(new_text):
 
 func _on_returns_pressed():
 	if $returns.button_pressed:
-		id.text = "              param0: 3200.00000"
+		ID.text = "              param0: 3200.00000"
 	else:
-		id.text = "              param0: 3300.00000"
+		ID.text = "              param0: 3300.00000"
 
 
 func _on_rotating_point_item_selected(index):
 	rotation_point.text = "              param3: " + str(index)
+
+func _on_type_item_selected(index):
+	var id = $Type.get_item_id(index)
+	ID.text = "              param0: "+str(id)+".00000"

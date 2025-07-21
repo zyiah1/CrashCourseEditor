@@ -2,7 +2,6 @@ extends Sprite2D
 
 var loading = false
 
-
 func _ready():
 	$Spin.loading = loading
 

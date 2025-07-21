@@ -75,7 +75,7 @@ _data = {
 &"start": SubResource("7")
 }
 
-[node name="rotate" type="Sprite2D"]
+[node name="LRotate" type="Sprite2D"]
 script = ExtResource("1_bu4pu")
 
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
