@@ -1,7 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://b5f2vbngahn1e"]
 
-[ext_resource type="Script" uid="uid://b2xbqdyfwipq1" path="res://Scripts/LSpivit.gd" id="1"]
-[ext_resource type="Script" uid="uid://cjqb0qyk882wb" path="res://Scripts/rotationTextFilter.gd" id="3"]
+[ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="2_i46i0"]
 [ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="3_lgwtf"]
 [ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="4"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="7_udt58"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
+[ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/RotationTextFilter.gd" id="11_i46i0"]
 
 [sub_resource type="StyleBoxEmpty" id="13"]
 
@@ -90,7 +90,9 @@ script = ExtResource("8")
 [node name="Spin" type="Node2D" parent="." groups=["Spin"]]
 z_index = -1
 z_as_relative = false
-script = ExtResource("1")
+script = ExtResource("2_i46i0")
+pointtexture = ExtResource("7")
+Param0 = 3112
 
 [node name="start" type="Sprite2D" parent="Spin"]
 visible = false
@@ -169,7 +171,7 @@ theme = ExtResource("9")
 theme_override_fonts/font = SubResource("1")
 theme_override_icons/tab = SubResource("5")
 theme_override_icons/space = SubResource("5")
-script = ExtResource("3")
+script = ExtResource("11_i46i0")
 
 [node name="startup" type="AnimationPlayer" parent="Spin"]
 libraries = {

@@ -118,7 +118,7 @@ var previousend:PackedStringArray
 "              param1: " + str(int($rotation.text)), #max degree tilt
 "              param2: 2.50000", #speed
 "              param3: "+str(rotationpoint), #This is the point it rotates from: 0 = 1st 1 = 2nd ect.
-"              param4:  0.00000",
+"              param4: 0.00000",
 "              param5: -1.00000",
 "              param6: -1.00000",
 "              param7: 3.00000",
@@ -203,6 +203,8 @@ func reposition():
 			var rotatetexture = preload("res://pivotR.png")
 			$crank.rail.texture = preload("res://railPurple.png")
 			rail.texture = preload("res://rail.png")
+			$crank2.hide()
+			
 			#L points
 			if line.begins_with("              param0: 3140") or line.begins_with("              param0: 3150"):
 				newpointtexture = preload("res://pointL.png")
@@ -210,7 +212,7 @@ func reposition():
 				rail.texture = preload("res://railwhite.png")
 				rotatetexture = preload("res://pivotL.png")
 			#R points
-			if line.begins_with("              param0: 3141") or line.begins_with("              param0: 3112"):
+			if line.begins_with("              param0: 3141"):
 				newpointtexture = preload("res://pointR.png")
 				$crank.rail.texture = preload("res://rail.png")
 				rail.texture = preload("res://railwhite.png")
@@ -261,11 +263,27 @@ func reposition():
 			if line.begins_with("              param0: 3392") or line.begins_with("              param0: 3393") or line.begins_with("              param0: 3394"):
 				newpointtexture = preload("res://pointE.png")
 				rotatetexture = preload("res://pivotEnd.png")
+			if line.begins_with("              param0: 3112"): # tilt platforsm
+				newpointtexture = preload("res://pointL.png")
+				$crank.rail.texture = preload("res://railblue.png")
+				rail.texture = preload("res://railwhite.png")
+				$crank2.show()
+				$crank2.rail.texture = preload("res://raildarkblue.png")
+				rotatetexture = preload("res://pivotLS.png")
+			if line.begins_with("              param0: 3113"):
+				newpointtexture = preload("res://pointR.png")
+				$crank.rail.texture = preload("res://rail.png")
+				rail.texture = preload("res://railwhite.png")
+				$crank2.show()
+				$crank2.rail.texture = preload("res://railmaroon.png")
+				rotatetexture = preload("res://pivotRS.png")
 			for point in points:
 				point.texture = newpointtexture
+			
 			$end.texture = newpointtexture
 			$start.texture = newpointtexture
 			$crank/crank.texture = rotatetexture
+			$crank2/crank2.texture = rotatetexture
 	
 	
 	$crank.position = points[0].position

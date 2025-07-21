@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbywyi3kqlov1"]
+[gd_scene load_steps=22 format=3 uid="uid://cbywyi3kqlov1"]
 
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="1_bu4pu"]
 [ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="2_6r3so"]
@@ -6,10 +6,13 @@
 [ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="4_n2m12"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="5_u50vq"]
 [ext_resource type="Texture2D" uid="uid://c6428javeoxyj" path="res://pivotL.png" id="6_77wu5"]
+[ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="7_6fevx"]
 [ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="7_jixq0"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="8_fqff7"]
+[ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="8_kqiw8"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="9_dha1j"]
-[ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/filter.gd" id="10_w6pfe"]
+[ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="9_sfesp"]
+[ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/RotationTextFilter.gd" id="10_w6pfe"]
 
 [sub_resource type="StyleBoxEmpty" id="10"]
 
@@ -109,6 +112,17 @@ texture = ExtResource("6_77wu5")
 
 [node name="cooldown" type="Timer" parent="Spin/crank"]
 autostart = true
+
+[node name="crank2" type="Node2D" parent="Spin"]
+visible = false
+script = ExtResource("7_6fevx")
+previewtexture = ExtResource("8_kqiw8")
+
+[node name="crank2" type="Sprite2D" parent="Spin/crank2"]
+z_index = -1
+z_as_relative = false
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_sfesp")
 
 [node name="Banana" type="Sprite2D" parent="Spin"]
 visible = false
