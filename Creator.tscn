@@ -10,9 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6cx3gcq4bllj" path="res://UI/GenericTextEnter.png" id="7_cbhmo"]
 [ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://doswyaj0a462s" path="res://UI/BlueGenericTextEnter.png" id="8_366nk"]
-[ext_resource type="Texture2D" uid="uid://beg5u4jtrga63" path="res://checkpoint.png" id="9"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_jgxak"]
-[ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://fincheckpoint.png" id="10"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_l2bps"]
 [ext_resource type="Script" uid="uid://02xu54i1wd0x" path="res://Scripts/mouselock.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://door.png" id="12"]
@@ -20,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://dk.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://pauline.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://railart/fan.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://cxijoew28a0ty" path="res://railart/checkpoint.png" id="18_v4qg3"]
 [ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://barrel.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://railart/fincheckpoint.png" id="19_tll4m"]
 [ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://ladderIcon.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://purse.png" id="21"]
 [ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://hammer.png" id="22"]
@@ -50,9 +50,9 @@
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="48"]
 [ext_resource type="Theme" uid="uid://cgg0fbvprj21v" path="res://LineEditTheme.tres" id="50"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="51_0rgi5"]
+[ext_resource type="Texture2D" uid="uid://bscbtgfbdd5aj" path="res://fanmid.png" id="51_tll4m"]
 [ext_resource type="Texture2D" uid="uid://bton0ikkk3daf" path="res://railart/toolproperty.png" id="52"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="52_cmovo"]
-[ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="53"]
 [ext_resource type="Script" uid="uid://c3kne8dxowgwf" path="res://Scripts/Proporties Panel.gd" id="53_itqlb"]
 [ext_resource type="Script" uid="uid://o8gt23bphkhe" path="res://Scripts/menu_bar.gd" id="54_v4qg3"]
 [ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="55"]
@@ -757,7 +757,7 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 z_index = -2
 script = ExtResource("1")
 
-[node name="bfg" parent="." instance=ExtResource("2_ceeig")]
+[node name="bfg" parent="." groups=["ed"] instance=ExtResource("2_ceeig")]
 offset_left = -198120.0
 offset_top = -174480.0
 offset_right = 1.08188e+06
@@ -771,7 +771,7 @@ position = Vector2(-2, -0.4)
 scale = Vector2(1.97, 1.952)
 texture = ExtResource("4")
 
-[node name="ZoomOut" type="Camera2D" parent="."]
+[node name="ZoomOut" type="Camera2D" parent="." groups=["ed"]]
 enabled = false
 zoom = Vector2(0.76, 0.76)
 
@@ -790,17 +790,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_rqhxc")
 }
 
-[node name="SaveMessage" type="AnimationPlayer" parent="."]
+[node name="SaveMessage" type="AnimationPlayer" parent="." groups=["ed"]]
 libraries = {
 &"": SubResource("AnimationLibrary_nge0o")
 }
 
-[node name="UndoMessage" type="AnimationPlayer" parent="."]
+[node name="UndoMessage" type="AnimationPlayer" parent="." groups=["ed"]]
 libraries = {
 &"": SubResource("AnimationLibrary_fwsg3")
 }
 
-[node name="nonmoving" type="CanvasLayer" parent="." groups=["ed"]]
+[node name="nonmoving" type="CanvasLayer" parent="." groups=["UI", "ed"]]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
@@ -862,9 +862,9 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "untitled"
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["ed"]]
+[node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["UI", "ed"]]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3"]
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3" groups=["UI"]]
 process_priority = 20
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
@@ -902,7 +902,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_4ccfl")
 }
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="CanvasLayer3"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="CanvasLayer3" groups=["UI"]]
 offset = Vector2(0, -13.8)
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, -13.8)
@@ -989,7 +989,7 @@ theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
 theme_override_styles/normal = SubResource("7")
 button_mask = 5
-icon = ExtResource("9")
+icon = ExtResource("18_v4qg3")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
@@ -1003,7 +1003,7 @@ theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
 theme_override_styles/normal = SubResource("7")
 button_mask = 5
-icon = ExtResource("10")
+icon = ExtResource("19_tll4m")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
@@ -1470,25 +1470,10 @@ theme_override_styles/hover = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
 theme_override_styles/normal = SubResource("7")
 button_mask = 5
-icon = ExtResource("52")
+icon = ExtResource("51_tll4m")
 clip_text = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("3")
-
-[node name="grab" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
-visible = false
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("11")
-theme_override_styles/hover = SubResource("7")
-theme_override_styles/pressed = SubResource("11")
-theme_override_styles/normal = SubResource("7")
-button_mask = 5
-icon = ExtResource("53")
-clip_text = true
-icon_alignment = 1
 script = ExtResource("3")
 
 [node name="MenuBar" type="MenuBar" parent="CanvasLayer3"]
@@ -1700,7 +1685,7 @@ offset_bottom = 887.435
 theme = ExtResource("51_0rgi5")
 text = "Okay I Understand The Controls and Wish To Go Back Into The Editor Now"
 
-[node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev"]]
+[node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev", "ed"]]
 visible = false
 z_index = 20
 

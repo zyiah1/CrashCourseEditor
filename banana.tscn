@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c08d2xvfpxpnp"]
+[gd_scene load_steps=10 format=3 uid="uid://c08d2xvfpxpnp"]
 
 [ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="1"]
 [ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3"]
+[ext_resource type="Script" uid="uid://bw1qge0nu1qxd" path="res://Scripts/bananaarea.gd" id="4_divbi"]
 
 [sub_resource type="FontFile" id="2"]
 fallbacks = Array[Font]([ExtResource("3"), ExtResource("3")])
@@ -14,6 +15,21 @@ cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
 
 [sub_resource type="Theme" id="1"]
 RichTextLabel/fonts/normal_font = SubResource("2")
@@ -30,28 +46,32 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1")
 offset = Vector2(-7, -5)
 script = ExtResource("2")
-Param0 = 6.0
+Param0 = 0.0
 rotatable = false
 scalable = false
 defaultSize = Vector2(0.25, 0.25)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-visible = false
-offset_left = -516.0
-offset_top = -112.0
-offset_right = 1612.0
-offset_bottom = 352.0
+[node name="area" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0.792157)
+offset_left = -52.0
+offset_top = -32.0
+offset_right = 148.0
+offset_bottom = 80.0
 scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 theme = SubResource("1")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "id_name: obj"
+horizontal_alignment = 1
+script = ExtResource("4_divbi")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -32.0
-offset_top = -36.0
+offset_top = -40.0
 offset_right = 20.0
-offset_bottom = 24.0
+offset_bottom = 20.0
 theme_override_styles/focus = SubResource("5")
 theme_override_styles/disabled = SubResource("5")
 theme_override_styles/hover = SubResource("3")

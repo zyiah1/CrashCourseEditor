@@ -275,6 +275,10 @@ func itemselected(item_name):
 	item = item_name
 
 func itemplace():
+	if item == "multiselect" and Input.is_action_just_pressed("addpoint"):
+		var instance = preload("res://multiselect.tscn").instantiate()
+		instance.position = get_global_mouse_position().round()
+		add_child(instance)
 	var instance = null
 	if Input.is_action_just_pressed("bridge"):
 		railplace -= 1

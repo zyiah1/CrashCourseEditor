@@ -59,6 +59,7 @@ var drag = false
 
 func _ready():
 	get_parent().idnum += 1
+	add_to_group("Object")
 
 func _on_Button_button_up():
 	if previoustransform != transform and get_parent().item != "delete" and get_parent().item != "proporties" :

@@ -183,6 +183,8 @@ func LoadTest(filename):
 	scene.get_node("Cam").position = playerposition
 	scene.get_node("Cam").zoom = Vector2(2.5,2.5)
 	scene.get_node("Cam").toggleUI()
+	for flag in get_tree().get_nodes_in_group("checkpoint"): #adds the checkpoints to the array
+		scene.checkpoints.append(int(flag.data[13].erase(0,20)))
 	scene.idnum = highestID + 1
 	print("HighestID:",highestID)
 	if movingPlatforms.size() != 0:

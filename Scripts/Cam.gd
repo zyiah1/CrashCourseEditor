@@ -52,9 +52,8 @@ func toggleCam():
 		get_parent().get_node("ZoomOut").enabled = false
 
 func toggleUI():
-	get_parent().get_node("CanvasLayer3/CanvasLayer2").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer2").visible
-	get_parent().get_node("CanvasLayer3/CanvasLayer").visible = not get_parent().get_node("CanvasLayer3/CanvasLayer").visible
-	get_parent().get_node("nonmoving").visible = not get_parent().get_node("nonmoving").visible
+	for node in get_tree().get_nodes_in_group("UI"):
+		node.visible = not node.visible
 
 func _input(event): #mouse inputs
 	if event.is_action("drag"): #mouse dragging
