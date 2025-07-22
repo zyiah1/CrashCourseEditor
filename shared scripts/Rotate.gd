@@ -401,13 +401,13 @@ func _process(delta):
 			newseg()
 			loading = true
 			locked = true
-			end[9] = "              param1: " + str(-int($rotation.text)) #max degree tilt
+			end[9] = "              param1: " + str(-float($rotation.text)) #max degree tilt
 			get_parent().get_parent().idnum += 1
 			get_parent().get_parent().lineplacing = true
 			buttons.append(get_node("end/Button"))
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
-	$crank.target = int($rotation.text)
+	$crank.target = float($rotation.text)
 		
 
 func newseg():

@@ -14,7 +14,7 @@ func _ready():
 	rail.texture = previewtexture
 
 func _process(delta):
-	rotation_degrees = move_toward(rotation_degrees,int(target),get_parent().speed)
+	rotation_degrees = move_toward(rotation_degrees,float(target),get_parent().speed)
 	rail.position = -position
 	if Input.is_action_just_pressed("back"):
 		rotation_degrees = 0
@@ -38,4 +38,4 @@ func _on_cooldown_timeout():
 
 
 func _on_rotation_rotationupdated(string):
-	target = int(string)
+	target = float(string)
