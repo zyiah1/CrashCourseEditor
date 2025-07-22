@@ -45,6 +45,7 @@ func _ready():
 	text = rotation_point.text
 	text = text.erase(0,22)
 	$RotatingPoint.select(int(text))
+	$Type.selected = $Type.get_item_index(int(ID.text.erase(0,22)))
 
 
 func _process(delta):

@@ -235,7 +235,7 @@ func reposition():
 				rail.texture = preload("res://railwhite.png")
 			#Auto points
 			if line.begins_with("              param0: 3200") or line.begins_with("              param0: 3300") or line.begins_with("              param0: 3322") or line.begins_with("              param0: 3423"):
-				add_to_group("Autospin")
+				add_to_group("AutoSpin")
 				newpointtexture = preload("res://pointA.png")
 				$crank.rail.texture = preload("res://railGreen.png")
 				rail.texture = preload("res://railwhite.png")

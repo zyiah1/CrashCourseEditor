@@ -62,7 +62,7 @@ func _ready():
 	
 	if reset.text.begins_with("              param3: -1"):
 		$reset.button_pressed = false
-	
+	$Type.selected = $Type.get_item_index(int(ID.text.erase(0,22)))
 
 #-1               param3:  == no reset on spawn
 

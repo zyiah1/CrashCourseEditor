@@ -46,6 +46,7 @@ func _ready():
 	text = text.erase(0,22)
 	$RotatingPoint.select(int(text))
 	$Trigger.selected = $Trigger.get_item_index(int(ID.text.erase(0,22)))
+	$Type.selected = $Type.get_item_index(int(ID.text.erase(0,22)))
 
 func _process(delta):
 	if Input.is_action_just_pressed("accept"):

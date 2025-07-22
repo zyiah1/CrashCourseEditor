@@ -842,43 +842,21 @@ theme = ExtResource("12_65hp5")
 theme_override_font_sizes/font_size = 60
 alignment = 1
 selected = 0
-item_count = 18
-popup/item_0/text = "Red"
-popup/item_0/id = 1000
-popup/item_1/text = "Blue"
-popup/item_1/id = 1200
-popup/item_2/text = "Invisible"
-popup/item_2/id = 0
-popup/item_3/text = "Music"
-popup/item_3/id = 5100
-popup/item_4/text = "Red Message Rotate L"
-popup/item_4/id = 5010
-popup/item_5/text = "Red Message Rotate R"
-popup/item_5/id = 5011
-popup/item_6/text = "Red Message Tilt L"
-popup/item_6/id = 5012
-popup/item_7/text = "Red Message Tilt R"
-popup/item_7/id = 5013
-popup/item_8/text = "Red Message Press L"
-popup/item_8/id = 5040
-popup/item_9/text = "Red Message Press R"
-popup/item_9/id = 5041
-popup/item_10/text = "Red Message Be Brave!"
-popup/item_10/id = 5060
-popup/item_11/text = "Blue Message Rotate L"
-popup/item_11/id = 5210
-popup/item_12/text = "Blue Message Rotate R"
-popup/item_12/id = 5211
-popup/item_13/text = "Blue Message Tilt L"
-popup/item_13/id = 5212
-popup/item_14/text = "Blue Message Tilt R"
-popup/item_14/id = 5213
-popup/item_15/text = "Blue Message Press L"
-popup/item_15/id = 5240
-popup/item_16/text = "Blue Message Press R"
-popup/item_16/id = 5241
-popup/item_17/text = "Blue Message Be Brave!"
-popup/item_17/id = 5260
+item_count = 7
+popup/item_0/text = "Fan"
+popup/item_0/id = 2150
+popup/item_1/text = "L Move"
+popup/item_1/id = 2140
+popup/item_2/text = "R Move"
+popup/item_2/id = 2141
+popup/item_3/text = "Auto Move"
+popup/item_3/id = 2200
+popup/item_4/text = "Left Stick Crank"
+popup/item_4/id = 2110
+popup/item_5/text = "Right Stick Crank"
+popup/item_5/id = 2111
+popup/item_6/text = "End Move"
+popup/item_6/id = 2392
 
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="text_changed" from="X" to="." method="_on_X_text_changed"]
@@ -890,3 +868,4 @@ popup/item_17/id = 5260
 [connection signal="pressed" from="visible" to="." method="_on_CheckButton_pressed"]
 [connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
 [connection signal="item_selected" from="Trigger" to="." method="_on_trigger_item_selected"]
+[connection signal="item_selected" from="Type" to="." method="_on_type_item_selected"]

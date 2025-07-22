@@ -64,6 +64,7 @@ func _ready():
 		$reset.button_pressed = false
 	
 	$Trigger.selected = $Trigger.get_item_index(int(ID.text.erase(0,22)))
+	$Type.selected = $Type.get_item_index(int(ID.text.erase(0,22)))
 
 #-1               param3:  == no reset on spawn
 
