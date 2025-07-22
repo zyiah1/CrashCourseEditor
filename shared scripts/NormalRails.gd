@@ -51,7 +51,7 @@ var buttons = []
 
 func _ready():
 	if loading == false:
-		$start.position = get_global_mouse_position().round()
+		$start.position = get_parent().roundedmousepos
 	rail.add_point($start.position)
 	
 	data = ["            - Points:",
@@ -341,7 +341,7 @@ func done():
 
 func _draw():
 	if loading == false:
-		$end.position = get_global_mouse_position().round()
+		$end.position = get_parent().roundedmousepos
 	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
 
 func EXPORT():

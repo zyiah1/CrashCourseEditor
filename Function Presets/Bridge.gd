@@ -29,14 +29,6 @@ func _ready():
 		$Y.text = "0"
 	$Type.selected = $Type.get_item_index(int(railtype.text.erase(0,22)))
 
-
-func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		$X.hide()
-		$Y.hide()
-		$X.show()
-		$Y.show()
-
 func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")

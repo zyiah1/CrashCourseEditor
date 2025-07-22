@@ -40,7 +40,7 @@ func _ready():
 	get_parent().buttons.append($end/Button)
 	$rotation.text = str(speed)
 	if loading == false:
-		$start.position = get_global_mouse_position()
+		$start.position = get_parent().get_parent().roundedmousepos
 		rail.add_point($start.position)
 		$preview.rail.add_point($start.position)
 	else:
@@ -281,7 +281,7 @@ func done():
 
 func _draw():
 	if locked == false and loading == false:
-		$end.position = get_global_mouse_position()
+		$end.position = get_parent().get_parent().roundedmousepos
 	draw_line($start.position,$end.position,color,4.5)
 	#draw the image that appears between the points (fan)
 	if midImage != null:

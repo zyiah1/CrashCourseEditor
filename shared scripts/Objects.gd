@@ -103,7 +103,7 @@ func _process(delta):
 		modulate = Color.WHITE
 	
 	if drag and get_parent().item == "move" and Input.is_action_pressed("addpoint"):
-		position = get_global_mouse_position().round()
+		position = get_parent().roundedmousepos
 		if rotatable:
 			rotation_degrees += Input.get_axis("ui_left","ui_right")*25*delta
 		if scalable:

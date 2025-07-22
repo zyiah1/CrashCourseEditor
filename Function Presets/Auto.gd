@@ -78,11 +78,6 @@ func _ready():
 #-1               param3:  == no reset on spawn
 
 func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		$Speed.grab_focus()
-		$Speed.hide()
-		$Speed.show()
-	
 	for node in get_tree().get_nodes_in_group("camprev"):
 		if $camera/CamY.has_focus():
 			node.position = -Vector2(0,float($camera/CamY.text)*1.7)

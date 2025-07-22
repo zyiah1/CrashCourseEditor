@@ -78,7 +78,7 @@ func _ready():
 	else:
 		color = Color(.2,.2,.2)
 	if loading == false:
-		$start.position = get_global_mouse_position()
+		$start.position = get_parent().roundedmousepos
 	
 	data = ["            - Points:",
 "                - comment: !l -1",
@@ -409,7 +409,7 @@ func child(pos):
 
 func _draw():
 	if locked == false and loading == false:
-		$end.position = get_global_mouse_position()
+		$end.position = get_parent().roundedmousepos
 	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],color,2.25)

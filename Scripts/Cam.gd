@@ -36,8 +36,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("hide"):
 				toggleUI()
 	if Input.is_action_just_pressed("accept"):
-		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_NONE
-		get_parent().get_node("nonmoving/name").focus_mode = Control.FOCUS_ALL
+		get_viewport().gui_release_focus()
 	if Input.is_action_just_pressed("fullView"):
 		toggleCam()
 

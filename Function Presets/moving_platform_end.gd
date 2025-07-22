@@ -68,12 +68,6 @@ func _ready():
 
 #-1               param3:  == no reset on spawn
 
-func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		$Speed.grab_focus()
-		$Speed.hide()
-		$Speed.show()
-
 func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[int($OptionButton.text)].text.lstrip("                  pnt0_y: ")

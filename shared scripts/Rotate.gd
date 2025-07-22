@@ -39,7 +39,7 @@ func _ready():
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	if loading == false:
-		$start.position = get_global_mouse_position().round()
+		$start.position = owner.get_parent().roundedmousepos
 	else:
 		$rotation.hide()
 		
@@ -470,7 +470,7 @@ func done():
 
 func _draw():
 	if loading == false and locked == false:
-		$end.position = get_global_mouse_position().round()
+		$end.position = owner.get_parent().roundedmousepos
 	draw_line($start.position,$end.position,color,4.5)
 
 func EXPORT():

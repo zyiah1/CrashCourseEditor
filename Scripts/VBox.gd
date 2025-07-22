@@ -7,10 +7,6 @@ var childEnd = []
 var targetnode = null
 
 func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		for node in get_children():
-			node.focus_mode = Control.FOCUS_NONE
-			node.focus_mode = Control.FOCUS_ALL
 	if Input.is_action_just_pressed("undo"):
 		for node in get_children():
 			node.queue_free()

@@ -48,13 +48,6 @@ func _ready():
 	$RotatingPoint.select(int(text))
 	$Type.selected = $Type.get_item_index(int(ID.text.erase(0,22)))
 
-func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		$Y.grab_focus()
-		$Y.hide()
-		$Y.show()
-
-
 
 func _on_OptionButton_item_selected(_index):
 	$X.text = pointsx[int($OptionButton.text)].text.lstrip("                  pnt0_x: ")

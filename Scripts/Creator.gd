@@ -38,6 +38,7 @@ var movingLoop: bool = false
 var stored = null
 var editednode = null
 var filepath: String = Options.filepath
+var roundedmousepos: Vector2
 
 @onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
 @onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
@@ -270,7 +271,7 @@ func _process(_delta):
 		$Cam.paused = true
 	if item == "move" and Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
 		$Cam.paused = false
-	_on_grid_text_changed($nonmoving/grid.text)
+	roundedmousepos = ((get_global_mouse_position()/grid).round())*grid
 
 func itemselected(item_name):
 	item = item_name
@@ -401,7 +402,7 @@ func itemplace():
 			if mode == 3:
 				instance.ObjectName = "Dkb_ChalkYajirushi_180"
 		if instance != null:
-			instance.position = ((get_global_mouse_position()/grid).round())*grid
+			instance.position = roundedmousepos
 			add_child(instance)
 			undolistadd({"Type":"Add","Node":instance})
 			connect("EXPORT", Callable(instance, "EXPORT"))

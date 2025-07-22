@@ -66,14 +66,6 @@ func _ready():
 		$face.select(1)
 
 
-func _process(delta):
-	if Input.is_action_just_pressed("accept"):
-		$X.hide()
-		$Y.hide()
-		$X.show()
-		$Y.show()
-
-
 
 func _on_X_text_changed(new_text):
 	posx.text = "            pos_x: " + str(new_text)

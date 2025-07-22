@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=100 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://doswyaj0a462s" path="res://UI/BlueGenericTextEnter.png" id="8_366nk"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="9_jgxak"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="10_36swt"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_l2bps"]
 [ext_resource type="Script" uid="uid://02xu54i1wd0x" path="res://Scripts/mouselock.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://door.png" id="12"]
@@ -878,8 +879,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "untitled"
 
 [node name="grid" type="LineEdit" parent="nonmoving"]
-offset_left = 468.0
-offset_top = 543.0
+offset_left = 315.0
+offset_top = 559.0
 offset_right = 576.0
 offset_bottom = 600.0
 theme_override_fonts/font = SubResource("FontVariation_r337g")
@@ -887,6 +888,17 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "1"
+alignment = 2
+
+[node name="Label" type="Label" parent="nonmoving/grid"]
+layout_mode = 0
+offset_left = 0.333333
+offset_top = -3.0
+offset_right = 158.333
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("10_36swt")
+theme_override_font_sizes/font_size = 21
+text = "Grid Size:"
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["UI", "ed"]]
 
