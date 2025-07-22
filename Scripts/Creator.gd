@@ -271,7 +271,8 @@ func _process(_delta):
 		$Cam.paused = true
 	if item == "move" and Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
 		$Cam.paused = false
-	roundedmousepos = ((get_global_mouse_position()/grid).round())*grid
+	if get_viewport():
+		roundedmousepos = ((get_global_mouse_position()/grid).round())*grid
 
 func itemselected(item_name):
 	item = item_name

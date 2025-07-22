@@ -17,7 +17,7 @@ var loading = false
 var speed = 1
 var drag = false
 var buttons = []
-var first = true
+var firstpoint = true
 
 var rail
 
@@ -419,9 +419,9 @@ func newseg():
 	var newpoint = pointscene.instantiate()
 	newpoint.texture = pointtexture
 	newpoint.position = $start.position
-	if first == true:
+	if firstpoint == true:
 		newpoint.hide()
-		first = false
+		firstpoint = false
 		$start.show()
 	add_child(newpoint)
 	points.append(newpoint)
