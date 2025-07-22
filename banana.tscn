@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3"]
 [ext_resource type="Script" uid="uid://bw1qge0nu1qxd" path="res://Scripts/bananaarea.gd" id="4_divbi"]
 
-[sub_resource type="FontFile" id="2"]
+[sub_resource type="FontFile" id="FontFile_divbi"]
 fallbacks = Array[Font]([ExtResource("3"), ExtResource("3")])
 subpixel_positioning = 0
 msdf_pixel_range = 14
@@ -32,7 +32,7 @@ cache/0/40/0/underline_thickness = 0.0
 cache/0/40/0/scale = 1.0
 
 [sub_resource type="Theme" id="1"]
-RichTextLabel/fonts/normal_font = SubResource("2")
+RichTextLabel/fonts/normal_font = SubResource("FontFile_divbi")
 
 [sub_resource type="StyleBoxEmpty" id="5"]
 

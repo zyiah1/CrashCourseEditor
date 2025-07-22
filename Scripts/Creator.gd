@@ -269,10 +269,13 @@ func _process(_delta):
 	shortcuts()
 	if item == "move" and Input.is_action_pressed("addpoint"):
 		$Cam.paused = true
-	if item == "move" and Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
+	if Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
 		$Cam.paused = false
-	if get_viewport():
-		roundedmousepos = ((get_global_mouse_position()/grid).round())*grid
+	if get_viewport(): 
+		if $nonmoving/gridenabled.button_pressed:
+			roundedmousepos = ((get_global_mouse_position()/grid).round())*grid
+		else:
+			roundedmousepos = get_global_mouse_position()
 
 func itemselected(item_name):
 	item = item_name
@@ -510,7 +513,7 @@ func undo():
 	historyoffset -= 1
 
 func shortcuts():
-	if not disabledcontrolls:
+	if not disabledcontrolls and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		if Input.is_action_just_pressed("Loop"):
 			movingLoop = not movingLoop
 		if Input.is_action_just_pressed("redo"):
@@ -744,9 +747,13 @@ func _on_button_pressed():
 func _on_grid_text_changed(new_text):
 	if float(new_text) > 0:
 		grid = float(new_text)
-	if grid >= 10: #dont show small grid
+	if grid >= 10 and $nonmoving/gridenabled.button_pressed: #dont show small grid
 		$stage/Grid.position = Vector2(grid*-202,grid*-42)
 		$stage/Grid.cell_size = Vector2(grid,grid)
 		$stage/Grid.show()
 	else:
 		$stage/Grid.hide()
+
+
+func _on_gridenabled_pressed():
+	_on_grid_text_changed($nonmoving/grid.text)
