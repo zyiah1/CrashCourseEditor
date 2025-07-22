@@ -743,8 +743,8 @@ func _on_button_pressed():
 func _on_grid_text_changed(new_text):
 	if float(new_text) > 0:
 		grid = float(new_text)
-	if grid >= 25: #dont show small grid
-		$stage/Grid.position = Vector2(grid*-101,grid*-21)
+	if grid >= 10: #dont show small grid
+		$stage/Grid.position = Vector2(grid*-202,grid*-42)
 		$stage/Grid.cell_size = Vector2(grid,grid)
 		$stage/Grid.show()
 	else:
