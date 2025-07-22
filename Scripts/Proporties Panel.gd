@@ -20,7 +20,6 @@ func add_function_preset():#give it the right presets
 		previousParam0 = owner.editednode.end[8]
 		if owner.editednode.is_in_group("PathRail"):
 			previousParam0 = owner.editednode.childrail.endplat[18]
-		print(owner.editednode.childrail.name,previousParam0)
 		
 	if owner.editednode.is_in_group("Rail"):
 		$FunctionContainer.add_child(bridge.instantiate())

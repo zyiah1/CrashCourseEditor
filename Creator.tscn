@@ -1,10 +1,11 @@
-[gd_scene load_steps=98 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=99 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_ceeig"]
 [ext_resource type="Script" uid="uid://dpmpn2wm5p8is" path="res://Scripts/item.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://drwiyy8ajhe7m" path="res://UI/stage.png" id="4"]
+[ext_resource type="Script" uid="uid://cgee6wia56fvv" path="res://addons/grid_display/grid_display.gd" id="4_tll4m"]
 [ext_resource type="Script" uid="uid://b3v124vdegq6l" path="res://Scripts/Cam.gd" id="5"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="7"]
 [ext_resource type="Texture2D" uid="uid://b6cx3gcq4bllj" path="res://UI/GenericTextEnter.png" id="7_cbhmo"]
@@ -765,11 +766,25 @@ offset_bottom = 1.10552e+06
 pivot_offset = Vector2(198120, 174480)
 
 [node name="stage" type="Sprite2D" parent="." groups=["ed"]]
+clip_children = 2
 z_index = -2
 z_as_relative = false
 position = Vector2(-2, -0.4)
 scale = Vector2(1.97, 1.952)
 texture = ExtResource("4")
+
+[node name="Grid" type="Node2D" parent="stage"]
+visible = false
+position = Vector2(-262, -295)
+scale = Vector2(0.507614, 0.512295)
+script = ExtResource("4_tll4m")
+grid_size = Vector2(600, 800)
+line_size = Vector2(2, 2)
+cell_size = Vector2(10, 10)
+vline_color = Color(1, 0, 0, 0.27451)
+hline_color = Color(0, 0.317647, 1, 0.403922)
+draw_border = false
+metadata/_custom_type_script = "uid://cgee6wia56fvv"
 
 [node name="ZoomOut" type="Camera2D" parent="." groups=["ed"]]
 enabled = false
@@ -861,6 +876,17 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
 text = "untitled"
+
+[node name="grid" type="LineEdit" parent="nonmoving"]
+offset_left = 468.0
+offset_top = 543.0
+offset_right = 576.0
+offset_bottom = 600.0
+theme_override_fonts/font = SubResource("FontVariation_r337g")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxTexture_t780s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1c3ri")
+text = "1"
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["UI", "ed"]]
 
@@ -1733,6 +1759,7 @@ text = "From Default Level 2&4:"
 [connection signal="focus_entered" from="nonmoving/name" to="Cam" method="_on_name_focus_entered"]
 [connection signal="focus_exited" from="nonmoving/name" to="." method="_on_name_focus_exited"]
 [connection signal="focus_exited" from="nonmoving/name" to="Cam" method="_on_name_focus_exited"]
+[connection signal="text_changed" from="nonmoving/grid" to="." method="_on_grid_text_changed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/Edit" to="." method="_on_edit_index_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/View" to="." method="_on_view_index_pressed"]

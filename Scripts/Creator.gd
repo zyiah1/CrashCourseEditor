@@ -65,9 +65,9 @@ var objects:PackedStringArray = []
 var history = []
 var historyoffset = -1
 var disabledcontrolls = false
+var grid:float = 1.0
 
 func _ready():
-	
 	$nonmoving/save/Timer.wait_time = int(Options.interval+1)
 	if Options.scrollbg == "false":
 		$Animation.speed_scale = 1000
@@ -270,6 +270,7 @@ func _process(_delta):
 		$Cam.paused = true
 	if item == "move" and Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
 		$Cam.paused = false
+	_on_grid_text_changed($nonmoving/grid.text)
 
 func itemselected(item_name):
 	item = item_name
@@ -400,7 +401,7 @@ func itemplace():
 			if mode == 3:
 				instance.ObjectName = "Dkb_ChalkYajirushi_180"
 		if instance != null:
-			instance.position = get_global_mouse_position().round()
+			instance.position = ((get_global_mouse_position()/grid).round())*grid
 			add_child(instance)
 			undolistadd({"Type":"Add","Node":instance})
 			connect("EXPORT", Callable(instance, "EXPORT"))
@@ -737,3 +738,13 @@ func _on_save_as_confirmed():
 
 func _on_button_pressed():
 	$CanvasLayer3/Controls.hide()
+
+func _on_grid_text_changed(new_text):
+	if float(new_text) > 0:
+		grid = float(new_text)
+	if grid >= 25: #dont show small grid
+		$stage/Grid.position = Vector2(grid*-101,grid*-21)
+		$stage/Grid.cell_size = Vector2(grid,grid)
+		$stage/Grid.show()
+	else:
+		$stage/Grid.hide()
