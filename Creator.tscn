@@ -896,7 +896,7 @@ theme_override_constants/line_separation = 15
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "
-	left click to add new segment, right click to end"
+	Left click to add new segment, right click to end"
 
 [node name="saving" type="RichTextLabel" parent="nonmoving"]
 modulate = Color(1, 1, 1, 0)
