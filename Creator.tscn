@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=105 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
@@ -32,10 +32,14 @@
 [ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://railart/movingL.png" id="26"]
 [ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://railart/movingA.png" id="27"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="28"]
+[ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://railart/ArrowKaiten.png" id="28_us73v"]
 [ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/CrankR.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://railart/BigArrow.png" id="29_jmq11"]
 [ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/crankL.png" id="30"]
 [ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/SpinR.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://bg41nm7dgvkok" path="res://railart/Arrow90.png" id="31_3bsfs"]
 [ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/SpinL.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://railart/Arrow180.png" id="32_sbx0y"]
 [ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/PivotR.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/PivotL.png" id="35"]
 [ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/PivotA.png" id="36"]
@@ -70,38 +74,50 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
+tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.392292, 1),
-"update": 0,
-"values": [Vector2(-39, -150), Vector2(-39, -13.8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/tutorial:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1.8025, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(12, -691)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-1, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.392, 1),
+"update": 0,
+"values": [Vector2(-20, -300), Vector2(-20, -9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nonmoving/tutorial:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(12, -650)]
 }
 
 [sub_resource type="Animation" id="19"]
@@ -110,193 +126,50 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
+tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.392292, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -150), Vector2(0, -13.8)]
+"values": [Vector2(-1, 128)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/tutorial:position")
+tracks/1/path = NodePath("CanvasLayer3/CanvasLayer:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1.8025, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(12, -691)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.392, 0.392),
 "update": 0,
 "values": [Vector2(0, -150), Vector2(0, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-1, 128)]
 }
-
-[sub_resource type="Animation" id="16"]
-resource_name = "Out1"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.307786, 1),
-"update": 0,
-"values": [Vector2(-39, -13.8), Vector2(-39, -300)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/tutorial:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Vector2(2, -199.995), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-1, 128), Vector2(-1, 100)]
-}
-
-[sub_resource type="Animation" id="17"]
-resource_name = "Out2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.307786, 1),
-"update": 0,
-"values": [Vector2(0, -13.8), Vector2(0, -300)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("nonmoving/tutorial:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Vector2(2, -199.995), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.307, 0.307),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -150)]
-}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
+tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.392, 1),
 "update": 0,
-"values": [Vector2(-1, 128), Vector2(-1, 100)]
-}
-
-[sub_resource type="Animation" id="14"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer3/CanvasLayer/Control/player:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer3/CanvasLayer2/tools:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 128)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/CanvasLayer:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -13.8)]
+"values": [Vector2(0, -300), Vector2(0, -9)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -305,10 +178,189 @@ tracks/4/path = NodePath("nonmoving/tutorial:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(12, -650)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer3/CanvasLayer2/Control/player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.39, 1),
+"update": 0,
+"values": [Vector2(6.66667, -1489.17), Vector2(6.66667, -35.8333)]
+}
+
+[sub_resource type="Animation" id="16"]
+resource_name = "Out1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(-20, -9), Vector2(-39, -300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nonmoving/tutorial:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Vector2(12, -695.81), Vector2(12, 0)]
+}
+
+[sub_resource type="Animation" id="17"]
+resource_name = "Out2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 128), Vector2(-1, 100)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.307, 1),
+"update": 0,
+"values": [Vector2(0, -9), Vector2(0, -300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("nonmoving/tutorial:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(12, -695.81), Vector2(12, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer3/CanvasLayer2/Control/player:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(6, -36), Vector2(6.66667, -1095.83), Vector2(6.667, -1500)]
+}
+
+[sub_resource type="Animation" id="14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons/tools:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nonmoving/tutorial:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(12, -695.81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer3/CanvasLayer2/Buttons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer3/CanvasLayer2/Control/player:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.66667, -1095.83)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rqhxc"]
@@ -534,20 +586,12 @@ expand_margin_right = 6.0
 
 [sub_resource type="ImageTexture" id="ImageTexture_36swt"]
 
-[sub_resource type="StyleBoxTexture" id="9"]
-texture = ExtResource("10_l2bps")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="10"]
-texture = ExtResource("9_jgxak")
-region_rect = Rect2(0, 0, 733, 320)
-
 [sub_resource type="Animation" id="3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/player:position")
+tracks/0/path = NodePath("../CanvasLayer2/Control/player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -559,26 +603,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CanvasLayer2:offset")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -13.8)]
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
+tracks/2/path = NodePath("../CanvasLayer2/Buttons:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, -8.66667)]
 }
 
 [sub_resource type="Animation" id="5"]
@@ -586,7 +630,7 @@ resource_name = "in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/player:position")
+tracks/0/path = NodePath("../CanvasLayer2/Control/player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -598,14 +642,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CanvasLayer2:offset")
+tracks/1/path = NodePath("../CanvasLayer2/Buttons:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.7),
-"transitions": PackedFloat32Array(0.435275, 0.435275, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.435, 0.435),
 "update": 0,
-"values": [Vector2(-39, -13.8), Vector2(0, -13.8), Vector2(0, -13.8)]
+"values": [Vector2(-20, -9), Vector2(0, -9)]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -613,7 +657,7 @@ resource_name = "out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/player:position")
+tracks/0/path = NodePath("../CanvasLayer2/Control/player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -625,14 +669,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../CanvasLayer2:offset")
+tracks/1/path = NodePath("../CanvasLayer2/Buttons:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 0.435275, 1),
+"transitions": PackedFloat32Array(1, 0.435, 0.435),
 "update": 0,
-"values": [Vector2(0, -13.8), Vector2(0, -13.8), Vector2(-39, -13.8)]
+"values": [Vector2(0, -9), Vector2(0, -9), Vector2(-20, -9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ccfl"]
@@ -650,8 +694,16 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("9_jgxak")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxTexture" id="9"]
+texture = ExtResource("10_l2bps")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="10"]
+texture = ExtResource("9_jgxak")
+region_rect = Rect2(0, 0, 733, 320)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmovo"]
-bg_color = Color(0.301961, 0.270588, 0.254902, 0.737255)
+bg_color = Color(0.436409, 0.0392088, 0.0537175, 0.737255)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nge0o"]
 bg_color = Color(0.652811, 0.607561, 0.585027, 0.737255)
@@ -839,6 +891,7 @@ offset_left = 12.0
 offset_top = -695.81
 offset_right = 1032.99
 offset_bottom = -452.81
+theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = SubResource("15")
 theme_override_font_sizes/normal_font_size = 50
 text = "left click to add new segment, right click to end"
@@ -913,39 +966,13 @@ theme_override_icons/unchecked = SubResource("ImageTexture_36swt")
 button_pressed = true
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." groups=["UI", "ed"]]
+layer = 2
+script = ExtResource("11")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer3" groups=["UI"]]
 process_priority = 20
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
-script = ExtResource("11")
-
-[node name="Control" type="Control" parent="CanvasLayer3/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 4.0
-offset_top = 8.5
-offset_right = 44.0
-offset_bottom = 48.5
-scale = Vector2(0.2, 0.2)
-
-[node name="player" type="Button" parent="CanvasLayer3/CanvasLayer/Control" groups=["button"]]
-layout_mode = 0
-offset_left = 6.0
-offset_top = -36.0
-offset_right = 356.0
-offset_bottom = 254.0
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("9")
-theme_override_styles/hover = SubResource("10")
-theme_override_styles/pressed = SubResource("9")
-theme_override_styles/normal = SubResource("10")
-button_mask = 5
-icon = ExtResource("2")
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("3")
 
 [node name="buttons" type="AnimationPlayer" parent="CanvasLayer3/CanvasLayer"]
 libraries = {
@@ -953,70 +980,25 @@ libraries = {
 }
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="CanvasLayer3" groups=["UI"]]
-offset = Vector2(0, -13.8)
 scale = Vector2(1.5, 1.5)
-transform = Transform2D(1.5, 0, 0, 1.5, 0, -13.8)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
-[node name="blue" type="Button" parent="CanvasLayer3/CanvasLayer2"]
-visible = false
-custom_minimum_size = Vector2(350, 290)
-offset_left = -93.0
-offset_top = 151.0
-offset_right = 94.0
-offset_bottom = 441.0
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("11")
-theme_override_styles/hover = SubResource("7")
-theme_override_styles/pressed = SubResource("11")
-theme_override_styles/normal = SubResource("7")
-button_mask = 5
-icon = ExtResource("39")
-clip_text = true
-icon_alignment = 1
+[node name="Buttons" type="Control" parent="CanvasLayer3/CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -8.66667
+offset_right = 40.0
+offset_bottom = 31.3333
 
-[node name="invisible" type="Button" parent="CanvasLayer3/CanvasLayer2"]
-visible = false
-custom_minimum_size = Vector2(350, 290)
-offset_left = -94.0
-offset_top = 221.0
-offset_right = 93.0
-offset_bottom = 511.0
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("11")
-theme_override_styles/hover = SubResource("7")
-theme_override_styles/pressed = SubResource("11")
-theme_override_styles/normal = SubResource("7")
-button_mask = 5
-icon = ExtResource("44")
-clip_text = true
-icon_alignment = 1
-
-[node name="Lspin" type="Button" parent="CanvasLayer3/CanvasLayer2" groups=["button"]]
-visible = false
-offset_left = 514.95
-offset_top = 83.0
-offset_right = 701.95
-offset_bottom = 245.0
-theme = ExtResource("7")
-theme_override_styles/disabled = SubResource("11")
-theme_override_styles/hover = SubResource("7")
-theme_override_styles/pressed = SubResource("11")
-theme_override_styles/normal = SubResource("7")
-button_mask = 5
-icon = ExtResource("32")
-clip_text = true
-icon_alignment = 1
-script = ExtResource("3")
-
-[node name="objects" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2"]
+[node name="objects" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2/Buttons"]
 offset_left = 76.0
 offset_top = 11.0
-offset_right = 3966.0
+offset_right = 5028.0
 offset_bottom = 301.0
 scale = Vector2(0.2, 0.2)
 alignment = 1
 
-[node name="banana" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="banana" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1030,7 +1012,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="checkpoint" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="checkpoint" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1044,7 +1026,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="final" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="final" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1058,7 +1040,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="coin" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="coin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1072,7 +1054,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="1up" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="1up" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1087,7 +1069,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="door" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="door" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1101,7 +1083,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="barrel" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="barrel" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1115,7 +1097,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="ladder" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="ladder" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1129,7 +1111,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="purse" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="purse" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1143,7 +1125,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="hammer" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="hammer" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1157,7 +1139,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="arrow" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="arrow" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1170,8 +1152,10 @@ icon = ExtResource("41")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
+icon2 = ExtResource("29_jmq11")
+icon3 = ExtResource("28_us73v")
 
-[node name="arrow2" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="arrow2" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1184,8 +1168,10 @@ icon = ExtResource("45")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
+icon2 = ExtResource("31_3bsfs")
+icon3 = ExtResource("32_sbx0y")
 
-[node name="pauline" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="pauline" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1199,7 +1185,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="dk" type="Button" parent="CanvasLayer3/CanvasLayer2/objects" groups=["button"]]
+[node name="dk" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1213,7 +1199,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="rails" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2"]
+[node name="rails" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2/Buttons"]
 offset_left = 33.0
 offset_top = 71.3333
 offset_right = 3276.0
@@ -1221,7 +1207,7 @@ offset_bottom = 233.333
 scale = Vector2(0.31, 0.33)
 alignment = 1
 
-[node name="rail" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="rail" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1233,8 +1219,10 @@ icon = ExtResource("23")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
+icon2 = ExtResource("39")
+icon3 = ExtResource("44")
 
-[node name="music" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="music" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1247,7 +1235,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingfan" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingfan" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1260,7 +1248,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingL" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1273,7 +1261,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingR" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1286,7 +1274,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingA" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingA" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1299,7 +1287,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingCrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingCrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1312,7 +1300,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingCrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingCrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1325,7 +1313,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="Lspin" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="Lspin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1338,7 +1326,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="Rspin" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="Rspin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1351,7 +1339,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="Lpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="Lpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1364,7 +1352,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="Rpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="Rpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1377,7 +1365,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="Apivot" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="Apivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1390,7 +1378,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="LS" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="LS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1403,7 +1391,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="RS" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="RS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1416,7 +1404,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="movingEnd" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="movingEnd" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1429,7 +1417,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="endrotate" type="Button" parent="CanvasLayer3/CanvasLayer2/rails" groups=["button"]]
+[node name="endrotate" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/disabled = SubResource("11")
@@ -1442,7 +1430,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="tools" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2"]
+[node name="tools" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2/Buttons"]
 offset_left = -1.0
 offset_top = 128.0
 offset_right = 2930.0
@@ -1450,7 +1438,7 @@ offset_bottom = 228.0
 scale = Vector2(0.35, 0.35)
 alignment = 1
 
-[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Transform", "button"]]
+[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Transform", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1465,7 +1453,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Delete", "button"]]
+[node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Delete", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1480,7 +1468,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="edit" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Edit", "button"]]
+[node name="edit" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Edit", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1495,7 +1483,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["Property", "button"]]
+[node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Property", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1510,7 +1498,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="multiselect" type="Button" parent="CanvasLayer3/CanvasLayer2/tools" groups=["button"]]
+[node name="multiselect" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["button"]]
 visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1521,6 +1509,33 @@ theme_override_styles/pressed = SubResource("11")
 theme_override_styles/normal = SubResource("7")
 button_mask = 5
 icon = ExtResource("51_tll4m")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
+
+[node name="Control" type="Control" parent="CanvasLayer3/CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 8.5
+offset_right = 44.0
+offset_bottom = 48.5
+scale = Vector2(0.2, 0.2)
+
+[node name="player" type="Button" parent="CanvasLayer3/CanvasLayer2/Control" groups=["button"]]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -36.0
+offset_right = 356.0
+offset_bottom = 254.0
+theme = ExtResource("7")
+theme_override_styles/disabled = SubResource("9")
+theme_override_styles/hover = SubResource("10")
+theme_override_styles/pressed = SubResource("9")
+theme_override_styles/normal = SubResource("10")
+button_mask = 5
+icon = ExtResource("2")
 clip_text = true
 icon_alignment = 1
 expand_icon = true

@@ -5,10 +5,6 @@ var mouseY
 
 
 func _process(delta):
-	
-	
-	
-	
 	if Input.is_action_just_pressed("lock_x"):
 		mouseX = get_viewport().get_mouse_position().x
 	if Input.is_action_pressed("lock_x"):

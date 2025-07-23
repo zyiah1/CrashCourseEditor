@@ -40,9 +40,9 @@ var editednode = null
 var filepath: String = Options.filepath
 var roundedmousepos: Vector2
 
-@onready var redtex = $CanvasLayer3/CanvasLayer2/rails/rail.icon
-@onready var bluetex = $CanvasLayer3/CanvasLayer2/blue.icon
-@onready var graytex = $CanvasLayer3/CanvasLayer2/invisible.icon
+@onready var redtex = preload("res://railart/normal.png")
+@onready var bluetex = preload("res://railart/blue.png")
+@onready var graytex = preload("res://railart/invisible.png")
 var arrow1 = preload("res://railart/Arrow.png")
 var arrow2 = preload("res://railart/BigArrow.png")
 var arrow3 = preload("res://railart/ArrowKaiten.png")
@@ -547,18 +547,7 @@ func shortcuts():
 			mode += 1
 			if mode == 4:
 				mode = 1
-			if mode == 1:
-				$CanvasLayer3/CanvasLayer2/rails/rail.icon = redtex
-				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow1
-				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow4
-			if mode == 2:
-				$CanvasLayer3/CanvasLayer2/rails/rail.icon = bluetex
-				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow2
-				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow5
-			if mode == 3:
-				$CanvasLayer3/CanvasLayer2/rails/rail.icon = graytex
-				$CanvasLayer3/CanvasLayer2/objects/arrow.icon = arrow3
-				$CanvasLayer3/CanvasLayer2/objects/arrow2.icon = arrow6
+
 
 var namefocus = false
 
@@ -630,12 +619,12 @@ func _on_name_focus_exited():
 func playerunstore():
 	$Animation.play("RESET")
 	$CanvasLayer3/CanvasLayer/buttons.play("in")
-	$CanvasLayer3/CanvasLayer/Control/player.disabled = false
+	$CanvasLayer3/CanvasLayer2/Control/player.disabled = false
 	stored = null
 
 func playerstore():
 	$CanvasLayer3/CanvasLayer/buttons.play("out")
-	$CanvasLayer3/CanvasLayer/Control/player.disabled = true
+	$CanvasLayer3/CanvasLayer2/Control/player.disabled = true
 	for node in get_tree().get_nodes_in_group("player"):
 		if node.visible:
 			stored = node
