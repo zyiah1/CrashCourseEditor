@@ -520,7 +520,7 @@ func shortcuts():
 			redo()
 		elif Input.is_action_just_pressed("undo"):
 			undo()
-		elif Input.is_action_just_pressed("Transform"):
+		elif Input.is_action_just_pressed("Transform") and not Input.is_action_pressed("redo"):
 			get_tree().get_first_node_in_group("Transform")._pressed()
 		if Input.is_action_just_pressed("Delete"):
 			get_tree().get_first_node_in_group("Delete")._pressed()
