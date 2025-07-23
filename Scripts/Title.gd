@@ -67,3 +67,7 @@ func _on_decline_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit(1)
+
+
+func _on_discord_pressed():
+	OS.shell_open("https://discord.com/invite/4xscrS6bPw")

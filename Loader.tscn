@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cx82h5vmx6lkn"]
+[gd_scene load_steps=25 format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
 [ext_resource type="Script" uid="uid://dmx5s8xk86lkk" path="res://Scripts/settings.gd" id="8"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="10"]
+[ext_resource type="Texture2D" uid="uid://b4h5xac5bsfg" path="res://UI/Discord.png" id="10_fqlhf"]
 [ext_resource type="Script" uid="uid://4hdf1bqh2dtb" path="res://Scripts/help.gd" id="11"]
 [ext_resource type="Texture2D" uid="uid://c714qtkxy1rxn" path="res://UI/buttons/button.png" id="11_mkaen"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="12_uro0u"]
@@ -3360,6 +3361,7 @@ offset_left = -224.0
 offset_top = -334.667
 offset_right = 1.27978e+06
 offset_bottom = 1.27967e+06
+metadata/_edit_lock_ = true
 
 [node name="logo" type="Sprite2D" parent="." groups=["hide"]]
 position = Vector2(525, 163)
@@ -3400,7 +3402,7 @@ offset_top = 3.0
 offset_right = 145.0
 offset_bottom = 113.0
 theme_override_fonts/normal_font = SubResource("3")
-text = "1.6 Dev"
+text = "1.6"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
 offset_left = 884.0
@@ -3436,6 +3438,17 @@ theme_override_fonts/font = ExtResource("13")
 text = "Report a bug"
 underline = 1
 uri = "https://github.com/zyiah1/CrashCourseEditor/issues"
+
+[node name="Discord" type="Button" parent="." groups=["hide"]]
+offset_left = 941.0
+offset_right = 975.0
+offset_bottom = 26.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.435294, 0.772549, 0.921569, 1)
+theme_override_fonts/font = ExtResource("13")
+icon = ExtResource("10_fqlhf")
+flat = true
+expand_icon = true
 
 [node name="load" type="Button" parent="."]
 offset_left = 602.334
@@ -3585,7 +3598,14 @@ theme_override_fonts/normal_font = ExtResource("13")
 theme_override_font_sizes/normal_font_size = 60
 text = "In Editor:
 WASD/Arrow Keys = move
+WS/UpDown = Scale while transforming
+AD/LeftRight = Rotate while transforming
 +/- or Mouse wheel = zoom in/out
+Space = Send Object to Back
+Z = transform tool
+X = delete tool
+C = edit tool
+V = property tool
 Ctrl+Z = Undo
 Ctrl+Shift+Z/Ctrl+Y = Redo
 Ctrl+S = Save
@@ -3596,7 +3616,7 @@ Esc = Go to Main Menu
 M = lock mouse X
 N = lock mouse Y
 H/f2 =  hide Hud
-Shift = toggle rails/objects
+Tab = toggle rails/objects
 On Title Screen:
 Ctrl+V = Load Data on Clipboard"
 
@@ -3698,6 +3718,7 @@ text = "Later"
 [connection signal="file_selected" from="FileDialog" to="load" method="_on_FileDialog_file_selected"]
 [connection signal="pressed" from="settings" to="settings" method="_on_settings_pressed"]
 [connection signal="dir_selected" from="settings/Node2D/FileWindoe" to="settings" method="_on_FileWindoe_dir_selected"]
+[connection signal="pressed" from="Discord" to="." method="_on_discord_pressed"]
 [connection signal="pressed" from="load" to="load" method="_on_load_pressed"]
 [connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
 [connection signal="pressed" from="help/Sprite2D/Sprite2D/close" to="help" method="_on_close_pressed"]

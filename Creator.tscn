@@ -1711,7 +1711,14 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("52_cmovo")
 theme_override_font_sizes/normal_font_size = 60
 text = "WASD/Arrow Keys = move
+WS/UpDown = Scale while transforming
+AD/LeftRight = Rotate while transforming
 +/- or Mouse wheel = zoom in/out
+Space = Send Object to Back
+Z = transform tool
+X = delete tool
+C = edit tool
+V = property tool
 Ctrl+Z = Undo
 Ctrl+Shift+Z/Ctrl+Y = Redo
 Ctrl+S = Save
@@ -1722,8 +1729,7 @@ Esc = Go to Main Menu
 M = lock mouse X
 N = lock mouse Y
 H/f2 =  hide Hud
-Shift = toggle rails/objects
-"
+Tab = toggle rails/objects"
 
 [node name="Button" type="Button" parent="CanvasLayer3/Controls/shortcuts2"]
 custom_minimum_size = Vector2(105.825, 89.435)
