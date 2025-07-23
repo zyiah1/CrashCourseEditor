@@ -47,8 +47,7 @@ folder_colors={
 "res://fonts/": "pink",
 "res://icon/": "gray",
 "res://railart/": "teal",
-"res://shared scripts/": "green",
-"res://webbuild/": "gray"
+"res://shared scripts/": "green"
 }
 
 [global_group]
