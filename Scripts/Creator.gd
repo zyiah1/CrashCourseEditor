@@ -572,22 +572,23 @@ func save():
 		if saving == false:
 			
 			
-			saving = true
-			$SaveMessage.play("saving")
-			objects = []
-			bridgedata = []
-			emit_signal("EXPORT")
-			var file = FileAccess.open(filepath + $nonmoving/name.text + ".txt", FileAccess.WRITE)
-			var __my_text = map + objects + bridgeheader + bridgedata + end
-			
-			
-			for line2 in __my_text:
-				file.store_line(line2)
-			file.close()
-			$SaveMessage.play("saved")
-			bridgedata = []
-			objects = []
-			saving = false
+			if FileAccess.open((filepath + $nonmoving/name.text + ".txt"), FileAccess.WRITE):
+				saving = true
+				$SaveMessage.play("saving")
+				objects = []
+				bridgedata = []
+				emit_signal("EXPORT")
+				var file = FileAccess.open(filepath + $nonmoving/name.text + ".txt", FileAccess.WRITE)
+				var __my_text = map + objects + bridgeheader + bridgedata + end
+				
+				
+				for line2 in __my_text:
+					file.store_line(line2)
+				file.close()
+				$SaveMessage.play("saved")
+				bridgedata = []
+				objects = []
+				saving = false
 
 func copy():
 	save()
@@ -624,6 +625,7 @@ func _on_name_focus_entered():
 
 func _on_name_focus_exited():
 	namefocus = false
+	$nonmoving/name.text = $nonmoving/name.text.replace("/",'|')
 
 func playerunstore():
 	$Animation.play("RESET")

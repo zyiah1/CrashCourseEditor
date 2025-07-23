@@ -250,7 +250,7 @@ func reposition():
 				pointtexture = preload("res://pointE.png")
 			for point in childrail.points:
 				point.texture = pointtexture
-			if childrail.get_node("preview").rail.texture == preload("res://railPurple.png"):
+			if childrail.get_node("preview").rail.texture == preload("res://railPurple.png") and not line.begins_with("              param0: 2150"):
 				add_to_group("EndMove")
 			childrail.get_node("end").texture = pointtexture
 			childrail.get_node("start").texture = pointtexture
