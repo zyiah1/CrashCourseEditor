@@ -91,7 +91,7 @@ func _on_slider_value_changed(value):
 		-5:
 			owner.texture = preload("res://ladder6.png")
 			laddernumber = 6
-	owner.data[9] = "            param0: "+str(laddernumber)+".00000"
+	owner.data[9] = "            param0: "+str(int(laddernumber))+".00000"
 
 
 func _on_focus_entered():
