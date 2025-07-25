@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Donkey Kong Crash Course level editor"
-config/version="1.6"
+config/version="1.6.1"
 config/tags=PackedStringArray("level_editor")
 run/main_scene="res://Loader.tscn"
 config/features=PackedStringArray("4.4")
