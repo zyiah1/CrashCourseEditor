@@ -3359,8 +3359,8 @@ currentNumberOfUpdates = 8
 [node name="bfg" parent="." instance=ExtResource("2_a7f5f")]
 offset_left = -224.0
 offset_top = -334.667
-offset_right = 1.27978e+06
-offset_bottom = 1.27967e+06
+offset_right = 1279780.0
+offset_bottom = 1279670.0
 metadata/_edit_lock_ = true
 
 [node name="logo" type="Sprite2D" parent="." groups=["hide"]]
@@ -3387,6 +3387,7 @@ theme = ExtResource("3")
 text = "Quit"
 
 [node name="FileDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
 title = "Open a File"
 size = Vector2i(437, 175)
 theme = ExtResource("7")
@@ -3416,7 +3417,9 @@ script = ExtResource("8")
 [node name="Node2D" type="Node2D" parent="settings"]
 
 [node name="FileWindoe" type="FileDialog" parent="settings/Node2D"]
+oversampling_override = 1.0
 mode = 2
+title = "Select Default Save Directory"
 size = Vector2i(1500, 800)
 theme = ExtResource("7")
 ok_button_text = "Select Current Folder"
@@ -3662,9 +3665,9 @@ mouse_filter = 2
 theme = ExtResource("20")
 theme_override_fonts/font = SubResource("7")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/focus = SubResource("6")
-theme_override_styles/read_only = SubResource("6")
 theme_override_styles/normal = SubResource("6")
+theme_override_styles/read_only = SubResource("6")
+theme_override_styles/focus = SubResource("6")
 text = "Your Version Is OUTDATED!!"
 editable = false
 caret_blink = true
@@ -3684,9 +3687,9 @@ mouse_filter = 2
 theme = ExtResource("20")
 theme_override_fonts/font = SubResource("7")
 theme_override_font_sizes/font_size = 31
-theme_override_styles/focus = SubResource("6")
-theme_override_styles/read_only = SubResource("6")
 theme_override_styles/normal = SubResource("6")
+theme_override_styles/read_only = SubResource("6")
+theme_override_styles/focus = SubResource("6")
 text = "changes made in new version:"
 editable = false
 caret_blink = true
