@@ -302,5 +302,10 @@ func EXPORT():
 
 func _on_rotation_change():
 	speed = float($rotation.text)
-	endplat[20] = "              param2: " + str(speed)
+	var loop = 0
+	for dat in endplat:
+		if dat.begins_with("              param2:"):
+			break
+		loop += 1
+	endplat[loop] = "              param2: " + str(speed)
 	$preview.repeat = true
