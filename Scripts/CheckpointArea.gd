@@ -13,3 +13,8 @@ func _process(delta):
 	if owner.data[9].begins_with("            param0: 2"):
 		owner.texture = preload("res://fincheckpoint.png")
 	text = str(int(owner.data[13].erase(0,20)))
+	if owner.get_node("Button").is_hovered() and owner.get_parent().item == "edit":
+		if Input.is_action_just_pressed("addpoint"):
+			owner.data[13] = "            param0: "+str(int(owner.data[13].erase(0,20))+1)+".00000"
+		if Input.is_action_just_pressed("bridge"):
+			owner.data[13] = "            param0: "+str(int(owner.data[13].erase(0,20))-1)+".00000"

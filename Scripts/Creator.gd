@@ -72,7 +72,7 @@ func _ready():
 	$nonmoving/save/Timer.wait_time = int(Options.interval+1)
 	if Options.scrollbg == "false":
 		$Animation.speed_scale = 1000
-		$CanvasLayer3/CanvasLayer/buttons.speed_scale = 1000
+		$Player.speed_scale = 1000
 	if Options.OSFileManager == "true":
 		$CanvasLayer3/SaveAs.use_native_dialog = true
 	#make the default borders of the level if new level
@@ -350,7 +350,7 @@ func itemplace():
 	if Input.is_action_just_pressed("bridge") or Input.is_action_pressed("control") and Input.is_action_pressed("bridge"):
 		if item == "player":
 			#$Animation.stop()
-			$CanvasLayer3/CanvasLayer/buttons.play("out")
+			$Player.play("out")
 			item = "none"
 			instance = player.instantiate()
 			stored = instance
@@ -618,12 +618,12 @@ func _on_name_focus_exited():
 
 func playerunstore():
 	$Animation.play("RESET")
-	$CanvasLayer3/CanvasLayer/buttons.play("in")
+	$Player.play("in")
 	$CanvasLayer3/CanvasLayer2/Control/player.disabled = false
 	stored = null
 
 func playerstore():
-	$CanvasLayer3/CanvasLayer/buttons.play("out")
+	$Player.play("out")
 	$CanvasLayer3/CanvasLayer2/Control/player.disabled = true
 	for node in get_tree().get_nodes_in_group("player"):
 		if node.visible:

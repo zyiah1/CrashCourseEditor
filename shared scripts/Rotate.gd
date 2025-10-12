@@ -369,6 +369,8 @@ func _process(delta):
 			pressed = true
 	
 	if amount != 0: #button is hovered
+		if Input.is_action_just_pressed("MoveToBack"):
+			owner.get_parent().move_child(owner,10)
 		match owner.get_parent().item:
 			"edit":
 				modulate = Color.GREEN_YELLOW
