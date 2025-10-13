@@ -46,7 +46,6 @@ folder_colors={
 "res://Scripts/": "red",
 "res://UI/": "blue",
 "res://fonts/": "pink",
-"res://icon/": "gray",
 "res://railart/": "teal",
 "res://shared scripts/": "green"
 }
