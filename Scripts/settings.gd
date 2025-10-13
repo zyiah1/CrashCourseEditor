@@ -3,6 +3,7 @@ extends Button
 func _ready():
 	if not FileAccess.open("Dkb.settings",FileAccess.READ_WRITE):
 		print("WELCOME")
+		$Node2D/FileWindoe.current_dir = ProjectSettings.globalize_path("res://")
 		$Node2D/FileWindoe.popup(Rect2(-790,-429,1022,580))
 
 func _on_settings_pressed():

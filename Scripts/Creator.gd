@@ -269,7 +269,7 @@ func _process(_delta):
 	shortcuts()
 	if item == "move" and Input.is_action_pressed("addpoint"):
 		$Cam.paused = true
-	if Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus():
+	if Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		$Cam.paused = false
 	if get_viewport(): 
 		if $nonmoving/gridenabled.button_pressed:
@@ -516,6 +516,9 @@ func shortcuts():
 	if not disabledcontrolls and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		if Input.is_action_just_pressed("Loop"):
 			movingLoop = not movingLoop
+		if Input.is_action_just_pressed("ToggleGrid"):
+			$nonmoving/gridenabled.button_pressed = not $nonmoving/gridenabled.button_pressed
+			_on_gridenabled_pressed()
 		if Input.is_action_just_pressed("redo"):
 			redo()
 		elif Input.is_action_just_pressed("undo"):

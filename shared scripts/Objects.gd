@@ -106,9 +106,9 @@ func _process(delta):
 	if drag and get_parent().item == "move" and Input.is_action_pressed("addpoint"):
 		position = get_parent().roundedmousepos
 		if rotatable:
-			rotation_degrees += Input.get_axis("ui_left","ui_right")*25*delta
+			rotation_degrees += Input.get_axis("ui_left","ui_right")*60*(Input.get_action_strength("Shift")+1)*delta
 		if scalable:
-			scale += defaultSize*Vector2(Input.get_axis("ui_down","ui_up"),Input.get_axis("ui_down","ui_up"))*delta
+			scale += defaultSize*Vector2(Input.get_axis("ui_down","ui_up"),Input.get_axis("ui_down","ui_up"))*(Input.get_action_strength("Shift")+1)*delta
 	else:
 		drag = false
 

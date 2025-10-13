@@ -64,7 +64,7 @@ func _input(event): #mouse inputs
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		position = Vector2(1,1)/zoom * (mouse_start_pos - event.position) + screen_start_pos
-	if event is InputEventMouseButton and get_parent().propertypanel == false: # zooming
+	if event is InputEventMouseButton and get_parent().propertypanel == false and get_parent().get_node("CanvasLayer3/Controls").visible == false: # zooming
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				if zoom > zoom_minimum:
@@ -84,3 +84,11 @@ func _on_name_focus_entered():
 	if get_parent().get_node("nonmoving/name").text == "untitled":
 		get_parent().get_node("nonmoving/name").text = ""
 	paused = true
+
+
+func _on_grid_focus_entered():
+	paused = true
+
+
+func _on_grid_focus_exited():
+	paused = false

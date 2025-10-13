@@ -740,7 +740,17 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tll4m"]
-bg_color = Color(0.0177324, 0.0177324, 0.0177324, 1)
+bg_color = Color(0.27273807, 0.004441725, 0.00452257, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0, 0.2784314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 20
 
 [sub_resource type="FontFile" id="28"]
 fallbacks = Array[Font]([ExtResource("58")])
@@ -753,6 +763,101 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/156/0/ascent = 0.0
+cache/0/156/0/descent = 0.0
+cache/0/156/0/underline_position = 0.0
+cache/0/156/0/underline_thickness = 0.0
+cache/0/156/0/scale = 1.0
+cache/0/166/0/ascent = 0.0
+cache/0/166/0/descent = 0.0
+cache/0/166/0/underline_position = 0.0
+cache/0/166/0/underline_thickness = 0.0
+cache/0/166/0/scale = 1.0
+cache/0/186/0/ascent = 0.0
+cache/0/186/0/descent = 0.0
+cache/0/186/0/underline_position = 0.0
+cache/0/186/0/underline_thickness = 0.0
+cache/0/186/0/scale = 1.0
+cache/0/191/0/ascent = 0.0
+cache/0/191/0/descent = 0.0
+cache/0/191/0/underline_position = 0.0
+cache/0/191/0/underline_thickness = 0.0
+cache/0/191/0/scale = 1.0
+cache/0/196/0/ascent = 0.0
+cache/0/196/0/descent = 0.0
+cache/0/196/0/underline_position = 0.0
+cache/0/196/0/underline_thickness = 0.0
+cache/0/196/0/scale = 1.0
+cache/0/206/0/ascent = 0.0
+cache/0/206/0/descent = 0.0
+cache/0/206/0/underline_position = 0.0
+cache/0/206/0/underline_thickness = 0.0
+cache/0/206/0/scale = 1.0
+cache/0/211/0/ascent = 0.0
+cache/0/211/0/descent = 0.0
+cache/0/211/0/underline_position = 0.0
+cache/0/211/0/underline_thickness = 0.0
+cache/0/211/0/scale = 1.0
+cache/0/216/0/ascent = 0.0
+cache/0/216/0/descent = 0.0
+cache/0/216/0/underline_position = 0.0
+cache/0/216/0/underline_thickness = 0.0
+cache/0/216/0/scale = 1.0
+cache/0/221/0/ascent = 0.0
+cache/0/221/0/descent = 0.0
+cache/0/221/0/underline_position = 0.0
+cache/0/221/0/underline_thickness = 0.0
+cache/0/221/0/scale = 1.0
+cache/0/226/0/ascent = 0.0
+cache/0/226/0/descent = 0.0
+cache/0/226/0/underline_position = 0.0
+cache/0/226/0/underline_thickness = 0.0
+cache/0/226/0/scale = 1.0
+cache/0/231/0/ascent = 0.0
+cache/0/231/0/descent = 0.0
+cache/0/231/0/underline_position = 0.0
+cache/0/231/0/underline_thickness = 0.0
+cache/0/231/0/scale = 1.0
+cache/0/236/0/ascent = 0.0
+cache/0/236/0/descent = 0.0
+cache/0/236/0/underline_position = 0.0
+cache/0/236/0/underline_thickness = 0.0
+cache/0/236/0/scale = 1.0
+cache/0/241/0/ascent = 0.0
+cache/0/241/0/descent = 0.0
+cache/0/241/0/underline_position = 0.0
+cache/0/241/0/underline_thickness = 0.0
+cache/0/241/0/scale = 1.0
+cache/0/246/0/ascent = 0.0
+cache/0/246/0/descent = 0.0
+cache/0/246/0/underline_position = 0.0
+cache/0/246/0/underline_thickness = 0.0
+cache/0/246/0/scale = 1.0
+cache/0/251/0/ascent = 0.0
+cache/0/251/0/descent = 0.0
+cache/0/251/0/underline_position = 0.0
+cache/0/251/0/underline_thickness = 0.0
+cache/0/251/0/scale = 1.0
+cache/0/256/0/ascent = 0.0
+cache/0/256/0/descent = 0.0
+cache/0/256/0/underline_position = 0.0
+cache/0/256/0/underline_thickness = 0.0
+cache/0/256/0/scale = 1.0
+cache/0/261/0/ascent = 0.0
+cache/0/261/0/descent = 0.0
+cache/0/261/0/underline_position = 0.0
+cache/0/261/0/underline_thickness = 0.0
+cache/0/261/0/scale = 1.0
+cache/0/266/0/ascent = 0.0
+cache/0/266/0/descent = 0.0
+cache/0/266/0/underline_position = 0.0
+cache/0/266/0/underline_thickness = 0.0
+cache/0/266/0/scale = 1.0
+cache/0/271/0/ascent = 0.0
+cache/0/271/0/descent = 0.0
+cache/0/271/0/underline_position = 0.0
+cache/0/271/0/underline_thickness = 0.0
+cache/0/271/0/scale = 1.0
 
 [node name="Editor" type="Node2D"]
 z_index = -2
@@ -1679,50 +1784,65 @@ theme = ExtResource("51_0rgi5")
 access = 2
 filters = PackedStringArray("*.txt")
 
-[node name="Controls" type="ScrollContainer" parent="CanvasLayer3"]
+[node name="Controls" type="Control" parent="CanvasLayer3"]
 visible = false
-offset_left = 299.0
-offset_top = 19.0
-offset_right = 1304.0
-offset_bottom = 887.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tll4m")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="shortcuts2" type="RichTextLabel" parent="CanvasLayer3/Controls"]
+[node name="Scroll" type="ScrollContainer" parent="CanvasLayer3/Controls"]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 36.0
+offset_right = 1107.0
+offset_bottom = 810.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tll4m")
+scroll_vertical_custom_step = 10.0
+vertical_scroll_mode = 2
+
+[node name="shortcuts2" type="RichTextLabel" parent="CanvasLayer3/Controls/Scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("52_cmovo")
-theme_override_font_sizes/normal_font_size = 60
-text = "WASD/Arrow Keys = move
-WS/UpDown = Scale while transforming
-AD/LeftRight = Rotate while transforming
-+/- or Mouse wheel = zoom in/out
-Space = Send Object to Back
-Z = transform tool
-X = delete tool
-C = edit tool
-V = property tool
-Ctrl+Z = Undo
-Ctrl+Shift+Z/Ctrl+Y = Redo
-Ctrl+S = Save
-Ctrl+Shift+S = Save As...
-Ctrl+E = Open file in text edit
-Ctrl+C = Copies level data to clipboard
-Esc = Go to Main Menu
-M = lock mouse X
-N = lock mouse Y
-H/f2 =  hide Hud
-Tab = toggle rails/objects"
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "	 WASD/←↑↓→║ Move Camera
+		WS/↑↓ 	   ║ Scale while transforming
+		AD/←→  	   ║ Rotate while transforming 
+			Shift 		   ║ Faster Transform
+	Mouse wheel	   ║ Zoom in/out
+			+/-  		   ║ Zoom in/out
+			Tab 		   ║ Toggle rails/objects
+			Esc 		   ║ Go to Main Menu
+			M 			   ║ Lock mouse X
+			N 			   ║ Lock mouse Y
+ [color=gray] ----------------------------------------------------------------[/color]
+		  Space 		   ║ Send Object to Back
+			G 			   ║ Toggle Grid
+			Z 			   ║[img={100}]res://railart/toolmove.png[/img]
+			X 			   ║[img={100}]res://railart/tooltrash.png[/img]
+			C 			   ║[img={100}]res://railart/tooledit.png[/img]
+			V 			   ║[img={100}]res://railart/toolproperty.png[/img]
+		CtrlᐩZ 		   ║ Undo
+ CtrlᐩShiftᐩZ/Ctrl+Y║ Redo
+		CtrlᐩS 		   ║ Save
+	CtrlᐩShiftᐩS 	   ║ Save As...
+		CtrlᐩE		   ║ Open file in text edit
+		CtrlᐩC 		   ║ Copy level data to clipboard
+		H/F2 	   	   ║ Hide UI"
 
-[node name="Button" type="Button" parent="CanvasLayer3/Controls/shortcuts2"]
+[node name="Button" type="Button" parent="CanvasLayer3/Controls"]
 custom_minimum_size = Vector2(105.825, 89.435)
 layout_mode = 0
-offset_left = 232.0
-offset_top = 798.0
-offset_right = 810.0
-offset_bottom = 887.435
+offset_left = 501.0
+offset_top = 809.0
+offset_right = 1102.0
+offset_bottom = 898.435
 theme = ExtResource("51_0rgi5")
-text = "Okay I Understand The Controls and Wish To Go Back Into The Editor Now"
+theme_override_font_sizes/font_size = 66
+text = "Got It!"
 
 [node name="ZoomoutCamPreview" type="Node2D" parent="." groups=["camprev", "ed"]]
 visible = false
@@ -1745,7 +1865,9 @@ offset_bottom = 206.0
 scale = Vector2(0.2, 0.2)
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.839216, 0.0705882, 0.0705882, 1)
+theme_override_constants/outline_size = 85
 theme_override_fonts/normal_font = SubResource("28")
+theme_override_font_sizes/normal_font_size = 251
 bbcode_enabled = true
 text = "From Default Level 1&3:"
 
@@ -1762,7 +1884,9 @@ offset_bottom = 206.0
 scale = Vector2(0.2, 0.2)
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.0705882, 0.607843, 0.839216, 1)
+theme_override_constants/outline_size = 85
 theme_override_fonts/normal_font = SubResource("28")
+theme_override_font_sizes/normal_font_size = 251
 bbcode_enabled = true
 text = "From Default Level 2&4:"
 
@@ -1772,6 +1896,8 @@ text = "From Default Level 2&4:"
 [connection signal="focus_entered" from="nonmoving/name" to="Cam" method="_on_name_focus_entered"]
 [connection signal="focus_exited" from="nonmoving/name" to="." method="_on_name_focus_exited"]
 [connection signal="focus_exited" from="nonmoving/name" to="Cam" method="_on_name_focus_exited"]
+[connection signal="focus_entered" from="nonmoving/grid" to="Cam" method="_on_grid_focus_entered"]
+[connection signal="focus_exited" from="nonmoving/grid" to="Cam" method="_on_grid_focus_exited"]
 [connection signal="text_changed" from="nonmoving/grid" to="." method="_on_grid_text_changed"]
 [connection signal="pressed" from="nonmoving/gridenabled" to="." method="_on_gridenabled_pressed"]
 [connection signal="index_pressed" from="CanvasLayer3/MenuBar/File" to="." method="_on_file_index_pressed"]
@@ -1784,4 +1910,4 @@ text = "From Default Level 2&4:"
 [connection signal="canceled" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_canceled"]
 [connection signal="confirmed" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_confirmed"]
 [connection signal="file_selected" from="CanvasLayer3/SaveAs" to="." method="_on_save_as_file_selected"]
-[connection signal="pressed" from="CanvasLayer3/Controls/shortcuts2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer3/Controls/Button" to="." method="_on_button_pressed"]
