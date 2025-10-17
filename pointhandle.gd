@@ -15,4 +15,5 @@ func _on_mouse_entered():
 
 
 func _on_mouse_exited():
-	$AnimationPlayer.play("mouseout")
+	if button_pressed == false:
+		$AnimationPlayer.play("mouseout")
