@@ -8,7 +8,7 @@ const banana = preload("res://banana.tscn")
 const checkpoint = preload("res://checkpoint.tscn")
 const finalcheck = preload("res://finalcheckpoint.tscn")
 const musicrail = preload("res://musicrail.tscn")
-const Rail = preload("res://DefaultRail.tscn")
+const DefaultRail = preload("res://DefaultRail.tscn")
 const InvisibleRail = preload("res://InvisibleRail.tscn")
 const BlueRail = preload("res://BlueRail.tscn")
 const RightSpin = preload("res://Rspin.tscn")
@@ -296,7 +296,7 @@ func itemplace():
 			
 			railplace = 1
 			if item == "rail":
-				instance = Rail.instantiate()
+				instance = DefaultRail.instantiate()
 				match mode:
 					2:
 						instance = BlueRail.instantiate()
@@ -325,19 +325,19 @@ func itemplace():
 			if item.begins_with("moving"):
 				instance = PathRail.instantiate()
 			if item == "movingfan":
-				instance.rail = fan
+				instance.railscene = fan
 			if item == "movingR":
-				instance.rail = RightMove
+				instance.railscene = RightMove
 			if item == "movingL":
-				instance.rail = LeftMove
+				instance.railscene = LeftMove
 			if item == "movingA":
-				instance.rail = AutoPlat
+				instance.railscene = AutoPlat
 			if item == "movingCrankL":
-				instance.rail = LeftCrank
+				instance.railscene = LeftCrank
 			if item == "movingCrankR":
-				instance.rail = RightCrank
+				instance.railscene = RightCrank
 			if item == "movingEnd":
-				instance.rail = EndMove
+				instance.railscene = EndMove
 				instance.Param1 = 0
 			if instance != null:
 				$Cam.railplacing = true

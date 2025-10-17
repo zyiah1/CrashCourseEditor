@@ -140,9 +140,9 @@ func LoadTest(filename):
 						content += raildata
 						content += railend
 					else:
-						oldrail.rail = instance
+						oldrail.railscene = instance
 						instance = oldrail
-						instance.done(Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: "))))
+						instance.pathdone(Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: "))))
 						instance = instance.childrail
 						AddPoints(raildata,instance,"")
 						instance.done()

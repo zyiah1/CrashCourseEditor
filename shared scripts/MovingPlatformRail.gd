@@ -1,78 +1,15 @@
-extends Node2D
-
-const pointScene = preload("res://point2.tscn")
+extends Rail
 
 
 var speed = 2
-var locked = false
-@onready var idnum = get_parent().idnum
-var segments = 1
-var lines = []
-var points = []
 var mode = 0 #0 = path 1 = platform
 var childrail = null
-var loading = false
-var buttons = []
-var Param1: int = -1 #visiblie
-var color = Color(.2,.2,.2)
-@export var rail: PackedScene = preload("res://RMove.tscn")
+@export var railscene: PackedScene = preload("res://RMove.tscn")
 
-var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
-var fillmode:bool = false
 
-var previousdata: PackedStringArray
-var previousend: PackedStringArray
 var previousplatdata: PackedStringArray
 var previousplatend: PackedStringArray
 
-
-@onready var dataseg:PackedStringArray = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-
-var data:PackedStringArray
-
-@onready var end:PackedStringArray = ["              closed: CLOSE",
-"              comment: !l -1",
-"              id_name: rail" + str(idnum),
-"              layer: LC",
-"              link_info: []",
-"              link_num: !l 0",
-"              name: レール",
-"              num_pnt: !l 2",
-"              param0: 2900.00000", #railtype
-"              param1: "+str(Param1)+".00000", #-1 = visible, 0 = invisible
-"              param2: -1.00000",
-"              param3: -1.00000",
-"              param4:  0.00000",
-"              param5: -1.00000",
-"              param6: -1.00000",
-"              param7: -1.00000",
-"              param8: -1.00000",
-"              param9: -1.00000",
-"              type: Linear",
-"              unit_name: Path"]
 
 func _ready():
 	if end[9].begins_with("              param1: 0"): # invisible
@@ -116,70 +53,6 @@ func propertyclose():
 		previousend = end
 		previousplatdata = childrail.data
 		previousplatend = childrail.endplat
-
-func changepoints(raildata:PackedStringArray,startpoint:Node,endpoint:Node,pointarray:Array,linearray:Array) -> Array:
-	var currentpoint = 0
-	var currentline = 0
-	var count = -1
-	var first = true
-	var cycles = -1
-	
-	for line in raildata:
-		cycles += 1
-		if currentpoint == pointarray.size():
-			if line.begins_with("                  pnt0_x: "):
-				startpoint.position.x = float(line.lstrip("                  pnt0_x: "))
-				currentline = linearray.size() - 1
-			if line.begins_with("                  pnt0_y: "):
-				startpoint.position.y = -float(line.lstrip("                  pnt0_y: "))
-				endpoint.position = startpoint.position
-				linearray[currentline][1] = endpoint.position
-				if pointarray.size() >= 2:
-					linearray[currentline][0] = linearray[currentline-1][1]
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-endpoint.position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-endpoint.position.y)
-		else:
-			if line.begins_with("                  pnt0_x: "):
-				count += 1
-				if first == true:
-					if count >= 2:
-						count = 0
-						currentline += 1
-						first = false
-				pointarray[currentpoint].position.x = float(line.lstrip("                  pnt0_x: "))
-				if first == true:
-					linearray[currentline][count].x = pointarray[currentpoint].position.x
-				else:
-					linearray[currentline][0].x = linearray[currentline - 1][1].x
-					linearray[currentline][1].x = pointarray[currentpoint].position.x
-			if line.begins_with("                  pnt0_y: "):
-				pointarray[currentpoint].position.y = -float(line.lstrip("                  pnt0_y: "))
-				if first == true:
-					linearray[currentline][count].y = pointarray[currentpoint].position.y
-				else:
-					linearray[currentline][0].y = linearray[currentline - 1][1].y
-					linearray[currentline][1].y = pointarray[currentpoint].position.y
-					currentline += 1
-				
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-pointarray[currentpoint].position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-pointarray[currentpoint].position.y)
-				
-				currentpoint += 1
-	return linearray
 
 func reposition():
 	lines = changepoints(data,$start,$end,points,lines)
@@ -329,7 +202,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
-			var railinst = rail.instantiate()
+			var railinst = railscene.instantiate()
 			for line in points:
 				railinst.path.append(line.position)
 			railinst.path.append($end.position)
@@ -346,11 +219,7 @@ func _process(delta):
 				
 		if Input.is_action_just_pressed("bridge"):
 			newseg()
-			if mode == 0:
-				get_parent().idnum += 2
-				mode = 1
-				locked = true
-				buttons.append(get_node("end/Button"))
+			bridge()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
 		
@@ -391,7 +260,7 @@ func newseg():
 		$start.position = $end.position
 		segments += 1
 
-func done(pos):
+func pathdone(pos):
 	if mode == 0:
 		get_parent().idnum += 2
 		mode = 1
@@ -399,11 +268,9 @@ func done(pos):
 		child(pos)
 		buttons.append(get_node("end/Button"))
 
-
-
 func child(pos):
 	if mode == 1:
-		var railinst = rail.instantiate()
+		var railinst = railscene.instantiate()
 		railinst.loading = true
 		railinst.get_node("start").position = pos
 		for line in points:
@@ -416,49 +283,22 @@ func child(pos):
 			add_to_group(group)
 		mode = 69 #nice
 
-func _input(event):
-	if event is InputEventMouseButton and fillmode and locked == false and loading == false:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			fillamount += 1
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
-			fillamount -= 1
-
-func pointcurve():
-	if fillmode and locked == false:
-		var changerate = 1.0/fillamount
-		var weight = changerate
-		var dots = []
-		var cycle = fillamount
-		while cycle > 1:
-			dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
-			weight += changerate
-			cycle -= 1
-		for point in dots:
-			draw_circle(point,5,Color.DIM_GRAY)
-		if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
-			dots.append($end.position)
-			for point in dots:
-				$end.position = point
-				newseg()
-			fillmode = false
-			$start/handle.position = Vector2(-45,-14)
-			$end/handle.position = Vector2(20,-14)
-		if Input.is_action_just_pressed("bridge"):
-			loading = true
-			if mode == 0:
-				get_parent().idnum += 2
-				mode = 1
-				locked = true
-				buttons.append(get_node("end/Button"))
+func bridge():
+	loading = true
+	if mode == 0:
+		get_parent().idnum += 2
+		mode = 1
+		locked = true
+		buttons.append(get_node("end/Button"))
 
 func _draw():
-	if locked == false and loading == false:
-		if !fillmode:
-			$end.position = get_parent().roundedmousepos
-		pointcurve()
+	if locked == false and loading == false and fillmode == false:
+		$end.position = get_parent().roundedmousepos
 	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],color,2.25)
+	if locked == false and loading == false:
+		pointcurve()
 
 func EXPORT():
 	if childrail != null and visible:

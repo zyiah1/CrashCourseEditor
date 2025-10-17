@@ -38,11 +38,10 @@ func _process(delta):
 				if path.size() != 2:
 					path.remove_at(1)
 					current = 0
-				else:
-					if get_parent().get_parent().get_parent().movingLoop == true:
-						offset = Vector2.ZERO
-						path = backpath.duplicate()
-						repeat = false
+				elif get_parent().get_parent().get_parent().movingLoop == true:
+					offset = Vector2.ZERO
+					path = backpath.duplicate()
+					repeat = false
 		else:
 			current = 1
 		

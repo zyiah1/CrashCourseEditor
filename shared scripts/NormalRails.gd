@@ -1,4 +1,5 @@
 extends Node2D
+class_name Rail
 
 signal edit
 
@@ -21,7 +22,7 @@ var buttons = []
 var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
 var fillmode:bool = false
 
-@onready var rail = $Rail
+var rail
 @onready var idnum = get_parent().idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
@@ -31,8 +32,8 @@ var fillmode:bool = false
 "              link_num: !l 0",
 "              name: レール",
 "              num_pnt: !l 2",
-"              param0: "+Param0+".00000",
-"              param1: "+Param1+".00000",
+"              param0: "+Param0+".00000", #railtype
+"              param1: "+Param1+".00000", #-1 = visible, 0 = invisible
 "              param2: -1.00000",
 "              param3: -1.00000",
 "              param4:  0.00000",
@@ -50,6 +51,7 @@ var fillmode:bool = false
 
 
 func _ready():
+	rail = $Rail
 	if loading == false:
 		$start.position = get_parent().roundedmousepos
 	rail.add_point($start.position)
@@ -154,8 +156,7 @@ func _process(delta):
 			
 		if Input.is_action_just_pressed("bridge"):
 			newseg()
-			loading = true
-			done()
+			bridge()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
 		
@@ -370,15 +371,18 @@ func pointcurve():
 			$start/handle.position = Vector2(-45,-14)
 			$end/handle.position = Vector2(20,-14)
 		if Input.is_action_just_pressed("bridge"):
-			loading = true
-			done()
+			bridge()
+
+func bridge():
+	loading = true
+	done()
 
 func _draw():
-	if loading == false:
-		if !fillmode:
-			$end.position = get_parent().roundedmousepos
-		pointcurve()
+	if loading == false and fillmode == false:
+		$end.position = get_parent().roundedmousepos
 	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
+	if loading == false:
+		pointcurve()
 
 func EXPORT():
 	if visible:
