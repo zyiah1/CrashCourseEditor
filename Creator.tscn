@@ -941,6 +941,7 @@ offset_left = 12.0
 offset_top = -695.81
 offset_right = 1091.3334
 offset_bottom = -575.2866
+mouse_filter = 2
 theme_override_constants/line_separation = 15
 theme_override_constants/paragraph_separation = -35
 theme_override_constants/outline_size = 5

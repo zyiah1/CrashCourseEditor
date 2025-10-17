@@ -491,6 +491,7 @@ func undo():
 				lineplacing = true
 				history.erase(currenthistory) #removes rail adding from the history
 				Ain()
+				railplace = -1
 				return
 			delete(currenthistory.Node)
 		"Delete":
