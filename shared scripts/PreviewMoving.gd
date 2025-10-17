@@ -35,15 +35,13 @@ func _process(delta):
 		
 		if offset == maxoffset:
 			if current == 1:
-				if path.size() != 2:
+				if path.size() > 2:
 					path.remove_at(1)
 					current = 0
 				elif get_parent().get_parent().get_parent().movingLoop == true:
 					offset = Vector2.ZERO
 					path = backpath.duplicate()
 					repeat = false
-		else:
-			current = 1
+		current = 1
 		
 		rail.position = -offset
-	
