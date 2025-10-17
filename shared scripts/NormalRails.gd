@@ -158,6 +158,7 @@ func _process(delta):
 			done()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
+		
 
 func newseg():
 	lines.append([$start.position,$end.position])
@@ -348,32 +349,35 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
 			fillamount -= 1
 
+func pointcurve():
+	if fillmode and locked == false:
+		var changerate = 1.0/fillamount
+		var weight = changerate
+		var dots = []
+		var cycle = fillamount
+		while cycle > 1:
+			dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
+			weight += changerate
+			cycle -= 1
+		for point in dots:
+			draw_circle(point,5,Color.DIM_GRAY)
+		if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
+			dots.append($end.position)
+			for point in dots:
+				$end.position = point
+				newseg()
+			fillmode = false
+			$start/handle.position = Vector2(-45,-14)
+			$end/handle.position = Vector2(20,-14)
+		if Input.is_action_just_pressed("bridge"):
+			loading = true
+			done()
+
 func _draw():
 	if loading == false:
 		if !fillmode:
 			$end.position = get_parent().roundedmousepos
-		if fillmode and locked == false:
-			var changerate = 1.0/fillamount
-			var weight = changerate
-			var dots = []
-			var cycle = fillamount
-			while cycle > 1:
-				dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
-				weight += changerate
-				cycle -= 1
-			for point in dots:
-				draw_circle(point,5,Color.DIM_GRAY)
-			if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
-				dots.append($end.position)
-				for point in dots:
-					$end.position = point
-					newseg()
-				fillmode = false
-				$start/handle.position = Vector2(-45,-14)
-				$end/handle.position = Vector2(20,-14)
-			if Input.is_action_just_pressed("bridge"):
-				loading = true
-				done()
+		pointcurve()
 	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
 
 func EXPORT():

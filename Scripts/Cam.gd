@@ -8,7 +8,8 @@ var zoom_speed = Vector2(.120001,.120001)
 var mouse_start_pos
 var screen_start_pos
 var dragging = false
-
+var railplacing = false
+var shiftmode = false
 
 
 
@@ -39,6 +40,16 @@ func _physics_process(delta):
 		get_viewport().gui_release_focus()
 	if Input.is_action_just_pressed("fullView"):
 		toggleCam()
+	if owner.lineplacing == false: #figure out if current placing rail is in fillmode
+		var currenthistory = owner.history[owner.history.size()+owner.historyoffset]
+		if currenthistory.Type == "Add":
+			if currenthistory.Node is Rotate:
+				shiftmode = currenthistory.Node.get_child(0).fillmode 
+			else:
+				shiftmode = currenthistory.Node.fillmode
+			
+	else:
+		shiftmode = false
 
 func toggleCam():
 	if enabled:
@@ -64,7 +75,7 @@ func _input(event): #mouse inputs
 			dragging = false
 	elif event is InputEventMouseMotion and dragging:
 		position = Vector2(1,1)/zoom * (mouse_start_pos - event.position) + screen_start_pos
-	if event is InputEventMouseButton and get_parent().propertypanel == false and get_parent().get_node("CanvasLayer3/Controls").visible == false: # zooming
+	if event is InputEventMouseButton and get_parent().propertypanel == false and get_parent().get_node("CanvasLayer3/Controls").visible == false and shiftmode == false: # zooming
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				if zoom > zoom_minimum:

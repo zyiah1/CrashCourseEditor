@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6e8jely8ucr4"]
+
+[ext_resource type="Texture2D" uid="uid://xp7hguu2wcws" path="res://point.png" id="1_0id8j"]
+[ext_resource type="Script" uid="uid://b0h4sk6sjr0jm" path="res://pointhandle.gd" id="2_mv4x0"]
+
+[node name="start" type="Sprite2D"]
+z_index = 1
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_0id8j")
+hframes = 2
+
+[node name="handle" type="Button" parent="."]
+visible = false
+modulate = Color(18.892157, 0, 0, 1)
+offset_left = -45.0
+offset_top = -14.0
+offset_right = -19.285715
+offset_bottom = 11.714283
+pivot_offset = Vector2(13, 13)
+script = ExtResource("2_mv4x0")

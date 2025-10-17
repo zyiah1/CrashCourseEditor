@@ -340,6 +340,8 @@ func itemplace():
 				instance.rail = EndMove
 				instance.Param1 = 0
 			if instance != null:
+				$Cam.railplacing = true
+				$Cam.shiftmode = false
 				add_child(instance)
 				lineplacing = false
 				out()

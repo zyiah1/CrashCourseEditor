@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name Rotate
 
 var loading = false
 

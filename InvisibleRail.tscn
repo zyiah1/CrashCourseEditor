@@ -1,20 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://drb0tg25rfxfi"]
+[gd_scene load_steps=18 format=3 uid="uid://drb0tg25rfxfi"]
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_sxmit"]
 [ext_resource type="PackedScene" uid="uid://dmncn18nl6sl6" path="res://Bigpoint.tscn" id="2_4dti2"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_4dti2"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_eje4y"]
 [ext_resource type="Texture2D" uid="uid://f1etgbamm888" path="res://pointinvisible.png" id="3_q6xj1"]
 [ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="4_6fj4e"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5_2adph"]
 [ext_resource type="Texture2D" uid="uid://qy03g08go247" path="res://railinvisible.png" id="5_4dti2"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_owggh"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="6_eje4y"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="7_owggh"]
-
-[sub_resource type="StyleBoxEmpty" id="3"]
-
-[sub_resource type="StyleBoxEmpty" id="1"]
-
-[sub_resource type="StyleBoxEmpty" id="2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubil0"]
 texture = ExtResource("6_eje4y")
@@ -201,28 +197,13 @@ color = Color(0.745, 0.745, 0.745, 1)
 size = 27.0
 Param0 = "0"
 
-[node name="start" type="Sprite2D" parent="."]
-z_index = 1
+[node name="start" parent="." instance=ExtResource("3_eje4y")]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_q6xj1")
-hframes = 2
 
-[node name="end" type="Sprite2D" parent="."]
-z_index = 1
+[node name="end" parent="." instance=ExtResource("5_owggh")]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_q6xj1")
-hframes = 2
-
-[node name="Button" type="Button" parent="end"]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
-theme_override_styles/focus = SubResource("3")
-theme_override_styles/disabled = SubResource("3")
-theme_override_styles/hover = SubResource("1")
-theme_override_styles/pressed = SubResource("2")
-theme_override_styles/normal = SubResource("3")
 
 [node name="pitch" type="Control" parent="."]
 z_index = 5
@@ -233,6 +214,7 @@ focus_mode = 2
 script = ExtResource("4_6fj4e")
 
 [node name="slider" type="HSlider" parent="pitch"]
+layout_mode = 0
 offset_left = -54.0
 offset_top = -40.0
 offset_right = 218.0
@@ -248,6 +230,7 @@ tick_count = 9
 ticks_on_borders = true
 
 [node name="number" type="RichTextLabel" parent="pitch"]
+layout_mode = 0
 offset_left = -53.0
 offset_top = -61.0
 offset_right = 477.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ch0hxchdfht5l"]
+[gd_scene load_steps=24 format=3 uid="uid://ch0hxchdfht5l"]
 
 [ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="1"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
 [ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="4_urgny"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="5_43q7b"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="5_m3osh"]
 [ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/RotationTextFilter.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://bwp2oalixxe3l" path="res://pivotEnd.png" id="7"]
@@ -13,18 +14,13 @@
 [ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="8_fye7n"]
 [ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="9_mbffj"]
 [ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="10_43q7b"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="12_i7fgm"]
 
 [sub_resource type="StyleBoxEmpty" id="17"]
 
-[sub_resource type="StyleBoxEmpty" id="15"]
-
 [sub_resource type="StyleBoxEmpty" id="16"]
 
-[sub_resource type="StyleBoxEmpty" id="10"]
-
-[sub_resource type="StyleBoxEmpty" id="8"]
-
-[sub_resource type="StyleBoxEmpty" id="9"]
+[sub_resource type="StyleBoxEmpty" id="15"]
 
 [sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("5")])
@@ -94,11 +90,9 @@ Param0 = 3392
 color = Color(0.75, 0.2, 0.13, 1)
 railtexture = ExtResource("3_epxp8")
 
-[node name="start" type="Sprite2D" parent="Spin"]
+[node name="start" parent="Spin" instance=ExtResource("5_43q7b")]
 visible = false
-scale = Vector2(0.35, 0.35)
 texture = ExtResource("4")
-hframes = 2
 
 [node name="crank" type="Node2D" parent="Spin"]
 script = ExtResource("4_urgny")
@@ -119,11 +113,11 @@ offset_left = -11.0
 offset_top = -10.0
 offset_right = 11.0
 offset_bottom = 10.0
-theme_override_styles/focus = SubResource("17")
-theme_override_styles/disabled = SubResource("17")
-theme_override_styles/hover = SubResource("15")
-theme_override_styles/pressed = SubResource("16")
 theme_override_styles/normal = SubResource("17")
+theme_override_styles/pressed = SubResource("16")
+theme_override_styles/hover = SubResource("15")
+theme_override_styles/disabled = SubResource("17")
+theme_override_styles/focus = SubResource("17")
 
 [node name="crank2" type="Node2D" parent="Spin"]
 visible = false
@@ -136,21 +130,8 @@ z_as_relative = false
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("10_43q7b")
 
-[node name="end" type="Sprite2D" parent="Spin"]
-scale = Vector2(0.35, 0.35)
+[node name="end" parent="Spin" instance=ExtResource("12_i7fgm")]
 texture = ExtResource("4")
-hframes = 2
-
-[node name="Button" type="Button" parent="Spin/end"]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
-theme_override_styles/focus = SubResource("10")
-theme_override_styles/disabled = SubResource("10")
-theme_override_styles/hover = SubResource("8")
-theme_override_styles/pressed = SubResource("9")
-theme_override_styles/normal = SubResource("10")
 
 [node name="rotation" type="TextEdit" parent="Spin"]
 modulate = Color(1, 1, 1, 0.501961)
@@ -182,8 +163,6 @@ autoplay = "start"
 [connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
 [connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
 [connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
-[connection signal="button_down" from="Spin/end/Button" to="Spin" method="_on_Button_button_down"]
-[connection signal="button_up" from="Spin/end/Button" to="Spin" method="_on_Button_button_up"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]
 [connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank" method="_on_rotation_rotationupdated"]
 [connection signal="text_changed" from="Spin/rotation" to="Spin/rotation" method="_on_rotation_text_changed"]

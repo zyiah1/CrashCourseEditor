@@ -1,19 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://co0oxneko0l0l"]
+[gd_scene load_steps=15 format=3 uid="uid://co0oxneko0l0l"]
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_j0uo1"]
-[ext_resource type="Texture2D" uid="uid://xp7hguu2wcws" path="res://point.png" id="2_km2uj"]
-[ext_resource type="Script" uid="uid://b0h4sk6sjr0jm" path="res://pointhandle.gd" id="2_p2wj3"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="2_p2wj3"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_cpfae"]
 [ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="3_imn10"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="3_t6lfb"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="4_p2wj3"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_t6lfb"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="6_3mfx3"]
-
-[sub_resource type="StyleBoxEmpty" id="3"]
-
-[sub_resource type="StyleBoxEmpty" id="2"]
-
-[sub_resource type="StyleBoxEmpty" id="1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfggq"]
 texture = ExtResource("5_t6lfb")
@@ -196,48 +190,9 @@ z_index = -1
 z_as_relative = false
 script = ExtResource("1_j0uo1")
 
-[node name="start" type="Sprite2D" parent="."]
-z_index = 1
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_km2uj")
-hframes = 2
+[node name="start" parent="." instance=ExtResource("2_p2wj3")]
 
-[node name="handle" type="Button" parent="start"]
-visible = false
-modulate = Color(18.892157, 0, 0, 1)
-offset_left = -45.0
-offset_top = -14.0
-offset_right = -19.285715
-offset_bottom = 11.714283
-pivot_offset = Vector2(13, 13)
-script = ExtResource("2_p2wj3")
-
-[node name="end" type="Sprite2D" parent="."]
-z_index = 1
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_km2uj")
-hframes = 2
-
-[node name="Button" type="Button" parent="end"]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
-theme_override_styles/normal = SubResource("3")
-theme_override_styles/pressed = SubResource("2")
-theme_override_styles/hover = SubResource("1")
-theme_override_styles/disabled = SubResource("3")
-theme_override_styles/focus = SubResource("3")
-
-[node name="handle" type="Button" parent="end"]
-visible = false
-modulate = Color(18.892157, 0, 0, 1)
-offset_left = 20.0
-offset_top = -14.0
-offset_right = 45.714287
-offset_bottom = 11.714283
-pivot_offset = Vector2(13, 13)
-script = ExtResource("2_p2wj3")
+[node name="end" parent="." instance=ExtResource("3_t6lfb")]
 
 [node name="pitch" type="Control" parent="."]
 z_index = 5

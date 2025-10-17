@@ -17,6 +17,8 @@ var Param1: int = -1 #visiblie
 var color = Color(.2,.2,.2)
 @export var rail: PackedScene = preload("res://RMove.tscn")
 
+var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
+var fillmode:bool = false
 
 var previousdata: PackedStringArray
 var previousend: PackedStringArray
@@ -338,7 +340,7 @@ func _process(delta):
 			
 			mode = 69
 			
-	if locked == false:
+	if locked == false and !fillmode:
 		if Input.is_action_just_pressed("addpoint"):
 				newseg()
 				
@@ -349,6 +351,9 @@ func _process(delta):
 				mode = 1
 				locked = true
 				buttons.append(get_node("end/Button"))
+	if Input.is_action_just_pressed("Shift"):
+		fillmode = not fillmode
+		
 
 func newseg():
 	if mode == 0:
@@ -394,6 +399,8 @@ func done(pos):
 		child(pos)
 		buttons.append(get_node("end/Button"))
 
+
+
 func child(pos):
 	if mode == 1:
 		var railinst = rail.instantiate()
@@ -409,9 +416,46 @@ func child(pos):
 			add_to_group(group)
 		mode = 69 #nice
 
+func _input(event):
+	if event is InputEventMouseButton and fillmode and locked == false and loading == false:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			fillamount += 1
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
+			fillamount -= 1
+
+func pointcurve():
+	if fillmode and locked == false:
+		var changerate = 1.0/fillamount
+		var weight = changerate
+		var dots = []
+		var cycle = fillamount
+		while cycle > 1:
+			dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
+			weight += changerate
+			cycle -= 1
+		for point in dots:
+			draw_circle(point,5,Color.DIM_GRAY)
+		if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
+			dots.append($end.position)
+			for point in dots:
+				$end.position = point
+				newseg()
+			fillmode = false
+			$start/handle.position = Vector2(-45,-14)
+			$end/handle.position = Vector2(20,-14)
+		if Input.is_action_just_pressed("bridge"):
+			loading = true
+			if mode == 0:
+				get_parent().idnum += 2
+				mode = 1
+				locked = true
+				buttons.append(get_node("end/Button"))
+
 func _draw():
 	if locked == false and loading == false:
-		$end.position = get_parent().roundedmousepos
+		if !fillmode:
+			$end.position = get_parent().roundedmousepos
+		pointcurve()
 	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25)
 	for lineb in lines:
 		draw_line(lineb[0],lineb[1],color,2.25)

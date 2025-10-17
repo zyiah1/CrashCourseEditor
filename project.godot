@@ -47,6 +47,7 @@ folder_colors={
 "res://UI/": "blue",
 "res://fonts/": "pink",
 "res://railart/": "teal",
+"res://shared scenes/": "yellow",
 "res://shared scripts/": "green"
 }
 

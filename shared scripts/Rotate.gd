@@ -21,6 +21,9 @@ var firstpoint = true
 
 var rail
 
+var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
+var fillmode:bool = false
+
 func focus_entered():
 	$rotation.show()
 
@@ -395,7 +398,7 @@ func _process(delta):
 					return
 	else:
 		modulate = Color.WHITE
-	if locked == false:
+	if locked == false and fillmode == false:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
 			
@@ -410,6 +413,8 @@ func _process(delta):
 			$rotation.grab_focus()
 			$rotation.set_caret_column(3)
 	$crank.target = float($rotation.text)
+	if Input.is_action_just_pressed("Shift"):
+		fillmode = not fillmode
 		
 
 func newseg():
@@ -469,10 +474,48 @@ func done():
 	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
+func _input(event):
+	if event is InputEventMouseButton and fillmode and locked == false and loading == false:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			fillamount += 1
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
+			fillamount -= 1
+
+func pointcurve():
+	if fillmode and locked == false:
+		var changerate = 1.0/fillamount
+		var weight = changerate
+		var dots = []
+		var cycle = fillamount
+		while cycle > 1:
+			dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
+			weight += changerate
+			cycle -= 1
+		for point in dots:
+			draw_circle(point,5,Color.DIM_GRAY)
+		if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
+			dots.append($end.position)
+			for point in dots:
+				$end.position = point
+				newseg()
+			fillmode = false
+			$start/handle.position = Vector2(-45,-14)
+			$end/handle.position = Vector2(20,-14)
+		if Input.is_action_just_pressed("bridge"):
+			loading = true
+			locked = true
+			end[9] = "              param1: " + str(-float($rotation.text)) #max degree tilt
+			get_parent().get_parent().idnum += 1
+			get_parent().get_parent().lineplacing = true
+			buttons.append(get_node("end/Button"))
+			$rotation.grab_focus()
+			$rotation.set_caret_column(3)
 
 func _draw():
 	if loading == false and locked == false:
-		$end.position = owner.get_parent().roundedmousepos
+		if !fillmode:
+			$end.position = owner.get_parent().roundedmousepos
+		pointcurve()
 	draw_line($start.position,$end.position,color,4.5)
 
 func EXPORT():

@@ -1,19 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://b1hvlsqh6i1gy"]
+[gd_scene load_steps=16 format=3 uid="uid://b1hvlsqh6i1gy"]
 
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_le88g"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="4_e2tum"]
 [ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="4_vbgdc"]
 [ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_4qldv"]
 [ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="6"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="6_7xp7g"]
 [ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="7"]
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="8"]
-
-[sub_resource type="StyleBoxEmpty" id="7"]
-
-[sub_resource type="StyleBoxEmpty" id="5"]
-
-[sub_resource type="StyleBoxEmpty" id="6"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("6")])
@@ -83,26 +79,11 @@ Param0 = 2392
 reset = -1
 color = Color(0.717647, 0.2, 0.133333, 1)
 
-[node name="start" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
+[node name="start" parent="." instance=ExtResource("4_e2tum")]
 texture = ExtResource("4")
-hframes = 2
 
-[node name="end" type="Sprite2D" parent="."]
-scale = Vector2(0.35, 0.35)
+[node name="end" parent="." instance=ExtResource("5_4qldv")]
 texture = ExtResource("4")
-hframes = 2
-
-[node name="Button" type="Button" parent="end"]
-offset_left = -17.0
-offset_top = -17.0
-offset_right = 17.0
-offset_bottom = 17.0
-theme_override_styles/focus = SubResource("7")
-theme_override_styles/disabled = SubResource("7")
-theme_override_styles/hover = SubResource("5")
-theme_override_styles/pressed = SubResource("6")
-theme_override_styles/normal = SubResource("7")
 
 [node name="Mid" type="Sprite2D" parent="."]
 z_index = 2

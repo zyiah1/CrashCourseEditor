@@ -1,8 +1,10 @@
 extends Button
 
+@onready var rail = owner.get_parent()
+
 func _process(delta):
-	visible = owner.fillmode
+	visible = rail.fillmode
 	if button_pressed:
 		global_position = get_global_mouse_position()+Vector2(-7,-7)
-	if owner.locked:
+	if rail.locked:
 		queue_free()
