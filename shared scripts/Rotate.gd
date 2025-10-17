@@ -361,7 +361,6 @@ func _process(delta):
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
-
 	
 	var amount = 0
 	var pressed = false

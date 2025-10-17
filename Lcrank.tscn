@@ -71,8 +71,9 @@ z_index = -1
 z_as_relative = false
 script = ExtResource("1")
 pointtexture = ExtResource("2")
-Param0 = 2110
 midImage = ExtResource("4")
+color = Color(0.9647059, 0.99215686, 0.99215686, 1)
+Param0 = "2110"
 
 [node name="start" parent="." instance=ExtResource("4_hgf2n")]
 texture = ExtResource("2")

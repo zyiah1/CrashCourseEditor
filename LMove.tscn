@@ -70,6 +70,8 @@ z_index = -1
 z_as_relative = false
 script = ExtResource("1_h6hrl")
 pointtexture = ExtResource("3_c3smo")
+color = Color(0.9647059, 0.99215686, 0.99215686, 1)
+Param0 = "2140"
 
 [node name="start" parent="." instance=ExtResource("3_1rbj8")]
 texture = ExtResource("3_c3smo")

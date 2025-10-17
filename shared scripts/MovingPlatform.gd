@@ -1,28 +1,17 @@
-extends Node2D
+extends Rail
 
 const pointscene: PackedScene = preload("res://point.tscn")
 
 @export var pointtexture: Texture2D = preload("res://pointR.png")
 @export var railtexture: Texture2D = preload("res://railwhite.png")
-@export var Param0: int = 2140
 @export var reset: int = 1
 @export var midImage:Texture2D = null
-@export var color: Color = Color(.92,.98,.98)
 
-var locked = false
-var segments = 1
 var line = null
-var lines = []
-var points = []
 var mode = 0 #0 = path 1 = platform
-var loading = false
 var path = []
 var speed = 2
-var rail
-@onready var idnum = get_parent().idnum + 1
 
-var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
-var fillmode:bool = false
 
 func focus_entered():
 	$rotation.visible = true
@@ -73,34 +62,6 @@ func _ready():
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
 "                  unit_name: Point"]
-
-@onready var dataseg:PackedStringArray = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-
-var data:PackedStringArray
-
 
 
 @onready var endplat:PackedStringArray = ["              closed: CLOSE",
@@ -218,12 +179,7 @@ func _process(delta):
 			
 		if Input.is_action_just_pressed("bridge"):
 			newseg()
-			if mode == 0:
-				locked = true
-				
-				get_parent().get_parent().lineplacing = true
-				$rotation.grab_focus()
-				$rotation.set_caret_column(3)
+			bridge()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
 
@@ -288,33 +244,12 @@ func _input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
 			fillamount -= 1
 
-func pointcurve():
-	if fillmode and locked == false:
-		var changerate = 1.0/fillamount
-		var weight = changerate
-		var dots = []
-		var cycle = fillamount
-		while cycle > 1:
-			dots.append($start.position.cubic_interpolate($end.position,$start/handle.global_position+$start/handle.position,$end/handle.global_position+$end/handle.position,weight))
-			weight += changerate
-			cycle -= 1
-		for point in dots:
-			draw_circle(point,5,Color.DIM_GRAY)
-		if Input.is_action_just_pressed("addpoint") and not $end/handle.is_hovered() and not $start/handle.is_hovered() or Input.is_action_just_pressed("bridge"):
-			dots.append($end.position)
-			for point in dots:
-				$end.position = point
-				newseg()
-			fillmode = false
-			$start/handle.position = Vector2(-45,-14)
-			$end/handle.position = Vector2(20,-14)
-		if Input.is_action_just_pressed("bridge"):
-			loading = true
-			if mode == 0:
-				locked = true
-				get_parent().get_parent().lineplacing = true
-				$rotation.grab_focus()
-				$rotation.set_caret_column(3)
+func bridge():
+	if mode == 0:
+		locked = true
+		get_parent().get_parent().lineplacing = true
+		$rotation.grab_focus()
+		$rotation.set_caret_column(3)
 
 func _draw():
 	if locked == false and loading == false:

@@ -70,8 +70,9 @@ _data = {
 z_index = -1
 z_as_relative = false
 script = ExtResource("1")
-Param0 = 2111
 midImage = ExtResource("4")
+color = Color(0.9647059, 0.99215686, 0.99215686, 1)
+Param0 = "2111"
 
 [node name="start" parent="." instance=ExtResource("3_k53cv")]
 texture = ExtResource("2")

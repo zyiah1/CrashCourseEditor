@@ -71,8 +71,9 @@ z_index = -1
 z_as_relative = false
 script = ExtResource("1_dhodj")
 pointtexture = ExtResource("4_exd31")
-Param0 = 2150
 midImage = ExtResource("3_pipw8")
+color = Color(0.9647059, 0.99215686, 0.99215686, 1)
+Param0 = "2150"
 
 [node name="start" parent="." instance=ExtResource("4_lvdfv")]
 

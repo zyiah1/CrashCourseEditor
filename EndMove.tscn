@@ -75,9 +75,9 @@ z_as_relative = false
 script = ExtResource("8")
 pointtexture = ExtResource("4")
 railtexture = ExtResource("3_le88g")
-Param0 = 2392
 reset = -1
 color = Color(0.717647, 0.2, 0.133333, 1)
+Param0 = "2392"
 
 [node name="start" parent="." instance=ExtResource("4_e2tum")]
 texture = ExtResource("4")
