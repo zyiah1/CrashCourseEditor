@@ -31,6 +31,7 @@ func focus_exited():
 	$rotation.hide()
 
 func _ready():
+	$start.show()
 	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
 	add_child(inst)
@@ -428,7 +429,7 @@ func newseg():
 	if firstpoint == true:
 		newpoint.hide()
 		firstpoint = false
-		$start.show()
+		$start.self_modulate.a = 1
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
@@ -511,11 +512,11 @@ func pointcurve():
 			$rotation.set_caret_column(3)
 
 func _draw():
-	if loading == false and locked == false:
-		if !fillmode:
-			$end.position = owner.get_parent().roundedmousepos
-		pointcurve()
+	if loading == false and locked == false and fillmode == false:
+		$end.position = owner.get_parent().roundedmousepos
 	draw_line($start.position,$end.position,color,4.5)
+	if loading == false and locked == false:
+		pointcurve()
 
 func EXPORT():
 	if end != null:

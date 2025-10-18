@@ -87,7 +87,7 @@ script = ExtResource("1")
 Param0 = 3141
 
 [node name="start" parent="Spin" instance=ExtResource("3_sb45f")]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("7")
 
 [node name="crank" type="Node2D" parent="Spin"]
