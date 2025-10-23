@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyb0acj3bboid"]
+[gd_scene load_steps=9 format=3 uid="uid://cyb0acj3bboid"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_dhodj"]
 [ext_resource type="Texture2D" uid="uid://bmgcy2bb5iujm" path="res://fan.png" id="3_pipw8"]
@@ -7,64 +7,7 @@
 [ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="5_ce2sr"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_d2s6a"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="6_8plri"]
-[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="7_1jyt3"]
-[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="8_ufytn"]
-[ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="9_s1iyk"]
-
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("8_ufytn")])
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-
-[sub_resource type="ImageTexture" id="2"]
-
-[sub_resource type="Animation" id="3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rotation:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="4"]
-resource_name = "start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rotation:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.153893, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.1), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xvb6"]
-_data = {
-&"RESET": SubResource("3"),
-&"start": SubResource("4")
-}
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/rotationbox.tscn" id="8_tgdb0"]
 
 [node name="FanMove" type="Node2D" groups=["Moving"]]
 z_index = -1
@@ -87,32 +30,4 @@ scale = Vector2(0.35, 0.35)
 script = ExtResource("5_ce2sr")
 previewtexture = ExtResource("6_8plri")
 
-[node name="rotation" type="TextEdit" parent="."]
-modulate = Color(1, 1, 1, 0.478431)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -100.0
-offset_right = 179.0
-offset_bottom = -39.9997
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 100)
-theme = ExtResource("7_1jyt3")
-theme_override_fonts/font = SubResource("1")
-theme_override_icons/tab = SubResource("2")
-theme_override_icons/space = SubResource("2")
-text = "2"
-script = ExtResource("9_s1iyk")
-
-[node name="startup" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6xvb6")
-}
-autoplay = "start"
-
-[connection signal="change" from="rotation" to="." method="_on_rotation_change"]
-[connection signal="text_changed" from="rotation" to="rotation" method="_on_rotation_text_changed"]
+[node name="rotation" parent="." instance=ExtResource("8_tgdb0")]

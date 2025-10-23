@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://c28okgwupv55"]
+
+[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="1_6hw6y"]
+[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="2_x2a8r"]
+[ext_resource type="Script" uid="uid://c7r5tr2gau3b3" path="res://Scripts/speed.gd" id="3_2jrng"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="4_hdj82"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("2_x2a8r")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
+
+[sub_resource type="ImageTexture" id="2"]
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotation:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotation:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.153893, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ex48n"]
+_data = {
+&"RESET": SubResource("3"),
+&"start": SubResource("4")
+}
+
+[node name="rotation" type="TextEdit"]
+self_modulate = Color(1, 1, 1, 0.536)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -88.0
+offset_right = 179.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 100)
+theme = ExtResource("1_6hw6y")
+theme_override_fonts/font = SubResource("1")
+theme_override_icons/tab = SubResource("2")
+theme_override_icons/space = SubResource("2")
+text = "2"
+script = ExtResource("3_2jrng")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 140.0
+offset_bottom = 18.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_hdj82")
+text = "Speed:"
+
+[node name="startup" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ex48n")
+}
+autoplay = "start"

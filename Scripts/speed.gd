@@ -3,6 +3,10 @@ extends TextEdit
 var prev = "2"
 signal change
 
+func _ready():
+	connect("change",Callable(get_parent(),"_on_rotation_change"))
+	connect("text_changed",Callable(self,"_on_rotation_text_changed"))
+
 func _on_rotation_text_changed():
 	if text.is_valid_float() or text == "":
 		if text.count(".",0,10) == 1:
