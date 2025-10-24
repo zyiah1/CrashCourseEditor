@@ -40,9 +40,7 @@ PopupMenu/icons/radio_unchecked = ExtResource("9")
 PopupMenu/styles/hover = SubResource("14")
 PopupMenu/styles/panel = SubResource("15")
 
-[sub_resource type="StyleBoxTexture" id="20"]
-
-[sub_resource type="StyleBoxTexture" id="18"]
+[sub_resource type="StyleBoxTexture" id="21"]
 texture = ExtResource("2")
 region_rect = Rect2(0, 0, 733, 320)
 
@@ -50,9 +48,11 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("1")
 region_rect = Rect2(0, 0, 733, 320)
 
-[sub_resource type="StyleBoxTexture" id="21"]
+[sub_resource type="StyleBoxTexture" id="18"]
 texture = ExtResource("2")
 region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="20"]
 
 [sub_resource type="CompressedTexture2D" id="17"]
 
@@ -424,10 +424,10 @@ offset_bottom = 293.0
 theme = SubResource("16")
 theme_override_fonts/font = ExtResource("8")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("20")
-theme_override_styles/hover = SubResource("18")
-theme_override_styles/pressed = SubResource("19")
 theme_override_styles/normal = SubResource("21")
+theme_override_styles/pressed = SubResource("19")
+theme_override_styles/hover = SubResource("18")
+theme_override_styles/focus = SubResource("20")
 theme_override_icons/arrow = SubResource("17")
 alignment = 1
 
@@ -550,19 +550,6 @@ theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Speed:"
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 326.0
-offset_top = 358.0
-offset_right = 661.0
-offset_bottom = 460.0
-scale = Vector2(0.4, 0.4)
-pivot_offset = Vector2(85, 19)
-theme_override_fonts/normal_font = SubResource("23")
-theme_override_font_sizes/normal_font_size = 26
-bbcode_enabled = true
-text = "*only shown in game"
-
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 170.0
@@ -615,6 +602,7 @@ alignment = 1
 allow_reselect = true
 
 [node name="RichTextLabel15" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
 offset_right = 638.0
@@ -628,6 +616,7 @@ text = "Rail Type:"
 horizontal_alignment = 1
 
 [node name="Type" type="OptionButton" parent="."]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 67.0
 offset_right = 635.0

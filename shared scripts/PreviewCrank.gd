@@ -19,8 +19,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("back"):
 		rotation_degrees = 0
 	if rotation_degrees == target:
-		get_parent().speed = 1
-		$cooldown.wait_time = 1
 		if get_parent().get_parent().get_parent().movingLoop == true:
 			if $Timer.is_stopped():
 				$Timer.start(.3)
@@ -29,13 +27,6 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	rotation_degrees = 0
-
-
-func _on_cooldown_timeout():
-	if $cooldown.wait_time - .1 >= 0:
-		$cooldown.wait_time -= .1
-	get_parent().speed += 2
-
 
 func _on_rotation_rotationupdated(string):
 	target = float(string)

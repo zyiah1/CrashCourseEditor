@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="3_3ocbe"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="4_gh12m"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="4_uwnrp"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/rotationbox.tscn" id="7_ltj0c"]
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="7_ltj0c"]
 
 [node name="RMove" type="Node2D" groups=["Moving"]]
 z_index = -1
@@ -29,4 +29,4 @@ scale = Vector2(0.35, 0.35)
 script = ExtResource("3_3ocbe")
 previewtexture = ExtResource("4_gh12m")
 
-[node name="rotation" parent="." instance=ExtResource("7_ltj0c")]
+[node name="speed" parent="." instance=ExtResource("7_ltj0c")]

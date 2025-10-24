@@ -135,8 +135,8 @@ func reposition():
 				text = str(int(text.erase(0,22)))
 			else:
 				text = str(float(text.erase(0,22)))
-			childrail.get_node("rotation").text = text
-			childrail._on_rotation_change()
+			childrail.get_node("speed").text = text
+			childrail._on_speed_change()
 	 # cycle through child data
 	childrail.lines = changepoints(childrail.data,childrail.get_node("start"),childrail.get_node("end"),childrail.points,childrail.lines)
 	#visible and invisible rail color differ

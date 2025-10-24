@@ -1,10 +1,9 @@
 extends TextEdit
-signal rotationupdated(string)
 
 @onready var prev = text
 
 func _on_rotation_text_changed():
-	emit_signal("rotationupdated",text)
+	get_parent().end[9] = "              param1: " + str(-int(text))
 	if text.is_valid_int() or text == "" or text == "-":
 		if text.length() < 6:
 			prev = text

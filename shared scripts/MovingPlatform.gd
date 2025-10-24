@@ -14,10 +14,10 @@ var speed = 2
 
 
 func focus_entered():
-	$rotation.visible = true
+	$speed.visible = true
 
 func focus_exited():
-	$rotation.visible = false
+	$speed.visible = false
 
 func _ready():
 	var inst = load("res://rail.tscn").instantiate()
@@ -27,16 +27,16 @@ func _ready():
 	
 	rail = inst
 	rail.texture = railtexture
-	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
-	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
+	$speed.connect("focus_entered", Callable(self, "focus_entered"))
+	$speed.connect("focus_exited", Callable(self, "focus_exited"))
 	get_parent().buttons.append($end/Button)
-	$rotation.text = str(speed)
+	$speed.text = str(speed)
 	if loading == false:
 		$start.position = get_parent().get_parent().roundedmousepos
 		rail.add_point($start.position)
 		$preview.rail.add_point($start.position)
 	else:
-		$rotation.hide()
+		$speed.hide()
 	data = ["            - Points:",
 "                - comment: !l -1",
 "                  dir_x: 0.00000",
@@ -148,8 +148,8 @@ func _ready():
 #3390 Rotate after 10th checkpoint is activated
 #3391 Rotate after 11th checkpoint is activated
 #3392 Rotate when level beat
-#4300 param6 is how much to move camera y position (- = down)
-#4900 invisble when I tried to load it (Might just be another way to do invisible track
+#4300 Auto Rail:param6 is how much to move camera y position (- = down)
+#4900 invisble when I tried to load it (Might just be another way to do invisible path rail
 #5010 Red| Rotate L Stick Message (Message things dont show if Param7 == -1, I think its delay before the message is shown)
 #5011 Red| Rotate R Stick Message
 #5012 Red| Tilt L Stick Message
@@ -169,10 +169,10 @@ func _ready():
 
 
 func _process(delta):
-	$rotation.position = $start.position - Vector2(0,100)
+	$speed.position = $start.position - Vector2(0,100)
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
-		$rotation.hide()
+		$speed.hide()
 	if locked == false and fillmode == false:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
@@ -248,8 +248,8 @@ func bridge():
 	if mode == 0:
 		locked = true
 		get_parent().get_parent().lineplacing = true
-		$rotation.grab_focus()
-		$rotation.set_caret_column(3)
+		$speed.grab_focus()
+		$speed.set_caret_column(3)
 
 func _draw():
 	if locked == false and loading == false:
@@ -268,14 +268,8 @@ func _draw():
 func EXPORT():
 	get_parent().get_parent().bridgedata += get_parent().data + get_parent().end + data + endplat
 
-
-
-
-
-
-
-func _on_rotation_change():
-	speed = float($rotation.text)
+func _on_speed_change():
+	speed = float($speed.text)
 	var loop = 0
 	for dat in endplat:
 		if dat.begins_with("              param2:"):

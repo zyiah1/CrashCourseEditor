@@ -1,83 +1,24 @@
-[gd_scene load_steps=23 format=3 uid="uid://b672m6mteuaov"]
+[gd_scene load_steps=17 format=3 uid="uid://b672m6mteuaov"]
 
 [ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_sb45f"]
 [ext_resource type="Texture2D" uid="uid://dalli7fv0djlw" path="res://pivotR.png" id="4"]
-[ext_resource type="FontFile" uid="uid://6x1qkf7uhasi" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="5"]
-[ext_resource type="Script" uid="uid://cno1fkvq2fyqr" path="res://Scripts/RotationTextFilter.gd" id="6"]
 [ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="6_j4f67"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="7_2hg8k"]
 [ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="7_m6lm2"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="8_8aq0s"]
-[ext_resource type="Theme" uid="uid://ju56rot2fdk1" path="res://BOX.tres" id="9"]
 [ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="9_sb45f"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="11_e24v3"]
+[ext_resource type="PackedScene" uid="uid://bijwdiskmx55h" path="res://shared scenes/rotationbox.tscn" id="12_m6lm2"]
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="13_8aq0s"]
 
 [sub_resource type="StyleBoxEmpty" id="13"]
 
 [sub_resource type="StyleBoxEmpty" id="12"]
 
 [sub_resource type="StyleBoxEmpty" id="11"]
-
-[sub_resource type="FontFile" id="1"]
-fallbacks = Array[Font]([ExtResource("5")])
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
-
-[sub_resource type="ImageTexture" id="5"]
-
-[sub_resource type="Animation" id="6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rotation:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="7"]
-resource_name = "start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("rotation:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.153893, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.1), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_doecp"]
-_data = {
-&"RESET": SubResource("6"),
-&"start": SubResource("7")
-}
 
 [node name="RRotate" type="Sprite2D"]
 script = ExtResource("8")
@@ -129,34 +70,15 @@ texture = ExtResource("9_sb45f")
 [node name="end" parent="Spin" instance=ExtResource("11_e24v3")]
 texture = ExtResource("7")
 
-[node name="rotation" type="TextEdit" parent="Spin"]
-modulate = Color(1, 1, 1, 0.501961)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -19.6077
-offset_top = -100.078
-offset_right = 219.392
-offset_bottom = -40.0777
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(20, 100)
-theme = ExtResource("9")
-theme_override_fonts/font = SubResource("1")
-theme_override_icons/tab = SubResource("5")
-theme_override_icons/space = SubResource("5")
-script = ExtResource("6")
+[node name="rotation" parent="Spin" instance=ExtResource("12_m6lm2")]
 
-[node name="startup" type="AnimationPlayer" parent="Spin"]
-libraries = {
-&"": SubResource("AnimationLibrary_doecp")
-}
-autoplay = "start"
+[node name="speed" parent="Spin" instance=ExtResource("13_8aq0s")]
+offset_left = -20.0
+offset_top = -156.0
+offset_right = 219.0
+offset_bottom = -103.0
+pivot_offset = Vector2(20, 156.26)
+text = "2.5"
 
 [connection signal="timeout" from="Spin/crank/Timer" to="Spin/crank" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
-[connection signal="rotationupdated" from="Spin/rotation" to="Spin" method="_on_rotation_rotationupdated"]
-[connection signal="rotationupdated" from="Spin/rotation" to="Spin/crank" method="_on_rotation_rotationupdated"]
-[connection signal="text_changed" from="Spin/rotation" to="Spin/rotation" method="_on_rotation_text_changed"]

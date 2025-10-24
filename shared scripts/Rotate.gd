@@ -14,7 +14,7 @@ var segments = 1
 var lines = []
 var points = []
 var loading = false
-var speed = 1
+var speed = 2.5
 var drag = false
 var buttons = []
 var firstpoint = true
@@ -26,9 +26,11 @@ var fillmode:bool = false
 
 func focus_entered():
 	$rotation.show()
+	$speed.show()
 
 func focus_exited():
 	$rotation.hide()
+	$speed.hide()
 
 func _ready():
 	$start.show()
@@ -42,13 +44,17 @@ func _ready():
 	rail.texture = railtexture
 	$rotation.connect("focus_entered", Callable(self, "focus_entered"))
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
+	$speed.connect("focus_entered", Callable(self, "focus_entered"))
+	$speed.connect("focus_exited", Callable(self, "focus_exited"))
 	if loading == false:
 		$start.position = owner.get_parent().roundedmousepos
 	else:
 		$rotation.hide()
+		$speed.hide()
 		
 	$crank.position = $start.position
 	$rotation.position = $crank.position + Vector2(-20,-100)
+	$speed.position = $crank.position + Vector2(-20,-156)
 	buttons.append($crank/Button)
 	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
@@ -318,11 +324,16 @@ func reposition():
 		$rotation.text = str(-int(text))
 	else:
 		$rotation.text = str(-float(text))
-	
+	text = end[10].erase(0,22)
+	if float(text) == int(text): #keeps number simple
+		$speed.text = str(int(text))
+	else:
+		$speed.text = str(float(text))
 	$crank.target = float($rotation.text)
 	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0
 	$rotation.position = $crank.position + Vector2(-20,-100)
+	$speed.position = $crank.position + Vector2(-20,-156)
 	
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
@@ -362,6 +373,7 @@ func _process(delta):
 	queue_redraw()
 	if Input.is_action_just_pressed("accept"):
 		$rotation.hide()
+		$speed.hide()
 	
 	var amount = 0
 	var pressed = false
@@ -384,7 +396,6 @@ func _process(delta):
 			"delete":
 				modulate = Color.RED
 				if pressed:
-
 					owner.get_parent().delete(owner)
 					owner.get_parent().undolistadd({"Type":"Delete","Node":owner})
 			"proporties":
@@ -465,7 +476,15 @@ func newseg():
 		newpoint.get_node("start").queue_free()
 		newpoint.frame = 0
 
-
+func _on_speed_change():
+	speed = float($speed.text)
+	var loop = 0
+	for dat in end:
+		if dat.begins_with("              param2:"):
+			break
+		loop += 1
+	end[loop] = "              param2: " + str(speed)
+	$crank.rotation_degrees = 0
 
 func done():
 	locked = true
@@ -523,8 +542,3 @@ func EXPORT():
 		if end[9] != null:
 			end[9] = "              param1: " + str(-$crank.target)
 			get_parent().get_parent().bridgedata += data + end
-
-
-
-func _on_rotation_rotationupdated(text):
-	end[9] = "              param1: " + str(-int(text))

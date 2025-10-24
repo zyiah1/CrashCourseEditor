@@ -4,8 +4,8 @@ var prev = "2"
 signal change
 
 func _ready():
-	connect("change",Callable(get_parent(),"_on_rotation_change"))
-	connect("text_changed",Callable(self,"_on_rotation_text_changed"))
+	connect("change",Callable(get_parent(),"_on_speed_change"))
+	prev = text
 
 func _on_rotation_text_changed():
 	if text.is_valid_float() or text == "":
