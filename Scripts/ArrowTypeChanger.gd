@@ -39,7 +39,7 @@ func _ready():
 	ArrowButton.connect("button_down",Callable(self,"FlipArrow"))
 
 func FlipArrow():
-	if owner.get_node("Button").button_pressed and owner.get_parent().item == "edit":
+	if owner.get_node("Button").button_pressed and owner.get_parent().item == "tooledit":
 		
 		if owner.data[9].begins_with("            param0: 1"):
 			owner.data[9] = "            param0: -1.00000"

@@ -175,18 +175,18 @@ func _process(delta):
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
 		match get_parent().item:
-			"edit":
+			"tooledit":
 				modulate = Color.GREEN_YELLOW
 				if pressed and childrail != null:
 					childrail.get_node("speed").show()
 					childrail.get_node("speed").grab_focus()
 					childrail.get_node("speed").set_caret_column(7)
-			"delete":
+			"tooldelete":
 				modulate = Color.RED
 				if pressed:
 					get_parent().delete(self)
 					get_parent().undolistadd({"Type":"Delete","Node":self})
-			"proporties":
+			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed and get_parent().propertypanel == false:
 					get_parent().editednode = self

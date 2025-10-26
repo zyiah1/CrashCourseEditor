@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pf2g7r3n5yta"
-path="res://.godot/imported/toolmove.png-3bfbbb27f942aa6e247b1043924b8738.ctex"
+uid="uid://db0dkeqmljblg"
+path="res://.godot/imported/door.png-3113bd646cda13f17b0c3c6c87a9e963.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://railart/toolmove.png"
-dest_files=["res://.godot/imported/toolmove.png-3bfbbb27f942aa6e247b1043924b8738.ctex"]
+source_file="res://railart/door.png"
+dest_files=["res://.godot/imported/door.png-3113bd646cda13f17b0c3c6c87a9e963.ctex"]
 
 [params]
 

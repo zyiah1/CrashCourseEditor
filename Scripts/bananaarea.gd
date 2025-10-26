@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	text = str(int(owner.data[9].erase(0,20)))
-	if owner.get_node("Button").is_hovered() and owner.get_parent().item == "edit":
+	if owner.get_node("Button").is_hovered() and owner.get_parent().item == "tooledit":
 		if Input.is_action_just_pressed("addpoint"):
 			owner.data[9] = "            param0: "+str(int(owner.data[9].erase(0,20))+1)+".00000"
 		if Input.is_action_just_pressed("bridge"):

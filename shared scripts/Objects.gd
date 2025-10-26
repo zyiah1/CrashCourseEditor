@@ -62,15 +62,15 @@ func _ready():
 	add_to_group("Object")
 
 func _on_Button_button_up():
-	if previoustransform != transform and get_parent().item != "delete" and get_parent().item != "proporties" :
+	if previoustransform != transform and get_parent().item != "delete" and get_parent().item != "toolproperty" :
 		get_parent().undolistadd({"Type":"Transform","Data":[previoustransform,transform],"Node":self})
 
 func _on_Button_button_down():
 	match get_parent().item: 
-		"delete":
+		"tooldelete":
 			get_parent().delete(self)
 			get_parent().undolistadd({"Type":"Delete","Node":self})
-		"proporties":
+		"toolproperty":
 			if get_parent().propertypanel == false:
 				get_parent().editednode = self
 				get_parent().propertypanel = true
@@ -90,20 +90,22 @@ func _process(delta):
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
 		match get_parent().item:
-			"move":
+			"toolmove":
+				$Button.mouse_default_cursor_shape = 6
 				modulate = Color.CORAL
 				if Input.is_action_just_pressed("addpoint"):
 					drag = not drag
-			"edit":
+			"tooledit":
 				modulate = Color.GREEN_YELLOW
-			"delete":
+			"tooldelete":
 				modulate = Color.RED
-			"proporties":
+			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 	else:
+		$Button.mouse_default_cursor_shape = 0
 		modulate = Color.WHITE
 	
-	if drag and get_parent().item == "move" and Input.is_action_pressed("addpoint"):
+	if drag and get_parent().item == "toolmove" and Input.is_action_pressed("addpoint"):
 		position = get_parent().roundedmousepos
 		if rotatable:
 			rotation_degrees += Input.get_axis("ui_left","ui_right")*60*(Input.get_action_strength("Shift")+1)*delta

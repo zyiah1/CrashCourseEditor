@@ -3624,7 +3624,7 @@ text = "							In Editor:
 		  Space 		   ║ Send Object to Back
 			G 			   ║ Toggle Grid
 			Z 			   ║[img={100}]res://railart/toolmove.png[/img]
-			X 			   ║[img={100}]res://railart/tooltrash.png[/img]
+			X 			   ║[img={100}]res://railart/tooldelete.png[/img]
 			C 			   ║[img={100}]res://railart/tooledit.png[/img]
 			V 			   ║[img={100}]res://railart/toolproperty.png[/img]
 		CtrlᐩZ 		   ║ Undo

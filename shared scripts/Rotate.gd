@@ -46,6 +46,7 @@ func _ready():
 	$rotation.connect("focus_exited", Callable(self, "focus_exited"))
 	$speed.connect("focus_entered", Callable(self, "focus_entered"))
 	$speed.connect("focus_exited", Callable(self, "focus_exited"))
+	$speed.set_caret_column(7)
 	if loading == false:
 		$start.position = owner.get_parent().roundedmousepos
 	else:
@@ -387,18 +388,19 @@ func _process(delta):
 		if Input.is_action_just_pressed("MoveToBack"):
 			owner.get_parent().move_child(owner,10)
 		match owner.get_parent().item:
-			"edit":
+			"tooledit":
 				modulate = Color.GREEN_YELLOW
 				if pressed:
 					get_node("rotation").show()
 					get_node("rotation").grab_focus()
 					get_node("rotation").set_caret_column(7)
-			"delete":
+					get_node("speed").set_caret_column(7)
+			"tooldelete":
 				modulate = Color.RED
 				if pressed:
 					owner.get_parent().delete(owner)
 					owner.get_parent().undolistadd({"Type":"Delete","Node":owner})
-			"proporties":
+			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed and owner.get_parent().propertypanel == false:
 					get_parent().get_parent().editednode = self

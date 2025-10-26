@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4hcl7f3ukrqt"
-path="res://.godot/imported/CrankR.png-00c80436e8385e63e89124146e6e5e94.ctex"
+uid="uid://iagtovtfwmhn"
+path="res://.godot/imported/ladder.png-3f33da2f40f8d0ea3835ff95b16d9fbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://railart/CrankR.png"
-dest_files=["res://.godot/imported/CrankR.png-00c80436e8385e63e89124146e6e5e94.ctex"]
+source_file="res://railart/ladder.png"
+dest_files=["res://.godot/imported/ladder.png-3f33da2f40f8d0ea3835ff95b16d9fbd.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

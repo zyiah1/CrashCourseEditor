@@ -1,7 +1,7 @@
 [gd_scene load_steps=104 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://player.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://railart/player.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_ceeig"]
 [ext_resource type="Script" uid="uid://dpmpn2wm5p8is" path="res://Scripts/item.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://drwiyy8ajhe7m" path="res://UI/stage.png" id="4"]
@@ -15,42 +15,42 @@
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="10_36swt"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="10_l2bps"]
 [ext_resource type="Script" uid="uid://02xu54i1wd0x" path="res://Scripts/mouselock.gd" id="11"]
-[ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://door.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://railart/door.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://dakt7cipbcnp" path="res://railart/coin.png" id="13"]
-[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://dk.png" id="16"]
-[ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://pauline.png" id="17"]
-[ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://railart/fan.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://railart/dk.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://railart/pauline.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://railart/movingfan.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://cxijoew28a0ty" path="res://railart/checkpoint.png" id="18_v4qg3"]
-[ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://barrel.png" id="19"]
-[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://railart/fincheckpoint.png" id="19_tll4m"]
-[ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://ladderIcon.png" id="20"]
-[ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://purse.png" id="21"]
-[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://hammer.png" id="22"]
-[ext_resource type="Texture2D" uid="uid://cqlxfkinhy6k4" path="res://railart/normal.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://railart/barrel.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://railart/finalcheckpoint.png" id="19_tll4m"]
+[ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://railart/ladder.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://railart/purse.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://railart/hammer.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://cqlxfkinhy6k4" path="res://railart/rail.png" id="23"]
 [ext_resource type="Texture2D" uid="uid://bmmoqxjs6kiq2" path="res://railart/tiltLS.png" id="24"]
 [ext_resource type="Texture2D" uid="uid://c3ecp5rabscks" path="res://railart/movingR.png" id="25"]
 [ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://railart/movingL.png" id="26"]
 [ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://railart/movingA.png" id="27"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="28"]
 [ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://railart/ArrowKaiten.png" id="28_us73v"]
-[ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/CrankR.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/movingCrankR.png" id="29"]
 [ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://railart/BigArrow.png" id="29_jmq11"]
-[ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/crankL.png" id="30"]
-[ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/SpinR.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/Arrow45.png" id="29_us73v"]
+[ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/movingCrankL.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/Rspin.png" id="31"]
 [ext_resource type="Texture2D" uid="uid://bg41nm7dgvkok" path="res://railart/Arrow90.png" id="31_3bsfs"]
-[ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/SpinL.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/Lspin.png" id="32"]
 [ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://railart/Arrow180.png" id="32_sbx0y"]
-[ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/PivotR.png" id="34"]
-[ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/PivotL.png" id="35"]
-[ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/PivotA.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/Rpivot.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/Lpivot.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/Apivot.png" id="36"]
 [ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="38"]
 [ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="39"]
-[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/tooltrash.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/tooldelete.png" id="40"]
 [ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://railart/Arrow.png" id="41"]
 [ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/tooledit.png" id="43"]
 [ext_resource type="Texture2D" uid="uid://dmu6owm5oi5ir" path="res://railart/invisible.png" id="44"]
-[ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/arrow45.png" id="45"]
-[ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/PivotEnd.png" id="46"]
+[ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/endrotate.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="47"]
 [ext_resource type="Texture2D" uid="uid://pf2g7r3n5yta" path="res://railart/toolmove.png" id="47_nge0o"]
 [ext_resource type="Texture2D" uid="uid://bh7neancll7xb" path="res://UI/HugePanel.png" id="48"]
@@ -1076,7 +1076,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="final" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
+[node name="finalcheckpoint" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1189,7 +1189,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="arrow" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
+[node name="Arrow" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1202,10 +1202,10 @@ icon = ExtResource("41")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
-icon2 = ExtResource("29_jmq11")
-icon3 = ExtResource("28_us73v")
+additional_icons = Array[Texture2D]([ExtResource("29_jmq11"), ExtResource("28_us73v")])
+additional_names = PackedStringArray("BigArrow", "ArrowKaiten")
 
-[node name="arrow2" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
+[node name="Arrow45" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1214,12 +1214,12 @@ theme_override_styles/pressed = SubResource("11")
 theme_override_styles/hover = SubResource("7")
 theme_override_styles/disabled = SubResource("11")
 button_mask = 5
-icon = ExtResource("45")
+icon = ExtResource("29_us73v")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
-icon2 = ExtResource("31_3bsfs")
-icon3 = ExtResource("32_sbx0y")
+additional_icons = Array[Texture2D]([ExtResource("31_3bsfs"), ExtResource("32_sbx0y")])
+additional_names = PackedStringArray("Arrow90", "Arrow180")
 
 [node name="pauline" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
 custom_minimum_size = Vector2(350, 290)
@@ -1270,8 +1270,8 @@ icon = ExtResource("23")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
-icon2 = ExtResource("39")
-icon3 = ExtResource("44")
+additional_icons = Array[Texture2D]([ExtResource("39"), ExtResource("44")])
+additional_names = PackedStringArray("blue", "invisible")
 
 [node name="music" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
@@ -1429,7 +1429,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="LS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
+[node name="tiltLS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
@@ -1442,7 +1442,7 @@ clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
 
-[node name="RS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
+[node name="tiltRS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
@@ -1485,12 +1485,13 @@ script = ExtResource("3")
 layout_mode = 0
 offset_left = -1.0
 offset_top = 128.0
-offset_right = 2930.0
+offset_right = 3049.4766
 offset_bottom = 228.0
 scale = Vector2(0.35, 0.35)
+mouse_filter = 2
 alignment = 1
 
-[node name="move" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Transform", "button"]]
+[node name="toolmove" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Transform", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1505,7 +1506,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="delete" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Delete", "button"]]
+[node name="tooldelete" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Delete", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1520,7 +1521,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="edit" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Edit", "button"]]
+[node name="tooledit" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Edit", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1535,7 +1536,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="proporties" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Property", "button"]]
+[node name="toolproperty" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["Property", "button"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme = ExtResource("7")
@@ -1550,7 +1551,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("3")
 
-[node name="multiselect" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["button"]]
+[node name="toolmultiselect" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/tools" groups=["button"]]
 visible = false
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
@@ -1823,7 +1824,7 @@ text = "	 WASD/←↑↓→║ Move Camera
 		  Space 		   ║ Send Object to Back
 			G 			   ║ Toggle Grid
 			Z 			   ║[img={100}]res://railart/toolmove.png[/img]
-			X 			   ║[img={100}]res://railart/tooltrash.png[/img]
+			X 			   ║[img={100}]res://railart/tooldelete.png[/img]
 			C 			   ║[img={100}]res://railart/tooledit.png[/img]
 			V 			   ║[img={100}]res://railart/toolproperty.png[/img]
 		CtrlᐩZ 		   ║ Undo

@@ -29,7 +29,6 @@ const LeftCrank = preload("res://Lcrank.tscn")
 const RightCrank = preload("res://Rcrank.tscn")
 
 var idnum: int = 3
-var mode: int = 1
 var checkpoints = []
 var railplace: int = -2
 var lineplacing: bool = true
@@ -39,17 +38,6 @@ var stored = null
 var editednode = null
 var filepath: String = Options.filepath
 var roundedmousepos: Vector2
-
-@onready var redtex = preload("res://railart/normal.png")
-@onready var bluetex = preload("res://railart/blue.png")
-@onready var graytex = preload("res://railart/invisible.png")
-var arrow1 = preload("res://railart/Arrow.png")
-var arrow2 = preload("res://railart/BigArrow.png")
-var arrow3 = preload("res://railart/ArrowKaiten.png")
-var arrow4 = preload("res://railart/arrow45.png")
-var arrow5 = preload("res://railart/Arrow90.png")
-var arrow6 = preload("res://railart/Arrow180.png")
-
 
 signal EXPORT
 
@@ -267,7 +255,7 @@ var end:PackedStringArray = ["      LayerName: LC",
 func _process(_delta):
 	itemplace()
 	shortcuts()
-	if item == "move" and Input.is_action_pressed("addpoint"):
+	if item == "toolmove" and Input.is_action_pressed("addpoint"):
 		$Cam.paused = true
 	if Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		$Cam.paused = false
@@ -297,11 +285,10 @@ func itemplace():
 			railplace = 1
 			if item == "rail":
 				instance = DefaultRail.instantiate()
-				match mode:
-					2:
-						instance = BlueRail.instantiate()
-					3:
-						instance = InvisibleRail.instantiate()
+			if item == "blue":
+				instance = BlueRail.instantiate()
+			if item == "invisible":
+				instance = InvisibleRail.instantiate()
 			if item == "music":
 				instance = musicrail.instantiate()
 			if item == "endrotate":
@@ -316,9 +303,9 @@ func itemplace():
 				instance = preload("res://RRotate.tscn").instantiate()
 			if item == "Apivot":
 				instance = preload("res://AutoRotate.tscn").instantiate()
-			if item == "LS":
+			if item == "tiltLS":
 				instance = preload("res://LSpivit.tscn").instantiate()
-			if item == "RS":
+			if item == "tiltRS":
 				instance = preload("res://RSpivit.tscn").instantiate()
 			if instance == null:
 				railplace = 3
@@ -350,62 +337,67 @@ func itemplace():
 				return
 			
 	if Input.is_action_just_pressed("bridge") or Input.is_action_pressed("control") and Input.is_action_pressed("bridge"):
-		if item == "player":
-			#$Animation.stop()
-			$Player.play("out")
-			item = "none"
-			instance = player.instantiate()
-			stored = instance
-		if item == "banana":
-			instance = banana.instantiate()
-		if item == "1up":
-			instance = preload("res://1up.tscn").instantiate()
-		if item == "checkpoint":
-			instance = checkpoint.instantiate()
-			if checkpoints.size() == 0:
-				instance = preload("res://firstcheckpoint.tscn").instantiate()
-			var area = 0
-			for value in checkpoints:
-				if area in checkpoints:
-					area += 1
-			instance.Param2 = area
-			checkpoints.append(area)
-		if item == "final":
-			instance = finalcheck.instantiate()
-			var area = 0
-			for value in checkpoints:
-				if area in checkpoints:
-					area += 1
-			instance.Param2 = area
-			checkpoints.append(area)
-		if  item == "coin":
-			instance = coin.instantiate()
-		if item == "door":
-			instance = exit.instantiate()
-		if item == "dk":
-			instance = DK.instantiate()
-		if item == "pauline":
-			instance = Pauline.instantiate()
-		if item == "hammer":
-			instance = preload("res://hammer.tscn").instantiate()
-		if item == "purse":
-			instance = preload("res://purse.tscn").instantiate()
-		if item == "barrel":
-			instance = preload("res://barrel.tscn").instantiate()
-		if item == "ladder":
-			instance = preload("res://ladder.tscn").instantiate()
-		if item == "arrow":
-			instance = preload("res://Arrow.tscn").instantiate()
-			if mode == 2:
+		match item:
+			"player":
+				#$Animation.stop()
+				$Player.play("out")
+				item = "none"
+				instance = player.instantiate()
+				stored = instance
+			"banana":
+				instance = banana.instantiate()
+			"1up":
+				instance = preload("res://1up.tscn").instantiate()
+			"checkpoint":
+				instance = checkpoint.instantiate()
+				if checkpoints.size() == 0:
+					instance = preload("res://firstcheckpoint.tscn").instantiate()
+				var area = 0
+				for value in checkpoints:
+					if area in checkpoints:
+						area += 1
+				instance.Param2 = area
+				checkpoints.append(area)
+			"finalcheckpoint":
+				instance = finalcheck.instantiate()
+				var area = 0
+				for value in checkpoints:
+					if area in checkpoints:
+						area += 1
+				instance.Param2 = area
+				checkpoints.append(area)
+			"coin":
+				instance = coin.instantiate()
+			"door":
+				instance = exit.instantiate()
+			"dk":
+				instance = DK.instantiate()
+			"pauline":
+				instance = Pauline.instantiate()
+			"hammer":
+				instance = preload("res://hammer.tscn").instantiate()
+			"purse":
+				instance = preload("res://purse.tscn").instantiate()
+			"barrel":
+				instance = preload("res://barrel.tscn").instantiate()
+			"ladder":
+				instance = preload("res://ladder.tscn").instantiate()
+			"Arrow":
+				instance = preload("res://Arrow.tscn").instantiate()
+			"BigArrow":
+				instance = preload("res://Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_Arrow"
-			if mode == 3:
+			"ArrowKaiten":
+				instance = preload("res://Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_Kaiten"
-		if item == "arrow2":
-			instance = preload("res://Arrow.tscn").instantiate()
-			instance.ObjectName = "Dkb_ChalkYajirushi_45"
-			if mode == 2:
+			"Arrow45":
+				instance = preload("res://Arrow.tscn").instantiate()
+				instance.ObjectName = "Dkb_ChalkYajirushi_45"
+			"Arrow90":
+				instance = preload("res://Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_90"
-			if mode == 3:
+			"Arrow180":
+				instance = preload("res://Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_180"
 		if instance != null:
 			instance.position = roundedmousepos
@@ -549,10 +541,6 @@ func shortcuts():
 			get_tree().get_first_node_in_group("Edit")._pressed()
 		elif Input.is_action_just_pressed("Property"):
 			get_tree().get_first_node_in_group("Property")._pressed()
-		if Input.is_action_just_pressed("ChangeType"):
-			mode += 1
-			if mode == 4:
-				mode = 1
 
 
 var namefocus = false

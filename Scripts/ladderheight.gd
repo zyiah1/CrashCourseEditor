@@ -11,7 +11,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("accept"):
 		hide()
-	if owner.get_parent().item == "edit" and owner.get_node("Button").button_pressed:
+	if owner.get_parent().item == "tooledit" and owner.get_node("Button").button_pressed:
 		
 		var dirflip = false
 		var ladderframe = int(owner.data[9].lstrip("            param0: "))

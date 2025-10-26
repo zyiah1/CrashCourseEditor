@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://hammer.png" type="Texture2D" id=1]
-[ext_resource path="res://shared scripts/Objects.gd" type="Script" id=2]
-[ext_resource path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" type="FontFile" id=3]
+[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://railart/hammer.png" id="1"]
+[ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3"]
 
 [sub_resource type="FontFile" id=3]
 size = 64

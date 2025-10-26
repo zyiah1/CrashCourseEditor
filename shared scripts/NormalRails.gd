@@ -129,16 +129,16 @@ func _process(delta):
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
 		match get_parent().item:
-			"edit":
+			"tooledit":
 				modulate = Color.GREEN_YELLOW
 				if pressed:
 					emit_signal("edit")
-			"delete":
+			"tooldelete":
 				modulate = Color.RED
 				if pressed:
 					get_parent().delete(self)
 					get_parent().undolistadd({"Type":"Delete","Node":self})
-			"proporties":
+			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed:
 					if get_parent().propertypanel == false:

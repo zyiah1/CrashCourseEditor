@@ -2,22 +2,22 @@ extends Button
 
 signal selected
 
-var icon1: Texture2D
-@export var icon2: Texture2D
-@export var icon3: Texture2D
+@onready var names: PackedStringArray = [name]
+@export var additional_names: PackedStringArray
 
 func _ready():
-	icon1 = icon
+	names += additional_names
+	icon = load("res://railart/"+name+".png")
 
 func _process(delta):
-	if icon2 != null:
-		match owner.mode:
-			1:
-				icon = icon1
-			2:
-				icon = icon2
-			3:
-				icon = icon3
+	if Input.is_action_just_pressed("ChangeType") and names.size()>1:
+		if names.find(name)+1 == names.size():
+			name = names[0]
+		else:
+			name = names[names.find(name)+1]
+		icon = load("res://railart/"+name+".png")
+		if disabled:
+			emit_signal("selected",str(name))
 
 func _pressed():
 	if owner.propertypanel == false:
