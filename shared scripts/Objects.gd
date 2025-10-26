@@ -56,6 +56,7 @@ var previoustransform: Transform2D
 var previousdata: PackedStringArray
 
 var drag = false
+var initialoffset = Vector2.ZERO
 
 func _ready():
 	get_parent().idnum += 1
@@ -95,6 +96,7 @@ func _process(delta):
 				modulate = Color.CORAL
 				if Input.is_action_just_pressed("addpoint"):
 					drag = not drag
+					initialoffset = position-get_global_mouse_position()
 			"tooledit":
 				modulate = Color.GREEN_YELLOW
 			"tooldelete":
@@ -107,6 +109,8 @@ func _process(delta):
 	
 	if drag and get_parent().item == "toolmove" and Input.is_action_pressed("addpoint"):
 		position = get_parent().roundedmousepos
+		if get_parent().grid < 2: #dont go off grid
+			position += initialoffset
 		if rotatable:
 			rotation_degrees += Input.get_axis("ui_left","ui_right")*60*(Input.get_action_strength("Shift")+1)*delta
 		if scalable:
