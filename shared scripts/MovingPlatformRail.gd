@@ -178,9 +178,9 @@ func _process(delta):
 			"edit":
 				modulate = Color.GREEN_YELLOW
 				if pressed and childrail != null:
-					childrail.get_node("rotation").show()
-					childrail.get_node("rotation").grab_focus()
-					childrail.get_node("rotation").set_caret_column(7)
+					childrail.get_node("speed").show()
+					childrail.get_node("speed").grab_focus()
+					childrail.get_node("speed").set_caret_column(7)
 			"delete":
 				modulate = Color.RED
 				if pressed:

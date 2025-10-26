@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Donkey Kong Crash Course level editor"
-config/version="1.6.1"
+config/version="1.7.0"
 config/tags=PackedStringArray("level_editor")
 run/main_scene="res://Loader.tscn"
 config/features=PackedStringArray("4.5")
@@ -27,7 +27,6 @@ Options="*res://Scripts/Options.gd"
 [debug]
 
 gdscript/warnings/unused_parameter=0
-settings/fps/force_fps=60
 
 [display]
 

@@ -51,7 +51,6 @@ func _ready():
 	else:
 		$rotation.hide()
 		$speed.hide()
-		
 	$crank.position = $start.position
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	$speed.position = $crank.position + Vector2(-20,-156)
@@ -126,7 +125,7 @@ var previousend:PackedStringArray
 "              num_pnt: !l 2",
 "              param0: " + str(Param0) + ".00000",
 "              param1: " + str(int($rotation.text)), #max degree tilt
-"              param2: 2.50000", #speed
+"              param2: "+str(speed)+"0000", #speed
 "              param3: "+str(rotationpoint), #This is the point it rotates from: 0 = 1st 1 = 2nd ect.
 "              param4: 0.00000",
 "              param5: -1.00000",
@@ -329,6 +328,7 @@ func reposition():
 		$speed.text = str(int(text))
 	else:
 		$speed.text = str(float(text))
+	speed = float(text)
 	$crank.target = float($rotation.text)
 	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0

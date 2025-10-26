@@ -30,7 +30,7 @@ func _process(delta):
 		start = path[0]
 		end = path[1]
 		maxoffset = start - end
-		offset = offset.move_toward(maxoffset,get_parent().speed)
+		offset = offset.move_toward(maxoffset,get_parent().speed*delta*60) #60fps like the original's
 		
 		
 		if offset == maxoffset:

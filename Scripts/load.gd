@@ -196,7 +196,6 @@ func AddPoints(raildata,instance,prereference):
 	for railline in raildata:
 		if railline.begins_with("                  pnt0_x:"):
 			pointpos.x = float(railline.erase(0,26))
-			
 		if railline.begins_with("                  pnt0_y:"):
 			if first == false:
 				pointpos.y = -float(railline.erase(0,26))

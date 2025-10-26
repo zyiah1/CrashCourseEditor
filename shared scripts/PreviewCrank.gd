@@ -14,7 +14,7 @@ func _ready():
 	rail.texture = previewtexture
 
 func _process(delta):
-	rotation_degrees = move_toward(rotation_degrees,float(target),get_parent().speed)
+	rotation_degrees = move_toward(rotation_degrees,float(target),get_parent().speed*delta*60)
 	rail.position = -position
 	if Input.is_action_just_pressed("back"):
 		rotation_degrees = 0
