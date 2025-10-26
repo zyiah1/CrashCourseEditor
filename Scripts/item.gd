@@ -5,9 +5,12 @@ signal selected
 @onready var names: PackedStringArray = [name]
 @export var additional_names: PackedStringArray
 
-func _ready():
+func startup():
 	names += additional_names
-	icon = load("res://railart/"+name+".png")
+	if ResourceLoader.exists("res://railart/"+name+".png"):
+		icon = load("res://railart/"+name+".png")
+	else:
+		queue_free()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ChangeType") and names.size()>1:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://esyup1huie0u"]
+[gd_scene load_steps=98 format=3 uid="uid://esyup1huie0u"]
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://railart/player.png" id="2"]
@@ -32,24 +32,18 @@
 [ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://railart/movingL.png" id="26"]
 [ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://railart/movingA.png" id="27"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="28"]
-[ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://railart/ArrowKaiten.png" id="28_us73v"]
 [ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/movingCrankR.png" id="29"]
-[ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://railart/BigArrow.png" id="29_jmq11"]
 [ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/Arrow45.png" id="29_us73v"]
 [ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/movingCrankL.png" id="30"]
 [ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/Rspin.png" id="31"]
-[ext_resource type="Texture2D" uid="uid://bg41nm7dgvkok" path="res://railart/Arrow90.png" id="31_3bsfs"]
 [ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/Lspin.png" id="32"]
-[ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://railart/Arrow180.png" id="32_sbx0y"]
 [ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/Rpivot.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/Lpivot.png" id="35"]
 [ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/Apivot.png" id="36"]
 [ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="38"]
-[ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="39"]
 [ext_resource type="Texture2D" uid="uid://hueoh8p1imf3" path="res://railart/tooldelete.png" id="40"]
 [ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://railart/Arrow.png" id="41"]
 [ext_resource type="Texture2D" uid="uid://bjf1ilvn4lcm6" path="res://railart/tooledit.png" id="43"]
-[ext_resource type="Texture2D" uid="uid://dmu6owm5oi5ir" path="res://railart/invisible.png" id="44"]
 [ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/endrotate.png" id="46"]
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="47"]
 [ext_resource type="Texture2D" uid="uid://pf2g7r3n5yta" path="res://railart/toolmove.png" id="47_nge0o"]
@@ -860,6 +854,7 @@ cache/0/271/0/underline_thickness = 0.0
 cache/0/271/0/scale = 1.0
 
 [node name="Editor" type="Node2D"]
+process_priority = 1
 z_index = -2
 script = ExtResource("1")
 
@@ -1202,7 +1197,6 @@ icon = ExtResource("41")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
-additional_icons = Array[Texture2D]([ExtResource("29_jmq11"), ExtResource("28_us73v")])
 additional_names = PackedStringArray("BigArrow", "ArrowKaiten")
 
 [node name="Arrow45" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
@@ -1218,7 +1212,6 @@ icon = ExtResource("29_us73v")
 clip_text = true
 icon_alignment = 1
 script = ExtResource("3")
-additional_icons = Array[Texture2D]([ExtResource("31_3bsfs"), ExtResource("32_sbx0y")])
 additional_names = PackedStringArray("Arrow90", "Arrow180")
 
 [node name="pauline" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
@@ -1254,12 +1247,13 @@ layout_mode = 0
 offset_left = 33.0
 offset_top = 71.3333
 offset_right = 3276.0
-offset_bottom = 233.333
+offset_bottom = 233.3333
 scale = Vector2(0.31, 0.33)
 alignment = 1
 
 [node name="rail" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1269,12 +1263,43 @@ button_mask = 5
 icon = ExtResource("23")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
-additional_icons = Array[Texture2D]([ExtResource("39"), ExtResource("44")])
 additional_names = PackedStringArray("blue", "invisible")
+
+[node name="2" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7")
+theme_override_styles/normal = SubResource("7")
+theme_override_styles/pressed = SubResource("11")
+theme_override_styles/hover = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
+button_mask = 5
+icon = ExtResource("23")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
+
+[node name="3" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("7")
+theme_override_styles/normal = SubResource("7")
+theme_override_styles/pressed = SubResource("11")
+theme_override_styles/hover = SubResource("7")
+theme_override_styles/disabled = SubResource("11")
+button_mask = 5
+icon = ExtResource("23")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3")
 
 [node name="music" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1284,10 +1309,12 @@ button_mask = 5
 icon = ExtResource("55")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingfan" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1297,10 +1324,12 @@ button_mask = 5
 icon = ExtResource("18")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingL" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1310,10 +1339,12 @@ button_mask = 5
 icon = ExtResource("26")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingR" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1323,10 +1354,12 @@ button_mask = 5
 icon = ExtResource("25")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingA" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1336,10 +1369,12 @@ button_mask = 5
 icon = ExtResource("27")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingCrankL" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1349,10 +1384,12 @@ button_mask = 5
 icon = ExtResource("30")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingCrankR" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1362,10 +1399,12 @@ button_mask = 5
 icon = ExtResource("29")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Lspin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1375,10 +1414,12 @@ button_mask = 5
 icon = ExtResource("32")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Rspin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1388,10 +1429,12 @@ button_mask = 5
 icon = ExtResource("31")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Lpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1401,10 +1444,12 @@ button_mask = 5
 icon = ExtResource("35")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Rpivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1414,10 +1459,12 @@ button_mask = 5
 icon = ExtResource("34")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Apivot" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1427,10 +1474,12 @@ button_mask = 5
 icon = ExtResource("36")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="tiltLS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1440,10 +1489,12 @@ button_mask = 5
 icon = ExtResource("24")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="tiltRS" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1453,10 +1504,12 @@ button_mask = 5
 icon = ExtResource("38")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="movingEnd" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1466,10 +1519,12 @@ button_mask = 5
 icon = ExtResource("47")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="endrotate" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/rails" groups=["button"]]
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("7")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("11")
@@ -1479,6 +1534,7 @@ button_mask = 5
 icon = ExtResource("46")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="tools" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2/Buttons"]
@@ -1572,9 +1628,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 4.0
 offset_top = 8.5
-offset_right = 44.0
-offset_bottom = 48.5
+offset_right = 340.66666
+offset_bottom = 246.0
 scale = Vector2(0.2, 0.2)
+mouse_filter = 2
 
 [node name="player" type="Button" parent="CanvasLayer3/CanvasLayer2/Control" groups=["button"]]
 layout_mode = 0

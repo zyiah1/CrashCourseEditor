@@ -89,7 +89,23 @@ func _ready():
 	#connect all item and tool buttons
 	for button in get_tree().get_nodes_in_group("button"):
 		button.connect("selected",Callable(self,"itemselected"))
-
+	
+	#change layout
+	if Options.layout == "compact":
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/rail.additional_names.erase("invisible")
+		$"CanvasLayer3/CanvasLayer2/Buttons/rails/2".name = "invisible"
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingL.additional_names = ["movingR"]
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingCrankL.additional_names = ["movingCrankR"]
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/Lspin.additional_names = ["Rspin"]
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/Lpivot.additional_names = ["Rpivot"]
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/tiltLS.additional_names = ["tiltRS"]
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/tiltRS.queue_free()
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/Rpivot.queue_free()
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/Rspin.queue_free()
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingCrankR.queue_free()
+		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingR.queue_free()
+	for node in get_tree().get_nodes_in_group("button"):
+		node.startup()
 
 var bridgeheader:PackedStringArray = ["        RailInfos:",
 "          PathInfo:"
