@@ -2,10 +2,11 @@ extends Button
 
 signal selected
 
-@onready var names: PackedStringArray = [name]
+var names: PackedStringArray = []
 @export var additional_names: PackedStringArray
 
 func startup():
+	names = [name]
 	names += additional_names
 	if ResourceLoader.exists("res://railart/"+name+".png"):
 		icon = load("res://railart/"+name+".png")

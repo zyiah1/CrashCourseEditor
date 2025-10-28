@@ -91,6 +91,8 @@ func _ready():
 		button.connect("selected",Callable(self,"itemselected"))
 	
 	#change layout
+	if Options.custom_layout != []:
+		await loadlayout(Options.custom_layout)
 	if Options.layout == "compact":
 		$CanvasLayer3/CanvasLayer2/Buttons/rails/rail.additional_names.erase("invisible")
 		$"CanvasLayer3/CanvasLayer2/Buttons/rails/2".name = "invisible"
@@ -105,7 +107,47 @@ func _ready():
 		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingCrankR.queue_free()
 		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingR.queue_free()
 	for node in get_tree().get_nodes_in_group("button"):
-		node.startup()
+		node.startup() #trigger start of each button
+	if $CanvasLayer3/CanvasLayer2/Buttons/rails.get_child_count() == 0:
+		$CanvasLayer3/CanvasLayer2/Buttons/tools.pivot_offset.y = -85
+
+func loadlayout(layout_data:Array):
+	for node in get_tree().get_nodes_in_group("button"):
+		if node.get_parent() != $CanvasLayer3/CanvasLayer2/Buttons/tools:# and not node.is_in_group("playerbutton"):
+			node.hide()
+			if not node.is_in_group("playerbutton"):
+				node.name = "buffer" #no name problems
+	get_tree().get_first_node_in_group("playerbutton").get_parent().reparent($CanvasLayer3)
+	var id = 0
+	var row = $CanvasLayer3/CanvasLayer2/Buttons/objects
+	for part in layout_data:
+		if row.get_children().size() <= id: #if there isn't enough buttons,
+			row.get_child(row.get_children().size()-1).duplicate()
+		var currentbutton = row.get_child(id)
+		
+		if part is Array:
+			print("AH")
+			currentbutton.name = part[0]
+			part.remove_at(0)
+			currentbutton.additional_names = part
+			currentbutton.show()
+		elif part is String: #then 
+			if part == "row2":
+				#start new row
+				row = $CanvasLayer3/CanvasLayer2/Buttons/rails
+				id = 0
+			else:
+				currentbutton.name = part
+				currentbutton.show()
+			if part == "player":
+				var playerbutton = get_tree().get_first_node_in_group("playerbutton").get_parent()
+				get_tree().get_first_node_in_group("playerbutton").show()
+				playerbutton.reparent(row)
+				row.move_child(playerbutton,id)
+		if get_tree().get_first_node_in_group("playerbutton").visible == false:
+			get_tree().get_first_node_in_group("playerbutton").get_parent().queue_free()
+		id += 1
+	return
 
 var bridgeheader:PackedStringArray = ["        RailInfos:",
 "          PathInfo:"
@@ -629,12 +671,12 @@ func _on_name_focus_exited():
 func playerunstore():
 	$Animation.play("RESET")
 	$Player.play("in")
-	$CanvasLayer3/CanvasLayer2/Control/player.disabled = false
+	get_tree().get_first_node_in_group("playerbutton").disabled = false
 	stored = null
 
 func playerstore():
 	$Player.play("out")
-	$CanvasLayer3/CanvasLayer2/Control/player.disabled = true
+	get_tree().get_first_node_in_group("playerbutton").disabled = true
 	for node in get_tree().get_nodes_in_group("player"):
 		if node.visible:
 			stored = node
