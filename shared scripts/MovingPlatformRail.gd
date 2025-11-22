@@ -42,9 +42,9 @@ func reposition():
 	
 	for line in childrail.endplat: #change appearence of things based on their type
 		if line.begins_with("              param0:"): #get the point kind
-			var pointtexture = preload("res://point.png")
-			childrail.get_node("preview").rail.texture = preload("res://railPurple.png")
-			childrail.rail.texture = preload("res://rail.png")
+			var pointtexture = preload("uid://xp7hguu2wcws") #point.png
+			childrail.get_node("preview").rail.texture = preload("uid://dd6bsp038gsk0") #railPurple.png
+			childrail.rail.texture = preload("uid://bvrfm1i201crx") #rail.png
 			childrail.midImage = null
 			remove_from_group("AutoMove")
 			remove_from_group("EndMove")
@@ -52,57 +52,59 @@ func reposition():
 			#fan
 			if line.begins_with("              param0: 2150"):
 				childrail.midImage = preload("res://fan.png")
-				childrail.rail.texture = preload("res://railwhite.png")
+				childrail.rail.texture = preload("uid://bw3l07oyd028f") #railwhite.png
 			#L points
 			elif line.begins_with("              param0: 21"):
-				pointtexture = preload("res://pointL.png")
-				childrail.get_node("preview").rail.texture = preload("res://railblue.png")
-				childrail.rail.texture = preload("res://railwhite.png")
+				pointtexture = preload("uid://covcxxp27opw") #pointL.png
+				childrail.get_node("preview").rail.texture = preload("uid://d3hlcipa37df") #railblue.png
+				childrail.rail.texture = preload("uid://bw3l07oyd028f") #railwhite.png
 			if line.begins_with("              param0: 2110"):
-				childrail.midImage = preload("res://crankL.png")
+				childrail.midImage = preload("uid://ckd1nvejuas1") #crankL.png
 			#R points
 			if line.begins_with("              param0: 2141") or line.begins_with("              param0: 2111"):
-				pointtexture = preload("res://pointR.png")
-				childrail.get_node("preview").rail.texture = preload("res://rail.png")
-				childrail.rail.texture = preload("res://railwhite.png")
+				pointtexture = preload("uid://tmpumwmwcucm") #pointR.png
+				childrail.get_node("preview").rail.texture = preload("uid://bvrfm1i201crx") #rail.png
+				childrail.rail.texture = preload("uid://bw3l07oyd028f") #railwhite.png
 			if line.begins_with("              param0: 2111"):
-				childrail.midImage = preload("res://crankR.png")
+				childrail.midImage = preload("uid://bvycd1a6kxdhr") #crankR.png
 			#Auto points
 			if line.begins_with("              param0: 2200") or line.begins_with("              param0: 2300") or line.begins_with("              param0: 2000") or line.begins_with("              param0: 4300"):
 				add_to_group("AutoMove")
-				pointtexture = preload("res://pointA.png")
-				childrail.get_node("preview").rail.texture = preload("res://railGreen.png")
-				childrail.rail.texture = preload("res://railwhite.png")
+				pointtexture = preload("uid://dv1xfkkmbirrk") #pointA.png
+				childrail.get_node("preview").rail.texture = preload("uid://ksbllqjphq5t") #railGreen.png
+				childrail.rail.texture = preload("uid://bw3l07oyd028f") #railwhite.png
 			#End Points
 			if line.begins_with("              param0: 2380"):
-				pointtexture = preload("res://PointE0.png")
+				pointtexture = preload("uid://b7lahmfrodnve") #PointE0.png
 			if line.begins_with("              param0: 2381"):
-				pointtexture = preload("res://PointE1.png")
+				pointtexture = preload("uid://djsdxta7ufsl8") #PointE1.png
 			if line.begins_with("              param0: 2382"):
-				pointtexture = preload("res://PointE2.png")
+				pointtexture = preload("uid://b5k5uonnog4v6") #PointE2.png
 			if line.begins_with("              param0: 2383"):
-				pointtexture = preload("res://PointE3.png")
+				pointtexture = preload("uid://boj4lu6r6g8ob") #PointE3.png
 			if line.begins_with("              param0: 2384"):
-				pointtexture = preload("res://PointE4.png")
+				pointtexture = preload("uid://djuhfoj4eg0vh") #PointE4.png
 			if line.begins_with("              param0: 2385"):
-				pointtexture = preload("res://PointE5.png")
+				pointtexture = preload("uid://b7idwkrvbv5kn") #PointE5.png
 			if line.begins_with("              param0: 2386"):
-				pointtexture = preload("res://PointE6.png")
+				pointtexture = preload("uid://clwton8qfrc21") #PointE6.png
 			if line.begins_with("              param0: 2387"):
-				pointtexture = preload("res://PointE7.png")
+				pointtexture = preload("uid://c8ygmxmmyuwsb") #PointE7.png
 			if line.begins_with("              param0: 2388"):
-				pointtexture = preload("res://PointE8.png")
+				pointtexture = preload("uid://bhrjjon6md4xv") #PointE8.png
 			if line.begins_with("              param0: 2389"):
-				pointtexture = preload("res://PointE9.png")
+				pointtexture = preload("uid://dr3tgkdixayt") #PointE9.png
 			if line.begins_with("              param0: 2390"):
-				pointtexture = preload("res://PointE10.png")
+				pointtexture = preload("uid://bawmu7reyj84q") #PointE10.png
 			if line.begins_with("              param0: 2391"):
-				pointtexture = preload("res://PointE11.png")
+				pointtexture = preload("uid://6e3rhcq5lbnp") #PointE11.png
 			if line.begins_with("              param0: 2392") or line.begins_with("              param0: 2393") or line.begins_with("              param0: 2394"):
-				pointtexture = preload("res://pointE.png")
+				pointtexture = preload("uid://dn2w76gtiqspv") #PointE.png
 			for point in childrail.points:
 				point.texture = pointtexture
-			if childrail.get_node("preview").rail.texture == preload("res://railPurple.png") and not line.begins_with("              param0: 2150"):
+			
+			#if railPurple.png, and not a fan
+			if childrail.get_node("preview").rail.texture == preload("uid://dd6bsp038gsk0") and not line.begins_with("              param0: 2150"):
 				add_to_group("EndMove")
 			childrail.get_node("end").texture = pointtexture
 			childrail.get_node("start").texture = pointtexture

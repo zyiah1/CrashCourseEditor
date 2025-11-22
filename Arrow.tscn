@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://de7cvhremgd0v"]
 
-[ext_resource type="Texture2D" uid="uid://d36jsk2dlpvcp" path="res://Arrow.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d36jsk2dlpvcp" path="res://Sprites/Objects/Arrow.png" id="2"]
 [ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2_08ca5"]
 [ext_resource type="Script" uid="uid://b55n47kiq5us3" path="res://Scripts/ArrowTypeChanger.gd" id="3_08ca5"]
 

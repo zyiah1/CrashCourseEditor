@@ -22,7 +22,7 @@ var fillamount: int = 10 #amount of points for the interpolation tool/slope thin
 var fillmode:bool = false
 
 var rail
-@onready var Editor = get_parent()
+@onready var Editor = Options.Editor
 @onready var idnum = Editor.idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
@@ -157,13 +157,11 @@ func reposition():
 		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
 			for point in points: # reset point scale
-				point.texture = preload("res://point.png")
+				point.texture = preload("uid://xp7hguu2wcws") #point.png
 				if point.frame == 0:
 					point.scale = Vector2(.35,.35)
 				if point.frame == 1:
 					point.scale = Vector2(.25,.25)
-			$start.texture = preload("res://point.png")
-			$start.scale = Vector2(.35,.35)
 			size = 4.5
 			rail.width = 8
 			
@@ -171,33 +169,31 @@ func reposition():
 		if line.begins_with("              param0: 1000") or line.begins_with("              param0: 50"):
 			music = false
 			color = Color.RED - Color(.2,0,0,0)
-			rail.texture = load("res://rail.png")
+			rail.texture = preload("uid://bvrfm1i201crx") #rail.png
 		if line.begins_with("              param0: 1200") or line.begins_with("              param0: 52"):
 			music = false
 			color = Color(.13,.58,.87,1)
-			rail.texture = load("res://railblue.png")
+			rail.texture = preload("uid://d3hlcipa37df") #railblue.png
 		if line.begins_with("              param0: 0"):
 			music = false
 			rail.width = 40
-			rail.texture = load("res://railinvisible.png")
-			$start.scale = Vector2(.90,.90)
-			$start.texture = preload("res://pointinvisible.png")
+			rail.texture = preload("uid://qy03g08go247") #railinvisible.png
 			size = 27
 			color = Color.GRAY
 			for point in points:
 				point.scale = Vector2(.90,.90)
-				point.texture = preload("res://pointinvisible.png")
+				point.texture = preload("uid://f1etgbamm888") #pointinvisible.png
 		if line.begins_with("              param0: 5100.00000"):
 			music = true
-			rail.texture = preload("res://wood.png")
+			rail.texture = preload("uid://c7vmsjs2op5vu") #wood.png
 			for point in points:
 				point.scale = Vector2(.35,.35)
-				point.texture = preload("res://pointmusic.png")
-			$start.texture = preload("res://pointmusic.png")
+				point.texture = preload("uid://d17f750xfl6m0") #pointmusic.png
 		elif line.begins_with("              param0: 5"): #probably a message Rail
 			for point in points:
-				point.texture = preload("res://pointmessage.png")
-			$start.texture = preload("res://pointmessage.png")
+				point.texture = preload("uid://buskhmyq1lp3p") #pointmessage.png
+		$start.texture = $end.texture
+		$start.scale = $end.scale
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []

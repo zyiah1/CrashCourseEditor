@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://drxjx52aog5cn"]
 
-[ext_resource type="Texture2D" uid="uid://xp7hguu2wcws" path="res://point.png" id="1_5plhk"]
+[ext_resource type="Texture2D" uid="uid://xp7hguu2wcws" path="res://Sprites/Points/point.png" id="1_5plhk"]
 [ext_resource type="Script" uid="uid://b0h4sk6sjr0jm" path="res://pointhandle.gd" id="2_mpdle"]
 
 [sub_resource type="StyleBoxEmpty" id="3"]

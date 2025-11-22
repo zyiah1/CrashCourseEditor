@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_bwef6"]
 [ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="3_drxx8"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="3_w540x"]
-[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="4_apxbu"]
+[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="4_apxbu"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="4_drxx8"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_w540x"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="6_7mvmu"]

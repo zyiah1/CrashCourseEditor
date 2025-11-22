@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dgfag2ppnyu3m"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://pointL.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://ckd1nvejuas1" path="res://crankL.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://Sprites/Points/pointL.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ckd1nvejuas1" path="res://Sprites/Pivot/crankL.png" id="4"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="4_hgf2n"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_ajve8"]
 [ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="5_dhpds"]
-[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="6_dvq7r"]
+[ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="6_dvq7r"]
 [ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="8_h6or3"]
 
 [node name="Lcrank" type="Node2D" groups=["Moving"]]

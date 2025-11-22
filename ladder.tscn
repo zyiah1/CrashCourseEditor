@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxh2xvyry5q5f"]
 
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="1"]
-[ext_resource type="Texture2D" uid="uid://falce7l0irka" path="res://ladder.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://falce7l0irka" path="res://Sprites/Objects/ladder.png" id="2"]
 [ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2_ce6es"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3"]
 [ext_resource type="Script" uid="uid://b3wwnn4mcyhdl" path="res://Scripts/ladderheight.gd" id="4_ce6es"]

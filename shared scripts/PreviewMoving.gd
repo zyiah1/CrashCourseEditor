@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var previewtexture:Texture2D = load("res://rail.png")
+@export var previewtexture:Texture2D = preload("uid://bvrfm1i201crx") #rail.png
 
 @onready var start = get_parent().path[0]
 @onready var end = get_parent().path[1]

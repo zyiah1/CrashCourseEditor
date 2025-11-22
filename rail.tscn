@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjtfx8iv68e2w"]
 
-[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="1_so1yl"]
+[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://Sprites/Rails/rail.png" id="1_so1yl"]
 
 [node name="Rail" type="Line2D"]
 texture_filter = 1

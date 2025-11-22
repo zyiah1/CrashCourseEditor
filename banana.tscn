@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c08d2xvfpxpnp"]
 
-[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://banana.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://Sprites/Objects/banana.png" id="1"]
 [ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3"]
 [ext_resource type="Script" uid="uid://bw1qge0nu1qxd" path="res://Scripts/bananaarea.gd" id="4_divbi"]

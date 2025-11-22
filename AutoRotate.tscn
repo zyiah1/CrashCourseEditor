@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://q57svrq2jxwt"]
 
-[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://RotatingRail.tscn" id="1_ohop4"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_ohop4"]
 [ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="3_745si"]
-[ext_resource type="Texture2D" uid="uid://dv1xfkkmbirrk" path="res://pointA.png" id="4_m8ug4"]
-[ext_resource type="Texture2D" uid="uid://ksbllqjphq5t" path="res://railGreen.png" id="6_el36w"]
-[ext_resource type="Texture2D" uid="uid://bcusuw5pyy87i" path="res://pivotA.png" id="7_jose0"]
+[ext_resource type="Texture2D" uid="uid://dv1xfkkmbirrk" path="res://Sprites/Points/pointA.png" id="4_m8ug4"]
+[ext_resource type="Texture2D" uid="uid://ksbllqjphq5t" path="res://Sprites/Rails/railGreen.png" id="6_el36w"]
+[ext_resource type="Texture2D" uid="uid://bcusuw5pyy87i" path="res://Sprites/Pivot/pivotA.png" id="7_jose0"]
 
 [node name="LRotate" instance=ExtResource("1_ohop4")]
 
 [node name="Spin" parent="." index="0"]
 pointtexture = ExtResource("4_m8ug4")
-Param0 = 3300
+Param0 = "3300"
 
 [node name="start" parent="Spin" index="0"]
 texture = ExtResource("4_m8ug4")

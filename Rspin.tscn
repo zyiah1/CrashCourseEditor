@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cu1qbuhg8htnl"]
 
-[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://RotatingRail.tscn" id="1_16k3p"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_16k3p"]
 [ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="2_jcygd"]
-[ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://crankR.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://Sprites/Pivot/crankR.png" id="4"]
 
 [node name="RRotate" instance=ExtResource("1_16k3p")]
 

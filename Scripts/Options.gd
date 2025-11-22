@@ -1,5 +1,7 @@
 extends Node2D
 
+var Editor = null
+
 #options
 var scrollbg: String = "true"
 var colorbg = Color(0.3,0.6,0.3)

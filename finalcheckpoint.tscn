@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cukbjxixqekce"]
 
-[ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://fincheckpoint.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b2kj5qwe6msqy" path="res://Sprites/Objects/fincheckpoint.png" id="1"]
 [ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://shared scripts/Objects.gd" id="2_ut40l"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4_ut40l"]
 [ext_resource type="Script" uid="uid://de08rr4bnrvx0" path="res://Scripts/CheckpointArea.gd" id="5_qbhol"]

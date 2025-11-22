@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ch0hxchdfht5l"]
 
-[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://RotatingRail.tscn" id="1_sw58t"]
-[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_epxp8"]
-[ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_sw58t"]
+[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://Sprites/Rails/rail.png" id="3_epxp8"]
+[ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://Sprites/Points/pointE.png" id="4"]
 [ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="4_6khub"]
-[ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="5_m3osh"]
-[ext_resource type="Texture2D" uid="uid://bwp2oalixxe3l" path="res://pivotEnd.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://Sprites/Rails/railPurple.png" id="5_m3osh"]
+[ext_resource type="Texture2D" uid="uid://bwp2oalixxe3l" path="res://Sprites/Pivot/pivotEnd.png" id="7"]
 
 [node name="LRotate" instance=ExtResource("1_sw58t")]
 

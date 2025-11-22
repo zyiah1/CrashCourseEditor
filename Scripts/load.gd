@@ -287,7 +287,7 @@ func getObject(Objectname:String) -> Node:
 			Objectscene = preload("res://door.tscn").instantiate()
 		"            name: Dkb_ChalkRainbow":
 			Objectscene = preload("res://door.tscn").instantiate()
-			Objectscene.texture = preload("res://rainbow.png")
+			Objectscene.texture = preload("uid://dfrak6dfil3sv") #rainbow.png
 			Objectscene.offset.y = 0
 		"            name: Dkb_OneUpItem":
 			Objectscene = preload("res://1up.tscn").instantiate()

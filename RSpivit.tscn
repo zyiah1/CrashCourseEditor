@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="2_wcq5h"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_mqqco"]
 [ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="3_my8sy"]
-[ext_resource type="Texture2D" uid="uid://bm4jdwxs1nkev" path="res://pivotRS.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://dkkhc0srthw5r" path="res://railmaroon.png" id="5_1vrlm"]
-[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="5_lpuqs"]
-[ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bm4jdwxs1nkev" path="res://Sprites/Pivot/pivotRS.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dkkhc0srthw5r" path="res://Sprites/Rails/railmaroon.png" id="5_1vrlm"]
+[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://Sprites/Rails/rail.png" id="5_lpuqs"]
+[ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://Sprites/Points/pointR.png" id="7"]
 [ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="7_rgai2"]
 [ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="10_b2ylb"]
@@ -28,7 +28,8 @@ script = ExtResource("8")
 z_index = -1
 z_as_relative = false
 script = ExtResource("2_wcq5h")
-Param0 = 3113
+color = Color(0.9647059, 0.99215686, 0.99215686, 1)
+Param0 = "3113"
 
 [node name="start" parent="Spin" instance=ExtResource("3_mqqco")]
 visible = false

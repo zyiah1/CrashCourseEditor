@@ -3,7 +3,7 @@ extends Node2D
 var target = 0
 var rail
 
-@export var previewtexture: Texture2D = load("res://rail.png")
+@export var previewtexture: Texture2D = preload("uid://bvrfm1i201crx") #rail.png
 
 @onready var crank = get_parent().get_node("crank")
 

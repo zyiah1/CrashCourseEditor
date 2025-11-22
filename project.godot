@@ -43,7 +43,13 @@ enabled=PackedStringArray("res://addons/grid_display/plugin.cfg")
 folder_colors={
 "res://Function Presets/": "orange",
 "res://Scripts/": "red",
+"res://Sprites/": "pink",
+"res://Sprites/Objects/": "blue",
+"res://Sprites/Pivot/": "red",
+"res://Sprites/Points/": "blue",
+"res://Sprites/Rails/": "red",
 "res://UI/": "blue",
+"res://addons/": "gray",
 "res://fonts/": "pink",
 "res://railart/": "teal",
 "res://shared scenes/": "yellow",

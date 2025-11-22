@@ -2,8 +2,8 @@ extends Rail
 
 const pointscene: PackedScene = preload("res://point.tscn")
 
-@export var pointtexture: Texture2D = preload("res://pointR.png")
-@export var railtexture: Texture2D = preload("res://railwhite.png")
+@export var pointtexture: Texture2D = preload("uid://tmpumwmwcucm") #pointR.png
+@export var railtexture: Texture2D = preload("uid://bw3l07oyd028f") #railwhite.png
 @export var reset: int = 1
 @export var midImage:Texture2D = null
 

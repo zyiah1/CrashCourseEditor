@@ -39,15 +39,15 @@ func _process(delta):
 		$slider.value = ladderframe
 	match int(owner.data[9].lstrip("            param0: ")):
 		1:
-			owner.texture = preload("res://ladder1.png")
+			owner.texture = preload("uid://deeritlbhi1io") #ladder1.png
 		2:
-			owner.texture = preload("res://ladder2.png")
+			owner.texture = preload("uid://b72r0s3sd0yvw") #ladder2.png
 		4:
-			owner.texture = preload("res://ladder4.png")
+			owner.texture = preload("uid://doa5067pkdmok") #ladder4.png
 		5:
-			owner.texture = preload("res://ladder5.png")
+			owner.texture = preload("uid://chtk5t42j7ffx") #ladder5.png
 		6:
-			owner.texture = preload("res://ladder6.png")
+			owner.texture = preload("uid://eogqtgt1kk3q") #ladder6.png
 
 
 
@@ -62,34 +62,34 @@ func _on_slider_value_changed(value):
 		owner.data[3] = "            dir_z: 0.00000"
 	match int(value):
 		1:
-			owner.texture = preload("res://ladder1.png")
+			owner.texture = preload("uid://deeritlbhi1io") #ladder1.png
 		2:
-			owner.texture = preload("res://ladder2.png")
+			owner.texture = preload("uid://b72r0s3sd0yvw") #ladder2.png
 		3:
-			owner.texture = preload("res://ladder.png")
+			owner.texture = preload("uid://falce7l0irka") #ladder.png
 		4:
-			owner.texture = preload("res://ladder4.png")
+			owner.texture = preload("uid://doa5067pkdmok") #ladder4.png
 		5:
-			owner.texture = preload("res://ladder5.png")
+			owner.texture = preload("uid://chtk5t42j7ffx") #ladder5.png
 		6:
-			owner.texture = preload("res://ladder6.png")
+			owner.texture = preload("uid://eogqtgt1kk3q") #ladder6.png
 		0:
-			owner.texture = preload("res://ladder1.png")
+			owner.texture = preload("uid://deeritlbhi1io") #ladder1.png
 			laddernumber = 1
 		-1:
-			owner.texture = preload("res://ladder2.png")
+			owner.texture = preload("uid://b72r0s3sd0yvw") #ladder2.png
 			laddernumber = 2
 		-2:
-			owner.texture = preload("res://ladder.png")
+			owner.texture = preload("uid://falce7l0irka") #ladder.png
 			laddernumber = 3
 		-3:
-			owner.texture = preload("res://ladder4.png")
+			owner.texture = preload("uid://doa5067pkdmok") #ladder4.png
 			laddernumber = 4
 		-4:
-			owner.texture = preload("res://ladder5.png")
+			owner.texture = preload("uid://chtk5t42j7ffx") #ladder5.png
 			laddernumber = 5
 		-5:
-			owner.texture = preload("res://ladder6.png")
+			owner.texture = preload("uid://eogqtgt1kk3q") #ladder6.png
 			laddernumber = 6
 	owner.data[9] = "            param0: "+str(int(laddernumber))+".00000"
 

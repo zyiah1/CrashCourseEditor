@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://daf8r71wixk5k"]
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_b52gp"]
-[ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://pointmusic.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://Sprites/Points/pointmusic.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://bspfcs84t3cp3" path="res://musicpoint.tscn" id="2_2pf8h"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_6t6u8"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="4"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="5_6xnkd"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_avmnf"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="7_8b4ke"]
-[ext_resource type="Texture2D" uid="uid://c7vmsjs2op5vu" path="res://wood.png" id="8_bluix"]
+[ext_resource type="Texture2D" uid="uid://c7vmsjs2op5vu" path="res://Sprites/Rails/wood.png" id="8_bluix"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7arx"]
 texture = ExtResource("5_6xnkd")

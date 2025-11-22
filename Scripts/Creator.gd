@@ -57,6 +57,7 @@ var disabledcontrolls = false
 var grid:float = 1.0
 
 func _ready():
+	Options.Editor = self
 	$nonmoving/save/Timer.wait_time = int(Options.interval+1)
 	if Options.scrollbg == "false":
 		$Animation.speed_scale = 1000
