@@ -34,8 +34,8 @@ func applydata():
 		targetnode.end = end
 	else: #if its an object
 		targetnode.data = data
-	if childData != []:
-		targetnode.childrail.data = childData
+	if childData != []: #if it's a rail with a pathrail
+		targetnode.childrail.set_point_data(childData)
 		targetnode.childrail.endplat = childEnd
 	targetnode.reposition()
 

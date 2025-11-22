@@ -37,31 +37,7 @@ func _ready():
 		$preview.rail.add_point($start.position)
 	else:
 		$speed.hide()
-	data = ["            - Points:",
-"                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/0",
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($start.position.x),
-"                  pnt1_y: " + str(-$start.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($start.position.x),
-"                  pnt2_y: " + str(-$start.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
+	$start.set_data()
 
 
 @onready var endplat:PackedStringArray = ["              closed: CLOSE",
@@ -197,44 +173,21 @@ func newseg():
 	get_parent().buttons.append(newpoint.get_node("Button"))
 	newpoint.get_node("Button").connect("button_down", Callable(get_parent(), "_on_Button_button_down"))
 	newpoint.get_node("Button").connect("button_up", Callable(get_parent(), "_on_Button_button_up"))
-	dataseg = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-	data += dataseg
-	$start.position = $end.position
-	$start.frame = 1
+	$end.set_data()
 	segments += 1
 	
 	if segments == 2:
 		newpoint.get_node("start").queue_free()
 		newpoint.frame = 0
-
+	$start.position = $end.position
+	$start.frame = 1
 
 func done():
 	if mode == 0:
+		points.append($end)
+		$end.segments = segments-1
+		$end.set_data()
 		locked = true
-		
 		get_parent().get_parent().lineplacing = true
 
 func _input(event):
@@ -246,8 +199,7 @@ func _input(event):
 
 func bridge():
 	if mode == 0:
-		locked = true
-		get_parent().get_parent().lineplacing = true
+		done()
 		$speed.grab_focus()
 		$speed.set_caret_column(3)
 
@@ -266,7 +218,7 @@ func _draw():
 		$Mid.hide()
 
 func EXPORT():
-	get_parent().get_parent().bridgedata += get_parent().data + get_parent().end + data + endplat
+	get_parent().get_parent().bridgedata += get_parent().get_data() + get_parent().end + get_data() + endplat
 
 func _on_speed_change():
 	speed = float($speed.text)

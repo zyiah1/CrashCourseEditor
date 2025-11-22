@@ -16,7 +16,6 @@ var locked:bool = false
 var segments:int = 1 #number of segments
 var lines = []
 var points = []
-var dataseg
 var buttons = []
 
 var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
@@ -140,11 +139,19 @@ func propertyclose():
 		previousdata = currentdata
 		previousend = end
 
-func reposition():
-	lines = []
-	for point in points:
+func change_points(points_array:Array,startpoint,endpoint) -> Array:
+	var linearray = []
+	var previouspoint = null
+	for point in points_array:
 		point.reposition()
-		lines.append(point.position)
+		if previouspoint != null:
+			linearray.append([previouspoint.position,point.position])
+		previouspoint = point
+	startpoint.position = endpoint.position
+	return linearray
+
+func reposition():
+	lines = change_points(points,$start,$end)
 	for line in end:
 		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
@@ -196,7 +203,7 @@ func reposition():
 	for point in points:
 		rail.add_point(point.position)
 		rail.add_point(point.position)
-	
+
 func done():
 	points.append($end)
 	$end.segments = segments-1

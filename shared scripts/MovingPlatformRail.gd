@@ -22,24 +22,22 @@ func _ready():
 	$start.set_data()
 
 func propertyclose():
+	var currentdata = get_data()
+	var childcurrentdata = childrail.get_data()
 	#add the undo log
-	if data != previousdata or end != previousend or childrail.data != previousplatdata or childrail.endplat != previousplatend:
-		get_parent().undolistadd({"Type":"PropertyMoveRail","Data":[previousdata,data,previousend,end,previousplatdata,childrail.data,previousplatend,childrail.endplat],"Node":self})
-		previousdata = data
+	if currentdata != previousdata or end != previousend or childcurrentdata != previousplatdata or childrail.endplat != previousplatend:
+		get_parent().undolistadd({"Type":"PropertyMoveRail","Data":[previousdata,currentdata,previousend,end,previousplatdata,childcurrentdata,previousplatend,childrail.endplat],"Node":self})
+		previousdata = currentdata
 		previousend = end
-		previousplatdata = childrail.data
+		previousplatdata = childcurrentdata
 		previousplatend = childrail.endplat
 
 func reposition():
-	lines = []
-	for point in points:
-		point.reposition()
-		lines.append(point.position)
+	lines = change_points(points,$start,$end)
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	childrail.path = []
 	for line in points:
 		childrail.path.append(line.position)
-	childrail.path.append($end.position)
 	childrail.get_node("preview").offset = Vector2.ZERO
 	
 	for line in childrail.endplat: #change appearence of things based on their type
@@ -118,10 +116,7 @@ func reposition():
 			childrail._on_speed_change()
 	 # cycle through child data
 	
-	childrail.lines = []
-	for point in childrail.points:
-		point.reposition()
-		childrail.lines.append(point.position)
+	childrail.lines =  change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
 	#visible and invisible rail color differ
 	if end[9].begins_with("              param1: 0"): # invisible
 		color = Color(.7,.7,.7,.5)
@@ -136,10 +131,6 @@ func reposition():
 		childrail.get_node("preview").rail.add_point(point.position)
 		childrail.rail.add_point(point.position)
 		childrail.get_node("preview").rail.add_point(point.position)
-	childrail.rail.add_point(childrail.get_node("end").position)
-	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
-	childrail.rail.add_point(childrail.get_node("end").position)
-	childrail.get_node("preview").rail.add_point(childrail.get_node("end").position)
 	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
 	print(childrail.idnum)
 	childrail.get_node("preview").backpath = childrail.path
@@ -172,12 +163,14 @@ func _process(delta):
 			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed and get_parent().propertypanel == false:
+					var currentdata = get_data()
+					var childcurrentdata = childrail.get_data()
 					get_parent().editednode = self
 					get_parent().propertypanel = true
-					get_parent().parse([data,end,childrail.data,childrail.endplat])
-					previousdata = data
+					get_parent().parse([currentdata,end,childcurrentdata,childrail.endplat])
+					previousdata = currentdata
 					previousend = end
-					previousplatdata = childrail.data
+					previousplatdata = childcurrentdata
 					previousplatend = childrail.endplat
 					return
 	else:
@@ -185,6 +178,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("bridge"):
 		if mode == 1:
+			points.append($end)
 			var railinst = railscene.instantiate()
 			for line in points:
 				railinst.path.append(line.position)
@@ -222,6 +216,9 @@ func newseg():
 
 func pathdone(pos):
 	if mode == 0:
+		points.append($end)
+		$end.segments = segments-1
+		$end.set_data()
 		get_parent().idnum += 2
 		mode = 1
 		locked = true
