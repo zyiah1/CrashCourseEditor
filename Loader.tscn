@@ -3401,7 +3401,7 @@ offset_left = 0.6666645
 offset_right = 144.66667
 offset_bottom = 110.0
 theme_override_fonts/normal_font = SubResource("3")
-text = "V1.6.5"
+text = "V1.7"
 
 [node name="settings" type="Button" parent="." groups=["hide"]]
 offset_left = 884.0

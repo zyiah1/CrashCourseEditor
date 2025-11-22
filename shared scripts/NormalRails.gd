@@ -57,7 +57,7 @@ func _ready():
 	#data += $start.pointdata
 
 var data:PackedStringArray = ["            - Points:"]
-var pointdata:Array[PackedStringArray]
+#var pointdata:Array[PackedStringArray]
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
 
@@ -135,6 +135,7 @@ func propertyclose():
 	var currentdata = get_data()
 	#add the undo log
 	if currentdata != previousdata or end != previousend:
+		
 		get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,currentdata,previousend,end],"Node":self})
 		previousdata = currentdata
 		previousend = end
@@ -241,15 +242,16 @@ func bridge():
 	done()
 
 func set_point_data(newdata:PackedStringArray):
-	if newdata.size()<1:
+	var pointdata = newdata.duplicate()
+	if pointdata.size()<1:
 		return
-	data = [newdata[0]]
-	newdata.remove_at(0)
+	data = [pointdata[0]]
+	pointdata.remove_at(0)
 	for point in points:
-		point.pointdata = newdata.slice(0,24)
+		point.pointdata = pointdata.slice(0,24)
 		var loop = 24
 		while loop > 0:
-			newdata.remove_at(0)
+			pointdata.remove_at(0)
 			loop -= 1
 
 func get_data():

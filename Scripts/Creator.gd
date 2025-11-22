@@ -557,7 +557,6 @@ func undo():
 		"PropertyRail":
 			currenthistory.Node.set_point_data(currenthistory.Data[0])
 			currenthistory.Node.end = currenthistory.Data[2]
-			print("RAILUNDO")
 			currenthistory.Node.reposition()
 		"PropertyMoveRail":
 			currenthistory.Node.set_point_data(currenthistory.Data[0])
