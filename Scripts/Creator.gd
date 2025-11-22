@@ -522,9 +522,9 @@ func redo():
 			currenthistory.Node.end = currenthistory.Data[3]
 			currenthistory.Node.reposition()
 		"PropertyMoveRail":
-			currenthistory.Node.data = currenthistory.Data[1]
+			currenthistory.Node.set_point_data(currenthistory.Data[1])
 			currenthistory.Node.end = currenthistory.Data[3]
-			currenthistory.Node.childrail.data = currenthistory.Data[5]
+			currenthistory.Node.childrail.set_point_data(currenthistory.Data[5])
 			currenthistory.Node.childrail.endplat = currenthistory.Data[7]
 			currenthistory.Node.reposition()
 
@@ -557,11 +557,12 @@ func undo():
 		"PropertyRail":
 			currenthistory.Node.set_point_data(currenthistory.Data[0])
 			currenthistory.Node.end = currenthistory.Data[2]
+			print("RAILUNDO")
 			currenthistory.Node.reposition()
 		"PropertyMoveRail":
-			currenthistory.Node.data = currenthistory.Data[0]
+			currenthistory.Node.set_point_data(currenthistory.Data[0])
 			currenthistory.Node.end = currenthistory.Data[2]
-			currenthistory.Node.childrail.data = currenthistory.Data[4]
+			currenthistory.Node.childrail.set_point_data(currenthistory.Data[4])
 			currenthistory.Node.childrail.endplat = currenthistory.Data[6]
 			currenthistory.Node.reposition()
 	historyoffset -= 1

@@ -19,31 +19,7 @@ func _ready():
 	if loading == false:
 		$start.position = get_parent().roundedmousepos
 	
-	data = ["            - Points:",
-"                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/0",
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($start.position.x),
-"                  pnt1_y: " + str(-$start.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($start.position.x),
-"                  pnt2_y: " + str(-$start.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
+	$start.set_data()
 
 func propertyclose():
 	#add the undo log
@@ -240,32 +216,9 @@ func newseg():
 		add_child(newpoint)
 		points.append(newpoint)
 		buttons.append(newpoint.get_node("Button"))
-		dataseg = ["                - dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-		data += dataseg
-		$start.position = $end.position
+		$end.set_data()
 		segments += 1
+		$start.position = $end.position
 
 func pathdone(pos):
 	if mode == 0:

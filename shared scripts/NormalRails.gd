@@ -91,10 +91,11 @@ func _process(delta):
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed:
 					if get_parent().propertypanel == false:
+						var currentdata = get_data()
 						get_parent().editednode = self
 						get_parent().propertypanel = true
-						get_parent().parse([get_data(),end])
-						previousdata = get_data()
+						get_parent().parse([currentdata,end])
+						previousdata = currentdata
 						previousend = end
 						return
 			"toolmove":
@@ -131,10 +132,11 @@ func newseg():
 	$start.frame = 1
 
 func propertyclose():
+	var currentdata = get_data()
 	#add the undo log
-	if data != previousdata or end != previousend:
-		get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,data,previousend,end],"Node":self})
-		previousdata = data
+	if currentdata != previousdata or end != previousend:
+		get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,currentdata,previousend,end],"Node":self})
+		previousdata = currentdata
 		previousend = end
 
 func reposition():
@@ -239,6 +241,8 @@ func bridge():
 	done()
 
 func set_point_data(newdata:PackedStringArray):
+	if newdata.size()<1:
+		return
 	data = [newdata[0]]
 	newdata.remove_at(0)
 	for point in points:

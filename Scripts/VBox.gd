@@ -44,7 +44,7 @@ func _on_new_pressed():
 	for node in get_children():
 		node.queue_free()
 	clear()
-	owner.editednode.propertyclose() #undo history
+	owner.editednode.propertyclose() #keep undo history
 
 func clear():
 	owner.Groupnum = 0
