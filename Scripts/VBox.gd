@@ -28,9 +28,12 @@ func applydata():
 			childData.append(node.text)
 		if node.is_in_group("ChildEnd"):
 			childEnd.append(node.text)
-	targetnode.data = data
-	if end != []:
+	
+	if end != []: #if its a rail
+		targetnode.set_point_data(data)
 		targetnode.end = end
+	else: #if its an object
+		targetnode.data = data
 	if childData != []:
 		targetnode.childrail.data = childData
 		targetnode.childrail.endplat = childEnd

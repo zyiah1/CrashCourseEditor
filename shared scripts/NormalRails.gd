@@ -16,7 +16,7 @@ var locked:bool = false
 var segments:int = 1 #number of segments
 var lines = []
 var points = []
-
+var dataseg
 var buttons = []
 
 var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
@@ -46,73 +46,20 @@ var rail
 "              unit_name: Path"]
 
 
-
-
-
-
 func _ready():
 	rail = $Rail
 	if loading == false:
 		$start.position = get_parent().roundedmousepos
 	rail.add_point($start.position)
 	
-	data = ["            - Points:",
-"                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/0",
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($start.position.x),
-"                  pnt1_y: " + str(-$start.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($start.position.x),
-"                  pnt2_y: " + str(-$start.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
+	
+	$start.set_data()
+	#data += $start.pointdata
 
-
-@onready var dataseg:PackedStringArray = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-
-var data:PackedStringArray
-
+var data:PackedStringArray = ["            - Points:"]
+var pointdata:Array[PackedStringArray]
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
-
 
 
 func _process(delta):
@@ -124,6 +71,8 @@ func _process(delta):
 			amount += 1
 		if button.button_pressed:
 			pressed = true
+			if get_parent().item == "toolmove":
+				button.get_parent().position = get_parent().roundedmousepos
 	
 	if amount != 0: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
@@ -144,10 +93,12 @@ func _process(delta):
 					if get_parent().propertypanel == false:
 						get_parent().editednode = self
 						get_parent().propertypanel = true
-						get_parent().parse([data,end])
-						previousdata = data
+						get_parent().parse([get_data(),end])
+						previousdata = get_data()
 						previousend = end
 						return
+			"toolmove":
+				modulate = Color.ORANGE
 	else:
 		modulate = Color.WHITE
 	if locked == false and !fillmode:
@@ -170,30 +121,7 @@ func newseg():
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
-	dataseg = ["                - dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-	data += dataseg
+	$end.set_data()
 	segments += 1
 	
 	if segments == 2:
@@ -209,73 +137,11 @@ func propertyclose():
 		previousdata = data
 		previousend = end
 
-
-func changepoints(raildata:PackedStringArray,startpoint:Node,endpoint:Node,pointarray:Array,linearray:Array) -> Array:
-	var currentpoint = 0
-	var currentline = 0
-	var count = -1
-	var first = true
-	var cycles = -1
-	
-	for line in raildata:
-		cycles += 1
-		if currentpoint == pointarray.size():
-			if line.begins_with("                  pnt0_x: "):
-				startpoint.position.x = float(line.lstrip("                  pnt0_x: "))
-				currentline = linearray.size() - 1
-			if line.begins_with("                  pnt0_y: "):
-				startpoint.position.y = -float(line.lstrip("                  pnt0_y: "))
-				endpoint.position = startpoint.position
-				linearray[currentline][1] = endpoint.position
-				if pointarray.size() >= 2:
-					linearray[currentline][0] = linearray[currentline-1][1]
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-endpoint.position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-endpoint.position.y)
-		else:
-			if line.begins_with("                  pnt0_x: "):
-				count += 1
-				if first == true:
-					if count >= 2:
-						count = 0
-						currentline += 1
-						first = false
-				pointarray[currentpoint].position.x = float(line.lstrip("                  pnt0_x: "))
-				if first == true:
-					linearray[currentline][count].x = pointarray[currentpoint].position.x
-				else:
-					linearray[currentline][0].x = linearray[currentline - 1][1].x
-					linearray[currentline][1].x = pointarray[currentpoint].position.x
-			if line.begins_with("                  pnt0_y: "):
-				pointarray[currentpoint].position.y = -float(line.lstrip("                  pnt0_y: "))
-				if first == true:
-					linearray[currentline][count].y = pointarray[currentpoint].position.y
-				else:
-					linearray[currentline][0].y = linearray[currentline - 1][1].y
-					linearray[currentline][1].y = pointarray[currentpoint].position.y
-					currentline += 1
-				
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-pointarray[currentpoint].position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-pointarray[currentpoint].position.y)
-				
-				currentpoint += 1
-	return linearray
-
 func reposition():
-	lines = changepoints(data,$start,$end,points,lines)
+	lines = []
+	for point in points:
+		point.reposition()
+		lines.append(point.position)
 	for line in end:
 		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
@@ -286,9 +152,7 @@ func reposition():
 				if point.frame == 1:
 					point.scale = Vector2(.25,.25)
 			$start.texture = preload("res://point.png")
-			$end.texture = preload("res://point.png")
 			$start.scale = Vector2(.35,.35)
-			$end.scale = Vector2(.35,.35)
 			size = 4.5
 			rail.width = 8
 			
@@ -306,9 +170,7 @@ func reposition():
 			rail.width = 40
 			rail.texture = load("res://railinvisible.png")
 			$start.scale = Vector2(.90,.90)
-			$end.scale = Vector2(.90,.90)
 			$start.texture = preload("res://pointinvisible.png")
-			$end.texture = preload("res://pointinvisible.png")
 			size = 27
 			color = Color.GRAY
 			for point in points:
@@ -321,22 +183,21 @@ func reposition():
 				point.scale = Vector2(.35,.35)
 				point.texture = preload("res://pointmusic.png")
 			$start.texture = preload("res://pointmusic.png")
-			$end.texture = preload("res://pointmusic.png")
 		elif line.begins_with("              param0: 5"): #probably a message Rail
 			for point in points:
 				point.texture = preload("res://pointmessage.png")
 			$start.texture = preload("res://pointmessage.png")
-			$end.texture = preload("res://pointmessage.png")
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []
 	for point in points:
 		rail.add_point(point.position)
 		rail.add_point(point.position)
-	rail.add_point($end.position)
-	rail.add_point($end.position)
 	
 func done():
+	points.append($end)
+	$end.segments = segments-1
+	$end.set_data()
 	locked = true
 	idnum += 1
 	get_parent().idnum += 1
@@ -377,6 +238,22 @@ func bridge():
 	loading = true
 	done()
 
+func set_point_data(newdata:PackedStringArray):
+	data = [newdata[0]]
+	newdata.remove_at(0)
+	for point in points:
+		point.pointdata = newdata.slice(0,24)
+		var loop = 24
+		while loop > 0:
+			newdata.remove_at(0)
+			loop -= 1
+
+func get_data():
+	var totalpointdata:PackedStringArray = []
+	for point in points:
+		totalpointdata.append_array(point.pointdata)
+	return data + totalpointdata
+
 func _draw():
 	if loading == false and fillmode == false:
 		$end.position = get_parent().roundedmousepos
@@ -386,4 +263,4 @@ func _draw():
 
 func EXPORT():
 	if visible:
-		get_parent().bridgedata += data + end
+		get_parent().bridgedata += get_data() + end

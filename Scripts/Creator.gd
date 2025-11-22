@@ -108,8 +108,7 @@ func _ready():
 		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingR.queue_free()
 	for node in get_tree().get_nodes_in_group("button"):
 		node.startup() #trigger start of each button
-	if $CanvasLayer3/CanvasLayer2/Buttons/rails.get_child_count() == 0:
-		$CanvasLayer3/CanvasLayer2/Buttons/tools.pivot_offset.y = -85
+
 
 func loadlayout(layout_data:Array):
 	for node in get_tree().get_nodes_in_group("button"):
@@ -126,7 +125,6 @@ func loadlayout(layout_data:Array):
 		var currentbutton = row.get_child(id)
 		
 		if part is Array:
-			print("AH")
 			currentbutton.name = part[0]
 			part.remove_at(0)
 			currentbutton.additional_names = part
@@ -147,6 +145,9 @@ func loadlayout(layout_data:Array):
 		if get_tree().get_first_node_in_group("playerbutton").visible == false:
 			get_tree().get_first_node_in_group("playerbutton").get_parent().queue_free()
 		id += 1
+	if not layout_data.has("row2"):
+		$CanvasLayer3/CanvasLayer2/Buttons/tools.position.y = 72
+	
 	return
 
 var bridgeheader:PackedStringArray = ["        RailInfos:",
@@ -498,8 +499,8 @@ func readd(node:Node):
 		
 
 func redo():
-	$UndoMessage.play("RESET")
-	$UndoMessage.play("Fade")
+	$nonmoving/undo.modulate.a = 1
+	create_tween().tween_property($nonmoving/undo,"modulate",Color(1,1,1,0),.5)
 	if historyoffset >= -1: #cant redo more than the end
 		$nonmoving/undo.text = "No Further Redo History"
 		return
@@ -517,7 +518,7 @@ func redo():
 			currenthistory.Node.data = currenthistory.Data[1]
 			currenthistory.Node.reposition()
 		"PropertyRail":
-			currenthistory.Node.data = currenthistory.Data[1]
+			currenthistory.Node.set_point_data(currenthistory.Data[1])
 			currenthistory.Node.end = currenthistory.Data[3]
 			currenthistory.Node.reposition()
 		"PropertyMoveRail":
@@ -528,8 +529,8 @@ func redo():
 			currenthistory.Node.reposition()
 
 func undo():
-	$UndoMessage.play("RESET")
-	$UndoMessage.play("Fade")
+	$nonmoving/undo.modulate.a = 1
+	create_tween().tween_property($nonmoving/undo,"modulate",Color(1,1,1,0),.5)
 	if history.size() < -historyoffset: #cant undo more than the start
 		$nonmoving/undo.text = "No Previous Undo History"
 		return
@@ -554,7 +555,7 @@ func undo():
 			currenthistory.Node.data = currenthistory.Data[0]
 			currenthistory.Node.reposition()
 		"PropertyRail":
-			currenthistory.Node.data = currenthistory.Data[0]
+			currenthistory.Node.set_point_data(currenthistory.Data[0])
 			currenthistory.Node.end = currenthistory.Data[2]
 			currenthistory.Node.reposition()
 		"PropertyMoveRail":

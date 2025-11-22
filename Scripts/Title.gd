@@ -24,7 +24,10 @@ func _ready():
 					var inst = lineEdit.instantiate()
 					inst.text = array.text
 					$"Patchnotes/VBoxContainer".add_child(inst)
+	#get_window().files_dropped.connect(on_files_dropped)
 
+func on_files_dropped(files):
+	print(files)
 
 
 func fetch(url:String ="https://www.duckduckgo.com/", headers:Array = [], method = HTTPClient.METHOD_GET,callback:String = "Ducks", body = null):

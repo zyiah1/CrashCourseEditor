@@ -55,7 +55,10 @@ func propertyclose():
 		previousplatend = childrail.endplat
 
 func reposition():
-	lines = changepoints(data,$start,$end,points,lines)
+	lines = []
+	for point in points:
+		point.reposition()
+		lines.append(point.position)
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	childrail.path = []
 	for line in points:
@@ -138,7 +141,11 @@ func reposition():
 			childrail.get_node("speed").text = text
 			childrail._on_speed_change()
 	 # cycle through child data
-	childrail.lines = changepoints(childrail.data,childrail.get_node("start"),childrail.get_node("end"),childrail.points,childrail.lines)
+	
+	childrail.lines = []
+	for point in childrail.points:
+		point.reposition()
+		childrail.lines.append(point.position)
 	#visible and invisible rail color differ
 	if end[9].begins_with("              param1: 0"): # invisible
 		color = Color(.7,.7,.7,.5)

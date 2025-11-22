@@ -7,7 +7,7 @@ var filepath: String = "res://"
 var interval: int = 60
 var OSFileManager: String = "true"
 var layout: String = "default"
-var custom_layout = ["blue",["Arrow","BigArrow","ArrowKaiten","Arrow45","Arrow90","Arrow180"],"banana","checkpoint","finalcheckpoint","dk","movingEnd"]#,"row2","rail","Lpivot","player"]
+var custom_layout = []#["blue",["Arrow","BigArrow","ArrowKaiten","Arrow45","Arrow90","Arrow180"],"banana","checkpoint","finalcheckpoint","dk","movingEnd"]#,"row2","rail","Lpivot","player"]
 
 #var autofull: bool = false
 var firstboot = true

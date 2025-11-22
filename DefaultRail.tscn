@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://co0oxneko0l0l"]
+[gd_scene load_steps=16 format=3 uid="uid://co0oxneko0l0l"]
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_j0uo1"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="2_p2wj3"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="3_3mfx3"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_cpfae"]
 [ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="3_imn10"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="3_t6lfb"]
@@ -191,8 +192,10 @@ z_as_relative = false
 script = ExtResource("1_j0uo1")
 
 [node name="start" parent="." instance=ExtResource("2_p2wj3")]
+script = ExtResource("3_3mfx3")
 
 [node name="end" parent="." instance=ExtResource("3_t6lfb")]
+script = ExtResource("3_3mfx3")
 
 [node name="pitch" type="Control" parent="."]
 z_index = 5

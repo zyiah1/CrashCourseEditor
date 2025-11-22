@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drb0tg25rfxfi"]
+[gd_scene load_steps=19 format=3 uid="uid://drb0tg25rfxfi"]
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_sxmit"]
 [ext_resource type="PackedScene" uid="uid://dmncn18nl6sl6" path="res://Bigpoint.tscn" id="2_4dti2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="5_2adph"]
 [ext_resource type="Texture2D" uid="uid://qy03g08go247" path="res://railinvisible.png" id="5_4dti2"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_owggh"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="5_ubil0"]
 [ext_resource type="Texture2D" uid="uid://cpf748gr5u7ae" path="res://UI/slider.png" id="6_eje4y"]
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="7_owggh"]
 
@@ -200,10 +201,12 @@ Param0 = "0"
 [node name="start" parent="." instance=ExtResource("3_eje4y")]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_q6xj1")
+script = ExtResource("5_ubil0")
 
 [node name="end" parent="." instance=ExtResource("5_owggh")]
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_q6xj1")
+script = ExtResource("5_ubil0")
 
 [node name="pitch" type="Control" parent="."]
 z_index = 5

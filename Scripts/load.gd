@@ -146,7 +146,7 @@ func LoadTest(filename):
 						instance = instance.childrail
 						AddPoints(raildata,instance,"")
 						instance.done()
-						instance.data = raildata
+						#instance.data = raildata
 						instance.endplat = railend
 						oldrail.reposition()
 						movingPlatforms.erase(id)
@@ -160,10 +160,10 @@ func LoadTest(filename):
 					instance.get_node(prereference+"start").position = Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: ")))
 					AddPoints(raildata,instance,prereference)
 					if prereference == "":
-						instance.data = raildata
+						instance.set_point_data(raildata)
 						instance.end = railend
 					else:
-						instance.get_node(prereference).data = raildata
+						instance.get_node(prereference).set_point_data(raildata)
 						instance.get_node(prereference).end = railend
 						
 					
@@ -313,6 +313,18 @@ func getObject(Objectname:String) -> Node:
 		Objectscene.ObjectName = Objectname.erase(0,18)
 	return Objectscene
 
+func set_railpoint_data(data:PackedStringArray,rail_instance):
+	var newdata = data
+	newdata.remove_at(0)
+	
+	for point in rail_instance.points:
+		point.pointdata = newdata.slice(0,24)
+		print(point.pointdata)
+		var loop = 24
+		while loop > 0:
+			newdata.remove_at(0)
+			loop -= 1
+	
 func _on_FileDialog_file_selected(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	
