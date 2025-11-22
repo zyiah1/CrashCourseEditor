@@ -59,59 +59,9 @@ func _ready():
 	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
 	
-	data = ["            - Points:",
-"                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/0",
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($start.position.x),
-"                  pnt1_y: " + str(-$start.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($start.position.x),
-"                  pnt2_y: " + str(-$start.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
+	$start.set_data()
 
-
-@onready var dataseg:PackedStringArray = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($start.position.x),
-"                  pnt0_y: " + str(-$start.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-
-var data:PackedStringArray
+var data:PackedStringArray = ["            - Points:"]
 
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
@@ -139,77 +89,40 @@ var previousend:PackedStringArray
 
 func propertyclose():
 	#add the undo log
-	if data != previousdata or end != previousend:
-		owner.get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,data,previousend,end],"Node":self})
-		previousdata = data
+	var currentdata = get_data()
+	if currentdata != previousdata or end != previousend:
+		owner.get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,currentdata,previousend,end],"Node":self})
+		previousdata = currentdata
 		previousend = end
 
-func changepoints(raildata:PackedStringArray,startpoint:Node,endpoint:Node,pointarray:Array,linearray:Array) -> Array:
-	var currentpoint = 0
-	var currentline = 0
-	var count = -1
-	var first = true
-	var cycles = -1
-	
-	for line in raildata:
-		cycles += 1
-		if currentpoint == pointarray.size():
-			if line.begins_with("                  pnt0_x: "):
-				startpoint.position.x = float(line.lstrip("                  pnt0_x: "))
-				currentline = linearray.size() - 1
-			if line.begins_with("                  pnt0_y: "):
-				startpoint.position.y = -float(line.lstrip("                  pnt0_y: "))
-				endpoint.position = startpoint.position
-				linearray[currentline][1] = endpoint.position
-				if pointarray.size() >= 2:
-					linearray[currentline][0] = linearray[currentline-1][1]
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-endpoint.position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(endpoint.position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-endpoint.position.y)
-		else:
-			if line.begins_with("                  pnt0_x: "):
-				count += 1
-				if first == true:
-					if count >= 2:
-						count = 0
-						currentline += 1
-						first = false
-				pointarray[currentpoint].position.x = float(line.lstrip("                  pnt0_x: "))
-				if first == true:
-					linearray[currentline][count].x = pointarray[currentpoint].position.x
-				else:
-					linearray[currentline][0].x = linearray[currentline - 1][1].x
-					linearray[currentline][1].x = pointarray[currentpoint].position.x
-			if line.begins_with("                  pnt0_y: "):
-				pointarray[currentpoint].position.y = -float(line.lstrip("                  pnt0_y: "))
-				if first == true:
-					linearray[currentline][count].y = pointarray[currentpoint].position.y
-				else:
-					linearray[currentline][0].y = linearray[currentline - 1][1].y
-					linearray[currentline][1].y = pointarray[currentpoint].position.y
-					currentline += 1
-				
-			if line.begins_with("                  pnt1_x: "):
-				raildata[cycles] = "                  pnt1_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt1_y: "):
-				raildata[cycles] = "                  pnt1_y: " + str(-pointarray[currentpoint].position.y)
-				
-			if line.begins_with("                  pnt2_x: "):
-				raildata[cycles] = "                  pnt2_x: " + str(pointarray[currentpoint].position.x)
-			if line.begins_with("                  pnt2_y: "):
-				raildata[cycles] = "                  pnt2_y: " + str(-pointarray[currentpoint].position.y)
-				
-				currentpoint += 1
+func change_points(points_array:Array,startpoint,endpoint) -> Array:
+	var linearray = []
+	var previouspoint = null
+	for point in points_array:
+		point.reposition()
+		if previouspoint != null:
+			linearray.append([previouspoint.position,point.position])
+		previouspoint = point
+	startpoint.position = endpoint.position
 	return linearray
 
+func set_point_data(newdata:PackedStringArray):
+	var pointdata = newdata.duplicate()
+	if pointdata.size()<1:
+		return
+	data = [pointdata[0]]
+	pointdata.remove_at(0)
+	for point in points:
+		point.pointdata = pointdata.slice(0,24)
+		var loop = 24
+		while loop > 0:
+			pointdata.remove_at(0)
+			loop -= 1
+
+
+
 func reposition():
-	lines = changepoints(data,$start,$end,points,lines)
+	lines = change_points(points,$start,$end)
 	for line in end:
 		if line.begins_with("              param0:"): #get the point kind
 			var newpointtexture = preload("res://point.png")
@@ -315,8 +228,6 @@ func reposition():
 			$start.texture = newpointtexture
 			$crank/crank.texture = rotatetexture
 			$crank2/crank2.texture = rotatetexture
-	
-	
 	$crank.position = points[0].position
 	var text = end[9]
 	text = text.erase(0,22)
@@ -346,10 +257,7 @@ func reposition():
 		rail.add_point(point.position)
 		get_node("crank").rail.add_point(point.position)
 		point.scale = Vector2(.25,.25)
-	rail.add_point($end.position)
-	get_node("crank").rail.add_point($end.position)
-	rail.add_point($end.position)
-	get_node("crank").rail.add_point($end.position)
+	$end.scale = Vector2(.35,.35)
 	changepivotpoint()
 
 func changepivotpoint():
@@ -405,8 +313,8 @@ func _process(delta):
 				if pressed and owner.get_parent().propertypanel == false:
 					get_parent().get_parent().editednode = self
 					get_parent().get_parent().propertypanel = true
-					get_parent().get_parent().parse([data,end])
-					previousdata = data
+					get_parent().get_parent().parse([get_data(),end])
+					previousdata = get_data()
 					previousend = end
 					return
 	else:
@@ -417,6 +325,9 @@ func _process(delta):
 			
 		if Input.is_action_just_pressed("bridge"):
 			newseg()
+			points.append($end)
+			$end.segments = segments-1
+			$end.set_data()
 			loading = true
 			locked = true
 			end[9] = "              param1: " + str(-float($rotation.text)) #max degree tilt
@@ -446,37 +357,14 @@ func newseg():
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
-	dataseg = ["                - dir_x: 0.00000",
-"                  dir_y: 0.00000",
-"                  dir_z: 0.00000",
-"                  id_name: rail" + str(idnum) + "/"+str(segments),
-"                  link_info: []",
-"                  link_num: !l 0",
-"                  param0: -1.00000",
-"                  param1: -1.00000",
-"                  param2: -1.00000",
-"                  param3: -1.00000",
-"                  pnt0_x: " + str($end.position.x),
-"                  pnt0_y: " + str(-$end.position.y),
-"                  pnt0_z: 0.00000",
-"                  pnt1_x: " + str($end.position.x),
-"                  pnt1_y: " + str(-$end.position.y),
-"                  pnt1_z: 0.00000",
-"                  pnt2_x: " + str($end.position.x),
-"                  pnt2_y: " + str(-$end.position.y),
-"                  pnt2_z: 0.00000",
-"                  scale_x: 1.00000",
-"                  scale_y: 1.00000",
-"                  scale_z: 1.00000",
-"                  unit_name: Point"]
-	data += dataseg
-	$start.position = $end.position
-	$start.frame = 1
+	$end.set_data()
 	segments += 1
 	
 	if segments == 2:
 		newpoint.get_node("start").queue_free()
 		newpoint.frame = 0
+	$start.position = $end.position
+	$start.frame = 1
 
 func _on_speed_change():
 	speed = float($speed.text)
@@ -489,9 +377,11 @@ func _on_speed_change():
 	$crank.rotation_degrees = 0
 
 func done():
+	points.append($end)
+	$end.segments = segments-1
+	$end.set_data()
 	locked = true
 	get_parent().get_parent().idnum += 1
-	get_parent().get_parent().bridgedata += data + end
 	get_parent().get_parent().lineplacing = true
 	buttons.append(get_node("end/Button"))
 
@@ -539,8 +429,14 @@ func _draw():
 	if loading == false and locked == false:
 		pointcurve()
 
+func get_data():
+	var totalpointdata:PackedStringArray = []
+	for point in points:
+		totalpointdata.append_array(point.pointdata)
+	return data + totalpointdata
+
 func EXPORT():
 	if end != null:
 		if end[9] != null:
 			end[9] = "              param1: " + str(-$crank.target)
-			get_parent().get_parent().bridgedata += data + end
+			get_parent().get_parent().bridgedata += get_data() + end

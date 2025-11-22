@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://de58rp2h8u3f1" path="res://shared scripts/NormalRails.gd" id="1_nueqp"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="2_drxx8"]
-[ext_resource type="Script" uid="uid://bupn0rc8mbfxt" path="res://MusicRailSlider.gd" id="3_ahmg3"]
 [ext_resource type="PackedScene" uid="uid://bjtfx8iv68e2w" path="res://rail.tscn" id="3_bwef6"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="3_drxx8"]
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="3_w540x"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://railblue.png" id="4_apxbu"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="4_drxx8"]
@@ -194,8 +194,10 @@ color = Color(0.13, 0.58, 0.87, 1)
 Param0 = "1200"
 
 [node name="start" parent="." instance=ExtResource("2_drxx8")]
+script = ExtResource("3_drxx8")
 
 [node name="end" parent="." instance=ExtResource("3_w540x")]
+script = ExtResource("3_drxx8")
 
 [node name="pitch" type="Control" parent="."]
 z_index = 5
@@ -203,7 +205,7 @@ layout_mode = 3
 anchors_preset = 0
 scale = Vector2(1e-05, 1e-05)
 focus_mode = 2
-script = ExtResource("3_ahmg3")
+script = ExtResource("3_drxx8")
 
 [node name="slider" type="HSlider" parent="pitch"]
 layout_mode = 0

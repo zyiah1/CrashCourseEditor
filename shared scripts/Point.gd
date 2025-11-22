@@ -4,6 +4,7 @@ extends Sprite2D
 @onready var segments = get_parent().segments-1
 
 var pointdata:PackedStringArray
+@export var comment:bool = true #if - comment: !l -1: false = - dir_x:
 
 func _ready():
 	#if get_parent().loading == false: #if we aren't loading data, set the data
@@ -11,9 +12,11 @@ func _ready():
 
 func set_data():
 	idnum = get_parent().idnum
-	pointdata = ["                - comment: !l -1",
-"                  dir_x: 0.00000",
-"                  dir_y: 0.00000",
+	if comment:
+		pointdata = ["                - comment: !l -1","                  dir_x: 0.00000"]
+	else:
+		pointdata = ["                - dir_x: 0.00000"]
+	pointdata.append_array(["                  dir_y: 0.00000",
 "                  dir_z: 0.00000",
 "                  id_name: rail" + str(idnum) + "/"+str(segments),
 "                  link_info: []",
@@ -34,7 +37,7 @@ func set_data():
 "                  scale_x: 1.00000",
 "                  scale_y: 1.00000",
 "                  scale_z: 1.00000",
-"                  unit_name: Point"]
+"                  unit_name: Point"])
 
 func reposition():
 	position.x = float(pointdata[11].lstrip("                  pnt0_x: "))

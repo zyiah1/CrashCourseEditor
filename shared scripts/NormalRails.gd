@@ -22,7 +22,8 @@ var fillamount: int = 10 #amount of points for the interpolation tool/slope thin
 var fillmode:bool = false
 
 var rail
-@onready var idnum = get_parent().idnum
+@onready var Editor = get_parent()
+@onready var idnum = Editor.idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(idnum),
@@ -48,7 +49,7 @@ var rail
 func _ready():
 	rail = $Rail
 	if loading == false:
-		$start.position = get_parent().roundedmousepos
+		$start.position = Editor.roundedmousepos
 	rail.add_point($start.position)
 	
 	
@@ -70,13 +71,13 @@ func _process(delta):
 			amount += 1
 		if button.button_pressed:
 			pressed = true
-			if get_parent().item == "toolmove":
-				button.get_parent().position = get_parent().roundedmousepos
+			if Editor.item == "toolmove":
+				button.get_parent().position = Editor.roundedmousepos
 	
 	if amount != 0: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
-			get_parent().move_child(self,10)
-		match get_parent().item:
+			Editor.move_child(self,10)
+		match Editor.item:
 			"tooledit":
 				modulate = Color.GREEN_YELLOW
 				if pressed:
@@ -84,16 +85,16 @@ func _process(delta):
 			"tooldelete":
 				modulate = Color.RED
 				if pressed:
-					get_parent().delete(self)
-					get_parent().undolistadd({"Type":"Delete","Node":self})
+					Editor.delete(self)
+					Editor.undolistadd({"Type":"Delete","Node":self})
 			"toolproperty":
 				modulate = Color.LIGHT_SKY_BLUE
 				if pressed:
-					if get_parent().propertypanel == false:
+					if Editor.propertypanel == false:
 						var currentdata = get_data()
-						get_parent().editednode = self
-						get_parent().propertypanel = true
-						get_parent().parse([currentdata,end])
+						Editor.editednode = self
+						Editor.propertypanel = true
+						Editor.parse([currentdata,end])
 						previousdata = currentdata
 						previousend = end
 						return
@@ -135,7 +136,7 @@ func propertyclose():
 	#add the undo log
 	if currentdata != previousdata or end != previousend:
 		
-		get_parent().undolistadd({"Type":"PropertyRail","Data":[previousdata,currentdata,previousend,end],"Node":self})
+		Editor.undolistadd({"Type":"PropertyRail","Data":[previousdata,currentdata,previousend,end],"Node":self})
 		previousdata = currentdata
 		previousend = end
 
@@ -210,8 +211,8 @@ func done():
 	$end.set_data()
 	locked = true
 	idnum += 1
-	get_parent().idnum += 1
-	get_parent().lineplacing = true
+	Editor.idnum += 1
+	Editor.lineplacing = true
 	buttons.append(get_node("end/Button"))
 
 func _input(event):
@@ -269,11 +270,11 @@ func get_data():
 
 func _draw():
 	if loading == false and fillmode == false:
-		$end.position = get_parent().roundedmousepos
+		$end.position = Editor.roundedmousepos
 	draw_line($start.position,$end.position,color + Color(.2,.2,.2),size)
 	if loading == false:
 		pointcurve()
 
 func EXPORT():
 	if visible:
-		get_parent().bridgedata += get_data() + end
+		Editor.bridgedata += get_data() + end

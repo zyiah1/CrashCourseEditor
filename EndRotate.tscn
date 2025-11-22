@@ -1,94 +1,30 @@
-[gd_scene load_steps=18 format=3 uid="uid://ch0hxchdfht5l"]
+[gd_scene load_steps=7 format=3 uid="uid://ch0hxchdfht5l"]
 
-[ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://RotatingRail.tscn" id="1_sw58t"]
 [ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="3_epxp8"]
 [ext_resource type="Texture2D" uid="uid://dn2w76gtiqspv" path="res://pointE.png" id="4"]
-[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="4_urgny"]
-[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="5_43q7b"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="4_6khub"]
 [ext_resource type="Texture2D" uid="uid://dd6bsp038gsk0" path="res://railPurple.png" id="5_m3osh"]
 [ext_resource type="Texture2D" uid="uid://bwp2oalixxe3l" path="res://pivotEnd.png" id="7"]
-[ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
-[ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="8_fye7n"]
-[ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="9_mbffj"]
-[ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="10_43q7b"]
-[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="12_i7fgm"]
-[ext_resource type="PackedScene" uid="uid://bijwdiskmx55h" path="res://shared scenes/rotationbox.tscn" id="13_fye7n"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="14_mbffj"]
 
-[sub_resource type="StyleBoxEmpty" id="17"]
+[node name="LRotate" instance=ExtResource("1_sw58t")]
 
-[sub_resource type="StyleBoxEmpty" id="16"]
-
-[sub_resource type="StyleBoxEmpty" id="15"]
-
-[node name="EndRotate" type="Sprite2D"]
-script = ExtResource("8")
-
-[node name="Spin" type="Node2D" parent="." groups=["EndSpin", "Spin"]]
-script = ExtResource("1")
+[node name="Spin" parent="." index="0"]
 pointtexture = ExtResource("4")
 Param0 = 3392
-color = Color(0.75, 0.2, 0.13, 1)
+color = Color(0.7490196, 0.2, 0.12941177, 1)
 railtexture = ExtResource("3_epxp8")
 
-[node name="start" parent="Spin" instance=ExtResource("5_43q7b")]
-visible = false
+[node name="start" parent="Spin" index="0"]
 texture = ExtResource("4")
+script = ExtResource("4_6khub")
 
-[node name="crank" type="Node2D" parent="Spin"]
-script = ExtResource("4_urgny")
+[node name="crank" parent="Spin" index="1"]
 previewtexture = ExtResource("5_m3osh")
 
-[node name="Timer" type="Timer" parent="Spin/crank"]
-one_shot = true
-
-[node name="crank" type="Sprite2D" parent="Spin/crank"]
-scale = Vector2(0.35, 0.35)
+[node name="crank" parent="Spin/crank" index="1"]
 texture = ExtResource("7")
 
-[node name="cooldown" type="Timer" parent="Spin/crank"]
-autostart = true
-
-[node name="Button" type="Button" parent="Spin/crank"]
-offset_left = -11.0
-offset_top = -10.0
-offset_right = 11.0
-offset_bottom = 10.0
-theme_override_styles/normal = SubResource("17")
-theme_override_styles/pressed = SubResource("16")
-theme_override_styles/hover = SubResource("15")
-theme_override_styles/disabled = SubResource("17")
-theme_override_styles/focus = SubResource("17")
-
-[node name="crank2" type="Node2D" parent="Spin"]
-visible = false
-script = ExtResource("8_fye7n")
-previewtexture = ExtResource("9_mbffj")
-
-[node name="crank2" type="Sprite2D" parent="Spin/crank2"]
-z_index = -1
-z_as_relative = false
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("10_43q7b")
-
-[node name="end" parent="Spin" instance=ExtResource("12_i7fgm")]
+[node name="end" parent="Spin" index="3"]
 texture = ExtResource("4")
-
-[node name="rotation" parent="Spin" instance=ExtResource("13_fye7n")]
-offset_left = -19.1077
-offset_top = -99.578
-offset_right = 219.8923
-offset_bottom = -46.578003
-
-[node name="speed" parent="Spin" instance=ExtResource("14_mbffj")]
-offset_left = -20.0
-offset_top = -156.0
-offset_right = 219.0
-offset_bottom = -103.0
-pivot_offset = Vector2(20, 156.26)
-text = "2.5"
-
-[connection signal="timeout" from="Spin/crank/Timer" to="Spin/crank" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
-[connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
-[connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
+script = ExtResource("4_6khub")

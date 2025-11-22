@@ -1,92 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu1qbuhg8htnl"]
+[gd_scene load_steps=4 format=3 uid="uid://cu1qbuhg8htnl"]
 
-[ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://pointR.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_jtnpo"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://RotatingRail.tscn" id="1_16k3p"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="2_jcygd"]
 [ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://crankR.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://rail.png" id="5_h1dro"]
-[ext_resource type="Script" uid="uid://cnytndqk3b2mw" path="res://shared scripts/PreviewCrank.gd" id="5_rdit7"]
-[ext_resource type="Script" uid="uid://b85xmjnk02qp" path="res://PreviewCrankNegative.gd" id="7_arri4"]
-[ext_resource type="Script" uid="uid://cvyg3vt3fu40x" path="res://Scripts/messenger.gd" id="8"]
-[ext_resource type="Texture2D" uid="uid://c63l3sra6bhuk" path="res://raildarkblue.png" id="8_8gtud"]
-[ext_resource type="Texture2D" uid="uid://dc3f47b4oampr" path="res://pivotLS.png" id="9_jtnpo"]
-[ext_resource type="Script" uid="uid://hl0b2v7y4ekn" path="res://shared scripts/Rotate.gd" id="10"]
-[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="11_buguk"]
-[ext_resource type="PackedScene" uid="uid://bijwdiskmx55h" path="res://shared scenes/rotationbox.tscn" id="12_arri4"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="13_8gtud"]
 
-[sub_resource type="StyleBoxEmpty" id="13"]
+[node name="RRotate" instance=ExtResource("1_16k3p")]
 
-[sub_resource type="StyleBoxEmpty" id="12"]
-
-[sub_resource type="StyleBoxEmpty" id="11"]
-
-[node name="Rspin" type="Sprite2D"]
-z_index = -1
-z_as_relative = false
-script = ExtResource("8")
-
-[node name="Spin" type="Node2D" parent="." groups=["Spin"]]
-script = ExtResource("10")
+[node name="Spin" parent="." index="0"]
 Param0 = 3111
 
-[node name="start" parent="Spin" instance=ExtResource("3_jtnpo")]
-visible = false
-texture = ExtResource("2")
+[node name="start" parent="Spin" index="0"]
+script = ExtResource("2_jcygd")
 
-[node name="crank" type="Node2D" parent="Spin"]
-script = ExtResource("5_rdit7")
-previewtexture = ExtResource("5_h1dro")
-
-[node name="Timer" type="Timer" parent="Spin/crank"]
-one_shot = true
-
-[node name="crank" type="Sprite2D" parent="Spin/crank"]
-scale = Vector2(0.35, 0.35)
+[node name="crank" parent="Spin/crank" index="1"]
 texture = ExtResource("4")
 
-[node name="cooldown" type="Timer" parent="Spin/crank"]
-autostart = true
-
-[node name="Button" type="Button" parent="Spin/crank"]
-offset_left = -11.0
-offset_top = -10.0
-offset_right = 11.0
-offset_bottom = 10.0
-theme_override_styles/normal = SubResource("13")
-theme_override_styles/pressed = SubResource("12")
-theme_override_styles/hover = SubResource("11")
-theme_override_styles/disabled = SubResource("13")
-theme_override_styles/focus = SubResource("13")
-
-[node name="crank2" type="Node2D" parent="Spin"]
-visible = false
-script = ExtResource("7_arri4")
-previewtexture = ExtResource("8_8gtud")
-
-[node name="crank2" type="Sprite2D" parent="Spin/crank2"]
-z_index = -1
-z_as_relative = false
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("9_jtnpo")
-
-[node name="end" parent="Spin" instance=ExtResource("11_buguk")]
-texture = ExtResource("2")
-
-[node name="rotation" parent="Spin" instance=ExtResource("12_arri4")]
-offset_left = -19.1077
-offset_top = -99.578
-offset_right = 219.8923
-offset_bottom = -46.578003
-
-[node name="speed" parent="Spin" instance=ExtResource("13_8gtud")]
-offset_left = -20.0
-offset_top = -156.0
-offset_right = 219.0
-offset_bottom = -103.0
-pivot_offset = Vector2(20, 156.26)
-text = "2.5"
-
-[connection signal="timeout" from="Spin/crank/Timer" to="Spin/crank" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Spin/crank/cooldown" to="Spin/crank" method="_on_cooldown_timeout"]
-[connection signal="button_down" from="Spin/crank/Button" to="Spin" method="_on_Button_button_down"]
-[connection signal="button_up" from="Spin/crank/Button" to="Spin" method="_on_Button_button_up"]
+[node name="end" parent="Spin" index="3"]
+script = ExtResource("2_jcygd")
