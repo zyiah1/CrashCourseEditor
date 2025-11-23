@@ -14,7 +14,6 @@ signal edit
 var loading:bool = false
 var locked:bool = false
 var segments:int = 1 #number of segments
-var lines = []
 var points = []
 var buttons = []
 
@@ -51,13 +50,12 @@ func _ready():
 	if loading == false:
 		$start.position = Editor.roundedmousepos
 	rail.add_point($start.position)
-	
+	rail.add_point($start.position)
 	
 	$start.set_data()
 	#data += $start.pointdata
 
 var data:PackedStringArray = ["            - Points:"]
-#var pointdata:Array[PackedStringArray]
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
 
@@ -72,9 +70,14 @@ func _process(delta):
 		if button.button_pressed:
 			pressed = true
 			if Editor.item == "toolmove":
-				button.get_parent().position = Editor.roundedmousepos
+				var point = button.get_parent()
+				point.position = Editor.roundedmousepos
+				$start.position = $end.position
+				var pointID = points.find(point)
+				rail.points[pointID*2] = point.position
+				rail.points[pointID*2+1] = point.position
 	
-	if amount != 0: #button is hovered
+	if amount != 0 or pressed: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
 			Editor.move_child(self,10)
 		match Editor.item:
@@ -99,7 +102,7 @@ func _process(delta):
 						previousend = end
 						return
 			"toolmove":
-				modulate = Color.ORANGE
+				modulate = Color.ANTIQUE_WHITE
 	else:
 		modulate = Color.WHITE
 	if locked == false and !fillmode:
@@ -114,7 +117,6 @@ func _process(delta):
 		
 
 func newseg():
-	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
 	rail.add_point($end.position)
 	var newpoint = pointScene.instantiate()
@@ -140,7 +142,7 @@ func propertyclose():
 		previousdata = currentdata
 		previousend = end
 
-func change_points(points_array:Array,startpoint,endpoint) -> Array:
+func change_points(points_array:Array,startpoint,endpoint):
 	var linearray = []
 	var previouspoint = null
 	for point in points_array:
@@ -149,10 +151,9 @@ func change_points(points_array:Array,startpoint,endpoint) -> Array:
 			linearray.append([previouspoint.position,point.position])
 		previouspoint = point
 	startpoint.position = endpoint.position
-	return linearray
 
 func reposition():
-	lines = change_points(points,$start,$end)
+	change_points(points,$start,$end)
 	for line in end:
 		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
@@ -252,9 +253,9 @@ func set_point_data(newdata:PackedStringArray):
 	data = [pointdata[0]]
 	pointdata.remove_at(0)
 	for point in points:
-		point.pointdata = pointdata.slice(0,24)
+		point.pointdata = pointdata.slice(0,24) #get each point slice
 		var loop = 24
-		while loop > 0:
+		while loop > 0: #remove the data we already got
 			pointdata.remove_at(0)
 			loop -= 1
 

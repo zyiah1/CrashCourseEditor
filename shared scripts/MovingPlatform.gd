@@ -32,9 +32,10 @@ func _ready():
 	get_parent().buttons.append($end/Button)
 	$speed.text = str(speed)
 	if loading == false:
-		$start.position = get_parent().get_parent().roundedmousepos
+		$start.position = Editor.roundedmousepos
 		rail.add_point($start.position)
-		$preview.rail.add_point($start.position)
+		rail.add_point($start.position)
+		$preview.rail.points = rail.points
 	else:
 		$speed.hide()
 	$start.set_data()
@@ -160,11 +161,9 @@ func _process(delta):
 		fillmode = not fillmode
 
 func newseg():
-	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
-	$preview.rail.add_point($end.position)
 	rail.add_point($end.position)
-	$preview.rail.add_point($end.position)
+	$preview.rail.points = rail.points
 	var newpoint = pointscene.instantiate()
 	newpoint.texture = pointtexture
 	newpoint.position = $start.position
@@ -188,14 +187,7 @@ func done():
 		$end.segments = segments-1
 		$end.set_data()
 		locked = true
-		get_parent().get_parent().lineplacing = true
-
-func _input(event):
-	if event is InputEventMouseButton and fillmode and locked == false and loading == false:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			fillamount += 1
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and fillamount > 2:
-			fillamount -= 1
+		Editor.lineplacing = true
 
 func bridge():
 	if mode == 0:
@@ -206,7 +198,7 @@ func bridge():
 func _draw():
 	if locked == false and loading == false:
 		if !fillmode:
-			$end.position = get_parent().get_parent().roundedmousepos
+			$end.position = Editor.roundedmousepos
 		pointcurve()
 	draw_line($start.position,$end.position,color,4.5)
 	#draw the image that appears between the points (fan)
@@ -218,7 +210,7 @@ func _draw():
 		$Mid.hide()
 
 func EXPORT():
-	get_parent().get_parent().bridgedata += get_parent().get_data() + get_parent().end + get_data() + endplat
+	Editor.bridgedata += get_parent().get_data() + get_parent().end + get_data() + endplat
 
 func _on_speed_change():
 	speed = float($speed.text)

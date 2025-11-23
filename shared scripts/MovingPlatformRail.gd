@@ -33,7 +33,7 @@ func propertyclose():
 		previousplatend = childrail.endplat
 
 func reposition():
-	lines = change_points(points,$start,$end)
+	change_points(points,$start,$end)
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	childrail.path = []
 	for line in points:
@@ -118,7 +118,7 @@ func reposition():
 			childrail._on_speed_change()
 	 # cycle through child data
 	
-	childrail.lines =  change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
+	change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
 	#visible and invisible rail color differ
 	if end[9].begins_with("              param1: 0"): # invisible
 		color = Color(.7,.7,.7,.5)
@@ -127,12 +127,10 @@ func reposition():
 	
 	#update the visuals
 	childrail.rail.points = []
-	childrail.get_node("preview").rail.points = []
-	for point in childrail.points: #don't worry the duplicates are intentional (no weird scaling
+	for point in childrail.points: #don't worry the duplicates are intentional (no weird scaling around the corners
 		childrail.rail.add_point(point.position)
-		childrail.get_node("preview").rail.add_point(point.position)
 		childrail.rail.add_point(point.position)
-		childrail.get_node("preview").rail.add_point(point.position)
+	childrail.get_node("preview").rail.points = childrail.rail.points
 	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
 	print(childrail.idnum)
 	childrail.get_node("preview").backpath = childrail.path
@@ -146,8 +144,18 @@ func _process(delta):
 			amount += 1
 		if button.button_pressed:
 			pressed = true
+			if Editor.item == "toolmove":
+				var point = button.get_parent()
+				point.position = Editor.roundedmousepos
+				if point in childrail.points:
+					var pointID = childrail.points.find(point)
+					childrail.rail.points[pointID*2] = point.position
+					childrail.rail.points[pointID*2+1] = point.position
+					childrail.get_node("preview").rail.points = childrail.rail.points
+				$start.position = $end.position
+				childrail.get_node("start").position = childrail.get_node("end").position
 	
-	if amount != 0: #button is hovered
+	if amount != 0 or pressed: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
 		match get_parent().item:
@@ -175,6 +183,8 @@ func _process(delta):
 					previousplatdata = childcurrentdata
 					previousplatend = childrail.endplat
 					return
+			"toolmove":
+				modulate = Color.ANTIQUE_WHITE
 	else:
 		modulate = Color.WHITE
 	
@@ -205,8 +215,6 @@ func _process(delta):
 
 func newseg():
 	if mode == 0:
-		lines.append([$start.position,$end.position])
-		
 		var newpoint = pointScene.instantiate()
 		newpoint.position = $start.position
 		add_child(newpoint)
@@ -253,9 +261,11 @@ func bridge():
 func _draw():
 	if locked == false and loading == false and fillmode == false:
 		$end.position = get_parent().roundedmousepos
-	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25)
-	for lineb in lines:
-		draw_line(lineb[0],lineb[1],color,2.25)
+	draw_line($start.position,$end.position,Color(.3,.3,.3),2.25) #draw the placing of the rail
+	for point in points: # draw the rail
+		if point != points[0]:
+			draw_line(points[points.find(point)-1].position,point.position,color,2.25)
+		draw_line(points[points.size()-1].position,$start.position,color,2.25)
 	if locked == false and loading == false:
 		pointcurve()
 

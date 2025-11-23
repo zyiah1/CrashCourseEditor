@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://drxjx52aog5cn"]
+[gd_scene load_steps=11 format=3 uid="uid://drxjx52aog5cn"]
 
 [ext_resource type="Texture2D" uid="uid://xp7hguu2wcws" path="res://Sprites/Points/point.png" id="1_5plhk"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="2_86beh"]
 [ext_resource type="Script" uid="uid://b0h4sk6sjr0jm" path="res://pointhandle.gd" id="2_mpdle"]
 
 [sub_resource type="StyleBoxEmpty" id="3"]
@@ -8,34 +9,6 @@
 [sub_resource type="StyleBoxEmpty" id="2"]
 
 [sub_resource type="StyleBoxEmpty" id="1"]
-
-[sub_resource type="Animation" id="Animation_mbteg"]
-resource_name = "mouseout"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(4.183732, 5.025755, 14.786794, 1), Color(18.892157, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.59460354, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_7vdea"]
 length = 0.001
@@ -93,6 +66,34 @@ tracks/1/keys = {
 "values": [Vector2(1, 1), Vector2(2, 2)]
 }
 
+[sub_resource type="Animation" id="Animation_mbteg"]
+resource_name = "mouseout"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(4.183732, 5.025755, 14.786794, 1), Color(18.892157, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.59460354, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qnsw7"]
 _data = {
 &"RESET": SubResource("Animation_7vdea"),
@@ -105,6 +106,7 @@ z_index = 1
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_5plhk")
 hframes = 2
+script = ExtResource("2_86beh")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -17.0

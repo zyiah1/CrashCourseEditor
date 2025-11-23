@@ -44,6 +44,7 @@ func _ready():
 	$speed.position = $crank.position + Vector2(-20,-156)
 	buttons.append($crank/Button)
 	rail.add_point($start.position)
+	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
 	
 	$start.set_data()
@@ -69,7 +70,7 @@ func _ready():
 "              unit_name: Path"]
 
 func reposition():
-	lines = change_points(points,$start,$end)
+	change_points(points,$start,$end)
 	for line in end:
 		if line.begins_with("              param0:"): #get the point kind
 			var newpointtexture = preload("uid://xp7hguu2wcws") #point.png
@@ -188,6 +189,9 @@ func reposition():
 	else:
 		$speed.text = str(float(text))
 	speed = float(text)
+	text = end[11].erase(0,22)
+	rotationpoint = int(text)
+	print("rotation point: ",rotationpoint)
 	$crank.target = float($rotation.text)
 	$rotation.prev = $rotation.text
 	$crank.rotation_degrees = 0
@@ -200,29 +204,20 @@ func reposition():
 	get_node("crank").rail.points = []
 	for point in points:
 		rail.add_point(point.position)
-		get_node("crank").rail.add_point(point.position)
 		rail.add_point(point.position)
-		get_node("crank").rail.add_point(point.position)
 		point.scale = Vector2(.25,.25)
+	$crank.rail.points = rail.points
 	$end.scale = Vector2(.35,.35)
+	points[0].scale = Vector2(.35,.35)
 	changepivotpoint()
 
 func changepivotpoint():
-	var line = end[11]
-	line = line.erase(19,1)
-	if int(line.lstrip("              param: ")) != 0 and  int(line.lstrip("              param: ")) != -1:
-		var oldpos = $crank.position
-		var targetswappoint = null
-		if points.size()-1 < int(line.lstrip("              param: ")):
-			$crank.position = $end.position #last point not in point array aab
-			targetswappoint = $end
-			
-		else:
-			$crank.position = points[int(line.lstrip("              param: "))].position
-			targetswappoint = points[int(line.lstrip("              param: "))]
-			targetswappoint.scale = Vector2(.35,.35)
-		targetswappoint.position = oldpos
+	$crank.position = points[rotationpoint].position
+	for point in points:
+		point.show()
+	points[rotationpoint].hide()
 	$start.position = $end.position
+	$start.visible = $end.visible
 
 func _process(delta):
 	#update the lines
@@ -238,6 +233,21 @@ func _process(delta):
 			amount += 1
 		if button.button_pressed:
 			pressed = true
+			if Editor.item == "toolmove":
+				var point = button.get_parent()
+				point.position = Editor.roundedmousepos
+				$start.position = $end.position
+				var pointID = points.find(point)
+				if point == $crank:
+					pointID = rotationpoint
+					print(rotationpoint)
+					points[rotationpoint].position = Editor.roundedmousepos
+					points[rotationpoint].set_data()
+					$crank2.position = $crank.position
+				rail.points[pointID*2] = point.position
+				rail.points[pointID*2+1] = point.position
+				$crank.rail.points = rail.points
+				$crank2.rail.points = rail.points
 	
 	if amount != 0: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
@@ -264,6 +274,8 @@ func _process(delta):
 					previousdata = get_data()
 					previousend = end
 					return
+			"toolmove":
+				modulate = Color.ANTIQUE_WHITE
 	else:
 		modulate = Color.WHITE
 	if locked == false and fillmode == false:
@@ -278,7 +290,6 @@ func _process(delta):
 		fillmode = not fillmode
 
 func newseg():
-	lines.append([$start.position,$end.position])
 	rail.add_point($end.position)
 	$crank.rail.add_point($end.position)
 	rail.add_point($end.position)

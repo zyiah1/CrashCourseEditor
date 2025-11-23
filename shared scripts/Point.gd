@@ -7,7 +7,8 @@ var pointdata:PackedStringArray
 @export var comment:bool = true #if - comment: !l -1: false = - dir_x:
 
 func _ready():
-	#if get_parent().loading == false: #if we aren't loading data, set the data
+	if get_node_or_null("Button") != null:
+		get_node("Button").connect("button_up",Callable(self,"set_data"))
 	set_data()
 
 func set_data():
