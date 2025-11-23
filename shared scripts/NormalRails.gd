@@ -59,24 +59,7 @@ var data:PackedStringArray = ["            - Points:"]
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
 
-
-func _process(delta):
-	queue_redraw()
-	var amount = 0
-	var pressed = false
-	for button in buttons:
-		if button.is_hovered():
-			amount += 1
-		if button.button_pressed:
-			pressed = true
-			if Editor.item == "toolmove":
-				var point = button.get_parent()
-				point.position = Editor.roundedmousepos
-				$start.position = $end.position
-				var pointID = points.find(point)
-				rail.points[pointID*2] = point.position
-				rail.points[pointID*2+1] = point.position
-	
+func tool_actions(amount,pressed):
 	if amount != 0 or pressed: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
 			Editor.move_child(self,10)
@@ -102,9 +85,27 @@ func _process(delta):
 						previousend = end
 						return
 			"toolmove":
-				modulate = Color.ANTIQUE_WHITE
+				modulate = Color.NAVAJO_WHITE
 	else:
 		modulate = Color.WHITE
+
+func _process(delta):
+	queue_redraw()
+	var amount = 0
+	var pressed = false
+	for button in buttons:
+		if button.is_hovered():
+			amount += 1
+		if button.button_pressed:
+			pressed = true
+			if Editor.item == "toolmove":
+				var point = button.get_parent()
+				point.position = Editor.roundedmousepos
+				$start.position = $end.position
+				var pointID = points.find(point)
+				rail.points[pointID*2] = point.position
+				rail.points[pointID*2+1] = point.position
+	tool_actions(amount, pressed)
 	if locked == false and !fillmode:
 		if Input.is_action_just_pressed("addpoint"):
 			newseg()
@@ -121,6 +122,8 @@ func newseg():
 	rail.add_point($end.position)
 	var newpoint = pointScene.instantiate()
 	newpoint.position = $start.position
+	if points.size() != 0:
+		newpoint.comment = false #make it -dir instead of -comment
 	add_child(newpoint)
 	points.append(newpoint)
 	buttons.append(newpoint.get_node("Button"))
@@ -253,11 +256,20 @@ func set_point_data(newdata:PackedStringArray):
 	data = [pointdata[0]]
 	pointdata.remove_at(0)
 	for point in points:
-		point.pointdata = pointdata.slice(0,24) #get each point slice
-		var loop = 24
+		if pointdata.size()<24:
+			print("Small POINT DATA :")
+			
+		
+		var maxline = pointdata.find("                  unit_name: Point") #account for different array sizes
+		point.pointdata = pointdata.slice(0,maxline+1) #get each point slice
+		
+		var loop = 30
 		while loop > 0: #remove the data we already got
 			pointdata.remove_at(0)
 			loop -= 1
+			if pointdata[0] == "                  unit_name: Point":
+				pointdata.remove_at(0)
+				loop = 0 #end loop
 
 func get_data():
 	var totalpointdata:PackedStringArray = []

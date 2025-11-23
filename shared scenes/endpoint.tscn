@@ -107,6 +107,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_5plhk")
 hframes = 2
 script = ExtResource("2_86beh")
+comment = false
 
 [node name="Button" type="Button" parent="."]
 offset_left = -17.0

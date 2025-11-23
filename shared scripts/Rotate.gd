@@ -197,7 +197,6 @@ func reposition():
 	$crank.rotation_degrees = 0
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	$speed.position = $crank.position + Vector2(-20,-156)
-	
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	#update the visuals
 	rail.points = []
@@ -240,7 +239,6 @@ func _process(delta):
 				var pointID = points.find(point)
 				if point == $crank:
 					pointID = rotationpoint
-					print(rotationpoint)
 					points[rotationpoint].position = Editor.roundedmousepos
 					points[rotationpoint].set_data()
 					$crank2.position = $crank.position
@@ -297,6 +295,8 @@ func newseg():
 	var newpoint = pointscene.instantiate()
 	newpoint.texture = pointtexture
 	newpoint.position = $start.position
+	if points.size() != 0:
+		newpoint.comment = false #make it -dir instead of -comment
 	if firstpoint == true:
 		newpoint.hide()
 		firstpoint = false

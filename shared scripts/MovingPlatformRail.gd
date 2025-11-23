@@ -154,7 +154,7 @@ func _process(delta):
 					childrail.get_node("preview").rail.points = childrail.rail.points
 				$start.position = $end.position
 				childrail.get_node("start").position = childrail.get_node("end").position
-	
+				childrail.get_node("preview").repeat = true
 	if amount != 0 or pressed: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
@@ -217,6 +217,8 @@ func newseg():
 	if mode == 0:
 		var newpoint = pointScene.instantiate()
 		newpoint.position = $start.position
+		if points.size() != 0:
+			newpoint.comment = false #make it -dir instead of -comment
 		add_child(newpoint)
 		points.append(newpoint)
 		buttons.append(newpoint.get_node("Button"))

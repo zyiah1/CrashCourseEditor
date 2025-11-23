@@ -167,6 +167,8 @@ func newseg():
 	var newpoint = pointscene.instantiate()
 	newpoint.texture = pointtexture
 	newpoint.position = $start.position
+	if points.size() != 0:
+		newpoint.comment = false #make it -dir instead of -comment
 	add_child(newpoint)
 	points.append(newpoint)
 	get_parent().buttons.append(newpoint.get_node("Button"))

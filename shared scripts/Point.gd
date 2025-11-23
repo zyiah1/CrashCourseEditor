@@ -41,5 +41,13 @@ func set_data():
 "                  unit_name: Point"])
 
 func reposition():
-	position.x = float(pointdata[11].lstrip("                  pnt0_x: "))
-	position.y = -float(pointdata[12].lstrip("                  pnt0_y: "))
+	var dataoffset:int = 0
+	if pointdata[0] == "                - comment: !l -1":
+		comment = true
+	else:
+		comment = false
+		dataoffset = -1
+	
+	#print("THE X ",pointdata[11+dataoffset])
+	position.x = float(pointdata[11+dataoffset].lstrip("                  pnt0_x: "))
+	position.y = -float(pointdata[12+dataoffset].lstrip("                  pnt0_y: "))
