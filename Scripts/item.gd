@@ -4,8 +4,11 @@ signal selected
 
 var names: PackedStringArray = []
 @export var additional_names: PackedStringArray
+var Editor
+
 
 func startup():
+	Editor = Options.Editor
 	names = [name]
 	names += additional_names
 	if ResourceLoader.exists("res://railart/"+name+".png"):
@@ -24,7 +27,7 @@ func _process(delta):
 			emit_signal("selected",str(name))
 
 func _pressed():
-	if owner.propertypanel == false:
+	if Editor.propertypanel == false:
 		for buttons in get_tree().get_nodes_in_group("button"):
 			buttons.disabled = false
 		disabled = true

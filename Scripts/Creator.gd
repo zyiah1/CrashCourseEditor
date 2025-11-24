@@ -87,29 +87,23 @@ func _ready():
 		$Cam.zoom = Vector2(.75,.75)
 		$Cam.paused = true
 		$Cam.toggleUI()
+	
+	#change layout
+	if Options.custom_layout != [] and Options.layout == "custom":
+		await loadlayout(Options.custom_layout)
+	if Options.layout == "compact":
+		pass
+	if Options.layout == "expanded":
+		loadlayout(["player","banana","checkpoint","finalcheckpoint","coin","1up","door","barrel","ladder","purse","hammer","Arrow","Arrow45","Arrow90","Arrow180","ArrowKaiten","BigArrow","pauline","dk","row2","rail","blue","invisible","music","movingfan","movingL","movingR","movingA","movingCrankL","movingCrankR","Lspin","Rspin","Lpivot","Rpivot","Apivot","tiltLS","tiltRS","movingEnd","endrotate"])
+	if Options.layout == "onerow":
+		loadlayout(["player","banana","checkpoint","finalcheckpoint","coin","1up","door","barrel","ladder","purse","hammer","Arrow","Arrow45","Arrow90","Arrow180","ArrowKaiten","BigArrow","pauline","dk","rail","blue","invisible","music","movingfan","movingL","movingR","movingA","movingCrankL","movingCrankR","Lspin","Rspin","Lpivot","Rpivot","Apivot","tiltLS","tiltRS","movingEnd","endrotate"])
+	
+	for node in get_tree().get_nodes_in_group("button"):
+		node.startup() #trigger start of each button
+	
 	#connect all item and tool buttons
 	for button in get_tree().get_nodes_in_group("button"):
 		button.connect("selected",Callable(self,"itemselected"))
-	
-	#change layout
-	if Options.custom_layout != []:
-		await loadlayout(Options.custom_layout)
-	if Options.layout == "compact":
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/rail.additional_names.erase("invisible")
-		$"CanvasLayer3/CanvasLayer2/Buttons/rails/2".name = "invisible"
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingL.additional_names = ["movingR"]
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingCrankL.additional_names = ["movingCrankR"]
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/Lspin.additional_names = ["Rspin"]
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/Lpivot.additional_names = ["Rpivot"]
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/tiltLS.additional_names = ["tiltRS"]
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/tiltRS.queue_free()
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/Rpivot.queue_free()
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/Rspin.queue_free()
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingCrankR.queue_free()
-		$CanvasLayer3/CanvasLayer2/Buttons/rails/movingR.queue_free()
-	for node in get_tree().get_nodes_in_group("button"):
-		node.startup() #trigger start of each button
-
 
 func loadlayout(layout_data:Array):
 	for node in get_tree().get_nodes_in_group("button"):
@@ -122,7 +116,7 @@ func loadlayout(layout_data:Array):
 	var row = $CanvasLayer3/CanvasLayer2/Buttons/objects
 	for part in layout_data:
 		if row.get_children().size() <= id: #if there isn't enough buttons,
-			row.get_child(row.get_children().size()-1).duplicate()
+			row.add_child(row.get_child(row.get_children().size()-1).duplicate())
 		var currentbutton = row.get_child(id)
 		
 		if part is Array:

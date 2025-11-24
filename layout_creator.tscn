@@ -1,0 +1,888 @@
+[gd_scene load_steps=48 format=3 uid="uid://d28e4bqveph56"]
+
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="1_ibg4x"]
+[ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2_ti782"]
+[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="3_p4w1o"]
+[ext_resource type="PackedScene" uid="uid://cx82h5vmx6lkn" path="res://Loader.tscn" id="4_nesdg"]
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="5_p4w1o"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="6_bmmxj"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7_xqkqs"]
+[ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://railart/player.png" id="8_dd2pp"]
+[ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="9_a8x6n"]
+[ext_resource type="Texture2D" uid="uid://cxijoew28a0ty" path="res://railart/checkpoint.png" id="10_qeke3"]
+[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://railart/finalcheckpoint.png" id="11_yj3ba"]
+[ext_resource type="Texture2D" uid="uid://dakt7cipbcnp" path="res://railart/coin.png" id="12_ljv30"]
+[ext_resource type="Texture2D" uid="uid://pm3v6to0bd2c" path="res://railart/1up.png" id="13_di5wp"]
+[ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://railart/door.png" id="14_7ofba"]
+[ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://railart/barrel.png" id="15_73tgk"]
+[ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://railart/ladder.png" id="16_jbrv1"]
+[ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://railart/purse.png" id="17_iert6"]
+[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://railart/hammer.png" id="18_ly7xb"]
+[ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://railart/Arrow.png" id="19_ec24n"]
+[ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/Arrow45.png" id="20_e0uxd"]
+[ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://railart/pauline.png" id="21_trffa"]
+[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://railart/dk.png" id="22_lce6m"]
+[ext_resource type="Texture2D" uid="uid://cqlxfkinhy6k4" path="res://railart/rail.png" id="23_goirk"]
+[ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="24_jfp21"]
+[ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://railart/movingfan.png" id="25_bs8kk"]
+[ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://railart/movingL.png" id="26_u0x0d"]
+[ext_resource type="Texture2D" uid="uid://c3ecp5rabscks" path="res://railart/movingR.png" id="27_7kpo3"]
+[ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://railart/movingA.png" id="28_obrsl"]
+[ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/movingCrankL.png" id="29_7ely2"]
+[ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/movingCrankR.png" id="30_gpt0o"]
+[ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/Lspin.png" id="31_y4d7y"]
+[ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/Rspin.png" id="32_jhgdu"]
+[ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/Lpivot.png" id="33_nkegp"]
+[ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/Rpivot.png" id="34_urigo"]
+[ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/Apivot.png" id="35_dgaww"]
+[ext_resource type="Texture2D" uid="uid://bmmoqxjs6kiq2" path="res://railart/tiltLS.png" id="36_3ower"]
+[ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="37_7gn55"]
+[ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="38_ksuwy"]
+[ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/endrotate.png" id="39_h7otq"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="40_xqkqs"]
+[ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="41_dd2pp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rr03k"]
+texture = ExtResource("6_bmmxj")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uxoht"]
+texture = ExtResource("7_xqkqs")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smpmk"]
+texture = ExtResource("6_bmmxj")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lg4x0"]
+texture = ExtResource("7_xqkqs")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dd2pp"]
+texture = ExtResource("6_bmmxj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8x6n"]
+texture = ExtResource("7_xqkqs")
+
+[node name="LayoutCreator" type="Node2D"]
+
+[node name="bfg" parent="." instance=ExtResource("1_ibg4x")]
+
+[node name="back" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 792.0
+offset_right = 181.0
+offset_bottom = 896.0
+theme = ExtResource("2_ti782")
+text = "back"
+script = ExtResource("3_p4w1o")
+scene = ExtResource("4_nesdg")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1597.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("5_p4w1o")
+theme_override_font_sizes/font_size = 61
+text = "Layout Editor"
+horizontal_alignment = 1
+
+[node name="objects" type="HBoxContainer" parent="."]
+offset_left = 27.0
+offset_top = 83.0
+offset_right = 4544.7554
+offset_bottom = 373.0
+scale = Vector2(0.34154135, 0.34154135)
+alignment = 1
+
+[node name="player" type="Button" parent="objects" groups=["button", "playerbutton"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rr03k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_uxoht")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rr03k")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_uxoht")
+button_mask = 5
+icon = ExtResource("8_dd2pp")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="banana" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("9_a8x6n")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="checkpoint" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("10_qeke3")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="finalcheckpoint" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("11_yj3ba")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="coin" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("12_ljv30")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1up" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("13_di5wp")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="door" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("14_7ofba")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="barrel" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("15_73tgk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ladder" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("16_jbrv1")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="purse" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("17_iert6")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="hammer" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("18_ly7xb")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Arrow" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("19_ec24n")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Arrow45" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("20_e0uxd")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="pauline" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("21_trffa")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="dk" type="Button" parent="objects" groups=["button"]]
+custom_minimum_size = Vector2(0, 290)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("22_lce6m")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="rails" type="HBoxContainer" parent="."]
+offset_left = 3.0000076
+offset_top = 212.0
+offset_right = 3010.2395
+offset_bottom = 374.0
+scale = Vector2(0.52938914, 0.56354326)
+alignment = 1
+
+[node name="rail" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="2" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="3" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="music" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("24_jfp21")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingfan" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("25_bs8kk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingL" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("26_u0x0d")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingR" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("27_7kpo3")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingA" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("28_obrsl")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingCrankL" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("29_7ely2")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingCrankR" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("30_gpt0o")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Lspin" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("31_y4d7y")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rspin" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("32_jhgdu")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Lpivot" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("33_nkegp")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rpivot" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("34_urigo")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Apivot" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("35_dgaww")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="tiltLS" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("36_3ower")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="tiltRS" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("37_7gn55")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingEnd" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("38_ksuwy")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="endrotate" type="Button" parent="rails" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("39_h7otq")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="rails2" type="HBoxContainer" parent="."]
+offset_left = 3.0000002
+offset_top = 314.0
+offset_right = 3010.2395
+offset_bottom = 476.0
+scale = Vector2(0.52938914, 0.56354326)
+alignment = 1
+
+[node name="rail" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="OptionButton" type="OptionButton" parent="rails2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("40_xqkqs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dd2pp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_a8x6n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dd2pp")
+alignment = 1
+icon_alignment = 1
+expand_icon = true
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Empty"
+popup/item_0/id = 0
+popup/item_1/icon = ExtResource("23_goirk")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("41_dd2pp")
+popup/item_2/id = 2
+
+[node name="2" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="3" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("23_goirk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="music" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("24_jfp21")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingfan" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("25_bs8kk")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingL" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("26_u0x0d")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingR" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("27_7kpo3")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingA" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("28_obrsl")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingCrankL" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("29_7ely2")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingCrankR" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("30_gpt0o")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Lspin" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("31_y4d7y")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rspin" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("32_jhgdu")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Lpivot" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("33_nkegp")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rpivot" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("34_urigo")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Apivot" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("35_dgaww")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="tiltLS" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("36_3ower")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="tiltRS" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("37_7gn55")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="movingEnd" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("38_ksuwy")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="endrotate" type="Button" parent="rails2" groups=["button"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_ti782")
+theme_override_styles/normal = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lg4x0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smpmk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg4x0")
+button_mask = 5
+icon = ExtResource("39_h7otq")
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="back" to="back" method="_on_back_pressed"]

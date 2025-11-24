@@ -904,7 +904,7 @@ expand_icon = true
 script = ExtResource("3")
 
 [node name="banana" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -916,10 +916,11 @@ button_mask = 5
 icon = ExtResource("8")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="checkpoint" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -931,10 +932,11 @@ button_mask = 5
 icon = ExtResource("18_v4qg3")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="finalcheckpoint" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -946,10 +948,11 @@ button_mask = 5
 icon = ExtResource("19_tll4m")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="coin" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -961,10 +964,11 @@ button_mask = 5
 icon = ExtResource("13")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="1up" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -980,7 +984,7 @@ expand_icon = true
 script = ExtResource("3")
 
 [node name="door" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -992,10 +996,11 @@ button_mask = 5
 icon = ExtResource("12")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="barrel" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1007,10 +1012,11 @@ button_mask = 5
 icon = ExtResource("19")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="ladder" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1022,10 +1028,11 @@ button_mask = 5
 icon = ExtResource("20")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="purse" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1037,10 +1044,11 @@ button_mask = 5
 icon = ExtResource("21")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="hammer" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1052,10 +1060,11 @@ button_mask = 5
 icon = ExtResource("22")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="Arrow" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1067,11 +1076,12 @@ button_mask = 5
 icon = ExtResource("41")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 additional_names = PackedStringArray("BigArrow", "ArrowKaiten")
 
 [node name="Arrow45" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1083,11 +1093,12 @@ button_mask = 5
 icon = ExtResource("29_us73v")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 additional_names = PackedStringArray("Arrow90", "Arrow180")
 
 [node name="pauline" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1099,10 +1110,11 @@ button_mask = 5
 icon = ExtResource("17")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="dk" type="Button" parent="CanvasLayer3/CanvasLayer2/Buttons/objects" groups=["button"]]
-custom_minimum_size = Vector2(350, 290)
+custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7")
@@ -1114,6 +1126,7 @@ button_mask = 5
 icon = ExtResource("16")
 clip_text = true
 icon_alignment = 1
+expand_icon = true
 script = ExtResource("3")
 
 [node name="rails" type="HBoxContainer" parent="CanvasLayer3/CanvasLayer2/Buttons"]
