@@ -146,6 +146,16 @@ cache/0/60/0/descent = 0.0
 cache/0/60/0/underline_position = 0.0
 cache/0/60/0/underline_thickness = 0.0
 cache/0/60/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="26"]
 texture = ExtResource("11")
@@ -471,6 +481,7 @@ LineEdit/styles/normal = SubResource("31")
 OptionButton/icons/arrow = SubResource("20")
 Panel/styles/panel = SubResource("13")
 Popup/styles/panel = SubResource("22")
+PopupMenu/constants/icon_max_width = 80
 PopupMenu/constants/item_end_padding = 2
 PopupMenu/fonts/font = SubResource("19")
 PopupMenu/icons/checked = ExtResource("9")
