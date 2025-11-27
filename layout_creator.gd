@@ -6,9 +6,32 @@ func _ready():
 		node.get_popup().connect("id_pressed",Callable(self,"menubutton_selection").bind(node.get_popup()))
 		node.get_popup().hide_on_checkable_item_selection = false
 
+func layout_control_pressed(button):
+	var row = $row2
+	if button.top_row:
+		row = $row1
+	var id = row.get_child_count()-1
+	if button.left:
+		id = 0
+	if button.delete:
+		if row.get_child_count() == 0:
+			return
+		row.get_child(id).queue_free()
+	else:
+		if not button.left:
+			id += 1
+		var newbutton = preload("uid://4a46ijhy8nx3").instantiate() #menu_button.tscn
+		newbutton.connect("about_to_popup",Callable(self,"menubutton_popup").bind(newbutton.get_popup()))
+		newbutton.get_popup().connect("id_pressed",Callable(self,"menubutton_selection").bind(newbutton.get_popup()))
+		newbutton.get_popup().hide_on_checkable_item_selection = false
+		row.add_child(newbutton)
+		row.move_child(newbutton,id)
+
 func menubutton_popup(popup:PopupMenu):
 	popup.scroll_to_item(0)
+	
 	if Input.is_action_pressed("bridge"):
+		await get_tree().create_timer(.001).timeout #workaround because otherwise the scroll doesn't always work
 		popup.scroll_to_item(30)
 	var already_selected_ids = []
 	for menubutton in get_tree().get_nodes_in_group("MenuButton"):
