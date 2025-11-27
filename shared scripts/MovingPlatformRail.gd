@@ -35,10 +35,6 @@ func propertyclose():
 func reposition():
 	change_points(points,$start,$end)
 	idnum = int(end[2].lstrip("              id_name: rail"))
-	childrail.path = []
-	for line in points:
-		childrail.path.append(line.position)
-	childrail.get_node("preview").offset = Vector2.ZERO
 	
 	for line in childrail.endplat: #change appearence of things based on their type
 		if line.begins_with("              param0:"): #get the point kind
@@ -133,7 +129,7 @@ func reposition():
 	childrail.get_node("preview").rail.points = childrail.rail.points
 	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
 	print(childrail.idnum)
-	childrail.get_node("preview").backpath = childrail.path
+
 
 func _process(delta):
 	queue_redraw()
@@ -192,9 +188,6 @@ func _process(delta):
 		if mode == 1:
 			points.append($end)
 			var railinst = railscene.instantiate()
-			for line in points:
-				railinst.path.append(line.position)
-			railinst.path.append($end.position)
 			add_child(railinst)
 			childrail = railinst
 			for group in childrail.get_groups():

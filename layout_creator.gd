@@ -73,3 +73,114 @@ func menubutton_selection(id:int,popup:PopupMenu):
 		button.icon = preload("uid://bqs6ievnnk2g1") #none.png
 		if button.id_order.size() != 0:
 			button.icon = popup.get_item_icon(popup.get_item_index(button.id_order[0]))
+
+
+func _on_setlayout_pressed():
+	var layout_data = []
+	for node in $row1.get_children():
+		if node.id_order != []:
+			if node.id_order.size() == 1:
+				layout_data.append(ID_to_name(node.id_order[0]))
+			else:
+				var singleidgroup = []
+				for id in node.id_order:
+					singleidgroup.append(ID_to_name(id))
+				layout_data.append(singleidgroup)
+		else:
+			layout_data.append("none")
+	#repeat for 2nd row
+	layout_data.append("row2")
+	for node in $row2.get_children():
+		if node.id_order != []:
+			if node.id_order.size() == 1:
+				layout_data.append(ID_to_name(node.id_order[0]))
+			else:
+				var singleidgroup = []
+				for id in node.id_order:
+					singleidgroup.append(ID_to_name(id))
+				layout_data.append(singleidgroup)
+		else:
+			layout_data.append("none")
+	print(layout_data)
+	Options.custom_layout = layout_data
+
+func ID_to_name(ID:int) -> String:
+	var returned_name = ""
+	match ID:
+		1:
+			returned_name = "player"
+		2:
+			returned_name = "banana"
+		3:
+			returned_name = "checkpoint"
+		4:
+			returned_name = "finalcheckpoint"
+		5:
+			returned_name = "coin"
+		6:
+			returned_name = "1up"
+		7:
+			returned_name = "door"
+		8:
+			returned_name = "barrel"
+		9:
+			returned_name = "ladder"
+		10:
+			returned_name = "purse"
+		38:
+			returned_name = "hammer"
+		11:
+			returned_name = "Arrow"
+		12:
+			returned_name = "Arrow45"
+		13:
+			returned_name = "Arrow90"
+		14:
+			returned_name = "Arrow180"
+		15:
+			returned_name = "ArrowKaiten"
+		16:
+			returned_name = "BigArrow"
+		17:
+			returned_name = "pauline"
+		18:
+			returned_name = "dk"
+		19:
+			returned_name = "rail"
+		20:
+			returned_name = "blue"
+		21:
+			returned_name = "invisible"
+		22:
+			returned_name = "music"
+		23:
+			returned_name = "fan"
+		24:
+			returned_name = "movingL"
+		25:
+			returned_name = "movingR"
+		26:
+			returned_name = "movingA"
+		27:
+			returned_name = "movingCrankL"
+		28:
+			returned_name = "movingCrankR"
+		29:
+			returned_name = "Lspin"
+		30:
+			returned_name = "Rspin"
+		31:
+			returned_name = "Lpivot"
+		32:
+			returned_name = "Rpivot"
+		33:
+			returned_name = "Apivot"
+		34:
+			returned_name = "tiltLS"
+		35:
+			returned_name = "tiltRS"
+		36:
+			returned_name = "movingEnd"
+		37:
+			returned_name = "endrotate"
+	return returned_name

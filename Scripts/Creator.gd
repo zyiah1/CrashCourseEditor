@@ -129,17 +129,28 @@ func loadlayout(layout_data:Array):
 				#start new row
 				row = $CanvasLayer3/CanvasLayer2/Buttons/rails
 				id = 0
-			else:
+			elif part == "none":
+				var control = Control.new()
+				control.size_flags_horizontal = Control.SIZE_EXPAND
+				control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				row.add_child(control)
+				row.move_child(control,id)
+			elif part != "player":
 				currentbutton.name = part
 				currentbutton.show()
 			if part == "player":
-				var playerbutton = get_tree().get_first_node_in_group("playerbutton").get_parent()
-				get_tree().get_first_node_in_group("playerbutton").show()
-				playerbutton.reparent(row)
-				row.move_child(playerbutton,id)
-		if get_tree().get_first_node_in_group("playerbutton").visible == false:
-			get_tree().get_first_node_in_group("playerbutton").get_parent().queue_free()
+				if row == $CanvasLayer3/CanvasLayer2/Buttons/objects:
+					var playerbutton = get_tree().get_first_node_in_group("playerbutton").get_parent()
+					get_tree().get_first_node_in_group("playerbutton").show()
+					playerbutton.reparent(row)
+					row.move_child(playerbutton,id)
+				else:
+					currentbutton.name = part
+					currentbutton.show()
+					currentbutton.add_to_group("playerbutton")
 		id += 1
+	if get_tree().get_first_node_in_group("playerbutton").visible == false:
+		get_tree().get_first_node_in_group("playerbutton").get_parent().queue_free()
 	if not layout_data.has("row2"):
 		$CanvasLayer3/CanvasLayer2/Buttons/tools.position.y = 72
 	
@@ -394,7 +405,8 @@ func itemplace():
 		match item:
 			"player":
 				#$Animation.stop()
-				$Player.play("out")
+				if $CanvasLayer3/CanvasLayer2/Buttons/objects.get_child(0).name == "Control":
+					$Player.play("out")
 				item = "none"
 				instance = player.instantiate()
 				stored = instance
@@ -565,7 +577,7 @@ func shortcuts():
 	if not disabledcontrolls and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		if Input.is_action_just_pressed("Loop"):
 			movingLoop = not movingLoop
-		if Input.is_action_just_pressed("ToggleGrid"):
+		if Input.is_action_just_pressed("ToggleGrid") and not propertypanel:
 			$nonmoving/gridenabled.button_pressed = not $nonmoving/gridenabled.button_pressed
 			_on_gridenabled_pressed()
 		if Input.is_action_just_pressed("redo"):
@@ -665,13 +677,14 @@ func _on_name_focus_exited():
 	$nonmoving/name.text = $nonmoving/name.text.replace("/",'|')
 
 func playerunstore():
-	$Animation.play("RESET")
-	$Player.play("in")
+	if $CanvasLayer3/CanvasLayer2/Buttons/objects.get_child(0).name == "Control":
+		$Player.play("in")
 	get_tree().get_first_node_in_group("playerbutton").disabled = false
 	stored = null
 
 func playerstore():
-	$Player.play("out")
+	if $CanvasLayer3/CanvasLayer2/Buttons/objects.get_child(0).name == "Control":
+		$Player.play("out")
 	get_tree().get_first_node_in_group("playerbutton").disabled = true
 	for node in get_tree().get_nodes_in_group("player"):
 		if node.visible:

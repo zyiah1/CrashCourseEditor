@@ -8,7 +8,7 @@ var colorbg = Color(0.3,0.6,0.3)
 var filepath: String = "res://"
 var interval: int = 60
 var OSFileManager: String = "true"
-var layout: String = "default"
+var layout: String = "custom"
 var custom_layout = []#["player","blue"]#["blue",["Arrow","BigArrow","ArrowKaiten","Arrow45","Arrow90","Arrow180"],"banana","checkpoint","finalcheckpoint","dk","movingEnd","row2","rail","Lpivot","player"]
 
 #var autofull: bool = false

@@ -99,7 +99,11 @@ func LoadTest(filename):
 					scene.connect("EXPORT", Callable(instance, "EXPORT"))
 					if objectdata[8] == "            name: Dkb_Player":
 						playerposition = instance.position
-						scene.get_node("Player").play("out")
+						if Options.layout == "custom":
+							if Options.custom_layout[0] == "player":
+								scene.get_node("Player").play("out")
+						else:
+							scene.get_node("Player").play("out")
 			"            - Points:":
 				var raildata:PackedStringArray = []
 				

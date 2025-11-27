@@ -9,7 +9,6 @@ const pointscene: PackedScene = preload("res://point.tscn")
 
 var line = null
 var mode = 0 #0 = path 1 = platform
-var path = []
 var speed = 2
 
 
