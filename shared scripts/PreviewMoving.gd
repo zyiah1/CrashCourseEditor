@@ -16,6 +16,10 @@ func _ready():
 
 func _process(delta):
 	if rail.points.size() > 2:
+		if repeat == true:
+			rail.position = Vector2.ZERO
+			currentpoint = 0
+			repeat = false
 		var start = owner.get_parent().points[0].position
 		var end = owner.get_parent().points[currentpoint+1].position
 		var maxoffset = end-start
@@ -29,7 +33,3 @@ func _process(delta):
 				rail.position = Vector2.ZERO
 				currentpoint = 0
 				repeat = false
-		if repeat == true:
-			rail.position = Vector2.ZERO
-			currentpoint = 0
-			repeat = false

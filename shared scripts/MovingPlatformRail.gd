@@ -1,5 +1,5 @@
 extends Rail
-
+class_name PathRail
 
 var speed = 2
 var mode = 0 #0 = path 1 = platform
@@ -18,8 +18,6 @@ func _ready():
 		color = Color(.2,.2,.2)
 	if loading == false:
 		$start.position = get_parent().roundedmousepos
-	
-	$start.set_data()
 
 func propertyclose():
 	var currentdata = get_data()
@@ -32,8 +30,16 @@ func propertyclose():
 		previousplatdata = childcurrentdata
 		previousplatend = childrail.endplat
 
+func remove_point(pointID):
+	super(pointID)
+	childrail.get_node("preview").repeat = true
+
+func change_points(points_array:Array,startpoint,endpoint):
+	super(points_array,startpoint,endpoint)
+	childrail.get_node("preview").repeat = true
+
 func reposition():
-	rail.points = change_points(points,$start,$end)
+	change_points(points,$start,$end)
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	
 	for line in childrail.endplat: #change appearence of things based on their type
@@ -114,7 +120,7 @@ func reposition():
 			childrail._on_speed_change()
 	 # cycle through child data
 	
-	childrail.rail.points = change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
+	childrail.rail.points = childrail.change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
 	#visible and invisible rail color differ
 	if end[9].begins_with("              param1: 0"): # invisible
 		color = Color(.7,.7,.7,.5)
@@ -132,15 +138,28 @@ func _process(delta):
 	var amount = 0
 	var pressed = false
 	for button in buttons:
+		var point = button.get_parent()
+		var pointID = points.find(point)
+		var childpoint = false
+		if childrail != null:
+			if point in childrail.points:
+				pointID = childrail.points.find(point)
+				childpoint = true
 		if button.is_hovered():
 			amount += 1
+			if Input.is_action_just_pressed("bridge") and Editor.item == "tooldelete": #right click
+				if childpoint and childrail.points.size() > 2:
+					Editor.undolistadd({"Type":"DeletePoint","Node":childrail,"Data":childrail.get_data(),"PointID":pointID})
+					childrail.remove_point(pointID)
+				elif points.size() > 2:
+					Editor.undolistadd({"Type":"DeletePoint","Node":self,"Data":get_data(),"PointID":pointID})
+					remove_point(pointID)
+					childrail.get_node("preview").repeat = true
 		if button.button_pressed:
 			pressed = true
 			if Editor.item == "toolmove":
-				var point = button.get_parent()
 				point.position = Editor.roundedmousepos
-				if point in childrail.points:
-					var pointID = childrail.points.find(point)
+				if childpoint:
 					childrail.rail.points[pointID*2] = point.position
 					childrail.rail.points[pointID*2+1] = point.position
 					childrail.get_node("preview").rail.points = childrail.rail.points
@@ -200,7 +219,6 @@ func _process(delta):
 			bridge()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
-		
 
 func newseg():
 	if mode == 0:
@@ -231,9 +249,6 @@ func child(pos):
 		var railinst = railscene.instantiate()
 		railinst.loading = true
 		railinst.get_node("start").position = pos
-		for line in points:
-			railinst.path.append(line.position)
-		railinst.path.append($end.position)
 		railinst.speed = speed
 		add_child(railinst)
 		childrail = railinst

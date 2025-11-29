@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://u71enoel8lc3"]
+[gd_scene load_steps=5 format=3 uid="uid://u71enoel8lc3"]
 
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://Sprites/Points/pointL.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_7wvej"]
 [ext_resource type="Texture2D" uid="uid://ckd1nvejuas1" path="res://Sprites/Pivot/crankL.png" id="2"]
-[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="3_i0uig"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="4_14muu"]
 
 [node name="LRotate" instance=ExtResource("1_7wvej")]
@@ -14,7 +13,6 @@ Param0 = 3110
 
 [node name="start" parent="Spin" index="0"]
 texture = ExtResource("1")
-script = ExtResource("3_i0uig")
 
 [node name="crank" parent="Spin" index="1"]
 previewtexture = ExtResource("4_14muu")
@@ -24,4 +22,3 @@ texture = ExtResource("2")
 
 [node name="end" parent="Spin" index="3"]
 texture = ExtResource("1")
-script = ExtResource("3_i0uig")

@@ -28,6 +28,7 @@ func _ready():
 	rail.texture = railtexture
 	$speed.connect("focus_entered", Callable(self, "focus_entered"))
 	$speed.connect("focus_exited", Callable(self, "focus_exited"))
+	$speed.position = $start.position - Vector2(0,100)
 	get_parent().buttons.append($end/Button)
 	$speed.text = str(speed)
 	if loading == false:
@@ -37,7 +38,7 @@ func _ready():
 		$preview.rail.points = rail.points
 	else:
 		$speed.hide()
-	$start.set_data()
+	
 
 
 @onready var endplat:PackedStringArray = ["              closed: CLOSE",
@@ -71,77 +72,6 @@ func _ready():
 "              type: Linear",
 "              unit_name: Path"]
 
-#Param 0 documentation
-#0 invisible collision used for the map edges
-#1000 Normal
-#1100 Shows up as a music rail
-#1200 blue normal
-#2000 Automove but it stays and doesn't go back
-#2011 unused
-#2021 unused
-#2110 Lcrank
-#2111 Rcrank
-#2140 Lmove
-#2141 Rmove
-#2150 fan
-#2200 automove
-#2300 Automove but it stays and doesn't go back
-#2330 moving platform press X anywhere, doens't go back
-#2380 Move after 0th checkpoint is activated
-#2381 Move after 1st checkpoint is activated
-#2382 Move after 2nd checkpoint is activated
-#2383 Move after 3rd checkpoint is activated
-#2384 Move after 4th checkpoint is activated
-#2385 Move after 5th checkpoint is activated
-#2386 Move after 6th checkpoint is activated
-#2387 Move after 7th checkpoint is activated
-#2388 Move after 8th checkpoint is activated
-#2389 Move after 9th checkpoint is activated
-#2390 Move after 10th checkpoint is activated
-#2391 Move after 11th checkpoint is activated
-#2392 move when level beat
-#2393 used for that DK dying cutscene where the rails move to the fallen position after a brief delay
-#2394 same as ^^^^ but more delay?
-#2900 PathRail
-#3110 Lspin unused
-#3111 Rspin
-#3112 MLtilt
-#3113 MRtilt
-#3140 pivitL
-#3141 PivitR
-#3200 auto Pivot but goes back
-#3300 autoPivit stays no go back (default)
-#3380 Rotate after 0th checkpoint is activated
-#3381 Rotate after 1st checkpoint is activated
-#3382 Rotate after 2nd checkpoint is activated
-#3383 Rotate after 3rd checkpoint is activated
-#3384 Rotate after 4th checkpoint is activated
-#3385 Rotate after 5th checkpoint is activated
-#3386 Rotate after 6th checkpoint is activated
-#3387 Rotate after 7th checkpoint is activated
-#3388 Rotate after 8th checkpoint is activated
-#3389 Rotate after 9th checkpoint is activated
-#3390 Rotate after 10th checkpoint is activated
-#3391 Rotate after 11th checkpoint is activated
-#3392 Rotate when level beat
-#4300 Auto Rail:param6 is how much to move camera y position (- = down)
-#4900 invisble when I tried to load it (Might just be another way to do invisible path rail
-#5010 Red| Rotate L Stick Message (Message things dont show if Param7 == -1, I think its delay before the message is shown)
-#5011 Red| Rotate R Stick Message
-#5012 Red| Tilt L Stick Message
-#5013 Red| Tilt R Stick Message
-#5040 Red| Press L Message
-#5041 Red| Press R Message
-#5060 Red| Be brave Message
-#5100 ACTUAL MUSIC TILE
-#5210 Blue| Rotate L Stick Message
-#5211 Blue| Rotate R Stick Message
-#5212 Blue| Tilt L Stick Message
-#5213 Blue| Tilt R Stick Message
-#5240 Blue| Press L Message
-#5241 Blue| Press R Message
-#5260 Blue| Be Brave Message
-
 
 
 func _process(delta):
@@ -158,6 +88,43 @@ func _process(delta):
 			bridge()
 	if Input.is_action_just_pressed("Shift"):
 		fillmode = not fillmode
+
+func add_point(pointID): #adds a point with the pointID value in the points array
+	if pointID == points.size():
+		pointID -= 1
+	var newpoint = points[0].duplicate()
+	add_child(newpoint)
+	get_parent().buttons.insert(get_parent().points.size()-1+pointID,newpoint.get_node("Button"))
+	points.insert(pointID,newpoint)
+	rail.points = []
+
+func remove_point(pointID):
+	var point = points[pointID]
+	var button = point.get_node("Button")
+	rail.remove_point(pointID*2+1)
+	rail.remove_point(pointID*2)
+	segments -= 1
+	if point != $end:
+		points.remove_at(pointID)
+		get_parent().buttons.erase(button)
+		point.queue_free()
+		var current_seg = 0
+		points[0].make_big()
+		for node in points: #redo segment numbers
+			node.segments = current_seg
+			current_seg += 1
+			node.set_data()
+	else:
+		#remove the point before end and move end to it
+		var newpoint = points[pointID-1]
+		var newpos = newpoint.position
+		get_parent().buttons.erase(newpoint.get_node("Button"))
+		points.erase(newpoint)
+		newpoint.queue_free()
+		$end.position = newpos
+		$start.position = $end.position
+		$end.segments = segments-1
+		$end.set_data()
 
 func newseg():
 	rail.add_point($end.position)

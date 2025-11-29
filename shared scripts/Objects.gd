@@ -86,23 +86,19 @@ func _on_Button_button_down():
 				return
 	previoustransform = transform
 
+var tool_modulate = {"tooledit":Color.GREEN_YELLOW,"tooldelete":Color.RED,"toolproperty":Color.LIGHT_SKY_BLUE,"toolmove":Color.CORAL}
+
 func _process(delta):
 	if $Button.is_hovered() or $Button.button_pressed:
 		if Input.is_action_just_pressed("MoveToBack"):
 			get_parent().move_child(self,10)
-		match get_parent().item:
-			"toolmove":
-				$Button.mouse_default_cursor_shape = 6
-				modulate = Color.CORAL
-				if Input.is_action_just_pressed("addpoint"):
-					drag = not drag
-					initialoffset = position-get_global_mouse_position()
-			"tooledit":
-				modulate = Color.GREEN_YELLOW
-			"tooldelete":
-				modulate = Color.RED
-			"toolproperty":
-				modulate = Color.LIGHT_SKY_BLUE
+		if get_parent().item in tool_modulate: #modulate color
+			modulate = tool_modulate.get(get_parent().item)
+		if get_parent().item == "toolmove":
+			$Button.mouse_default_cursor_shape = 6
+			if Input.is_action_just_pressed("addpoint"):
+				drag = not drag
+				initialoffset = position-get_global_mouse_position()
 	else:
 		$Button.mouse_default_cursor_shape = 0
 		modulate = Color.WHITE

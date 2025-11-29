@@ -14,8 +14,8 @@ func _ready():
 	rail.texture = previewtexture
 
 func _process(delta):
+	queue_redraw()
 	rotation_degrees = move_toward(rotation_degrees,float(target),get_parent().speed*delta*60)
-	rail.position = -position
 	if Input.is_action_just_pressed("back"):
 		rotation_degrees = 0
 	if rotation_degrees == target:
@@ -24,6 +24,8 @@ func _process(delta):
 				$Timer.start(.3)
 	
 
+func _draw():
+	rail.position = -position
 
 func _on_Timer_timeout():
 	rotation_degrees = 0

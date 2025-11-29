@@ -19,7 +19,7 @@ const DK = preload("res://dk.tscn")
 const Pauline = preload("res://pauline.tscn")
 
 #Moving Platforms
-const PathRail = preload("res://PathRail.tscn")
+const path_rail = preload("res://PathRail.tscn")
 const fan = preload("res://FanMove.tscn")
 const RightMove = preload("res://RMove.tscn")
 const LeftMove = preload("res://LMove.tscn")
@@ -375,7 +375,7 @@ func itemplace():
 			if instance == null:
 				railplace = 3
 			if item.begins_with("moving"):
-				instance = PathRail.instantiate()
+				instance = path_rail.instantiate()
 			if item == "movingfan":
 				instance.railscene = fan
 			if item == "movingR":
@@ -390,7 +390,7 @@ func itemplace():
 				instance.railscene = RightCrank
 			if item == "movingEnd":
 				instance.railscene = EndMove
-				instance.Param1 = 0
+				instance.Param1 = "0"
 			if instance != null:
 				$Cam.railplacing = true
 				$Cam.shiftmode = false
@@ -524,6 +524,14 @@ func redo():
 			currentnode.remove_point(currenthistory.PointID)
 		"Transform":
 			currentnode.transform = currenthistory.Data[1]
+		"TransformPoint":
+			var point = currentnode.points[currenthistory.PointID]
+			point.position = currenthistory.Data[1]
+			point.set_data()
+			if currentnode is PathRail: #then dont set rail
+				currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
+			else:
+				currentnode.rail.points = currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end")) #set the rail visual back
 		"Property":
 			currentnode.data = currenthistory.Data[1]
 			currentnode.reposition()
@@ -563,9 +571,23 @@ func undo():
 		"DeletePoint":
 			currentnode.add_point(currenthistory.PointID)
 			currentnode.set_point_data(currenthistory.Data)
-			currentnode.rail.points = currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
+			if currentnode is PathRail: #then dont set rail
+				currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
+			else:
+				currentnode.rail.points = currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
+			if currentnode is RotatingRail:
+				currentnode.rotationpoint = currenthistory.RotationPoint
+				currentnode.changepivotpoint()
 		"Transform":
 			currentnode.transform = currenthistory.Data[0]
+		"TransformPoint":
+			var point = currentnode.points[currenthistory.PointID]
+			point.position = currenthistory.Data[0]
+			point.set_data()
+			if currentnode is PathRail: #then dont set rail
+				currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
+			else:
+				currentnode.rail.points = currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end")) #set the rail visual back
 		"Property":
 			currentnode.data = currenthistory.Data[0]
 			currentnode.reposition()

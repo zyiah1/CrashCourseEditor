@@ -1,4 +1,5 @@
 extends Rail
+class_name RotatingRail
 
 const pointscene: PackedScene = preload("res://point.tscn")
 
@@ -47,7 +48,6 @@ func _ready():
 	rail.add_point($start.position)
 	$crank.rail.add_point($start.position)
 	
-	$start.set_data()
 	end = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(idnum),
@@ -205,10 +205,23 @@ func reposition():
 		rail.add_point(point.position)
 		rail.add_point(point.position)
 		point.scale = Vector2(.25,.25)
-	$crank.rail.points = rail.points
 	$end.scale = Vector2(.35,.35)
 	points[0].scale = Vector2(.35,.35)
 	changepivotpoint()
+
+func remove_point(pointID):
+	if pointID == -1: #clicked on the rotation point
+		print("Deleted Rotation Point")
+		super(rotationpoint)
+		rotationpoint -= 1
+		if rotationpoint < 0:
+			rotationpoint = 0
+		changepivotpoint()
+	else:
+		super(pointID)
+
+func add_point(pointID):
+	super(pointID)
 
 func changepivotpoint():
 	$crank.position = points[rotationpoint].position
@@ -217,6 +230,7 @@ func changepivotpoint():
 	points[rotationpoint].hide()
 	$start.position = $end.position
 	$start.visible = $end.visible
+	$crank.rail.points = rail.points
 
 func _process(delta):
 	#update the lines
@@ -228,15 +242,19 @@ func _process(delta):
 	var amount = 0
 	var pressed = false
 	for button in buttons:
+		var point = button.get_parent()
+		var pointID = points.find(point)
 		if button.is_hovered():
 			amount += 1
+			if Input.is_action_just_pressed("bridge") and Editor.item == "tooldelete" and points.size() > 2: #right click
+				Editor.undolistadd({"Type":"DeletePoint","Node":self,"Data":get_data(),"PointID":pointID,"RotationPoint":rotationpoint})
+				remove_point(pointID)
+				$crank.rail.points = rail.points
 		if button.button_pressed:
 			pressed = true
 			if Editor.item == "toolmove":
-				var point = button.get_parent()
 				point.position = Editor.roundedmousepos
 				$start.position = $end.position
-				var pointID = points.find(point)
 				if point == $crank:
 					pointID = rotationpoint
 					points[rotationpoint].position = Editor.roundedmousepos

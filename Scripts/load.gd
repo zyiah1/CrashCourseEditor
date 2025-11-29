@@ -99,7 +99,7 @@ func LoadTest(filename):
 					scene.connect("EXPORT", Callable(instance, "EXPORT"))
 					if objectdata[8] == "            name: Dkb_Player":
 						playerposition = instance.position
-						if Options.layout == "custom":
+						if Options.layout == "custom" and Options.custom_layout != []:
 							if Options.custom_layout[0] == "player":
 								scene.get_node("Player").play("out")
 						else:

@@ -51,43 +51,39 @@ func _ready():
 		$start.position = Editor.roundedmousepos
 	rail.add_point($start.position)
 	rail.add_point($start.position)
-	
-	$start.set_data()
-	#data += $start.pointdata
 
 var data:PackedStringArray = ["            - Points:"]
 var previousdata:PackedStringArray
 var previousend:PackedStringArray
 
+var tool_modulate = {"tooledit":Color.GREEN_YELLOW,"tooldelete":Color.RED,"toolproperty":Color.LIGHT_SKY_BLUE,"toolmove":Color.NAVAJO_WHITE}
+
 func tool_actions(amount,pressed):
 	if amount != 0 or pressed: #button is hovered
 		if Input.is_action_just_pressed("MoveToBack"):
 			Editor.move_child(self,10)
-		match Editor.item:
-			"tooledit":
-				modulate = Color.GREEN_YELLOW
-				if pressed:
-					emit_signal("edit")
-			"tooldelete":
-				modulate = Color.RED
-				if pressed:
-					Editor.delete(self)
-					Editor.undolistadd({"Type":"Delete","Node":self})
-			"toolproperty":
-				modulate = Color.LIGHT_SKY_BLUE
-				if pressed:
-					if Editor.propertypanel == false:
-						var currentdata = get_data()
-						Editor.editednode = self
-						Editor.propertypanel = true
-						Editor.parse([currentdata,end])
-						previousdata = currentdata
-						previousend = end
-						return
-			"toolmove":
-				modulate = Color.NAVAJO_WHITE
+		if Editor.item in tool_modulate: #modulate color
+			modulate = tool_modulate.get(Editor.item)
 	else:
 		modulate = Color.WHITE
+	if not pressed:
+		return
+	match Editor.item:
+		"tooledit":
+			emit_signal("edit")
+		"tooldelete":
+			Editor.delete(self)
+			Editor.undolistadd({"Type":"Delete","Node":self})
+		"toolproperty":
+			if Editor.propertypanel == false:
+				var currentdata = get_data()
+				Editor.editednode = self
+				Editor.propertypanel = true
+				Editor.parse([currentdata,end])
+				previousdata = currentdata
+				previousend = end
+				return
+
 
 func _process(delta):
 	queue_redraw()
@@ -144,8 +140,9 @@ func newseg():
 func remove_point(pointID):
 	var point = points[pointID]
 	var button = point.get_node("Button")
-	rail.remove_point(pointID*2+1)
-	rail.remove_point(pointID*2)
+	if rail != null:
+		rail.remove_point(pointID*2+1)
+		rail.remove_point(pointID*2)
 	segments -= 1
 	if point != $end:
 		points.remove_at(pointID)
@@ -161,7 +158,7 @@ func remove_point(pointID):
 		#remove the point before end and move end to it
 		var newpoint = points[pointID-1]
 		var newpos = newpoint.position
-		buttons.remove_at(buttons.size()-2)
+		buttons.erase(newpoint.get_node("Button"))
 		points.erase(newpoint)
 		newpoint.queue_free()
 		$end.position = newpos
@@ -170,11 +167,14 @@ func remove_point(pointID):
 		$end.set_data()
 
 func add_point(pointID): #adds a point with the pointID value in the points array
+	if pointID == points.size():
+		pointID -= 1
 	var newpoint = points[0].duplicate()
 	add_child(newpoint)
 	buttons.insert(pointID,newpoint.get_node("Button"))
 	points.insert(pointID,newpoint)
-	rail.points = []
+	if rail != null:
+		rail.points = []
 
 
 func propertyclose():

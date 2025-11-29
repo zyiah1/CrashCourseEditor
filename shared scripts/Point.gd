@@ -6,12 +6,37 @@ extends Sprite2D
 var pointdata:PackedStringArray
 @export var comment:bool = true #if - comment: !l -1: false = - dir_x:
 
-var previouspos:Vector2
+var previouspos:Vector2 
 
 func _ready():
 	if get_node_or_null("Button") != null:
-		get_node("Button").connect("button_up",Callable(self,"set_data"))
+		get_node("Button").connect("button_up",Callable(self,"button_up"))
+		get_node("Button").connect("button_down",Callable(self,"button_down"))
+		get_node("Button").connect("mouse_entered",Callable(self,"button_hovered"))
+	else:
+		push_warning('null!!',get_parent().scene_file_path)
+		print("null!")
 	set_data()
+
+func button_hovered():
+	if get_parent().Editor.item.begins_with("tool"):
+		if get_parent().Editor.item == "toolmove":
+			$Button.mouse_default_cursor_shape = 6
+		self_modulate = Color(2,2,2)
+		await get_node("Button").mouse_exited
+		if not get_node("Button").button_pressed:
+			self_modulate = Color(1,1,1)
+			$Button.mouse_default_cursor_shape = 0
+
+func button_down():
+	if get_parent().Editor.item == "toolmove":
+		previouspos = position
+
+func button_up():
+	set_data()
+	if get_parent().Editor.item == "toolmove":
+		get_parent().Editor.undolistadd({"Type":"TransformPoint","Node":get_parent(),"PointID":get_parent().points.find(self),"Data":[previouspos,position]})
+		print("pointTransformed")
 
 func set_data():
 	idnum = get_parent().idnum
@@ -55,4 +80,5 @@ func reposition():
 	position.y = -float(pointdata[12+dataoffset].lstrip("                  pnt0_y: "))
 
 func make_big():
-	$start.play("RESET")
+	if get_node_or_null("start") != null:
+		$start.play("RESET")
