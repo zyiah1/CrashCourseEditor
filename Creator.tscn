@@ -700,6 +700,7 @@ cache/0/271/0/scale = 1.0
 process_priority = 1
 z_index = -2
 script = ExtResource("1")
+map = null
 
 [node name="bfg" parent="." groups=["ed"] instance=ExtResource("2_ceeig")]
 offset_left = -198120.0

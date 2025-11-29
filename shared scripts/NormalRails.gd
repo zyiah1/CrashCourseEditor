@@ -20,7 +20,7 @@ var buttons = []
 var fillamount: int = 10 #amount of points for the interpolation tool/slope thing
 var fillmode:bool = false
 
-var rail
+var rail: Line2D
 @onready var Editor = Options.Editor
 @onready var idnum = Editor.idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
@@ -94,17 +94,22 @@ func _process(delta):
 	var amount = 0
 	var pressed = false
 	for button in buttons:
+		var point = button.get_parent()
+		var pointID = points.find(point)
 		if button.is_hovered():
 			amount += 1
+			if Input.is_action_just_pressed("bridge") and Editor.item == "tooldelete" and points.size() > 2: #right click
+				Editor.undolistadd({"Type":"DeletePoint","Node":self,"Data":get_data(),"PointID":pointID})
+				remove_point(pointID)
 		if button.button_pressed:
 			pressed = true
 			if Editor.item == "toolmove":
-				var point = button.get_parent()
 				point.position = Editor.roundedmousepos
 				$start.position = $end.position
-				var pointID = points.find(point)
 				rail.points[pointID*2] = point.position
 				rail.points[pointID*2+1] = point.position
+		
+		
 	tool_actions(amount, pressed)
 	if locked == false and !fillmode:
 		if Input.is_action_just_pressed("addpoint"):
@@ -131,10 +136,46 @@ func newseg():
 	segments += 1
 	
 	if segments == 2:
-		newpoint.get_node("start").queue_free()
+		newpoint.get_node("start").stop()
 		newpoint.frame = 0
 	$start.position = $end.position
 	$start.frame = 1
+
+func remove_point(pointID):
+	var point = points[pointID]
+	var button = point.get_node("Button")
+	rail.remove_point(pointID*2+1)
+	rail.remove_point(pointID*2)
+	segments -= 1
+	if point != $end:
+		points.remove_at(pointID)
+		buttons.erase(button)
+		point.queue_free()
+		var current_seg = 0
+		points[0].make_big()
+		for node in points: #redo segment numbers
+			node.segments = current_seg
+			current_seg += 1
+			node.set_data()
+	else:
+		#remove the point before end and move end to it
+		var newpoint = points[pointID-1]
+		var newpos = newpoint.position
+		buttons.remove_at(buttons.size()-2)
+		points.erase(newpoint)
+		newpoint.queue_free()
+		$end.position = newpos
+		$start.position = $end.position
+		$end.segments = segments-1
+		$end.set_data()
+
+func add_point(pointID): #adds a point with the pointID value in the points array
+	var newpoint = points[0].duplicate()
+	add_child(newpoint)
+	buttons.insert(pointID,newpoint.get_node("Button"))
+	points.insert(pointID,newpoint)
+	rail.points = []
+
 
 func propertyclose():
 	var currentdata = get_data()
@@ -146,19 +187,17 @@ func propertyclose():
 		previousend = end
 
 func change_points(points_array:Array,startpoint,endpoint):
-	var linearray = []
-	var previouspoint = null
+	var rail_points = []
 	for point in points_array:
 		point.reposition()
-		if previouspoint != null:
-			linearray.append([previouspoint.position,point.position])
-		previouspoint = point
+		rail_points.append(point.position)
+		rail_points.append(point.position)
 	startpoint.position = endpoint.position
+	return rail_points
 
 func reposition():
-	change_points(points,$start,$end)
+	rail.points = change_points(points,$start,$end)
 	for line in end:
-		
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
 			for point in points: # reset point scale
 				point.texture = preload("uid://xp7hguu2wcws") #point.png
@@ -199,11 +238,7 @@ func reposition():
 		$start.texture = $end.texture
 		$start.scale = $end.scale
 	idnum = int(end[2].lstrip("              id_name: rail"))
-	#update the visuals
-	rail.points = []
-	for point in points:
-		rail.add_point(point.position)
-		rail.add_point(point.position)
+	
 
 func done():
 	points.append($end)

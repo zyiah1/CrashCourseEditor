@@ -33,7 +33,7 @@ func propertyclose():
 		previousplatend = childrail.endplat
 
 func reposition():
-	change_points(points,$start,$end)
+	rail.points = change_points(points,$start,$end)
 	idnum = int(end[2].lstrip("              id_name: rail"))
 	
 	for line in childrail.endplat: #change appearence of things based on their type
@@ -114,7 +114,7 @@ func reposition():
 			childrail._on_speed_change()
 	 # cycle through child data
 	
-	change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
+	childrail.rail.points = change_points(childrail.points,childrail.get_node("start"),childrail.get_node("end"))
 	#visible and invisible rail color differ
 	if end[9].begins_with("              param1: 0"): # invisible
 		color = Color(.7,.7,.7,.5)
@@ -122,10 +122,6 @@ func reposition():
 		color = Color(.2,.2,.2)
 	
 	#update the visuals
-	childrail.rail.points = []
-	for point in childrail.points: #don't worry the duplicates are intentional (no weird scaling around the corners
-		childrail.rail.add_point(point.position)
-		childrail.rail.add_point(point.position)
 	childrail.get_node("preview").rail.points = childrail.rail.points
 	childrail.idnum = int(childrail.endplat[2].lstrip("              id_name: rail"))
 	print(childrail.idnum)

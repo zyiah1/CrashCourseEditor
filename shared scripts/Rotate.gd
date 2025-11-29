@@ -308,7 +308,7 @@ func newseg():
 	segments += 1
 	
 	if segments == 2:
-		newpoint.get_node("start").queue_free()
+		newpoint.get_node("start").stop()
 		newpoint.frame = 0
 	$start.position = $end.position
 	$start.frame = 1

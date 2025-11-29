@@ -514,26 +514,29 @@ func redo():
 	historyoffset += 1
 	var currenthistory = history[history.size()+historyoffset]
 	$nonmoving/undo.text = "Redid "+currenthistory.Type
+	var currentnode = currenthistory.Node
 	match currenthistory.Type:
 		"Add":
-			readd(currenthistory.Node)
+			readd(currentnode)
 		"Delete":
-			delete(currenthistory.Node)
+			delete(currentnode)
+		"DeletePoint":
+			currentnode.remove_point(currenthistory.PointID)
 		"Transform":
-			currenthistory.Node.transform = currenthistory.Data[1]
+			currentnode.transform = currenthistory.Data[1]
 		"Property":
-			currenthistory.Node.data = currenthistory.Data[1]
-			currenthistory.Node.reposition()
+			currentnode.data = currenthistory.Data[1]
+			currentnode.reposition()
 		"PropertyRail":
-			currenthistory.Node.set_point_data(currenthistory.Data[1])
-			currenthistory.Node.end = currenthistory.Data[3]
-			currenthistory.Node.reposition()
+			currentnode.set_point_data(currenthistory.Data[1])
+			currentnode.end = currenthistory.Data[3]
+			currentnode.reposition()
 		"PropertyMoveRail":
-			currenthistory.Node.set_point_data(currenthistory.Data[1])
-			currenthistory.Node.end = currenthistory.Data[3]
-			currenthistory.Node.childrail.set_point_data(currenthistory.Data[5])
-			currenthistory.Node.childrail.endplat = currenthistory.Data[7]
-			currenthistory.Node.reposition()
+			currentnode.set_point_data(currenthistory.Data[1])
+			currentnode.end = currenthistory.Data[3]
+			currentnode.childrail.set_point_data(currenthistory.Data[5])
+			currentnode.childrail.endplat = currenthistory.Data[7]
+			currentnode.reposition()
 
 func undo():
 	$nonmoving/undo.modulate.a = 1
@@ -544,33 +547,38 @@ func undo():
 	
 	var currenthistory = history[history.size()+historyoffset]
 	$nonmoving/undo.text = "Undid "+currenthistory.Type
+	var currentnode = currenthistory.Node
 	match currenthistory.Type:
 		"Add":
 			if lineplacing == false: #special undo if you are currently placing a rail
-				currenthistory.Node.queue_free()
+				currentnode.queue_free()
 				lineplacing = true
 				history.erase(currenthistory) #removes rail adding from the history
 				Ain()
 				railplace = -1
 				return
-			delete(currenthistory.Node)
+			delete(currentnode)
 		"Delete":
-			readd(currenthistory.Node)
+			readd(currentnode)
+		"DeletePoint":
+			currentnode.add_point(currenthistory.PointID)
+			currentnode.set_point_data(currenthistory.Data)
+			currentnode.rail.points = currentnode.change_points(currentnode.points,currentnode.get_node("start"),currentnode.get_node("end"))
 		"Transform":
-			currenthistory.Node.transform = currenthistory.Data[0]
+			currentnode.transform = currenthistory.Data[0]
 		"Property":
-			currenthistory.Node.data = currenthistory.Data[0]
-			currenthistory.Node.reposition()
+			currentnode.data = currenthistory.Data[0]
+			currentnode.reposition()
 		"PropertyRail":
-			currenthistory.Node.set_point_data(currenthistory.Data[0])
-			currenthistory.Node.end = currenthistory.Data[2]
-			currenthistory.Node.reposition()
+			currentnode.set_point_data(currenthistory.Data[0])
+			currentnode.end = currenthistory.Data[2]
+			currentnode.reposition()
 		"PropertyMoveRail":
-			currenthistory.Node.set_point_data(currenthistory.Data[0])
-			currenthistory.Node.end = currenthistory.Data[2]
-			currenthistory.Node.childrail.set_point_data(currenthistory.Data[4])
-			currenthistory.Node.childrail.endplat = currenthistory.Data[6]
-			currenthistory.Node.reposition()
+			currentnode.set_point_data(currenthistory.Data[0])
+			currentnode.end = currenthistory.Data[2]
+			currentnode.childrail.set_point_data(currenthistory.Data[4])
+			currentnode.childrail.endplat = currenthistory.Data[6]
+			currentnode.reposition()
 	historyoffset -= 1
 
 func shortcuts():

@@ -6,6 +6,8 @@ extends Sprite2D
 var pointdata:PackedStringArray
 @export var comment:bool = true #if - comment: !l -1: false = - dir_x:
 
+var previouspos:Vector2
+
 func _ready():
 	if get_node_or_null("Button") != null:
 		get_node("Button").connect("button_up",Callable(self,"set_data"))
@@ -51,3 +53,6 @@ func reposition():
 	#print("THE X ",pointdata[11+dataoffset])
 	position.x = float(pointdata[11+dataoffset].lstrip("                  pnt0_x: "))
 	position.y = -float(pointdata[12+dataoffset].lstrip("                  pnt0_y: "))
+
+func make_big():
+	$start.play("RESET")
