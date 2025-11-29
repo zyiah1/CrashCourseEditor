@@ -506,8 +506,8 @@ func readd(node:Node):
 		
 
 func redo():
-	$nonmoving/undo.modulate.a = 1
-	create_tween().tween_property($nonmoving/undo,"modulate",Color(1,1,1,0),.5)
+	$fade.stop()
+	$fade.play("undofade")
 	if historyoffset >= -1: #cant redo more than the end
 		$nonmoving/undo.text = "No Further Redo History"
 		return
@@ -547,8 +547,8 @@ func redo():
 			currentnode.reposition()
 
 func undo():
-	$nonmoving/undo.modulate.a = 1
-	create_tween().tween_property($nonmoving/undo,"modulate",Color(1,1,1,0),.5)
+	$fade.stop()
+	$fade.play("undofade")
 	if history.size() < -historyoffset: #cant undo more than the start
 		$nonmoving/undo.text = "No Previous Undo History"
 		return
