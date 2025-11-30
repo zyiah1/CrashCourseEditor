@@ -7,7 +7,7 @@ signal request_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Options.firstboot == true:# dont annoy user if they don't want to update
+	if Options.firstboot == true and Options.CheckForUpdates == "true":# dont annoy user if they don't want to update
 		Options.firstboot = false
 		fetch("https://api.gamebanana.com/Core/Item/Data?itemtype=Tool&itemid=12975&fields=name,Updates().nUpdatesCount(),Updates().aGetLatestUpdates()", [], 0, "handle_response")
 		await self.request_finished
@@ -24,10 +24,12 @@ func _ready():
 					var inst = lineEdit.instantiate()
 					inst.text = array.text
 					$"Patchnotes/VBoxContainer".add_child(inst)
-	#get_window().files_dropped.connect(on_files_dropped)
+	get_window().files_dropped.connect(on_files_dropped)
 
 func on_files_dropped(files):
-	print(files)
+	var filepath = files[0]
+	print(files," Dropped from file")
+	$load._on_FileDialog_file_selected(filepath)
 
 
 func fetch(url:String ="https://www.duckduckgo.com/", headers:Array = [], method = HTTPClient.METHOD_GET,callback:String = "Ducks", body = null):

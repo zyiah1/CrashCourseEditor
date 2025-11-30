@@ -8,6 +8,7 @@ var colorbg = Color(0.3,0.6,0.3)
 var filepath: String = "res://"
 var interval: int = 60
 var OSFileManager: String = "true"
+var CheckForUpdates: String = "true"
 var layout: String = "custom"
 var custom_layout = []#["player","blue"]#["blue",["Arrow","BigArrow","ArrowKaiten","Arrow45","Arrow90","Arrow180"],"banana","checkpoint","finalcheckpoint","dk","movingEnd","row2","rail","Lpivot","player"]
 
@@ -28,7 +29,10 @@ func _ready():
 			Options.filepath = settings[2]
 			Options.interval = settings[3]
 			Options.OSFileManager = settings[4]
-		
+			Options.CheckForUpdates = settings[5]
+		if CheckForUpdates == "end" or CheckForUpdates == "":
+			CheckForUpdates = "true"
+		print(CheckForUpdates)
 
 func save():
 	var content = [Options.scrollbg,
@@ -36,6 +40,7 @@ func save():
 	Options.filepath,
 	Options.interval,
 	Options.OSFileManager,
+	Options.CheckForUpdates,
 	"end"]
 	
 	var file = FileAccess.open("res://Dkb.settings", FileAccess.WRITE)

@@ -330,12 +330,13 @@ func set_railpoint_data(data:PackedStringArray,rail_instance):
 			loop -= 1
 	
 func _on_FileDialog_file_selected(path):
-	var file = FileAccess.open(path, FileAccess.READ)
-	
-	
-	var filename = str(path).get_file().left(str(path).get_file().length() - 1)
-	filename = filename.erase(filename.length() - 3,3)
-	content = file.get_as_text()
-	
-	file.close()
-	LoadTest(filename)
+	if loaded == false:
+		var file = FileAccess.open(path, FileAccess.READ)
+		
+		
+		var filename = str(path).get_file().left(str(path).get_file().length() - 1)
+		filename = filename.erase(filename.length() - 3,3)
+		content = file.get_as_text()
+		
+		file.close()
+		LoadTest(filename)
