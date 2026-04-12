@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=30 format=3 uid="uid://bsbsq82osul0f"]
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bsbsq82osul0f"]
 
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="1_266j5"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="9_ribht"]
 [ext_resource type="Texture2D" uid="uid://crx2b0kvw0d0r" path="res://UI/loadbg.png" id="10_pfnjb"]
 [ext_resource type="Texture2D" uid="uid://dy85616naomwt" path="res://UI/load.png" id="11_thmmv"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="13_11oqp"]
 
 [sub_resource type="FontVariation" id="FontVariation_8q65v"]
 base_font = ExtResource("1_266j5")
@@ -55,6 +56,17 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("6_qgn5b")
 region_rect = Rect2(0, 0, 733, 320)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpxfe"]
+bg_color = Color(0.46745515, 0.0035125879, 0.062593974, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.69151497, 0.03876, 0.03876, 1)
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxTexture" id="18"]
 texture = ExtResource("7_r8gib")
 region_rect = Rect2(0, 0, 733, 320)
@@ -77,6 +89,53 @@ cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_p6oir"]
+base_font = ExtResource("13_11oqp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11oqp"]
+bg_color = Color(0.7617416, 0, 0, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.5944957, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_11oqp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p6oir"]
+content_margin_left = 60.0
+content_margin_right = 60.0
+bg_color = Color(0.5383914, 0.0063057123, 0.08259892, 1)
+border_width_left = 10
+border_width_right = 5
+border_color = Color(0.31988186, 0.045601197, 0.045601197, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dckt5"]
+content_margin_left = 60.0
+content_margin_right = 60.0
+bg_color = Color(0.8634147, 0.00017849289, 9.809047e-05, 1)
+border_width_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5944957, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbw0f"]
+content_margin_left = 60.0
+content_margin_right = 60.0
+bg_color = Color(0.46666667, 0.003921569, 0.0627451, 1)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.31988186, 0.045601197, 0.045601197, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
 
 [resource]
 Button/colors/font_color = Color(0.88356, 0.0367984, 0.144654, 1)
@@ -108,6 +167,7 @@ CheckButton/styles/hover_pressed = SubResource("14")
 CheckButton/styles/normal = SubResource("13")
 CheckButton/styles/pressed = SubResource("15")
 OptionButton/fonts/font = ExtResource("8_qciqd")
+Panel/styles/panel = SubResource("StyleBoxFlat_fpxfe")
 PopupMenu/styles/hover = SubResource("18")
 PopupMenu/styles/labeled_separator_left = null
 PopupMenu/styles/labeled_separator_right = null
@@ -119,3 +179,10 @@ ProgressBar/fonts/font = ExtResource("9_ribht")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_xued6")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_5a1i5")
 RichTextLabel/fonts/normal_font = SubResource("4")
+TabBar/font_sizes/font_size = 30
+TabBar/fonts/font = SubResource("FontVariation_p6oir")
+TabBar/styles/button_pressed = SubResource("StyleBoxFlat_11oqp")
+TabBar/styles/tab_focus = SubResource("StyleBoxEmpty_11oqp")
+TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_p6oir")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_dckt5")
+TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_kbw0f")
