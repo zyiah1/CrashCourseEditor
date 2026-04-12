@@ -5,7 +5,7 @@ var rect: Rect2
 func _process(delta):
 	rect = Rect2(get_local_mouse_position(),position-get_global_mouse_position())
 	queue_redraw()
-	if Input.is_action_just_released("addpoint"):
+	if Input.is_action_just_released("usetool"):
 		var pos1 = rect.end+position
 		var pos2 = rect.position+position
 		var positiveposx = pos1.x

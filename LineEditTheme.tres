@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cgg0fbvprj21v"]
+[gd_resource type="Theme" format=3 uid="uid://cgg0fbvprj21v"]
 
 [ext_resource type="Texture2D" uid="uid://bj5bcu35lnsq0" path="res://UI/LineEdit.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://die8077y5xo4h" path="res://UI/LineEditFocus.png" id="2"]
@@ -10,6 +10,15 @@
 
 [sub_resource type="FontFile" id="6"]
 fallbacks = Array[Font]([ExtResource("6")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -27,6 +36,15 @@ region_rect = Rect2(0, 0, 645, 25)
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("6")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

@@ -320,9 +320,9 @@ var end:PackedStringArray = ["      LayerName: LC",
 func _process(_delta):
 	itemplace()
 	shortcuts()
-	if item == "toolmove" and Input.is_action_pressed("addpoint"):
+	if item == "toolmove" and Input.is_action_pressed("usetool"):
 		$Cam.paused = true
-	if Input.is_action_just_released("addpoint") and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
+	if Input.is_action_just_released("usetool") and not $nonmoving/name.has_focus() and not $nonmoving/grid.has_focus():
 		$Cam.paused = false
 	if get_viewport(): 
 		if $nonmoving/gridenabled.button_pressed:
@@ -335,7 +335,7 @@ func itemselected(item_name):
 
 func itemplace():
 	var instance = null
-	if item == "multiselect" and Input.is_action_just_pressed("addpoint"):
+	if item == "multiselect" and Input.is_action_just_pressed("usetool"):
 		instance = preload("res://multiselect.tscn").instantiate()
 		instance.position = get_global_mouse_position().round()
 		add_child(instance)

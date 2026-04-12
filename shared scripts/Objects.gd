@@ -96,14 +96,14 @@ func _process(delta):
 			modulate = tool_modulate.get(get_parent().item)
 		if get_parent().item == "toolmove":
 			$Button.mouse_default_cursor_shape = 6
-			if Input.is_action_just_pressed("addpoint"):
+			if Input.is_action_just_pressed("usetool"):
 				drag = not drag
 				initialoffset = position-get_global_mouse_position()
 	else:
 		$Button.mouse_default_cursor_shape = 0
 		modulate = Color.WHITE
 	
-	if drag and get_parent().item == "toolmove" and Input.is_action_pressed("addpoint"):
+	if drag and get_parent().item == "toolmove" and Input.is_action_pressed("usetool"):
 		position = get_parent().roundedmousepos
 		if get_parent().grid < 2: #dont go off grid
 			position += initialoffset

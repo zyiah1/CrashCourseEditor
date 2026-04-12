@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bsbsq82osul0f"]
+[gd_resource type="Theme" format=3 uid="uid://bsbsq82osul0f"]
 
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="1_266j5"]
@@ -83,6 +83,15 @@ texture = ExtResource("11_thmmv")
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("1")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

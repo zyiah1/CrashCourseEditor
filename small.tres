@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=53 format=3 uid="uid://byp0imswcta2n"]
+[gd_resource type="Theme" format=3 uid="uid://byp0imswcta2n"]
 
 [ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="1"]
 [ext_resource type="Texture2D" uid="uid://bqus25cjldms5" path="res://UI/panel.png" id="2"]
@@ -25,6 +25,15 @@
 
 [sub_resource type="FontFile" id="11"]
 fallbacks = Array[Font]([ExtResource("3")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -156,6 +165,11 @@ cache/0/20/0/descent = 0.0
 cache/0/20/0/underline_position = 0.0
 cache/0/20/0/underline_thickness = 0.0
 cache/0/20/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="26"]
 texture = ExtResource("11")
@@ -201,6 +215,15 @@ region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="FontFile" id="19"]
 fallbacks = Array[Font]([ExtResource("7")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -221,6 +244,15 @@ bg_color = Color(0.309804, 0.12549, 0.12549, 1)
 
 [sub_resource type="FontFile" id="4"]
 fallbacks = Array[Font]([ExtResource("1")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -230,6 +262,15 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="12"]
 fallbacks = Array[Font]([ExtResource("3")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -406,6 +447,11 @@ cache/0/71/0/kerning_overrides/56/0 = Vector2(0, 0)
 cache/0/71/0/kerning_overrides/61/0 = Vector2(0, 0)
 cache/0/71/0/kerning_overrides/66/0 = Vector2(0, 0)
 cache/0/71/0/kerning_overrides/71/0 = Vector2(0, 0)
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="21"]
 texture = ExtResource("10")
@@ -413,12 +459,26 @@ region_rect = Rect2(0, 0, 733, 320)
 
 [sub_resource type="FontFile" id="38"]
 fallbacks = Array[Font]([ExtResource("16")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
 cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="32"]
 texture = ExtResource("15")
@@ -445,6 +505,15 @@ texture = ExtResource("18")
 region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="FontFile" id="23"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0

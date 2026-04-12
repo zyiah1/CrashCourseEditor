@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://vr4iiap8b6g0"]
+
+[ext_resource type="Script" uid="uid://b0y3hamposap" path="res://UI/Scenes/key_field.gd" id="1_uso7a"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="2_wjvpd"]
+[ext_resource type="Texture2D" uid="uid://d1jvh32vrincw" path="res://UI/Reset.png" id="3_8cf4l"]
+
+[node name="KeyField" type="Panel" unique_id=918133011]
+custom_minimum_size = Vector2(300, 50)
+script = ExtResource("1_uso7a")
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=1853483167]
+layout_mode = 0
+offset_left = 17.333313
+offset_top = 5.333334
+offset_right = 253.33328
+offset_bottom = 45.333336
+text = "Place"
+
+[node name="Keybind" type="Button" parent="." unique_id=1183173778]
+layout_mode = 0
+offset_left = 262.00006
+offset_top = 6.0000057
+offset_right = 525.3334
+offset_bottom = 41.333336
+theme = ExtResource("2_wjvpd")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.39, 0.39, 1)
+theme_override_colors/font_hover_color = Color(0.9992927, 0.92397684, 0.9123142, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.76069444, 0.024171479, 0.116000764, 1)
+text = "Enter"
+
+[node name="Reset" type="Button" parent="." unique_id=1249944598]
+layout_mode = 0
+offset_left = 525.3334
+offset_top = 4.666668
+offset_right = 582.6667
+offset_bottom = 44.000004
+theme = ExtResource("2_wjvpd")
+icon = ExtResource("3_8cf4l")
+flat = true
+icon_alignment = 1
+expand_icon = true
