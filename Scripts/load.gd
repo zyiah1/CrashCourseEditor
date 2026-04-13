@@ -126,11 +126,11 @@ func LoadTest(filename):
 				var id = railend[2].erase(0,27)
 				if int(id) > highestID:
 					highestID = int(id)
-				if railend[8].begins_with("              param0: 2900") or railend[8].begins_with("              param0: 4900"):
-					
+				if railend[8].begins_with("              param0: 2900") or railend[8].begins_with("              param0: 4900"): #PathRail
 					movingPlatforms[id] = instance
-				if railend[18].begins_with("              param0: 2") or railend[19].begins_with("              param0: 2") or railend[19].begins_with("              param0: 4300") or railend[18].begins_with("              param0: 4300"):#moving platform
-					
+					#instance.idnum = int(id)
+				if railend[18].begins_with("              param0: 2") or railend[19].begins_with("              param0: 2") or railend[19].begins_with("              param0: 4300") or railend[18].begins_with("              param0: 4300"):
+					#moving platforms
 					for railline in railend:
 						if railline.contains("linkID:"):
 							id = railline.erase(0,30)
@@ -150,7 +150,6 @@ func LoadTest(filename):
 						instance = instance.childrail
 						AddPoints(raildata,instance,"")
 						instance.done()
-						#instance.data = raildata
 						instance.endplat = railend
 						oldrail.reposition()
 						movingPlatforms.erase(id)
@@ -317,18 +316,7 @@ func getObject(Objectname:String) -> Node:
 		Objectscene.ObjectName = Objectname.erase(0,18)
 	return Objectscene
 
-func set_railpoint_data(data:PackedStringArray,rail_instance):
-	var newdata = data
-	newdata.remove_at(0)
-	
-	for point in rail_instance.points:
-		point.pointdata = newdata.slice(0,24)
-		print(point.pointdata)
-		var loop = 24
-		while loop > 0:
-			newdata.remove_at(0)
-			loop -= 1
-	
+
 func _on_FileDialog_file_selected(path):
 	if loaded == false:
 		var file = FileAccess.open(path, FileAccess.READ)

@@ -68,6 +68,8 @@ func set_data():
 "                  unit_name: Point"])
 
 func reposition():
+	idnum = get_parent().idnum
+	print(idnum)
 	var dataoffset:int = 0
 	if pointdata[0] == "                - comment: !l -1":
 		comment = true

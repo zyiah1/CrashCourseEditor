@@ -803,6 +803,22 @@ func _on_help_index_pressed(_index):
 	#0 = controls, 1 = tutorial for now the same
 	$CanvasLayer3/Controls.show()
 
+func _on_debug_index_pressed(index):
+	match index:
+		0:
+			set_points_data("Rail")
+			set_points_data("Moving")
+			set_points_data("PathRail")
+			set_points_data("Spin")
+			set_points_data("EndMove")
+			set_points_data("AutoSpin")
+			set_points_data("AutoMove")
+			
+
+func set_points_data(group_name):
+	for node in get_tree().get_nodes_in_group(group_name):
+		for point in node.points:
+			point.set_data()
 
 func _on_save_as_file_selected(_path):
 	var text = $CanvasLayer3/SaveAs.current_file.erase($CanvasLayer3/SaveAs.current_file.length()-4,4)

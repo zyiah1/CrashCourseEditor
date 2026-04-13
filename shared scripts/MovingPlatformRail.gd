@@ -200,14 +200,13 @@ func _process(delta):
 		modulate = Color.WHITE
 	
 	if Input.is_action_just_pressed("bridge"):
-		if mode == 1:
+		if mode == 1: #starts the child rail's first point
 			points.append($end)
 			var railinst = railscene.instantiate()
 			add_child(railinst)
 			childrail = railinst
 			for group in childrail.get_groups():
 				add_to_group(group)
-			
 			mode = 69
 			
 	if locked == false and !fillmode:
@@ -233,6 +232,16 @@ func newseg():
 		segments += 1
 		$start.position = $end.position
 
+func bridge():
+	loading = true
+	if mode == 0:
+		get_parent().idnum += 2
+		$end.segments = segments-1
+		$end.set_data()
+		mode = 1
+		locked = true
+		buttons.append(get_node("end/Button"))
+
 func pathdone(pos):
 	if mode == 0:
 		points.append($end)
@@ -256,13 +265,7 @@ func child(pos):
 			add_to_group(group)
 		mode = 69 #nice
 
-func bridge():
-	loading = true
-	if mode == 0:
-		get_parent().idnum += 2
-		mode = 1
-		locked = true
-		buttons.append(get_node("end/Button"))
+
 
 func _draw():
 	if locked == false and loading == false and fillmode == false:

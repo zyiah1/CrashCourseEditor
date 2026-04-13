@@ -270,7 +270,6 @@ tab_3/title = "Editor Layout"
 script = ExtResource("14_fdp2d")
 
 [node name="Visuals" type="Panel" parent="TabBar" unique_id=1387440195]
-visible = false
 layout_mode = 0
 offset_top = 37.333332
 offset_right = 986.66675
@@ -417,6 +416,7 @@ offset_bottom = 26.333334
 text = "Features"
 
 [node name="Key Bindings" type="Panel" parent="TabBar" unique_id=2079893899]
+visible = false
 show_behind_parent = true
 layout_mode = 0
 offset_top = 37.333332

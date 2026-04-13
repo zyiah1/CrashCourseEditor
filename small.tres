@@ -170,6 +170,11 @@ cache/0/14/0/descent = 0.0
 cache/0/14/0/underline_position = 0.0
 cache/0/14/0/underline_thickness = 0.0
 cache/0/14/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="26"]
 texture = ExtResource("11")

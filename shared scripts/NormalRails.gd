@@ -190,6 +190,7 @@ func change_points(points_array:Array,startpoint,endpoint):
 	var rail_points = []
 	for point in points_array:
 		point.reposition()
+		
 		rail_points.append(point.position)
 		rail_points.append(point.position)
 	startpoint.position = endpoint.position
