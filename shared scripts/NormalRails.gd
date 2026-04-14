@@ -14,6 +14,7 @@ signal edit
 var loading:bool = false
 var locked:bool = false
 var segments:int = 1 #number of segments
+var idnum:int
 var points = []
 var buttons = []
 
@@ -22,7 +23,6 @@ var fillmode:bool = false
 
 var rail: Line2D
 @onready var Editor = Options.Editor
-@onready var idnum = Editor.idnum
 @onready var end:PackedStringArray = ["              closed: CLOSE",
 "              comment: !l -1",
 "              id_name: rail" + str(idnum),
@@ -46,9 +46,11 @@ var rail: Line2D
 
 
 func _ready():
-	rail = $Rail
 	if loading == false:
 		$start.position = Editor.roundedmousepos
+		idnum = Editor.idnum
+		end[2] = "              id_name: rail" + str(idnum)
+	rail = $Rail
 	rail.add_point($start.position)
 	rail.add_point($start.position)
 
@@ -246,7 +248,7 @@ func done():
 	$end.segments = segments-1
 	$end.set_data()
 	locked = true
-	idnum += 1
+	#idnum += 1
 	Editor.idnum += 1
 	Editor.lineplacing = true
 	buttons.append(get_node("end/Button"))

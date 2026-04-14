@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://imlflq1ixw30"]
+[gd_scene format=3 uid="uid://imlflq1ixw30"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_qrqcl"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="2_8c68d"]
@@ -7,24 +7,24 @@
 [ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="4_uwnrp"]
 [ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="7_ltj0c"]
 
-[node name="RMove" type="Node2D" groups=["Moving"]]
+[node name="RMove" type="Node2D" unique_id=1534025355 groups=["Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_qrqcl")
 color = Color(0.9639762, 0.9911565, 0.9911565, 1)
 Param0 = "2141"
 
-[node name="start" parent="." instance=ExtResource("2_8c68d")]
+[node name="start" parent="." unique_id=1651114746 instance=ExtResource("2_8c68d")]
 texture = ExtResource("2_cuyyf")
 
-[node name="end" parent="." instance=ExtResource("4_uwnrp")]
+[node name="end" parent="." unique_id=475347185 instance=ExtResource("4_uwnrp")]
 texture = ExtResource("2_cuyyf")
 
-[node name="Mid" type="Sprite2D" parent="."]
+[node name="Mid" type="Sprite2D" parent="." unique_id=1825923530]
 z_index = 2
 scale = Vector2(0.35, 0.35)
 
-[node name="preview" type="Node2D" parent="."]
+[node name="preview" type="Node2D" parent="." unique_id=863562786]
 script = ExtResource("3_3ocbe")
 
-[node name="speed" parent="." instance=ExtResource("7_ltj0c")]
+[node name="speed" parent="." unique_id=892427624 instance=ExtResource("7_ltj0c")]

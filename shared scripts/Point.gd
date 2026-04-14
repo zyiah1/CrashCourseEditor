@@ -16,6 +16,7 @@ func _ready():
 	else:
 		push_warning('null!!',get_parent().scene_file_path)
 		print("null!")
+	#print("MY ID IS ",idnum, " name is ", name)
 	set_data()
 
 func button_hovered():
@@ -69,7 +70,6 @@ func set_data():
 
 func reposition():
 	idnum = get_parent().idnum
-	print(idnum)
 	var dataoffset:int = 0
 	if pointdata[0] == "                - comment: !l -1":
 		comment = true

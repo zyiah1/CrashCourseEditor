@@ -77,6 +77,7 @@ func _ready():
 		borders[3].get_node("end").position = Vector2(495,555)
 		for bridgeinst in borders:
 			bridgeinst.loading = true
+			bridgeinst.idnum = idnum #they dont define it because they are set to loading
 			connect("EXPORT", Callable(bridgeinst, "EXPORT"))
 			add_child(bridgeinst)
 			bridgeinst.newseg()
@@ -813,7 +814,15 @@ func _on_debug_index_pressed(index):
 			set_points_data("EndMove")
 			set_points_data("AutoSpin")
 			set_points_data("AutoMove")
+		1:
 			
+			#endplat[19][19] #gets the character after param in param1
+			for node in get_tree().get_nodes_in_group("Moving"):
+				if node is MovingRail:
+					#print("test:",node.endplat[19]) #prints param0
+					if node.endplat[20][19] == node.endplat[21][19]:
+						node.endplat[20][19] = str(int(node.endplat[21][19])-1)
+						push_warning("FIXED DUPLICATE KEY!!")
 
 func set_points_data(group_name):
 	for node in get_tree().get_nodes_in_group(group_name):

@@ -4,6 +4,7 @@ class_name PathRail
 var speed = 2
 var mode = 0 #0 = path 1 = platform
 var childrail = null
+var child_id_num:int = 0
 @export var railscene: PackedScene = preload("res://RMove.tscn")
 
 
@@ -18,6 +19,8 @@ func _ready():
 		color = Color(.2,.2,.2)
 	if loading == false:
 		$start.position = get_parent().roundedmousepos
+		idnum = Editor.idnum
+		end[2] = "              id_name: rail" + str(idnum)
 
 func propertyclose():
 	var currentdata = get_data()
@@ -235,7 +238,7 @@ func newseg():
 func bridge():
 	loading = true
 	if mode == 0:
-		get_parent().idnum += 2
+		Editor.idnum += 1
 		$end.segments = segments-1
 		$end.set_data()
 		mode = 1
@@ -247,7 +250,7 @@ func pathdone(pos):
 		points.append($end)
 		$end.segments = segments-1
 		$end.set_data()
-		get_parent().idnum += 2
+		Editor.idnum += 1
 		mode = 1
 		locked = true
 		child(pos)
@@ -259,6 +262,8 @@ func child(pos):
 		railinst.loading = true
 		railinst.get_node("start").position = pos
 		railinst.speed = speed
+		if loading:
+			railinst.idnum = child_id_num
 		add_child(railinst)
 		childrail = railinst
 		for group in childrail.get_groups():

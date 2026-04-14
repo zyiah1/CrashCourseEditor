@@ -1,4 +1,5 @@
 extends Rail
+class_name MovingRail
 
 const pointscene: PackedScene = preload("res://point.tscn")
 
@@ -36,6 +37,8 @@ func _ready():
 		rail.add_point($start.position)
 		rail.add_point($start.position)
 		$preview.rail.points = rail.points
+		idnum = Editor.idnum
+		endplat[2] = "              id_name: rail" + str(idnum)
 	else:
 		$speed.hide()
 	
@@ -154,6 +157,7 @@ func done():
 		points.append($end)
 		$end.segments = segments-1
 		$end.set_data()
+		Editor.idnum += 1
 		locked = true
 		Editor.lineplacing = true
 

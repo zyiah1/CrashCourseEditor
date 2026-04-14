@@ -21,12 +21,19 @@ func focus_exited():
 	$speed.hide()
 
 func _ready():
+
 	$start.show()
 	loading = get_parent().loading
 	var inst = load("res://rail.tscn").instantiate()
 	add_child(inst)
 	move_child(inst, 0)
 	
+	if loading == false:
+		$start.position = Editor.roundedmousepos
+		idnum = Editor.idnum
+	else:
+		$rotation.hide()
+		$speed.hide()
 	
 	rail = inst
 	rail.texture = railtexture
@@ -35,11 +42,6 @@ func _ready():
 	$speed.connect("focus_entered", Callable(self, "focus_entered"))
 	$speed.connect("focus_exited", Callable(self, "focus_exited"))
 	$speed.set_caret_column(7)
-	if loading == false:
-		$start.position = Editor.roundedmousepos
-	else:
-		$rotation.hide()
-		$speed.hide()
 	$crank.position = $start.position
 	$rotation.position = $crank.position + Vector2(-20,-100)
 	$speed.position = $crank.position + Vector2(-20,-156)

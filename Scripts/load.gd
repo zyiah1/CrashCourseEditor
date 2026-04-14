@@ -126,9 +126,10 @@ func LoadTest(filename):
 				var id = railend[2].erase(0,27)
 				if int(id) > highestID:
 					highestID = int(id)
+				if !railend[8].begins_with("              param0: 3"):
+					instance.idnum = int(id)
 				if railend[8].begins_with("              param0: 2900") or railend[8].begins_with("              param0: 4900"): #PathRail
 					movingPlatforms[id] = instance
-					#instance.idnum = int(id)
 				if railend[18].begins_with("              param0: 2") or railend[19].begins_with("              param0: 2") or railend[19].begins_with("              param0: 4300") or railend[18].begins_with("              param0: 4300"):
 					#moving platforms
 					for railline in railend:
@@ -146,6 +147,8 @@ func LoadTest(filename):
 					else:
 						oldrail.railscene = instance
 						instance = oldrail
+						var child_id = railend[2].erase(0,27)
+						instance.child_id_num = int(child_id)
 						instance.pathdone(Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: "))))
 						instance = instance.childrail
 						AddPoints(raildata,instance,"")
@@ -157,9 +160,10 @@ func LoadTest(filename):
 				else:
 					var prereference = ""
 					instance.loading = true
-					scene.add_child(instance)
 					if railend[8].begins_with("              param0: 3"):
 						prereference = "Spin/"# add this to get node calls if it's a rotate rail
+						instance.get_node("Spin").idnum = int(id)
+					scene.add_child(instance)
 					instance.get_node(prereference+"start").position = Vector2(int(raildata[raildata.find("                  dir_z: 0.00000")+8].lstrip("                  pnt0_x: ")),-int(raildata[raildata.find("                  dir_z: 0.00000")+9].lstrip("                  pnt0_y: ")))
 					AddPoints(raildata,instance,prereference)
 					if prereference == "":

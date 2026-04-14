@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvio04wabmtkb"]
+[gd_scene format=3 uid="uid://bvio04wabmtkb"]
 
 [ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_h6hrl"]
 [ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_1rbj8"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="5_urndh"]
 [ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="7_apmn2"]
 
-[node name="LMove" type="Node2D" groups=["Moving"]]
+[node name="LMove" type="Node2D" unique_id=1805084871 groups=["Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_h6hrl")
@@ -16,18 +16,18 @@ pointtexture = ExtResource("3_c3smo")
 color = Color(0.9647059, 0.99215686, 0.99215686, 1)
 Param0 = "2140"
 
-[node name="start" parent="." instance=ExtResource("3_1rbj8")]
+[node name="start" parent="." unique_id=116819374 instance=ExtResource("3_1rbj8")]
 texture = ExtResource("3_c3smo")
 
-[node name="end" parent="." instance=ExtResource("4_40wqb")]
+[node name="end" parent="." unique_id=1276295608 instance=ExtResource("4_40wqb")]
 texture = ExtResource("3_c3smo")
 
-[node name="Mid" type="Sprite2D" parent="."]
+[node name="Mid" type="Sprite2D" parent="." unique_id=1167881843]
 z_index = 2
 scale = Vector2(0.35, 0.35)
 
-[node name="preview" type="Node2D" parent="."]
+[node name="preview" type="Node2D" parent="." unique_id=772952948]
 script = ExtResource("4_jjtel")
 previewtexture = ExtResource("5_urndh")
 
-[node name="speed" parent="." instance=ExtResource("7_apmn2")]
+[node name="speed" parent="." unique_id=1684270782 instance=ExtResource("7_apmn2")]
