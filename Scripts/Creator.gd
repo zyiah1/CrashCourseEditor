@@ -809,7 +809,6 @@ func _on_debug_index_pressed(index):
 		0:
 			set_points_data("Rail")
 			set_points_data("Moving")
-			set_points_data("PathRail")
 			set_points_data("Spin")
 			set_points_data("EndMove")
 			set_points_data("AutoSpin")
@@ -823,11 +822,43 @@ func _on_debug_index_pressed(index):
 					if node.endplat[20][19] == node.endplat[21][19]:
 						node.endplat[20][19] = str(int(node.endplat[21][19])-1)
 						push_warning("FIXED DUPLICATE KEY!!")
+		2:
+			var IDs = []
+			var rails = []
+			IDs += filter_id("Rail")[0]
+			IDs += filter_id("Moving")[0]
+			IDs += filter_id("Spin")[0]
+			rails += filter_id("Rail")[1]
+			rails += filter_id("Moving")[1]
+			rails += filter_id("Spin")[1]
+			for entry in IDs:
+				var startingIndex = IDs.find(entry)+1
+				print(IDs.find(entry,startingIndex))
+				if IDs.find(entry,startingIndex) != -1:
+					print("DUPLICATE AT ",IDs.find(entry,startingIndex))
+					var troubleRail = rails[IDs.find(entry,startingIndex)]
+					if troubleRail is PathRail:
+						troubleRail.color = Color.GREEN
+					else:
+						troubleRail.rail.texture = preload("res://Sprites/Rails/trouble.png")
+					troubleRail = rails[startingIndex-1]
+					if troubleRail is PathRail:
+						troubleRail.color = Color.ORANGE
+					else:
+						troubleRail.rail.texture = preload("res://Sprites/Rails/trouble2.png")
 
 func set_points_data(group_name):
 	for node in get_tree().get_nodes_in_group(group_name):
 		for point in node.points:
 			point.set_data()
+
+func filter_id(group_name):
+	var IDs = []
+	var Rails = []
+	for node in get_tree().get_nodes_in_group(group_name):
+		IDs.append(node.idnum)
+		Rails.append(node)
+	return [IDs,Rails]
 
 func _on_save_as_file_selected(_path):
 	var text = $CanvasLayer3/SaveAs.current_file.erase($CanvasLayer3/SaveAs.current_file.length()-4,4)

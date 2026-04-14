@@ -1676,11 +1676,13 @@ size = Vector2i(113, 100)
 theme = ExtResource("51_0rgi5")
 theme_override_fonts/font = ExtResource("52_cmovo")
 theme_override_font_sizes/font_size = 30
-item_count = 2
+item_count = 3
 item_0/text = "Reset Points"
 item_0/id = 0
 item_1/text = "Duplicate Key Test Fix"
 item_1/id = 1
+item_2/text = "Find Duplicate IDs"
+item_2/id = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer3/MenuBar" unique_id=858418270]
 modulate = Color(0.9868881, 0.52898854, 0.5798975, 1)
