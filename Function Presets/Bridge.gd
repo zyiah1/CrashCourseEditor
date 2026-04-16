@@ -2,19 +2,26 @@ extends Control
 
 @onready var Vbox = get_parent().get_parent().get_node("ScrollContainer/VBox")
 
+var railId = null
 var railtype = null
 var param7 = null
 var pointsx = []
 var pointsy = []
+var pointsID = []
 var numberofpoints = 0
+var oldID = ""
 
 func _ready():
 	$HugePanel.hide()
 	for child in Vbox.get_children():
 		if child.text.begins_with("              param0: "):
 			railtype = child
+		if child.text.begins_with("              id_name: "):
+			railId = child
 		if child.text.begins_with("              param7: "):
 			param7 = child
+		if child.text.begins_with("                  id_name: "):
+			pointsID.append(child)
 		if child.text.begins_with("                  pnt0_x: "):
 			pointsx.append(child)
 		if child.text.begins_with("                  pnt0_y: "):
@@ -23,6 +30,8 @@ func _ready():
 			numberofpoints += 1
 	$X.text = pointsx[0].text.lstrip("                  pnt0_x: ")
 	$Y.text = pointsy[0].text.lstrip("                  pnt0_y: ")
+	$ID.text = railId.text.lstrip("              id_name: ")
+	oldID = $ID.text
 	if $X.text == "":
 		$X.text = "0"
 	if $Y.text == "":
@@ -46,3 +55,10 @@ func _on_type_item_selected(index):
 	railtype.text = "              param0: "+str(id)+".00000"
 	if (str(id).begins_with("50") or str(id).begins_with("52")) and param7.text.begins_with("              param7: -1"):
 		param7.text = "              param7: 0.00000"
+
+
+func _on_id_text_changed(new_text):
+	railId.text = "              id_name: "+new_text
+	for point in pointsID:
+		point.text = point.text.replace(oldID,new_text)
+	oldID = new_text

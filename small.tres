@@ -186,13 +186,11 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("12")
 region_rect = Rect2(0, 0, 905, 492)
 
-[sub_resource type="StyleBoxTexture" id="17"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b366"]
 texture = ExtResource("6")
-region_rect = Rect2(0, 0, 62, 50)
 
-[sub_resource type="StyleBoxTexture" id="18"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5ht8"]
 texture = ExtResource("5")
-region_rect = Rect2(0, 0, 62, 50)
 
 [sub_resource type="StyleBoxEmpty" id="39"]
 
@@ -540,10 +538,10 @@ Button/styles/hover = SubResource("28")
 Button/styles/normal = SubResource("28")
 Button/styles/pressed = SubResource("26")
 CheckBox/styles/focus = null
-CheckBox/styles/hover = SubResource("17")
-CheckBox/styles/hover_pressed = SubResource("18")
-CheckBox/styles/normal = SubResource("17")
-CheckBox/styles/pressed = SubResource("18")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_5b366")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_b5ht8")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_5b366")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_b5ht8")
 HSlider/icons/grabber = ExtResource("22")
 HSlider/icons/grabber_highlight = ExtResource("22")
 HSlider/icons/tick = ExtResource("20")

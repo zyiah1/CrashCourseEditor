@@ -12,6 +12,9 @@ const apivot = preload("res://Function Presets/AutoRotate.tscn")
 
 var previousParam0 = ""
 
+var total_inputs: int = 0
+var previous_inputs: int = -1
+
 func add_function_preset():#give it the right presets
 	for node in $FunctionContainer.get_children():
 		$FunctionContainer.remove_child(node)
@@ -66,8 +69,13 @@ func _on_Property_pressed():
 	$ScrollContainer.show()
 	$FunctionContainer.hide()
 
+func _input(event):
+	if Input.is_anything_pressed():
+		total_inputs += 1
+
 func datachanged(_text):
-	if $RealTime.button_pressed: #if it's realtime
+	if $RealTime.button_pressed and total_inputs != previous_inputs: #total inputs prevents it from updating unecessarily
+		previous_inputs = total_inputs
 		$ScrollContainer/VBox.applydata()
 		if not owner.editednode.is_in_group("Object"):
 			if owner.editednode.is_in_group("PathRail"):

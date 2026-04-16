@@ -80,6 +80,7 @@ func reposition():
 	#print("THE X ",pointdata[11+dataoffset])
 	position.x = float(pointdata[11+dataoffset].lstrip("                  pnt0_x: "))
 	position.y = -float(pointdata[12+dataoffset].lstrip("                  pnt0_y: "))
+	pointdata[4+dataoffset] = "                  id_name: rail" + str(idnum) + "/"+str(segments)
 
 func make_big():
 	if get_node_or_null("start") != null:

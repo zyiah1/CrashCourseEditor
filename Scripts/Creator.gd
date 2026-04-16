@@ -810,9 +810,6 @@ func _on_debug_index_pressed(index):
 			set_points_data("Rail")
 			set_points_data("Moving")
 			set_points_data("Spin")
-			set_points_data("EndMove")
-			set_points_data("AutoSpin")
-			set_points_data("AutoMove")
 		1:
 			
 			#endplat[19][19] #gets the character after param in param1

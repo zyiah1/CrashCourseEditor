@@ -199,6 +199,7 @@ func change_points(points_array:Array,startpoint,endpoint):
 	return rail_points
 
 func reposition():
+	idnum = int(end[2].lstrip("              id_name: rail"))
 	rail.points = change_points(points,$start,$end)
 	for line in end:
 		if line.begins_with("              param0: 1") or line.begins_with("              param0: 5100"):
@@ -240,7 +241,7 @@ func reposition():
 				point.texture = preload("uid://buskhmyq1lp3p") #pointmessage.png
 		$start.texture = $end.texture
 		$start.scale = $end.scale
-	idnum = int(end[2].lstrip("              id_name: rail"))
+	
 	
 
 func done():
