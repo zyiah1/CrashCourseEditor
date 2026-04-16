@@ -271,52 +271,52 @@ func getRail(Railname:String):
 	return Railscene
 
 func getObject(Objectname:String) -> Node:
-	var Objectscene = preload("res://banana.tscn").instantiate()
+	var Objectscene = preload("res://Objects/banana.tscn").instantiate()
 	match Objectname:
 		"            name: Dkb_BlackBoard01":
 			return
 		"            name: Dkb_Player":
-			var player = preload("res://player.tscn").instantiate()
+			var player = preload("res://Objects/player.tscn").instantiate()
 			Objectscene = player
 			scene.stored = player
 		"            name: Dkb_CheckPoint":
 			if Objectname.begins_with("            param0: 2.00000"):
-				Objectscene = preload("res://finalcheckpoint.tscn").instantiate()
+				Objectscene = preload("res://Objects/finalcheckpoint.tscn").instantiate()
 			else:
-				Objectscene = preload("res://checkpoint.tscn").instantiate()
+				Objectscene = preload("res://Objects/checkpoint.tscn").instantiate()
 				if Objectname.begins_with("            param0: 1"):
-					Objectscene = preload("res://firstcheckpoint.tscn").instantiate()
+					Objectscene = preload("res://Objects/firstcheckpoint.tscn").instantiate()
 			if content[24] == "            scale_x: -1.00000":
 				Objectscene.flip_h = true
 		"            name: Dkb_Banana":
-			Objectscene = preload("res://banana.tscn").instantiate()
+			Objectscene = preload("res://Objects/banana.tscn").instantiate()
 		"            name: Dkb_ChalkEntrance":
-			Objectscene = preload("res://door.tscn").instantiate()
+			Objectscene = preload("res://Objects/door.tscn").instantiate()
 		"            name: Dkb_ChalkRainbow":
-			Objectscene = preload("res://door.tscn").instantiate()
+			Objectscene = preload("res://Objects/door.tscn").instantiate()
 			Objectscene.texture = preload("uid://dfrak6dfil3sv") #rainbow.png
 			Objectscene.offset.y = 0
 		"            name: Dkb_OneUpItem":
-			Objectscene = preload("res://1up.tscn").instantiate()
+			Objectscene = preload("res://Objects/1up.tscn").instantiate()
 		"            name: Dkb_Coin":
-			Objectscene = preload("res://coin.tscn").instantiate()
+			Objectscene = preload("res://Objects/coin.tscn").instantiate()
 		"            name: Dkb_ChalkDonkey":
-			Objectscene = preload("res://dk.tscn").instantiate()
+			Objectscene = preload("res://Objects/dk.tscn").instantiate()
 		"            name: Dkb_ChalkPauline":
-			Objectscene = preload("res://pauline.tscn").instantiate()
+			Objectscene = preload("res://Objects/pauline.tscn").instantiate()
 		"            name: Dkb_ChalkBag":
-			Objectscene = preload("res://purse.tscn").instantiate()
+			Objectscene = preload("res://Objects/purse.tscn").instantiate()
 		"            name: Dkb_ChalkUmbrella":
-			Objectscene = preload("res://hammer.tscn").instantiate()
+			Objectscene = preload("res://Objects/hammer.tscn").instantiate()
 		"            name: Dkb_ChalkLadder":
-			Objectscene = preload("res://ladder.tscn").instantiate()
+			Objectscene = preload("res://Objects/ladder.tscn").instantiate()
 			Objectscene.get_node("pitch").loading = true
 			
 		"            name: Dkb_ChalkBarrel":
-			Objectscene = preload("res://barrel.tscn").instantiate()
+			Objectscene = preload("res://Objects/barrel.tscn").instantiate()
 	#Decide the type of arrow
 	if Objectname.begins_with("            name: Dkb_ChalkYajirushi"):
-		Objectscene = preload("res://Arrow.tscn").instantiate()
+		Objectscene = preload("res://Objects/Arrow.tscn").instantiate()
 		Objectscene.ObjectName = Objectname.erase(0,18)
 	return Objectscene
 

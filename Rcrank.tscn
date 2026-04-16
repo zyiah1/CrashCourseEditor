@@ -1,15 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://now0s57i4d45"]
+[gd_scene format=3 uid="uid://now0s57i4d45"]
 
-[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1"]
+[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://Common/Scripts/MovingPlatform.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://Sprites/Points/pointR.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_k53cv"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://Common/Scenes/startpoint.tscn" id="3_k53cv"]
 [ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://Sprites/Pivot/crankR.png" id="4"]
-[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="4_v7jmk"]
-[ext_resource type="Texture2D" uid="uid://bvrfm1i201crx" path="res://Sprites/Rails/rail.png" id="5_21v3i"]
-[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="5_a75h1"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="8_okmb8"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://Common/Scripts/PreviewMoving.gd" id="4_v7jmk"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://Common/Scenes/endpoint.tscn" id="5_a75h1"]
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://Common/Scenes/speedbox.tscn" id="8_okmb8"]
 
-[node name="Rcrank" type="Node2D" groups=["Moving"]]
+[node name="Rcrank" type="Node2D" unique_id=1928051117 groups=["Moving"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1")
@@ -17,18 +16,17 @@ midImage = ExtResource("4")
 color = Color(0.9647059, 0.99215686, 0.99215686, 1)
 Param0 = "2111"
 
-[node name="start" parent="." instance=ExtResource("3_k53cv")]
+[node name="start" parent="." unique_id=1481501120 instance=ExtResource("3_k53cv")]
 texture = ExtResource("2")
 
-[node name="end" parent="." instance=ExtResource("5_a75h1")]
+[node name="end" parent="." unique_id=855218234 instance=ExtResource("5_a75h1")]
 texture = ExtResource("2")
 
-[node name="Mid" type="Sprite2D" parent="."]
+[node name="Mid" type="Sprite2D" parent="." unique_id=339401663]
 z_index = 2
 scale = Vector2(0.35, 0.35)
 
-[node name="preview" type="Node2D" parent="."]
+[node name="preview" type="Node2D" parent="." unique_id=1096082001]
 script = ExtResource("4_v7jmk")
-previewtexture = ExtResource("5_21v3i")
 
-[node name="speed" parent="." instance=ExtResource("8_okmb8")]
+[node name="speed" parent="." unique_id=1805744206 instance=ExtResource("8_okmb8")]

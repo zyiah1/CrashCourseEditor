@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bvio04wabmtkb"]
 
-[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_h6hrl"]
-[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="3_1rbj8"]
+[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://Common/Scripts/MovingPlatform.gd" id="1_h6hrl"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://Common/Scenes/startpoint.tscn" id="3_1rbj8"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://Sprites/Points/pointL.png" id="3_c3smo"]
-[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="4_40wqb"]
-[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="4_jjtel"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://Common/Scenes/endpoint.tscn" id="4_40wqb"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://Common/Scripts/PreviewMoving.gd" id="4_jjtel"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="5_urndh"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="7_apmn2"]
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://Common/Scenes/speedbox.tscn" id="7_apmn2"]
 
 [node name="LMove" type="Node2D" unique_id=1805084871 groups=["Moving"]]
 z_index = -1

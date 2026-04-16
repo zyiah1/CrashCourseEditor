@@ -1,53 +1,52 @@
-[gd_scene load_steps=59 format=3 uid="uid://d28e4bqveph56"]
+[gd_scene format=3 uid="uid://d28e4bqveph56"]
 
 [ext_resource type="Script" uid="uid://dxxxdrquncs8" path="res://layout_creator.gd" id="1_73tgk"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="1_ibg4x"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2_ti782"]
 [ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="3_p4w1o"]
-[ext_resource type="PackedScene" uid="uid://cx82h5vmx6lkn" path="res://Loader.tscn" id="4_nesdg"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="5_p4w1o"]
 [ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="6_bmmxj"]
 [ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7_xqkqs"]
-[ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://railart/player.png" id="8_dd2pp"]
-[ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://railart/banana.png" id="9_a8x6n"]
-[ext_resource type="Texture2D" uid="uid://cxijoew28a0ty" path="res://railart/checkpoint.png" id="10_qeke3"]
-[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://railart/finalcheckpoint.png" id="11_yj3ba"]
-[ext_resource type="Texture2D" uid="uid://dakt7cipbcnp" path="res://railart/coin.png" id="12_ljv30"]
-[ext_resource type="Texture2D" uid="uid://pm3v6to0bd2c" path="res://railart/1up.png" id="13_di5wp"]
-[ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://railart/door.png" id="14_7ofba"]
-[ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://railart/barrel.png" id="15_73tgk"]
-[ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://railart/ladder.png" id="16_jbrv1"]
-[ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://railart/purse.png" id="17_iert6"]
-[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://railart/hammer.png" id="18_ly7xb"]
-[ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://railart/Arrow.png" id="19_ec24n"]
-[ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://railart/Arrow45.png" id="20_e0uxd"]
-[ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://railart/pauline.png" id="21_trffa"]
-[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://railart/dk.png" id="22_lce6m"]
-[ext_resource type="Texture2D" uid="uid://cqlxfkinhy6k4" path="res://railart/rail.png" id="23_goirk"]
-[ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://railart/music.png" id="24_jfp21"]
-[ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://railart/movingfan.png" id="25_bs8kk"]
-[ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://railart/movingL.png" id="26_u0x0d"]
-[ext_resource type="Texture2D" uid="uid://c3ecp5rabscks" path="res://railart/movingR.png" id="27_7kpo3"]
-[ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://railart/movingA.png" id="28_obrsl"]
-[ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://railart/movingCrankL.png" id="29_7ely2"]
-[ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://railart/movingCrankR.png" id="30_gpt0o"]
-[ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://railart/Lspin.png" id="31_y4d7y"]
-[ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://railart/Rspin.png" id="32_jhgdu"]
-[ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://railart/Lpivot.png" id="33_nkegp"]
-[ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://railart/Rpivot.png" id="34_urigo"]
-[ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://railart/Apivot.png" id="35_dgaww"]
-[ext_resource type="Texture2D" uid="uid://bmmoqxjs6kiq2" path="res://railart/tiltLS.png" id="36_3ower"]
-[ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://railart/tiltRS.png" id="37_7gn55"]
-[ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://railart/movingEnd.png" id="38_ksuwy"]
-[ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://railart/endrotate.png" id="39_h7otq"]
+[ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://UI/railart/player.png" id="8_dd2pp"]
+[ext_resource type="Texture2D" uid="uid://dd2lr7xtykccr" path="res://UI/railart/banana.png" id="9_a8x6n"]
+[ext_resource type="Texture2D" uid="uid://cxijoew28a0ty" path="res://UI/railart/checkpoint.png" id="10_qeke3"]
+[ext_resource type="Texture2D" uid="uid://cmeswrdiau1wn" path="res://UI/railart/finalcheckpoint.png" id="11_yj3ba"]
+[ext_resource type="Texture2D" uid="uid://dakt7cipbcnp" path="res://UI/railart/coin.png" id="12_ljv30"]
+[ext_resource type="Texture2D" uid="uid://pm3v6to0bd2c" path="res://UI/railart/1up.png" id="13_di5wp"]
+[ext_resource type="Texture2D" uid="uid://db0dkeqmljblg" path="res://UI/railart/door.png" id="14_7ofba"]
+[ext_resource type="Texture2D" uid="uid://dhmlunau072nn" path="res://UI/railart/barrel.png" id="15_73tgk"]
+[ext_resource type="Texture2D" uid="uid://iagtovtfwmhn" path="res://UI/railart/ladder.png" id="16_jbrv1"]
+[ext_resource type="Texture2D" uid="uid://brdm7f4qrvrxk" path="res://UI/railart/purse.png" id="17_iert6"]
+[ext_resource type="Texture2D" uid="uid://b8nqyrmdi6jit" path="res://UI/railart/hammer.png" id="18_ly7xb"]
+[ext_resource type="Texture2D" uid="uid://dtkmpyxh56ian" path="res://UI/railart/Arrow.png" id="19_ec24n"]
+[ext_resource type="Texture2D" uid="uid://bfmh1sdli2kwv" path="res://UI/railart/Arrow45.png" id="20_e0uxd"]
+[ext_resource type="Texture2D" uid="uid://dprrf5smoefkg" path="res://UI/railart/pauline.png" id="21_trffa"]
+[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://UI/railart/dk.png" id="22_lce6m"]
+[ext_resource type="Texture2D" uid="uid://cqlxfkinhy6k4" path="res://UI/railart/rail.png" id="23_goirk"]
+[ext_resource type="Texture2D" uid="uid://j5xfbhc70qne" path="res://UI/railart/music.png" id="24_jfp21"]
+[ext_resource type="Texture2D" uid="uid://cti3f4clcdlj1" path="res://UI/railart/movingfan.png" id="25_bs8kk"]
+[ext_resource type="Texture2D" uid="uid://cs8vlh67qj4tv" path="res://UI/railart/movingL.png" id="26_u0x0d"]
+[ext_resource type="Texture2D" uid="uid://c3ecp5rabscks" path="res://UI/railart/movingR.png" id="27_7kpo3"]
+[ext_resource type="Texture2D" uid="uid://bycvb05o1ph6p" path="res://UI/railart/movingA.png" id="28_obrsl"]
+[ext_resource type="Texture2D" uid="uid://bqieoojqp0lg8" path="res://UI/railart/movingCrankL.png" id="29_7ely2"]
+[ext_resource type="Texture2D" uid="uid://d4hcl7f3ukrqt" path="res://UI/railart/movingCrankR.png" id="30_gpt0o"]
+[ext_resource type="Texture2D" uid="uid://3gmhw3lswxxr" path="res://UI/railart/Lspin.png" id="31_y4d7y"]
+[ext_resource type="Texture2D" uid="uid://doyhd5vbgafkp" path="res://UI/railart/Rspin.png" id="32_jhgdu"]
+[ext_resource type="Texture2D" uid="uid://c36ukckckfxkd" path="res://UI/railart/Lpivot.png" id="33_nkegp"]
+[ext_resource type="Texture2D" uid="uid://dfiomilqiivvi" path="res://UI/railart/Rpivot.png" id="34_urigo"]
+[ext_resource type="Texture2D" uid="uid://bpjcmj3xb1yek" path="res://UI/railart/Apivot.png" id="35_dgaww"]
+[ext_resource type="Texture2D" uid="uid://bmmoqxjs6kiq2" path="res://UI/railart/tiltLS.png" id="36_3ower"]
+[ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://UI/railart/tiltRS.png" id="37_7gn55"]
+[ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://UI/railart/movingEnd.png" id="38_ksuwy"]
+[ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://UI/railart/endrotate.png" id="39_h7otq"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="40_xqkqs"]
-[ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://railart/blue.png" id="41_dd2pp"]
-[ext_resource type="Texture2D" uid="uid://bqs6ievnnk2g1" path="res://railart/none.png" id="41_qeke3"]
-[ext_resource type="Texture2D" uid="uid://dmu6owm5oi5ir" path="res://railart/invisible.png" id="42_a8x6n"]
-[ext_resource type="Texture2D" uid="uid://bg41nm7dgvkok" path="res://railart/Arrow90.png" id="44_7ofba"]
-[ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://railart/Arrow180.png" id="45_73tgk"]
-[ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://railart/ArrowKaiten.png" id="46_jbrv1"]
-[ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://railart/BigArrow.png" id="47_iert6"]
+[ext_resource type="Texture2D" uid="uid://cuan7odx76l5r" path="res://UI/railart/blue.png" id="41_dd2pp"]
+[ext_resource type="Texture2D" uid="uid://bqs6ievnnk2g1" path="res://UI/railart/none.png" id="41_qeke3"]
+[ext_resource type="Texture2D" uid="uid://dmu6owm5oi5ir" path="res://UI/railart/invisible.png" id="42_a8x6n"]
+[ext_resource type="Texture2D" uid="uid://bg41nm7dgvkok" path="res://UI/railart/Arrow90.png" id="44_7ofba"]
+[ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://UI/railart/Arrow180.png" id="45_73tgk"]
+[ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://UI/railart/ArrowKaiten.png" id="46_jbrv1"]
+[ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://UI/railart/BigArrow.png" id="47_iert6"]
 [ext_resource type="Script" uid="uid://cgi5n04u35ikx" path="res://layoutcreator_button.gd" id="49_jbrv1"]
 [ext_resource type="PackedScene" uid="uid://4a46ijhy8nx3" path="res://menu_button.tscn" id="49_ly7xb"]
 [ext_resource type="Script" uid="uid://dw32by7kelfjk" path="res://layoutcreator_controlbutton.gd" id="50_iert6"]
@@ -80,12 +79,12 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 
-[node name="LayoutCreator" type="Node2D"]
+[node name="LayoutCreator" type="Node2D" unique_id=1514442537]
 script = ExtResource("1_73tgk")
 
-[node name="bfg" parent="." instance=ExtResource("1_ibg4x")]
+[node name="bfg" parent="." unique_id=137463417 instance=ExtResource("1_ibg4x")]
 
-[node name="back" type="Button" parent="."]
+[node name="back" type="Button" parent="." unique_id=876498619]
 offset_left = 1.0
 offset_top = 792.0
 offset_right = 181.0
@@ -93,9 +92,9 @@ offset_bottom = 896.0
 theme = ExtResource("2_ti782")
 text = "back"
 script = ExtResource("3_p4w1o")
-scene = ExtResource("4_nesdg")
+use_packed = false
 
-[node name="setlayout" type="Button" parent="."]
+[node name="setlayout" type="Button" parent="." unique_id=806988486]
 offset_left = 655.0
 offset_top = 481.0
 offset_right = 937.0
@@ -103,7 +102,7 @@ offset_bottom = 613.0
 theme = ExtResource("2_ti782")
 text = "Set Layout"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1189288118]
 offset_right = 1597.0
 offset_bottom = 101.0
 theme_override_fonts/font = ExtResource("5_p4w1o")
@@ -111,7 +110,7 @@ theme_override_font_sizes/font_size = 61
 text = "Layout Editor"
 horizontal_alignment = 1
 
-[node name="objects" type="HBoxContainer" parent="."]
+[node name="objects" type="HBoxContainer" parent="." unique_id=1119559461]
 visible = false
 offset_left = 27.0
 offset_top = 83.0
@@ -120,7 +119,7 @@ offset_bottom = 373.0
 scale = Vector2(0.34154135, 0.34154135)
 alignment = 1
 
-[node name="player" type="Button" parent="objects" groups=["button", "playerbutton"]]
+[node name="player" type="Button" parent="objects" unique_id=1762931418 groups=["button", "playerbutton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -134,7 +133,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="banana" type="Button" parent="objects" groups=["button"]]
+[node name="banana" type="Button" parent="objects" unique_id=171946485 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -149,7 +148,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="checkpoint" type="Button" parent="objects" groups=["button"]]
+[node name="checkpoint" type="Button" parent="objects" unique_id=1162167089 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -164,7 +163,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="finalcheckpoint" type="Button" parent="objects" groups=["button"]]
+[node name="finalcheckpoint" type="Button" parent="objects" unique_id=2124344637 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -179,7 +178,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="coin" type="Button" parent="objects" groups=["button"]]
+[node name="coin" type="Button" parent="objects" unique_id=1244704732 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -194,7 +193,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="1up" type="Button" parent="objects" groups=["button"]]
+[node name="1up" type="Button" parent="objects" unique_id=4015694 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -209,7 +208,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="door" type="Button" parent="objects" groups=["button"]]
+[node name="door" type="Button" parent="objects" unique_id=99833499 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -224,7 +223,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="barrel" type="Button" parent="objects" groups=["button"]]
+[node name="barrel" type="Button" parent="objects" unique_id=1257152546 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -239,7 +238,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ladder" type="Button" parent="objects" groups=["button"]]
+[node name="ladder" type="Button" parent="objects" unique_id=1469673262 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -254,7 +253,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="purse" type="Button" parent="objects" groups=["button"]]
+[node name="purse" type="Button" parent="objects" unique_id=1975926552 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -269,7 +268,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="hammer" type="Button" parent="objects" groups=["button"]]
+[node name="hammer" type="Button" parent="objects" unique_id=1408900732 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -284,7 +283,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Arrow" type="Button" parent="objects" groups=["button"]]
+[node name="Arrow" type="Button" parent="objects" unique_id=310781652 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -299,7 +298,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Arrow45" type="Button" parent="objects" groups=["button"]]
+[node name="Arrow45" type="Button" parent="objects" unique_id=694875506 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -314,7 +313,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="pauline" type="Button" parent="objects" groups=["button"]]
+[node name="pauline" type="Button" parent="objects" unique_id=1449976248 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -329,7 +328,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="dk" type="Button" parent="objects" groups=["button"]]
+[node name="dk" type="Button" parent="objects" unique_id=1972881231 groups=["button"]]
 custom_minimum_size = Vector2(0, 290)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -344,7 +343,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="row1" type="HBoxContainer" parent="."]
+[node name="row1" type="HBoxContainer" parent="." unique_id=224047401]
 offset_left = 3.0000002
 offset_top = 142.99997
 offset_right = 3010.2395
@@ -352,183 +351,10 @@ offset_bottom = 304.99997
 scale = Vector2(0.52938914, 0.56354326)
 alignment = 1
 
-[node name="MenuButton" parent="row1" instance=ExtResource("49_ly7xb")]
+[node name="MenuButton" parent="row1" unique_id=1677209820 instance=ExtResource("49_ly7xb")]
 layout_mode = 2
 
-[node name="MenuButton2" type="MenuButton" parent="row1" groups=["MenuButton"]]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("40_xqkqs")
-theme_override_styles/normal = SubResource("StyleBoxTexture_73tgk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_jbrv1")
-theme_override_styles/hover = SubResource("StyleBoxTexture_73tgk")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_jbrv1")
-theme_override_styles/focus = SubResource("StyleBoxFlat_iert6")
-button_mask = 7
-icon = ExtResource("41_qeke3")
-flat = false
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-item_count = 39
-popup/item_0/text = "Empty"
-popup/item_0/icon = ExtResource("41_qeke3")
-popup/item_0/id = 0
-popup/item_1/text = "Player"
-popup/item_1/icon = ExtResource("8_dd2pp")
-popup/item_1/checkable = 1
-popup/item_1/id = 1
-popup/item_2/text = "Banana"
-popup/item_2/icon = ExtResource("9_a8x6n")
-popup/item_2/checkable = 1
-popup/item_2/id = 2
-popup/item_3/text = "Checkpoint"
-popup/item_3/icon = ExtResource("10_qeke3")
-popup/item_3/checkable = 1
-popup/item_3/id = 3
-popup/item_4/text = "Final Checkpoint"
-popup/item_4/icon = ExtResource("11_yj3ba")
-popup/item_4/checkable = 1
-popup/item_4/id = 4
-popup/item_5/text = "Coin"
-popup/item_5/icon = ExtResource("12_ljv30")
-popup/item_5/checkable = 1
-popup/item_5/id = 5
-popup/item_6/text = "1up"
-popup/item_6/icon = ExtResource("13_di5wp")
-popup/item_6/checkable = 1
-popup/item_6/id = 6
-popup/item_7/text = "door"
-popup/item_7/icon = ExtResource("14_7ofba")
-popup/item_7/checkable = 1
-popup/item_7/id = 7
-popup/item_8/text = "barrel"
-popup/item_8/icon = ExtResource("15_73tgk")
-popup/item_8/checkable = 1
-popup/item_8/id = 8
-popup/item_9/text = "ladder"
-popup/item_9/icon = ExtResource("16_jbrv1")
-popup/item_9/checkable = 1
-popup/item_9/id = 9
-popup/item_10/text = "purse"
-popup/item_10/icon = ExtResource("17_iert6")
-popup/item_10/checkable = 1
-popup/item_10/id = 10
-popup/item_11/text = "Umbrella"
-popup/item_11/icon = ExtResource("18_ly7xb")
-popup/item_11/checkable = 1
-popup/item_11/id = 38
-popup/item_12/text = "Arrow"
-popup/item_12/icon = ExtResource("19_ec24n")
-popup/item_12/checkable = 1
-popup/item_12/id = 11
-popup/item_13/text = "Arrow45"
-popup/item_13/icon = ExtResource("20_e0uxd")
-popup/item_13/checkable = 1
-popup/item_13/id = 12
-popup/item_14/text = "Arrow90"
-popup/item_14/icon = ExtResource("44_7ofba")
-popup/item_14/checkable = 1
-popup/item_14/id = 13
-popup/item_15/text = "Arrow180"
-popup/item_15/icon = ExtResource("45_73tgk")
-popup/item_15/checkable = 1
-popup/item_15/id = 14
-popup/item_16/text = "ArrowKaiten"
-popup/item_16/icon = ExtResource("46_jbrv1")
-popup/item_16/checkable = 1
-popup/item_16/id = 15
-popup/item_17/text = "ArrowBig"
-popup/item_17/icon = ExtResource("47_iert6")
-popup/item_17/checkable = 1
-popup/item_17/id = 16
-popup/item_18/text = "pauline"
-popup/item_18/icon = ExtResource("21_trffa")
-popup/item_18/checkable = 1
-popup/item_18/id = 17
-popup/item_19/text = "dk"
-popup/item_19/icon = ExtResource("22_lce6m")
-popup/item_19/checkable = 1
-popup/item_19/id = 18
-popup/item_20/text = "rail"
-popup/item_20/icon = ExtResource("23_goirk")
-popup/item_20/checkable = 1
-popup/item_20/id = 19
-popup/item_21/text = "blue rail"
-popup/item_21/icon = ExtResource("41_dd2pp")
-popup/item_21/checkable = 1
-popup/item_21/id = 20
-popup/item_22/text = "invisible rail"
-popup/item_22/icon = ExtResource("42_a8x6n")
-popup/item_22/checkable = 1
-popup/item_22/id = 21
-popup/item_23/text = "music rail"
-popup/item_23/icon = ExtResource("24_jfp21")
-popup/item_23/checkable = 1
-popup/item_23/id = 22
-popup/item_24/text = "fan"
-popup/item_24/icon = ExtResource("25_bs8kk")
-popup/item_24/checkable = 1
-popup/item_24/id = 23
-popup/item_25/text = "L move"
-popup/item_25/icon = ExtResource("26_u0x0d")
-popup/item_25/checkable = 1
-popup/item_25/id = 24
-popup/item_26/text = "R move"
-popup/item_26/icon = ExtResource("27_7kpo3")
-popup/item_26/checkable = 1
-popup/item_26/id = 25
-popup/item_27/text = "Auto move"
-popup/item_27/icon = ExtResource("28_obrsl")
-popup/item_27/checkable = 1
-popup/item_27/id = 26
-popup/item_28/text = "L Crank"
-popup/item_28/icon = ExtResource("29_7ely2")
-popup/item_28/checkable = 1
-popup/item_28/id = 27
-popup/item_29/text = "R Crank"
-popup/item_29/icon = ExtResource("30_gpt0o")
-popup/item_29/checkable = 1
-popup/item_29/id = 28
-popup/item_30/text = "L Spin"
-popup/item_30/icon = ExtResource("31_y4d7y")
-popup/item_30/checkable = 1
-popup/item_30/id = 29
-popup/item_31/text = "R Spin"
-popup/item_31/icon = ExtResource("32_jhgdu")
-popup/item_31/checkable = 1
-popup/item_31/id = 30
-popup/item_32/text = "L Pivot"
-popup/item_32/icon = ExtResource("33_nkegp")
-popup/item_32/checkable = 1
-popup/item_32/id = 31
-popup/item_33/text = "R Pivot"
-popup/item_33/icon = ExtResource("34_urigo")
-popup/item_33/checkable = 1
-popup/item_33/id = 32
-popup/item_34/text = "Auto Pivot"
-popup/item_34/icon = ExtResource("35_dgaww")
-popup/item_34/checkable = 1
-popup/item_34/id = 33
-popup/item_35/text = "LS Tilt"
-popup/item_35/icon = ExtResource("36_3ower")
-popup/item_35/checkable = 1
-popup/item_35/id = 34
-popup/item_36/text = "RS Tilt"
-popup/item_36/icon = ExtResource("37_7gn55")
-popup/item_36/checkable = 1
-popup/item_36/id = 35
-popup/item_37/text = "End Move"
-popup/item_37/icon = ExtResource("38_ksuwy")
-popup/item_37/checkable = 1
-popup/item_37/id = 36
-popup/item_38/text = "End Pivot"
-popup/item_38/icon = ExtResource("39_h7otq")
-popup/item_38/checkable = 1
-popup/item_38/id = 37
-script = ExtResource("49_jbrv1")
-
-[node name="MenuButton3" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton2" type="MenuButton" parent="row1" unique_id=1513588761 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -701,7 +527,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton4" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton3" type="MenuButton" parent="row1" unique_id=2067073721 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -874,7 +700,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton5" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton4" type="MenuButton" parent="row1" unique_id=724052635 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1047,7 +873,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton6" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton5" type="MenuButton" parent="row1" unique_id=1790734065 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1220,7 +1046,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton7" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton6" type="MenuButton" parent="row1" unique_id=758965741 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1393,7 +1219,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton8" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton7" type="MenuButton" parent="row1" unique_id=484530456 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1566,7 +1392,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton9" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton8" type="MenuButton" parent="row1" unique_id=1295844596 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1739,7 +1565,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton10" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton9" type="MenuButton" parent="row1" unique_id=854278889 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -1912,7 +1738,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton11" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton10" type="MenuButton" parent="row1" unique_id=1691550292 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2085,7 +1911,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton12" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton11" type="MenuButton" parent="row1" unique_id=1738500870 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2258,7 +2084,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton13" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton12" type="MenuButton" parent="row1" unique_id=1040181576 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2431,7 +2257,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton14" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton13" type="MenuButton" parent="row1" unique_id=1033343006 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2604,7 +2430,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton15" type="MenuButton" parent="row1" groups=["MenuButton"]]
+[node name="MenuButton14" type="MenuButton" parent="row1" unique_id=814595379 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2777,7 +2603,180 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="row2" type="HBoxContainer" parent="."]
+[node name="MenuButton15" type="MenuButton" parent="row1" unique_id=1603391282 groups=["MenuButton"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("40_xqkqs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_73tgk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jbrv1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_73tgk")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_jbrv1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iert6")
+button_mask = 7
+icon = ExtResource("41_qeke3")
+flat = false
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+item_count = 39
+popup/item_0/text = "Empty"
+popup/item_0/icon = ExtResource("41_qeke3")
+popup/item_0/id = 0
+popup/item_1/text = "Player"
+popup/item_1/icon = ExtResource("8_dd2pp")
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+popup/item_2/text = "Banana"
+popup/item_2/icon = ExtResource("9_a8x6n")
+popup/item_2/checkable = 1
+popup/item_2/id = 2
+popup/item_3/text = "Checkpoint"
+popup/item_3/icon = ExtResource("10_qeke3")
+popup/item_3/checkable = 1
+popup/item_3/id = 3
+popup/item_4/text = "Final Checkpoint"
+popup/item_4/icon = ExtResource("11_yj3ba")
+popup/item_4/checkable = 1
+popup/item_4/id = 4
+popup/item_5/text = "Coin"
+popup/item_5/icon = ExtResource("12_ljv30")
+popup/item_5/checkable = 1
+popup/item_5/id = 5
+popup/item_6/text = "1up"
+popup/item_6/icon = ExtResource("13_di5wp")
+popup/item_6/checkable = 1
+popup/item_6/id = 6
+popup/item_7/text = "door"
+popup/item_7/icon = ExtResource("14_7ofba")
+popup/item_7/checkable = 1
+popup/item_7/id = 7
+popup/item_8/text = "barrel"
+popup/item_8/icon = ExtResource("15_73tgk")
+popup/item_8/checkable = 1
+popup/item_8/id = 8
+popup/item_9/text = "ladder"
+popup/item_9/icon = ExtResource("16_jbrv1")
+popup/item_9/checkable = 1
+popup/item_9/id = 9
+popup/item_10/text = "purse"
+popup/item_10/icon = ExtResource("17_iert6")
+popup/item_10/checkable = 1
+popup/item_10/id = 10
+popup/item_11/text = "Umbrella"
+popup/item_11/icon = ExtResource("18_ly7xb")
+popup/item_11/checkable = 1
+popup/item_11/id = 38
+popup/item_12/text = "Arrow"
+popup/item_12/icon = ExtResource("19_ec24n")
+popup/item_12/checkable = 1
+popup/item_12/id = 11
+popup/item_13/text = "Arrow45"
+popup/item_13/icon = ExtResource("20_e0uxd")
+popup/item_13/checkable = 1
+popup/item_13/id = 12
+popup/item_14/text = "Arrow90"
+popup/item_14/icon = ExtResource("44_7ofba")
+popup/item_14/checkable = 1
+popup/item_14/id = 13
+popup/item_15/text = "Arrow180"
+popup/item_15/icon = ExtResource("45_73tgk")
+popup/item_15/checkable = 1
+popup/item_15/id = 14
+popup/item_16/text = "ArrowKaiten"
+popup/item_16/icon = ExtResource("46_jbrv1")
+popup/item_16/checkable = 1
+popup/item_16/id = 15
+popup/item_17/text = "ArrowBig"
+popup/item_17/icon = ExtResource("47_iert6")
+popup/item_17/checkable = 1
+popup/item_17/id = 16
+popup/item_18/text = "pauline"
+popup/item_18/icon = ExtResource("21_trffa")
+popup/item_18/checkable = 1
+popup/item_18/id = 17
+popup/item_19/text = "dk"
+popup/item_19/icon = ExtResource("22_lce6m")
+popup/item_19/checkable = 1
+popup/item_19/id = 18
+popup/item_20/text = "rail"
+popup/item_20/icon = ExtResource("23_goirk")
+popup/item_20/checkable = 1
+popup/item_20/id = 19
+popup/item_21/text = "blue rail"
+popup/item_21/icon = ExtResource("41_dd2pp")
+popup/item_21/checkable = 1
+popup/item_21/id = 20
+popup/item_22/text = "invisible rail"
+popup/item_22/icon = ExtResource("42_a8x6n")
+popup/item_22/checkable = 1
+popup/item_22/id = 21
+popup/item_23/text = "music rail"
+popup/item_23/icon = ExtResource("24_jfp21")
+popup/item_23/checkable = 1
+popup/item_23/id = 22
+popup/item_24/text = "fan"
+popup/item_24/icon = ExtResource("25_bs8kk")
+popup/item_24/checkable = 1
+popup/item_24/id = 23
+popup/item_25/text = "L move"
+popup/item_25/icon = ExtResource("26_u0x0d")
+popup/item_25/checkable = 1
+popup/item_25/id = 24
+popup/item_26/text = "R move"
+popup/item_26/icon = ExtResource("27_7kpo3")
+popup/item_26/checkable = 1
+popup/item_26/id = 25
+popup/item_27/text = "Auto move"
+popup/item_27/icon = ExtResource("28_obrsl")
+popup/item_27/checkable = 1
+popup/item_27/id = 26
+popup/item_28/text = "L Crank"
+popup/item_28/icon = ExtResource("29_7ely2")
+popup/item_28/checkable = 1
+popup/item_28/id = 27
+popup/item_29/text = "R Crank"
+popup/item_29/icon = ExtResource("30_gpt0o")
+popup/item_29/checkable = 1
+popup/item_29/id = 28
+popup/item_30/text = "L Spin"
+popup/item_30/icon = ExtResource("31_y4d7y")
+popup/item_30/checkable = 1
+popup/item_30/id = 29
+popup/item_31/text = "R Spin"
+popup/item_31/icon = ExtResource("32_jhgdu")
+popup/item_31/checkable = 1
+popup/item_31/id = 30
+popup/item_32/text = "L Pivot"
+popup/item_32/icon = ExtResource("33_nkegp")
+popup/item_32/checkable = 1
+popup/item_32/id = 31
+popup/item_33/text = "R Pivot"
+popup/item_33/icon = ExtResource("34_urigo")
+popup/item_33/checkable = 1
+popup/item_33/id = 32
+popup/item_34/text = "Auto Pivot"
+popup/item_34/icon = ExtResource("35_dgaww")
+popup/item_34/checkable = 1
+popup/item_34/id = 33
+popup/item_35/text = "LS Tilt"
+popup/item_35/icon = ExtResource("36_3ower")
+popup/item_35/checkable = 1
+popup/item_35/id = 34
+popup/item_36/text = "RS Tilt"
+popup/item_36/icon = ExtResource("37_7gn55")
+popup/item_36/checkable = 1
+popup/item_36/id = 35
+popup/item_37/text = "End Move"
+popup/item_37/icon = ExtResource("38_ksuwy")
+popup/item_37/checkable = 1
+popup/item_37/id = 36
+popup/item_38/text = "End Pivot"
+popup/item_38/icon = ExtResource("39_h7otq")
+popup/item_38/checkable = 1
+popup/item_38/id = 37
+script = ExtResource("49_jbrv1")
+
+[node name="row2" type="HBoxContainer" parent="." unique_id=1130101664]
 offset_left = 22.0
 offset_top = 314.0
 offset_right = 2957.4587
@@ -2785,7 +2784,7 @@ offset_bottom = 476.0
 scale = Vector2(0.52938914, 0.56354326)
 alignment = 1
 
-[node name="MenuButton" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton" type="MenuButton" parent="row2" unique_id=2084623037 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -2958,7 +2957,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton2" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton2" type="MenuButton" parent="row2" unique_id=1109287984 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3131,7 +3130,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton3" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton3" type="MenuButton" parent="row2" unique_id=1730378398 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3304,7 +3303,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton4" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton4" type="MenuButton" parent="row2" unique_id=655723012 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3477,7 +3476,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton5" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton5" type="MenuButton" parent="row2" unique_id=1949143590 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3650,7 +3649,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton6" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton6" type="MenuButton" parent="row2" unique_id=42649821 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3823,7 +3822,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton7" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton7" type="MenuButton" parent="row2" unique_id=1407038521 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -3996,7 +3995,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton8" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton8" type="MenuButton" parent="row2" unique_id=837297569 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -4169,7 +4168,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton9" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton9" type="MenuButton" parent="row2" unique_id=457138514 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -4342,7 +4341,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton10" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton10" type="MenuButton" parent="row2" unique_id=818026574 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -4515,7 +4514,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton11" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton11" type="MenuButton" parent="row2" unique_id=900990052 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -4688,7 +4687,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton12" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton12" type="MenuButton" parent="row2" unique_id=1324498872 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -4861,7 +4860,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton13" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton13" type="MenuButton" parent="row2" unique_id=879481175 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5034,7 +5033,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton14" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton14" type="MenuButton" parent="row2" unique_id=1116015226 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5207,7 +5206,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton15" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton15" type="MenuButton" parent="row2" unique_id=378341994 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5380,7 +5379,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton16" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton16" type="MenuButton" parent="row2" unique_id=1154575590 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5553,7 +5552,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton17" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton17" type="MenuButton" parent="row2" unique_id=517125675 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5726,7 +5725,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton18" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton18" type="MenuButton" parent="row2" unique_id=1067887246 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -5899,7 +5898,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="MenuButton19" type="MenuButton" parent="row2" groups=["MenuButton"]]
+[node name="MenuButton19" type="MenuButton" parent="row2" unique_id=103689279 groups=["MenuButton"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("40_xqkqs")
@@ -6072,7 +6071,7 @@ popup/item_38/checkable = 1
 popup/item_38/id = 37
 script = ExtResource("49_jbrv1")
 
-[node name="rails" type="HBoxContainer" parent="."]
+[node name="rails" type="HBoxContainer" parent="." unique_id=1452135926]
 visible = false
 offset_left = 3.0000076
 offset_top = 212.0
@@ -6081,7 +6080,7 @@ offset_bottom = 374.0
 scale = Vector2(0.52938914, 0.56354326)
 alignment = 1
 
-[node name="rail" type="Button" parent="rails" groups=["button"]]
+[node name="rail" type="Button" parent="rails" unique_id=1947590773 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6095,7 +6094,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="2" type="Button" parent="rails" groups=["button"]]
+[node name="2" type="Button" parent="rails" unique_id=536751039 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6109,7 +6108,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="3" type="Button" parent="rails" groups=["button"]]
+[node name="3" type="Button" parent="rails" unique_id=345134179 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6123,7 +6122,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="music" type="Button" parent="rails" groups=["button"]]
+[node name="music" type="Button" parent="rails" unique_id=150981849 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6137,7 +6136,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingfan" type="Button" parent="rails" groups=["button"]]
+[node name="movingfan" type="Button" parent="rails" unique_id=1423655794 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6151,7 +6150,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingL" type="Button" parent="rails" groups=["button"]]
+[node name="movingL" type="Button" parent="rails" unique_id=1438914553 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6165,7 +6164,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingR" type="Button" parent="rails" groups=["button"]]
+[node name="movingR" type="Button" parent="rails" unique_id=1018805196 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6179,7 +6178,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingA" type="Button" parent="rails" groups=["button"]]
+[node name="movingA" type="Button" parent="rails" unique_id=886529375 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6193,7 +6192,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingCrankL" type="Button" parent="rails" groups=["button"]]
+[node name="movingCrankL" type="Button" parent="rails" unique_id=648383323 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6207,7 +6206,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingCrankR" type="Button" parent="rails" groups=["button"]]
+[node name="movingCrankR" type="Button" parent="rails" unique_id=1250770501 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6221,7 +6220,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Lspin" type="Button" parent="rails" groups=["button"]]
+[node name="Lspin" type="Button" parent="rails" unique_id=1872728879 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6235,7 +6234,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Rspin" type="Button" parent="rails" groups=["button"]]
+[node name="Rspin" type="Button" parent="rails" unique_id=189606408 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6249,7 +6248,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Lpivot" type="Button" parent="rails" groups=["button"]]
+[node name="Lpivot" type="Button" parent="rails" unique_id=1200406616 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6263,7 +6262,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Rpivot" type="Button" parent="rails" groups=["button"]]
+[node name="Rpivot" type="Button" parent="rails" unique_id=872128245 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6277,7 +6276,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Apivot" type="Button" parent="rails" groups=["button"]]
+[node name="Apivot" type="Button" parent="rails" unique_id=1915081932 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6291,7 +6290,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="tiltLS" type="Button" parent="rails" groups=["button"]]
+[node name="tiltLS" type="Button" parent="rails" unique_id=2125022056 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6305,7 +6304,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="tiltRS" type="Button" parent="rails" groups=["button"]]
+[node name="tiltRS" type="Button" parent="rails" unique_id=1901553964 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6319,7 +6318,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="movingEnd" type="Button" parent="rails" groups=["button"]]
+[node name="movingEnd" type="Button" parent="rails" unique_id=52784488 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6333,7 +6332,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="endrotate" type="Button" parent="rails" groups=["button"]]
+[node name="endrotate" type="Button" parent="rails" unique_id=1048243978 groups=["button"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_ti782")
@@ -6347,7 +6346,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Delete" type="Button" parent="."]
+[node name="Delete" type="Button" parent="." unique_id=748561399]
 offset_left = 5.0
 offset_top = 236.0
 offset_right = 50.0
@@ -6356,7 +6355,7 @@ theme = ExtResource("40_xqkqs")
 text = "Delete"
 script = ExtResource("50_iert6")
 
-[node name="Add" type="Button" parent="."]
+[node name="Add" type="Button" parent="." unique_id=2120554200]
 offset_left = 61.0
 offset_top = 236.0
 offset_right = 106.0
@@ -6366,7 +6365,7 @@ text = "Add"
 script = ExtResource("50_iert6")
 delete = false
 
-[node name="Add2" type="Button" parent="."]
+[node name="Add2" type="Button" parent="." unique_id=1183044119]
 offset_left = 1492.0
 offset_top = 236.0
 offset_right = 1537.0
@@ -6377,7 +6376,7 @@ script = ExtResource("50_iert6")
 delete = false
 left = false
 
-[node name="Delete2" type="Button" parent="."]
+[node name="Delete2" type="Button" parent="." unique_id=326640688]
 offset_left = 1548.0
 offset_top = 236.0
 offset_right = 1593.0
@@ -6387,7 +6386,7 @@ text = "Delete"
 script = ExtResource("50_iert6")
 left = false
 
-[node name="Delete3" type="Button" parent="."]
+[node name="Delete3" type="Button" parent="." unique_id=1933426131]
 offset_left = 21.0
 offset_top = 408.0
 offset_right = 66.0
@@ -6397,7 +6396,7 @@ text = "Delete"
 script = ExtResource("50_iert6")
 top_row = false
 
-[node name="Add3" type="Button" parent="."]
+[node name="Add3" type="Button" parent="." unique_id=9592880]
 offset_left = 77.0
 offset_top = 408.0
 offset_right = 122.0
@@ -6408,7 +6407,7 @@ script = ExtResource("50_iert6")
 top_row = false
 delete = false
 
-[node name="Add4" type="Button" parent="."]
+[node name="Add4" type="Button" parent="." unique_id=156614421]
 offset_left = 1476.0
 offset_top = 408.0
 offset_right = 1521.0
@@ -6420,7 +6419,7 @@ top_row = false
 delete = false
 left = false
 
-[node name="Delete4" type="Button" parent="."]
+[node name="Delete4" type="Button" parent="." unique_id=1599476655]
 offset_left = 1532.0
 offset_top = 408.0
 offset_right = 1577.0

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://imlflq1ixw30"]
 
-[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://shared scripts/MovingPlatform.gd" id="1_qrqcl"]
-[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://shared scenes/startpoint.tscn" id="2_8c68d"]
+[ext_resource type="Script" uid="uid://bq4epgio6vbjc" path="res://Common/Scripts/MovingPlatform.gd" id="1_qrqcl"]
+[ext_resource type="PackedScene" uid="uid://b6e8jely8ucr4" path="res://Common/Scenes/startpoint.tscn" id="2_8c68d"]
 [ext_resource type="Texture2D" uid="uid://tmpumwmwcucm" path="res://Sprites/Points/pointR.png" id="2_cuyyf"]
-[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://shared scripts/PreviewMoving.gd" id="3_3ocbe"]
-[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://shared scenes/endpoint.tscn" id="4_uwnrp"]
-[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://shared scenes/speedbox.tscn" id="7_ltj0c"]
+[ext_resource type="Script" uid="uid://bnotq4nagehde" path="res://Common/Scripts/PreviewMoving.gd" id="3_3ocbe"]
+[ext_resource type="PackedScene" uid="uid://drxjx52aog5cn" path="res://Common/Scenes/endpoint.tscn" id="4_uwnrp"]
+[ext_resource type="PackedScene" uid="uid://c28okgwupv55" path="res://Common/Scenes/speedbox.tscn" id="7_ltj0c"]
 
 [node name="RMove" type="Node2D" unique_id=1534025355 groups=["Moving"]]
 z_index = -1

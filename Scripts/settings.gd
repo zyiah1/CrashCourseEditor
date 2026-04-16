@@ -7,7 +7,7 @@ func _ready():
 		$Node2D/FileWindoe.popup(Rect2(-790,-429,1022,580))
 
 func _on_settings_pressed():
-	get_tree().change_scene_to_file("res://settings.tscn")
+	get_tree().change_scene_to_file("res://settings_screen.tscn")
 
 func _on_FileWindoe_dir_selected(dir):
 	if not str(dir).ends_with("/"):

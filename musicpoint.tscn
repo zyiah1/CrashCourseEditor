@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bspfcs84t3cp3"]
+[gd_scene format=3 uid="uid://bspfcs84t3cp3"]
 
 [ext_resource type="Texture2D" uid="uid://d17f750xfl6m0" path="res://Sprites/Points/pointmusic.png" id="1"]
-[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://shared scripts/Point.gd" id="2_l1yrl"]
+[ext_resource type="Script" uid="uid://bupt4j233ltpb" path="res://Common/Scripts/Point.gd" id="2_l1yrl"]
 
 [sub_resource type="StyleBoxEmpty" id="5"]
 

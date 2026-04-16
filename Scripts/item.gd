@@ -11,8 +11,8 @@ func startup():
 	Editor = Options.Editor
 	names = [name]
 	names += additional_names
-	if ResourceLoader.exists("res://railart/"+name+".png"):
-		icon = load("res://railart/"+name+".png")
+	if ResourceLoader.exists("res://UI/railart/"+name+".png"):
+		icon = load("res://UI/railart/"+name+".png")
 	else:
 		queue_free()
 
@@ -22,7 +22,7 @@ func _process(delta):
 			name = names[0]
 		else:
 			name = names[names.find(name)+1]
-		icon = load("res://railart/"+name+".png")
+		icon = load("res://UI/railart/"+name+".png")
 		if disabled:
 			emit_signal("selected",str(name))
 

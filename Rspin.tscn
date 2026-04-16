@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu1qbuhg8htnl"]
+[gd_scene format=3 uid="uid://cu1qbuhg8htnl"]
 
-[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_16k3p"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common/Scenes/RotatingRail.tscn" id="1_16k3p"]
 [ext_resource type="Texture2D" uid="uid://bvycd1a6kxdhr" path="res://Sprites/Pivot/crankR.png" id="4"]
 
 [node name="RRotate" instance=ExtResource("1_16k3p")]

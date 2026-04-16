@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c08d2xvfpxpnp"]
+
+[ext_resource type="Texture2D" uid="uid://ly3gh0pn7vkx" path="res://Sprites/Objects/banana.png" id="1_t3ebs"]
+[ext_resource type="Script" uid="uid://cnro8pgnpsiyd" path="res://Common/Scripts/Objects.gd" id="2_nsiea"]
+[ext_resource type="FontFile" uid="uid://cxdf4pwf3is8p" path="res://fonts/typeface-mario-world-pixel-font/TypefaceMarioWorldPixelFilledRegular-Yz84q.otf" id="3_t3b25"]
+[ext_resource type="Script" uid="uid://bw1qge0nu1qxd" path="res://Objects/Scripts/bananaarea.gd" id="4_vh4ok"]
+
+[sub_resource type="FontFile" id="FontFile_divbi"]
+fallbacks = Array[Font]([ExtResource("3_t3b25"), ExtResource("3_t3b25")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="Theme" id="1"]
+RichTextLabel/fonts/normal_font = SubResource("FontFile_divbi")
+
+[sub_resource type="StyleBoxEmpty" id="5"]
+
+[sub_resource type="StyleBoxEmpty" id="4"]
+
+[sub_resource type="StyleBoxEmpty" id="3"]
+
+[node name="banan" type="Sprite2D" unique_id=1021325918]
+z_as_relative = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_t3ebs")
+offset = Vector2(-7, -5)
+script = ExtResource("2_nsiea")
+Param0 = 0.0
+rotatable = false
+scalable = false
+defaultSize = Vector2(0.25, 0.25)
+
+[node name="area" type="RichTextLabel" parent="." unique_id=513017011]
+modulate = Color(1, 1, 1, 0.792157)
+offset_left = -52.0
+offset_top = -32.0
+offset_right = 148.0
+offset_bottom = 80.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme = SubResource("1")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+horizontal_alignment = 1
+script = ExtResource("4_vh4ok")
+
+[node name="Button" type="Button" parent="." unique_id=2029799224]
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("5")
+theme_override_styles/pressed = SubResource("4")
+theme_override_styles/hover = SubResource("3")
+theme_override_styles/disabled = SubResource("5")
+theme_override_styles/focus = SubResource("5")
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

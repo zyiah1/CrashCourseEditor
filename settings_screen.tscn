@@ -1,0 +1,538 @@
+[gd_scene format=3 uid="uid://bmvmnob1fhgt5"]
+
+[ext_resource type="Script" uid="uid://xuf656scs7ed" path="res://settingsScreen.gd" id="1_o34gw"]
+[ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_2x6o2"]
+[ext_resource type="Texture2D" uid="uid://b64j6m28k3wra" path="res://UI/railart/dk.png" id="3_e0y8d"]
+[ext_resource type="Script" uid="uid://uwgc3c4svmap" path="res://Scripts/optionbutton.gd" id="6"]
+[ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="6_vm8ls"]
+[ext_resource type="Texture2D" uid="uid://pit08ec3mgem" path="res://UI/buttons/buttonsmallpressed.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dndgdn80hgnvp" path="res://UI/buttons/buttonsmall.png" id="8"]
+[ext_resource type="Script" uid="uid://dhcwxw85nb8u5" path="res://Scripts/custom.gd" id="9"]
+[ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="11"]
+[ext_resource type="FontFile" path="res://fonts/wii.tres" id="11_fdp2d"]
+[ext_resource type="Texture2D" uid="uid://dihnq7e2jea0v" path="res://UI/eyedroper.png" id="13"]
+[ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="13_7eiv2"]
+[ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="13_g1xid"]
+[ext_resource type="PackedScene" uid="uid://d28e4bqveph56" path="res://layout_creator.tscn" id="14_7eiv2"]
+[ext_resource type="Script" uid="uid://d1onl5hvn38vt" path="res://settings_panel_switcher.gd" id="14_fdp2d"]
+[ext_resource type="PackedScene" uid="uid://cx82h5vmx6lkn" path="res://Loader.tscn" id="14_tk3m0"]
+[ext_resource type="PackedScene" uid="uid://vr4iiap8b6g0" path="res://UI/Scenes/key_field.tscn" id="17_c6byp"]
+
+[sub_resource type="StyleBoxTexture" id="14"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="15"]
+texture = ExtResource("7")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcgpm"]
+texture = ExtResource("8")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0y8d"]
+bg_color = Color(0.46666667, 0.003921569, 0.0627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6901961, 0.039215688, 0.039215688, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdp2d"]
+bg_color = Color(0.0018805887, 0.25829864, 0.32663074, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0414, 0.56027985, 0.69, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6byp"]
+bg_color = Color(0.5686469, 0.0060295076, 0.08576635, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6901961, 0.039215688, 0.039215688, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iii5v"]
+bg_color = Color(9.62615e-07, 0.30657408, 0.38338464, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0414, 0.56027985, 0.69, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxTexture" id="13"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="10"]
+texture = ExtResource("7")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="9"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="12"]
+
+[sub_resource type="StyleBoxTexture" id="11"]
+
+[sub_resource type="StyleBoxTexture" id="7"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="4"]
+texture = ExtResource("7")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="3"]
+texture = ExtResource("8")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxTexture" id="6"]
+texture = ExtResource("7")
+region_rect = Rect2(0, 0, 733, 320)
+
+[sub_resource type="StyleBoxEmpty" id="5"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_iii5v"]
+action = &"zoom_in"
+
+[sub_resource type="InputEventAction" id="InputEventAction_xyjnm"]
+action = &"zoom_out"
+
+[sub_resource type="InputEventAction" id="InputEventAction_enj72"]
+action = &"bridge"
+
+[sub_resource type="InputEventAction" id="InputEventAction_5ra0u"]
+action = &"addpoint"
+
+[sub_resource type="InputEventAction" id="InputEventAction_7iooe"]
+action = &"usetool"
+
+[sub_resource type="InputEventAction" id="InputEventAction_wsyli"]
+action = &"Transform"
+
+[sub_resource type="InputEventAction" id="InputEventAction_qe05g"]
+action = &"Delete"
+
+[sub_resource type="InputEventAction" id="InputEventAction_3d8ot"]
+action = &"Edit"
+
+[sub_resource type="InputEventAction" id="InputEventAction_766pi"]
+action = &"Property"
+
+[sub_resource type="InputEventAction" id="InputEventAction_c6byp"]
+action = &"ToggleGrid"
+
+[node name="settings" type="Node2D" unique_id=383391318 node_paths=PackedStringArray("ScrollBG", "FileManager", "AutoSave")]
+process_priority = 1
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_o34gw")
+ScrollBG = NodePath("TabBar/Visuals/VBoxContainer/setting1")
+FileManager = NodePath("Buttons/setting6")
+AutoSave = NodePath("Buttons/setting5/TextEdit")
+
+[node name="bfg" parent="." unique_id=415782477 instance=ExtResource("2_2x6o2")]
+metadata/_edit_lock_ = true
+
+[node name="Dk" type="Sprite2D" parent="." unique_id=694105889]
+position = Vector2(1014.6666, 569.3334)
+scale = Vector2(0.36958715, 0.36958715)
+texture = ExtResource("3_e0y8d")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=829120582]
+offset_left = 734.6667
+offset_top = 675.3334
+offset_right = 1325.6667
+offset_bottom = 1271.3334
+
+[node name="setting4" type="Button" parent="Buttons" unique_id=548473267]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("14")
+theme_override_styles/pressed = SubResource("15")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/focus = SubResource("14")
+text = "Change file path"
+
+[node name="Node2D" type="Node2D" parent="Buttons/setting4" unique_id=1657815337]
+
+[node name="FileWindoe" type="FileDialog" parent="Buttons/setting4/Node2D" unique_id=1018893713]
+mode = 2
+size = Vector2i(1500, 800)
+theme = ExtResource("11")
+ok_button_text = "Select Current Folder"
+mode_overrides_title = false
+file_mode = 2
+access = 2
+filters = PackedStringArray("folder")
+use_native_dialog = true
+
+[node name="setting5" type="Button" parent="Buttons" unique_id=1372457679]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("14")
+theme_override_styles/pressed = SubResource("15")
+theme_override_styles/hover = SubResource("14")
+theme_override_styles/focus = SubResource("14")
+text = "Auto Save Interval"
+
+[node name="Panel" type="Panel" parent="Buttons/setting5" unique_id=782752528]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 10.0
+offset_right = 749.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tcgpm")
+
+[node name="TextEdit" type="TextEdit" parent="Buttons/setting5" unique_id=697690417]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.685
+offset_left = 587.0
+offset_top = 38.0
+offset_right = 336.55
+offset_bottom = 81.0
+tooltip_text = "Time is in Seconds"
+theme_override_fonts/font = ExtResource("13_g1xid")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sbm2w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sbm2w")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_sbm2w")
+text = "100"
+
+[node name="setting6" type="CheckButton" parent="Buttons" unique_id=364900873]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_font_sizes/font_size = 36
+button_pressed = true
+text = "Use OS filemanager"
+alignment = 1
+
+[node name="layout" type="Button" parent="." unique_id=12230558]
+offset_left = 220.66663
+offset_top = 855.3334
+offset_right = 487.66663
+offset_bottom = 959.3334
+theme = ExtResource("2")
+text = "Custom Layout"
+script = ExtResource("13_7eiv2")
+scene = ExtResource("14_7eiv2")
+
+[node name="setting3" type="CheckButton" parent="." unique_id=1519519633]
+visible = false
+offset_left = 241.0
+offset_top = 735.0
+offset_right = 749.0
+offset_bottom = 915.0
+theme = ExtResource("2")
+text = "auto fullscreen"
+
+[node name="TabBar" type="TabBar" parent="." unique_id=1450818724]
+offset_left = 46.000004
+offset_top = 15.333332
+offset_right = 1066.6667
+offset_bottom = 54.333332
+theme = ExtResource("2")
+current_tab = 0
+select_with_rmb = true
+tab_count = 4
+tab_0/title = "Visuals"
+tab_1/title = "Features"
+tab_2/title = "Key Maps"
+tab_3/title = "Editor Layout"
+script = ExtResource("14_fdp2d")
+
+[node name="Visuals" type="Panel" parent="TabBar" unique_id=1387440195]
+layout_mode = 0
+offset_top = 37.333332
+offset_right = 986.66675
+offset_bottom = 517.3334
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/Visuals" unique_id=1581258215]
+layout_mode = 0
+offset_left = 143.33334
+offset_top = 24.666668
+offset_right = 846.66675
+offset_bottom = 453.3333
+mouse_filter = 2
+
+[node name="setting1" type="CheckButton" parent="TabBar/Visuals/VBoxContainer" unique_id=931209681]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0.9999767, 0.73419756, 0.691055, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7210361, 0.90567106, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
+theme_override_fonts/font = ExtResource("11_fdp2d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
+text = "Scrolling bg"
+alignment = 1
+
+[node name="setting2" type="OptionButton" parent="TabBar/Visuals/VBoxContainer" unique_id=543829120]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11")
+theme_override_colors/font_color = Color(0.815686, 0.145098, 0.145098, 1)
+theme_override_colors/font_focus_color = Color(0.839216, 0.188235, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.431373, 0.121569, 0.121569, 1)
+theme_override_colors/font_hover_color = Color(0.866667, 0.333333, 0.333333, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_vm8ls")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("13")
+theme_override_styles/pressed = SubResource("10")
+theme_override_styles/hover = SubResource("9")
+theme_override_styles/disabled = SubResource("12")
+theme_override_styles/focus = SubResource("11")
+alignment = 1
+icon_alignment = 1
+script = ExtResource("6")
+
+[node name="custom" type="Button" parent="TabBar/Visuals/VBoxContainer/setting2" unique_id=1811413756]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 2.0
+offset_right = 577.0
+offset_bottom = 135.0
+theme = ExtResource("2")
+theme_override_styles/normal = SubResource("7")
+theme_override_styles/pressed = SubResource("4")
+theme_override_styles/hover = SubResource("3")
+theme_override_styles/disabled = SubResource("6")
+theme_override_styles/focus = SubResource("5")
+icon = ExtResource("13")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9")
+
+[node name="ColorPicker" type="ColorPicker" parent="TabBar/Visuals/VBoxContainer/setting2/custom" unique_id=78389457]
+visible = false
+layout_mode = 0
+offset_left = -342.0
+offset_top = -96.0
+offset_right = 137.0
+offset_bottom = 497.0
+scale = Vector2(0.6, 0.6)
+edit_alpha = false
+presets_visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="TabBar/Visuals/VBoxContainer/setting2/custom/ColorPicker" unique_id=891846067]
+visible = false
+show_behind_parent = true
+position = Vector2(236.667, 353.333)
+scale = Vector2(2.36471, 3.20625)
+texture = ExtResource("8")
+
+[node name="Resolution" type="CheckButton" parent="TabBar/Visuals/VBoxContainer" unique_id=763711321]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0.9999767, 0.73419756, 0.691055, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7210361, 0.90567106, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
+theme_override_fonts/font = ExtResource("11_fdp2d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
+text = "Resolution"
+alignment = 1
+
+[node name="Resolution2" type="CheckButton" parent="TabBar/Visuals/VBoxContainer" unique_id=1182600204]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0.9999767, 0.73419756, 0.691055, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7210361, 0.90567106, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
+theme_override_fonts/font = ExtResource("11_fdp2d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
+text = "UI Scale"
+alignment = 1
+
+[node name="Features" type="Panel" parent="TabBar" unique_id=230073965]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_top = 37.333332
+offset_right = 986.66675
+offset_bottom = 517.3334
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="TabBar/Features" unique_id=1113295994]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.3333333
+offset_right = 60.0
+offset_bottom = 26.333334
+text = "Features"
+
+[node name="Key Bindings" type="Panel" parent="TabBar" unique_id=2079893899]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_top = 37.333332
+offset_right = 986.66675
+offset_bottom = 517.3334
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabBar/Key Bindings" unique_id=1557085767]
+layout_mode = 0
+offset_left = 194.00005
+offset_top = 6.0
+offset_right = 783.3333
+offset_bottom = 474.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/Key Bindings/ScrollContainer" unique_id=1620946175]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KeyField" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=918133011 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_iii5v")
+
+[node name="KeyField2" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1235221604 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_xyjnm")
+
+[node name="KeyField3" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1818451434 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_enj72")
+text_overide = "Place Object"
+
+[node name="KeyField4" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=719618898 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_5ra0u")
+text_overide = "Add Point"
+
+[node name="usetool" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1132438760 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_7iooe")
+text_overide = "Use Tool"
+
+[node name="KeyField5" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1893389068 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_wsyli")
+
+[node name="KeyField6" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1810880806 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_qe05g")
+
+[node name="KeyField7" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1924652074 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_3d8ot")
+
+[node name="KeyField8" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1632042048 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_766pi")
+
+[node name="KeyField9" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1253448772 instance=ExtResource("17_c6byp")]
+layout_mode = 2
+input = SubResource("InputEventAction_c6byp")
+
+[node name="Editor Layout" type="Panel" parent="TabBar" unique_id=1937945081]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_top = 37.333332
+offset_right = 986.66675
+offset_bottom = 517.3334
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="EditLayout" type="Button" parent="TabBar/Editor Layout" unique_id=870887496]
+layout_mode = 0
+offset_left = 317.33334
+offset_top = 364.0
+offset_right = 667.3334
+offset_bottom = 445.0
+size_flags_vertical = 3
+theme = ExtResource("2")
+theme_override_colors/font_color = Color(0.9999767, 0.73419756, 0.691055, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7210361, 0.90567106, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
+theme_override_fonts/font = ExtResource("11_fdp2d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
+text = "Edit Custom Layout"
+script = ExtResource("13_7eiv2")
+scene = ExtResource("14_7eiv2")
+
+[node name="back" type="Button" parent="." unique_id=898030819]
+offset_left = 1.0
+offset_top = 528.0
+offset_right = 114.66667
+offset_bottom = 600.0
+theme = ExtResource("2")
+text = "back"
+script = ExtResource("13_7eiv2")
+scene = ExtResource("14_tk3m0")
+
+[connection signal="pressed" from="Buttons/setting4" to="." method="_on_setting_4_pressed"]
+[connection signal="dir_selected" from="Buttons/setting4/Node2D/FileWindoe" to="." method="_on_FileWindoe_dir_selected"]
+[connection signal="text_changed" from="Buttons/setting5/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="Buttons/setting6" to="." method="_on_setting_6_pressed"]
+[connection signal="pressed" from="layout" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="layout" to="layout" method="_on_back_pressed"]
+[connection signal="tab_changed" from="TabBar" to="TabBar" method="_on_tab_changed"]
+[connection signal="pressed" from="TabBar/Visuals/VBoxContainer/setting1" to="." method="_on_setting1_pressed"]
+[connection signal="item_selected" from="TabBar/Visuals/VBoxContainer/setting2" to="TabBar/Visuals/VBoxContainer/setting2" method="_on_setting2_item_selected"]
+[connection signal="pressed" from="TabBar/Visuals/VBoxContainer/setting2/custom" to="TabBar/Visuals/VBoxContainer/setting2/custom" method="_on_custom_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="back" to="back" method="_on_back_pressed"]

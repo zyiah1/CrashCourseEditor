@@ -3,20 +3,20 @@ extends Node2D
 var saving = false
 var item = "none"
 
-const exit = preload("res://door.tscn")
-const banana = preload("res://banana.tscn")
-const checkpoint = preload("res://checkpoint.tscn")
-const finalcheck = preload("res://finalcheckpoint.tscn")
+const exit = preload("res://Objects/door.tscn")
+const banana = preload("res://Objects/banana.tscn")
+const checkpoint = preload("res://Objects/checkpoint.tscn")
+const finalcheck = preload("res://Objects/finalcheckpoint.tscn")
 const musicrail = preload("res://musicrail.tscn")
 const DefaultRail = preload("res://DefaultRail.tscn")
 const InvisibleRail = preload("res://InvisibleRail.tscn")
 const BlueRail = preload("res://BlueRail.tscn")
 const RightSpin = preload("res://Rspin.tscn")
 const LeftSpin = preload("res://Lspin.tscn")
-const player = preload("res://player.tscn")
-const coin = preload("res://coin.tscn")
-const DK = preload("res://dk.tscn")
-const Pauline = preload("res://pauline.tscn")
+const player = preload("res://Objects/player.tscn")
+const coin = preload("res://Objects/coin.tscn")
+const DK = preload("res://Objects/dk.tscn")
+const Pauline = preload("res://Objects/pauline.tscn")
 
 #Moving Platforms
 const path_rail = preload("res://PathRail.tscn")
@@ -163,6 +163,7 @@ var bridgeheader:PackedStringArray = ["        RailInfos:",
 
 var bridgedata:PackedStringArray = []
 
+#region End Of Level Empty Layer Data
 var end:PackedStringArray = ["      LayerName: LC",
 "    - Infos:",
 "        ObjInfo: []",
@@ -316,6 +317,7 @@ var end:PackedStringArray = ["      LayerName: LC",
 "        RailInfos:",
 "          PathInfo: []",
 "      LayerName: L25"]
+#endregion
 
 
 func _process(_delta):
@@ -414,11 +416,11 @@ func itemplace():
 			"banana":
 				instance = banana.instantiate()
 			"1up":
-				instance = preload("res://1up.tscn").instantiate()
+				instance = preload("res://Objects/1up.tscn").instantiate()
 			"checkpoint":
 				instance = checkpoint.instantiate()
 				if checkpoints.size() == 0:
-					instance = preload("res://firstcheckpoint.tscn").instantiate()
+					instance = preload("res://Objects/firstcheckpoint.tscn").instantiate()
 				var area = 0
 				for value in checkpoints:
 					if area in checkpoints:
@@ -442,29 +444,29 @@ func itemplace():
 			"pauline":
 				instance = Pauline.instantiate()
 			"hammer":
-				instance = preload("res://hammer.tscn").instantiate()
+				instance = preload("res://Objects/hammer.tscn").instantiate()
 			"purse":
-				instance = preload("res://purse.tscn").instantiate()
+				instance = preload("res://Objects/purse.tscn").instantiate()
 			"barrel":
-				instance = preload("res://barrel.tscn").instantiate()
+				instance = preload("res://Objects/barrel.tscn").instantiate()
 			"ladder":
-				instance = preload("res://ladder.tscn").instantiate()
+				instance = preload("res://Objects/ladder.tscn").instantiate()
 			"Arrow":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 			"BigArrow":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_Arrow"
 			"ArrowKaiten":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_Kaiten"
 			"Arrow45":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_45"
 			"Arrow90":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_90"
 			"Arrow180":
-				instance = preload("res://Arrow.tscn").instantiate()
+				instance = preload("res://Objects/Arrow.tscn").instantiate()
 				instance.ObjectName = "Dkb_ChalkYajirushi_180"
 		if instance != null:
 			instance.position = roundedmousepos

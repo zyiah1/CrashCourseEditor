@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cx82h5vmx6lkn"]
+[gd_scene format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
@@ -20,6 +20,15 @@
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("10")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -3281,6 +3290,15 @@ _data = {
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("21")])
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -3350,24 +3368,24 @@ cache/0/46/0/kerning_overrides/46/0 = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="6"]
 
-[node name="Title" type="Node2D"]
+[node name="Title" type="Node2D" unique_id=1468925327]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("19")
 currentNumberOfUpdates = 9
 
-[node name="bfg" parent="." instance=ExtResource("2_a7f5f")]
+[node name="bfg" parent="." unique_id=48423500 instance=ExtResource("2_a7f5f")]
 offset_left = -224.0
 offset_top = -334.667
 offset_right = 1279780.0
 offset_bottom = 1279670.0
 metadata/_edit_lock_ = true
 
-[node name="logo" type="Sprite2D" parent="." groups=["hide"]]
+[node name="logo" type="Sprite2D" parent="." unique_id=2119198917 groups=["hide"]]
 position = Vector2(525, 163)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1")
 
-[node name="new" type="Button" parent="." groups=["hide"]]
+[node name="new" type="Button" parent="." unique_id=766265038 groups=["hide"]]
 offset_left = 165.333
 offset_top = 300.0
 offset_right = 465.333
@@ -3377,7 +3395,7 @@ theme_override_font_sizes/font_size = 40
 text = "New"
 script = ExtResource("5")
 
-[node name="quit" type="Button" parent="." groups=["hide"]]
+[node name="quit" type="Button" parent="." unique_id=1462621215 groups=["hide"]]
 offset_left = 1.0
 offset_top = 493.0
 offset_right = 181.0
@@ -3385,7 +3403,7 @@ offset_bottom = 597.0
 theme = ExtResource("3")
 text = "Quit"
 
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="FileDialog" type="FileDialog" parent="." unique_id=351883887]
 oversampling_override = 1.0
 title = "Open a File"
 size = Vector2i(437, 175)
@@ -3396,14 +3414,14 @@ access = 2
 filters = PackedStringArray("*.txt")
 use_native_dialog = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." groups=["hide"]]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1357670567 groups=["hide"]]
 offset_left = 0.6666645
 offset_right = 144.66667
 offset_bottom = 110.0
 theme_override_fonts/normal_font = SubResource("3")
 text = "V1.7"
 
-[node name="settings" type="Button" parent="." groups=["hide"]]
+[node name="settings" type="Button" parent="." unique_id=104028082 groups=["hide"]]
 offset_left = 884.0
 offset_top = 493.0
 offset_right = 1064.0
@@ -3412,9 +3430,9 @@ theme = ExtResource("3")
 text = "Settings"
 script = ExtResource("8")
 
-[node name="Node2D" type="Node2D" parent="settings"]
+[node name="Node2D" type="Node2D" parent="settings" unique_id=698856606]
 
-[node name="FileWindoe" type="FileDialog" parent="settings/Node2D"]
+[node name="FileWindoe" type="FileDialog" parent="settings/Node2D" unique_id=1884980870]
 oversampling_override = 1.0
 mode = 2
 title = "Select Default Save Directory"
@@ -3427,10 +3445,10 @@ access = 2
 filters = PackedStringArray("folder")
 use_native_dialog = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=117917211]
 position = Vector2(1021, 599)
 
-[node name="bug" type="LinkButton" parent="." groups=["hide"]]
+[node name="bug" type="LinkButton" parent="." unique_id=1307230700 groups=["hide"]]
 offset_left = 978.0
 offset_top = 1.9999998
 offset_right = 1065.0
@@ -3442,7 +3460,7 @@ text = "Report a bug"
 underline = 1
 uri = "https://github.com/zyiah1/CrashCourseEditor/issues"
 
-[node name="Discord" type="Button" parent="." groups=["hide"]]
+[node name="Discord" type="Button" parent="." unique_id=1779580441 groups=["hide"]]
 offset_left = 1038.0
 offset_top = 23.33333
 offset_right = 1064.3333
@@ -3454,7 +3472,7 @@ icon = ExtResource("10_fqlhf")
 flat = true
 expand_icon = true
 
-[node name="load" type="Button" parent="."]
+[node name="load" type="Button" parent="." unique_id=1266567810]
 offset_left = 602.334
 offset_top = 300.0
 offset_right = 902.334
@@ -3464,12 +3482,10 @@ theme_override_font_sizes/font_size = 40
 text = "Load"
 script = ExtResource("14_hbknu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="load"]
-libraries = {
-&"": SubResource("AnimationLibrary_udj0p")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="load" unique_id=1799691389]
+libraries/ = SubResource("AnimationLibrary_udj0p")
 
-[node name="Sprite2D" type="Sprite2D" parent="load"]
+[node name="Sprite2D" type="Sprite2D" parent="load" unique_id=405754368]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0.0588235)
 z_as_relative = false
@@ -3477,7 +3493,7 @@ position = Vector2(-821, 122)
 scale = Vector2(5.21655, 12.5098)
 texture = ExtResource("16")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="load/Sprite2D"]
+[node name="RichTextLabel" type="RichTextLabel" parent="load/Sprite2D" unique_id=2069158145]
 offset_left = -182.0
 offset_top = -10.0
 offset_right = 12.0
@@ -3486,10 +3502,10 @@ scale = Vector2(1, 0.4)
 theme_override_fonts/normal_font = SubResource("3")
 text = "Loading stuff"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="load"]
+[node name="CanvasLayer" type="CanvasLayer" parent="load" unique_id=2009925051]
 visible = false
 
-[node name="LoadingBar" type="ProgressBar" parent="load/CanvasLayer"]
+[node name="LoadingBar" type="ProgressBar" parent="load/CanvasLayer" unique_id=758519500]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -3503,7 +3519,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="load/CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="load/CanvasLayer" unique_id=429585704]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -3521,7 +3537,7 @@ theme_override_font_sizes/normal_font_size = 121
 bbcode_enabled = true
 text = "[center]Loading"
 
-[node name="help" type="Button" parent="." groups=["hide"]]
+[node name="help" type="Button" parent="." unique_id=1315212846 groups=["hide"]]
 offset_left = 442.0
 offset_top = 493.0
 offset_right = 622.0
@@ -3530,7 +3546,7 @@ theme = ExtResource("3")
 text = "Help"
 script = ExtResource("11")
 
-[node name="Sprite2D" type="Sprite2D" parent="help"]
+[node name="Sprite2D" type="Sprite2D" parent="help" unique_id=188296118]
 visible = false
 show_behind_parent = true
 z_index = 8
@@ -3538,7 +3554,7 @@ position = Vector2(91.333336, -199.66667)
 scale = Vector2(1.6045946, 2.2764602)
 texture = ExtResource("12_uro0u")
 
-[node name="shortcuts2" type="RichTextLabel" parent="help/Sprite2D"]
+[node name="shortcuts2" type="RichTextLabel" parent="help/Sprite2D" unique_id=1714050948]
 offset_left = -502.0
 offset_top = -188.0
 offset_right = 3376.0
@@ -3548,7 +3564,7 @@ theme_override_fonts/normal_font = ExtResource("13")
 theme_override_font_sizes/normal_font_size = 140
 metadata/_edit_lock_ = true
 
-[node name="shortcuts" type="RichTextLabel" parent="help/Sprite2D"]
+[node name="shortcuts" type="RichTextLabel" parent="help/Sprite2D" unique_id=1800194424]
 offset_left = -321.16113
 offset_top = -121.82657
 offset_right = 2243.1423
@@ -3560,7 +3576,7 @@ theme_override_font_sizes/normal_font_size = 140
 text = "Shortcuts:"
 horizontal_alignment = 1
 
-[node name="close" type="Button" parent="help/Sprite2D"]
+[node name="close" type="Button" parent="help/Sprite2D" unique_id=173764205]
 offset_left = -320.7456
 offset_top = 70.577415
 offset_right = -120.745605
@@ -3569,7 +3585,7 @@ scale = Vector2(0.505546, 0.505546)
 theme = ExtResource("3")
 text = "Close"
 
-[node name="LinkButton" type="LinkButton" parent="help/Sprite2D"]
+[node name="LinkButton" type="LinkButton" parent="help/Sprite2D" unique_id=63487278]
 offset_left = -319.91467
 offset_top = -120.06946
 offset_right = 497.08533
@@ -3581,7 +3597,7 @@ theme_override_font_sizes/font_size = 71
 text = "How to Play Custom Levels"
 uri = "https://www.youtube.com/watch?v=fzCBWLRTxdM"
 
-[node name="LinkButton2" type="LinkButton" parent="help/Sprite2D"]
+[node name="LinkButton2" type="LinkButton" parent="help/Sprite2D" unique_id=178553411]
 offset_left = 228.92596
 offset_top = -120.06946
 offset_right = 587.92596
@@ -3593,7 +3609,7 @@ theme_override_font_sizes/font_size = 71
 text = "Editor Guide"
 uri = "https://youtu.be/UXkEsO05qdY?si=FnREIubNNrS_CQca&t=18"
 
-[node name="Scroll" type="ScrollContainer" parent="help/Sprite2D"]
+[node name="Scroll" type="ScrollContainer" parent="help/Sprite2D" unique_id=2055911125]
 offset_left = -147.90327
 offset_top = -72.92888
 offset_right = 460.09674
@@ -3602,7 +3618,7 @@ scale = Vector2(0.53354716, 0.43436563)
 scroll_vertical_custom_step = 10.0
 vertical_scroll_mode = 2
 
-[node name="shortcuts2" type="RichTextLabel" parent="help/Sprite2D/Scroll"]
+[node name="shortcuts2" type="RichTextLabel" parent="help/Sprite2D/Scroll" unique_id=854229636]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3623,10 +3639,10 @@ text = "							In Editor:
  [color=gray] ----------------------------------------------------------------[/color]
 		  Space 		   ║ Send Object to Back
 			G 			   ║ Toggle Grid
-			Z 			   ║[img={100}]res://railart/toolmove.png[/img]
-			X 			   ║[img={100}]res://railart/tooldelete.png[/img]
-			C 			   ║[img={100}]res://railart/tooledit.png[/img]
-			V 			   ║[img={100}]res://railart/toolproperty.png[/img]
+			Z 			   ║[img={100}]res://UI/railart/toolmove.png[/img]
+			X 			   ║[img={100}]res://UI/railart/tooldelete.png[/img]
+			C 			   ║[img={100}]res://UI/railart/tooledit.png[/img]
+			V 			   ║[img={100}]res://UI/railart/toolproperty.png[/img]
 		CtrlᐩZ 		   ║ Undo
  CtrlᐩShiftᐩZ/Ctrl+Y║ Redo
 		CtrlᐩS 		   ║ Save
@@ -3638,25 +3654,25 @@ text = "							In Editor:
 					On Title Screen:
 		Ctrl+V 		   ║ Load Data on Clipboard"
 
-[node name="panel" type="Sprite2D" parent="." groups=["update"]]
+[node name="panel" type="Sprite2D" parent="." unique_id=1532684084 groups=["update"]]
 visible = false
 position = Vector2(514.667, 294)
 scale = Vector2(0.778536, 1.84583)
 texture = ExtResource("22")
 
-[node name="Patchnotes" type="ScrollContainer" parent="." groups=["update"]]
+[node name="Patchnotes" type="ScrollContainer" parent="." unique_id=1637320774 groups=["update"]]
 visible = false
 offset_left = 235.0
 offset_top = 68.0
 offset_right = 795.0
 offset_bottom = 485.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Patchnotes"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Patchnotes" unique_id=602135067]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="LineEdit" parent="." groups=["update"]]
+[node name="Control" type="LineEdit" parent="." unique_id=1328231715 groups=["update"]]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -3677,7 +3693,7 @@ editable = false
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Control2" type="LineEdit" parent="." groups=["update"]]
+[node name="Control2" type="LineEdit" parent="." unique_id=1688360484 groups=["update"]]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -3699,7 +3715,7 @@ editable = false
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="accept" type="Button" parent="." groups=["update"]]
+[node name="accept" type="Button" parent="." unique_id=414765851 groups=["update"]]
 visible = false
 offset_left = 635.0
 offset_top = 524.333
@@ -3710,7 +3726,7 @@ theme = ExtResource("3")
 theme_override_font_sizes/font_size = 20
 text = "Update Now"
 
-[node name="decline" type="Button" parent="." groups=["update"]]
+[node name="decline" type="Button" parent="." unique_id=1485651433 groups=["update"]]
 visible = false
 modulate = Color(0.709804, 0.709804, 0.709804, 1)
 offset_left = 234.0

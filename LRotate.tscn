@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbywyi3kqlov1"]
+[gd_scene format=3 uid="uid://cbywyi3kqlov1"]
 
-[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common Rails/RotatingRail.tscn" id="1_m4vt4"]
+[ext_resource type="PackedScene" uid="uid://dk83boqr17hvh" path="res://Common/Scenes/RotatingRail.tscn" id="1_m4vt4"]
 [ext_resource type="Texture2D" uid="uid://covcxxp27opw" path="res://Sprites/Points/pointL.png" id="3_r7g3a"]
 [ext_resource type="Texture2D" uid="uid://d3hlcipa37df" path="res://Sprites/Rails/railblue.png" id="5_u50vq"]
 [ext_resource type="Texture2D" uid="uid://c6428javeoxyj" path="res://Sprites/Pivot/pivotL.png" id="6_77wu5"]
 
-[node name="LRotate" instance=ExtResource("1_m4vt4")]
+[node name="LRotate" unique_id=1557848252 instance=ExtResource("1_m4vt4")]
 
-[node name="Spin" parent="." index="0"]
+[node name="Spin" parent="." index="0" unique_id=236238067]
 pointtexture = ExtResource("3_r7g3a")
 
-[node name="start" parent="Spin" index="0"]
+[node name="start" parent="Spin" index="0" unique_id=2066784846]
 texture = ExtResource("3_r7g3a")
 
-[node name="crank" parent="Spin" index="1"]
+[node name="crank" parent="Spin" index="1" unique_id=1930991331]
 previewtexture = ExtResource("5_u50vq")
 
-[node name="crank" parent="Spin/crank" index="1"]
+[node name="crank" parent="Spin/crank" index="1" unique_id=1211651284]
 texture = ExtResource("6_77wu5")
 
-[node name="end" parent="Spin" index="3"]
+[node name="end" parent="Spin" index="3" unique_id=1399831456]
 texture = ExtResource("3_r7g3a")
