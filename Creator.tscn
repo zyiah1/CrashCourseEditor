@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cis5h17cp6fdw" path="res://Scripts/Creator.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dhuq07cuji546" path="res://UI/railart/player.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_ceeig"]
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://UI/Scenes/bfg.tscn" id="2_ceeig"]
 [ext_resource type="Script" uid="uid://dpmpn2wm5p8is" path="res://Scripts/item.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://drwiyy8ajhe7m" path="res://UI/stage.png" id="4"]
 [ext_resource type="Script" uid="uid://cgee6wia56fvv" path="res://addons/grid_display/grid_display.gd" id="4_tll4m"]

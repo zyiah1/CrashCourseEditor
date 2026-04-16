@@ -56,7 +56,7 @@ func reposition():
 			
 			#fan
 			if line.begins_with("              param0: 2150"):
-				childrail.midImage = preload("res://fan.png")
+				childrail.midImage = preload("res://Sprites/Pivot/fan.png")
 				childrail.rail.texture = preload("uid://bw3l07oyd028f") #railwhite.png
 			#L points
 			elif line.begins_with("              param0: 21"):

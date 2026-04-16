@@ -1,7 +1,7 @@
 extends Button
 
 @export var scene:PackedScene = preload("res://Creator.tscn")
-@export var path:String = "res://settings_screen.tscn"
+@export var path:String = "res://UI/Screens/settings_screen.tscn"
 @export var use_packed:bool = true
 
 

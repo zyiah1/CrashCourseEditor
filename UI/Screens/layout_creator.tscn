@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d28e4bqveph56"]
 
-[ext_resource type="Script" uid="uid://dxxxdrquncs8" path="res://layout_creator.gd" id="1_73tgk"]
-[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="1_ibg4x"]
+[ext_resource type="Script" uid="uid://dxxxdrquncs8" path="res://UI/Screens/layout_creator.gd" id="1_73tgk"]
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://UI/Scenes/bfg.tscn" id="1_ibg4x"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="2_ti782"]
 [ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="3_p4w1o"]
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="5_p4w1o"]
@@ -47,9 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://55ieslxrmlut" path="res://UI/railart/Arrow180.png" id="45_73tgk"]
 [ext_resource type="Texture2D" uid="uid://cdc5wbbhura7h" path="res://UI/railart/ArrowKaiten.png" id="46_jbrv1"]
 [ext_resource type="Texture2D" uid="uid://3tv3ljipyj0v" path="res://UI/railart/BigArrow.png" id="47_iert6"]
-[ext_resource type="Script" uid="uid://cgi5n04u35ikx" path="res://layoutcreator_button.gd" id="49_jbrv1"]
+[ext_resource type="Script" uid="uid://cgi5n04u35ikx" path="res://UI/Screens/layoutcreator_button.gd" id="49_jbrv1"]
 [ext_resource type="PackedScene" uid="uid://4a46ijhy8nx3" path="res://menu_button.tscn" id="49_ly7xb"]
-[ext_resource type="Script" uid="uid://dw32by7kelfjk" path="res://layoutcreator_controlbutton.gd" id="50_iert6"]
+[ext_resource type="Script" uid="uid://dw32by7kelfjk" path="res://UI/Screens/layoutcreator_controlbutton.gd" id="50_iert6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rr03k"]
 texture = ExtResource("6_bmmxj")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cx82h5vmx6lkn"]
 
 [ext_resource type="Texture2D" uid="uid://67by6wt2i1op" path="res://UI/logo.png" id="1"]
-[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://bfg.tscn" id="2_a7f5f"]
+[ext_resource type="PackedScene" uid="uid://cbneaewbsqv85" path="res://UI/Scenes/bfg.tscn" id="2_a7f5f"]
 [ext_resource type="Theme" uid="uid://bsbsq82osul0f" path="res://dkb.tres" id="3"]
 [ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="5"]
 [ext_resource type="Theme" uid="uid://byp0imswcta2n" path="res://small.tres" id="7"]
@@ -20,6 +20,9 @@
 
 [sub_resource type="FontFile" id="3"]
 fallbacks = Array[Font]([ExtResource("10")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -3290,6 +3293,9 @@ _data = {
 
 [sub_resource type="FontFile" id="7"]
 fallbacks = Array[Font]([ExtResource("21")])
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0

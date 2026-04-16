@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://cf8c45g7oslwa" path="res://UI/railart/tiltRS.png" id="39_ys462"]
 [ext_resource type="Texture2D" uid="uid://b6rtgciwwc70p" path="res://UI/railart/movingEnd.png" id="40_ltss6"]
 [ext_resource type="Texture2D" uid="uid://bxpne4a20380" path="res://UI/railart/endrotate.png" id="41_stk7r"]
-[ext_resource type="Script" uid="uid://cgi5n04u35ikx" path="res://layoutcreator_button.gd" id="42_d8gx7"]
+[ext_resource type="Script" uid="uid://cgi5n04u35ikx" path="res://UI/Screens/layoutcreator_button.gd" id="42_d8gx7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73tgk"]
 texture = ExtResource("2_fqmk3")
