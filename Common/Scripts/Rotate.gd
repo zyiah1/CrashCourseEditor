@@ -262,8 +262,8 @@ func _process(delta):
 					points[rotationpoint].position = Editor.roundedmousepos
 					points[rotationpoint].set_data()
 					$crank2.position = $crank.position
-				rail.points[pointID*2] = point.position
-				rail.points[pointID*2+1] = point.position
+				rail.set_point_position(pointID*2,point.position)
+				rail.set_point_position(pointID*2+1,point.position)
 				$crank.rail.points = rail.points
 				$crank2.rail.points = rail.points
 	

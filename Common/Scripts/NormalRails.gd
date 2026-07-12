@@ -104,8 +104,8 @@ func _process(delta):
 			if Editor.item == "toolmove":
 				point.position = Editor.roundedmousepos
 				$start.position = $end.position
-				rail.points[pointID*2] = point.position
-				rail.points[pointID*2+1] = point.position
+				rail.set_point_position(pointID*2,point.position)
+				rail.set_point_position(pointID*2+1,point.position)
 		
 		
 	tool_actions(amount, pressed)

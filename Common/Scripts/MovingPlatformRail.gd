@@ -163,8 +163,8 @@ func _process(delta):
 			if Editor.item == "toolmove":
 				point.position = Editor.roundedmousepos
 				if childpoint:
-					childrail.rail.points[pointID*2] = point.position
-					childrail.rail.points[pointID*2+1] = point.position
+					childrail.set_point_position(pointID*2,point.position)
+					childrail.set_point_position(pointID*2+1,point.position)
 					childrail.get_node("preview").rail.points = childrail.rail.points
 				$start.position = $end.position
 				childrail.get_node("start").position = childrail.get_node("end").position

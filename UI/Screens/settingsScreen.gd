@@ -37,11 +37,6 @@ func _on_setting1_pressed():
 
 
 
-
-
-
-
-
 func _on_FileWindoe_dir_selected(dir):
 	if str(dir).ends_with("/"):
 		Options.filepath = dir
