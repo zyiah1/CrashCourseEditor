@@ -11,7 +11,8 @@ func _ready():
 	add_item("purple")
 	add_item("pink")
 	add_item("black")
-	
+	add_item("custom")
+	select(8)
 	match Options.colorbg:
 		Color(0.3,0.6,0.3):
 			select(0)
@@ -35,7 +36,7 @@ func _ready():
 
 
 func _on_setting2_item_selected(index):
-	$custom/ColorPicker.hide()
+	$custom.hide()
 	$custom.custom = false
 	match index:
 		0:
@@ -54,4 +55,6 @@ func _on_setting2_item_selected(index):
 			Options.colorbg = Color(0.8,0.3,0.9)
 		7:
 			Options.colorbg = Color(0.1,0.1,0.1)
-		
+		8:
+			$custom.custom = true
+			$custom._on_custom_pressed()

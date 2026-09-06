@@ -16,12 +16,22 @@ offset_right = 253.33328
 offset_bottom = 45.333336
 text = "Place"
 
+[node name="input" type="RichTextLabel" parent="." unique_id=264507661]
+visible = false
+layout_mode = 0
+offset_left = 17.333313
+offset_top = 5.333334
+offset_right = 253.33328
+offset_bottom = 45.333336
+text = "Place"
+
 [node name="Keybind" type="Button" parent="." unique_id=1183173778]
 layout_mode = 0
 offset_left = 262.00006
 offset_top = 6.0000057
 offset_right = 525.3334
 offset_bottom = 41.333336
+focus_mode = 0
 theme = ExtResource("2_wjvpd")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.39, 0.39, 1)
@@ -40,3 +50,6 @@ icon = ExtResource("3_8cf4l")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[connection signal="pressed" from="Keybind" to="." method="_on_keybind_pressed"]
+[connection signal="button_down" from="Reset" to="." method="_on_reset_button_down"]

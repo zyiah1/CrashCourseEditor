@@ -10,10 +10,10 @@
 [ext_resource type="FontFile" uid="uid://blmmsnwapdlx" path="res://fonts/wii/contb.ttf" id="8_w8bdu"]
 [ext_resource type="Script" uid="uid://cweshl4mxl3yq" path="res://Scripts/SceneButton.gd" id="9_aynej"]
 [ext_resource type="Script" uid="uid://d1onl5hvn38vt" path="res://settings_panel_switcher.gd" id="11_1uyss"]
+[ext_resource type="StyleBox" uid="uid://cy2smbjf4k8fh" path="res://new_style_box_flat.tres" id="11_tph6o"]
 [ext_resource type="FontFile" path="res://fonts/wii.tres" id="12_k7bxt"]
 [ext_resource type="FontFile" uid="uid://d0y46qqrv3yks" path="res://fonts/SuperMario256.ttf" id="13_igum6"]
 [ext_resource type="Script" uid="uid://uwgc3c4svmap" path="res://Scripts/optionbutton.gd" id="14_7s3vw"]
-[ext_resource type="Texture2D" uid="uid://dihnq7e2jea0v" path="res://UI/eyedroper.png" id="15_7k5jh"]
 [ext_resource type="Script" uid="uid://dhcwxw85nb8u5" path="res://Scripts/custom.gd" id="16_33r7a"]
 [ext_resource type="PackedScene" uid="uid://vr4iiap8b6g0" path="res://UI/Scenes/key_field.tscn" id="17_yvpkn"]
 
@@ -29,18 +29,6 @@ region_rect = Rect2(0, 0, 733, 320)
 texture = ExtResource("5_qnc28")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbm2w"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0y8d"]
-bg_color = Color(0.46666667, 0.003921569, 0.0627451, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.6901961, 0.039215688, 0.039215688, 1)
-corner_radius_top_left = 7
-corner_radius_top_right = 7
-corner_radius_bottom_right = 7
-corner_radius_bottom_left = 7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdp2d"]
 bg_color = Color(0.0018805887, 0.25829864, 0.32663074, 1)
@@ -78,22 +66,6 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[sub_resource type="StyleBoxTexture" id="13"]
-texture = ExtResource("5_qnc28")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="10"]
-texture = ExtResource("6_p28u7")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="9"]
-texture = ExtResource("5_qnc28")
-region_rect = Rect2(0, 0, 733, 320)
-
-[sub_resource type="StyleBoxTexture" id="12"]
-
-[sub_resource type="StyleBoxTexture" id="11"]
-
 [sub_resource type="StyleBoxTexture" id="7"]
 texture = ExtResource("5_qnc28")
 region_rect = Rect2(0, 0, 733, 320)
@@ -115,32 +87,79 @@ region_rect = Rect2(0, 0, 733, 320)
 [sub_resource type="InputEventAction" id="InputEventAction_iii5v"]
 action = &"zoom_in"
 
+[sub_resource type="InputEventKey" id="InputEventKey_5tbmt"]
+device = -1
+keycode = 4194435
+unicode = 45
+
 [sub_resource type="InputEventAction" id="InputEventAction_xyjnm"]
 action = &"zoom_out"
+
+[sub_resource type="InputEventKey" id="InputEventKey_tph6o"]
+device = -1
+keycode = 4194437
+unicode = 43
 
 [sub_resource type="InputEventAction" id="InputEventAction_enj72"]
 action = &"bridge"
 
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_5tbmt"]
+device = -1
+button_index = 2
+
 [sub_resource type="InputEventAction" id="InputEventAction_5ra0u"]
 action = &"addpoint"
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_tph6o"]
+device = -1
+button_index = 1
 
 [sub_resource type="InputEventAction" id="InputEventAction_7iooe"]
 action = &"usetool"
 
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_oe7jg"]
+device = -1
+button_index = 1
+
 [sub_resource type="InputEventAction" id="InputEventAction_wsyli"]
 action = &"Transform"
+
+[sub_resource type="InputEventKey" id="InputEventKey_oe7jg"]
+device = -1
+keycode = 90
+unicode = 122
 
 [sub_resource type="InputEventAction" id="InputEventAction_qe05g"]
 action = &"Delete"
 
+[sub_resource type="InputEventKey" id="InputEventKey_7ok8v"]
+device = -1
+keycode = 88
+unicode = 120
+
 [sub_resource type="InputEventAction" id="InputEventAction_3d8ot"]
 action = &"Edit"
+
+[sub_resource type="InputEventKey" id="InputEventKey_cxrm8"]
+device = -1
+keycode = 67
+unicode = 99
 
 [sub_resource type="InputEventAction" id="InputEventAction_766pi"]
 action = &"Property"
 
+[sub_resource type="InputEventKey" id="InputEventKey_5jo6s"]
+device = -1
+keycode = 86
+unicode = 118
+
 [sub_resource type="InputEventAction" id="InputEventAction_c6byp"]
 action = &"ToggleGrid"
+
+[sub_resource type="InputEventKey" id="InputEventKey_pcost"]
+device = -1
+keycode = 71
+unicode = 103
 
 [node name="settings" type="Node2D" unique_id=383391318 node_paths=PackedStringArray("ScrollBG", "FileManager", "AutoSave")]
 process_priority = 1
@@ -258,6 +277,7 @@ tab_3/title = "Editor Layout"
 script = ExtResource("11_1uyss")
 
 [node name="Visuals" type="Panel" parent="TabBar" unique_id=1387440195]
+visible = false
 layout_mode = 0
 offset_top = 37.333332
 offset_right = 986.66675
@@ -284,7 +304,7 @@ theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294,
 theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
 theme_override_fonts/font = ExtResource("12_k7bxt")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/normal = ExtResource("11_tph6o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
@@ -304,40 +324,40 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("13_igum6")
 theme_override_font_sizes/font_size = 41
-theme_override_styles/normal = SubResource("13")
-theme_override_styles/pressed = SubResource("10")
-theme_override_styles/hover = SubResource("9")
-theme_override_styles/disabled = SubResource("12")
-theme_override_styles/focus = SubResource("11")
+theme_override_styles/normal = ExtResource("11_tph6o")
+theme_override_styles/pressed = ExtResource("11_tph6o")
+theme_override_styles/hover = ExtResource("11_tph6o")
+theme_override_styles/disabled = ExtResource("11_tph6o")
+theme_override_styles/focus = ExtResource("11_tph6o")
 alignment = 1
 icon_alignment = 1
+allow_reselect = true
 script = ExtResource("14_7s3vw")
 
 [node name="custom" type="Button" parent="TabBar/Visuals/VBoxContainer/setting2" unique_id=1811413756]
+visible = false
 layout_mode = 0
-offset_left = 434.0
-offset_top = 2.0
-offset_right = 577.0
-offset_bottom = 135.0
+offset_left = 404.0
+offset_top = 248.66667
+offset_right = 547.0
+offset_bottom = 381.6667
 theme = ExtResource("4_o42k1")
 theme_override_styles/normal = SubResource("7")
 theme_override_styles/pressed = SubResource("4")
 theme_override_styles/hover = SubResource("3")
 theme_override_styles/disabled = SubResource("6")
 theme_override_styles/focus = SubResource("5")
-icon = ExtResource("15_7k5jh")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("16_33r7a")
 
 [node name="ColorPicker" type="ColorPicker" parent="TabBar/Visuals/VBoxContainer/setting2/custom" unique_id=78389457]
-visible = false
 layout_mode = 0
-offset_left = -342.0
-offset_top = -96.0
-offset_right = 137.0
-offset_bottom = 497.0
+offset_left = 107.33334
+offset_top = -330.0
+offset_right = 531.7777
+offset_bottom = 183.33337
 scale = Vector2(0.6, 0.6)
 edit_alpha = false
 presets_visible = false
@@ -349,7 +369,31 @@ position = Vector2(236.667, 353.333)
 scale = Vector2(2.36471, 3.20625)
 texture = ExtResource("5_qnc28")
 
+[node name="ok" type="Button" parent="TabBar/Visuals/VBoxContainer/setting2/custom" unique_id=449812984]
+layout_mode = 0
+offset_left = 197.99998
+offset_top = -29.333334
+offset_right = 278.6667
+offset_bottom = 10.199991
+theme_override_styles/normal = ExtResource("11_tph6o")
+theme_override_styles/pressed = ExtResource("11_tph6o")
+theme_override_styles/hover = ExtResource("11_tph6o")
+theme_override_styles/disabled = ExtResource("11_tph6o")
+theme_override_styles/focus = ExtResource("11_tph6o")
+text = "Ok"
+
+[node name="Label" type="Label" parent="TabBar/Visuals/VBoxContainer/setting2" unique_id=1511613961]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 83.333336
+offset_right = 153.0
+offset_bottom = 118.333336
+theme_override_fonts/font = ExtResource("8_w8bdu")
+theme_override_font_sizes/font_size = 34
+text = "BG COLOR:"
+
 [node name="Resolution" type="CheckButton" parent="TabBar/Visuals/VBoxContainer" unique_id=763711321]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_o42k1")
@@ -360,7 +404,7 @@ theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294,
 theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
 theme_override_fonts/font = ExtResource("12_k7bxt")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/normal = ExtResource("11_tph6o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
@@ -368,6 +412,7 @@ text = "Resolution"
 alignment = 1
 
 [node name="Resolution2" type="CheckButton" parent="TabBar/Visuals/VBoxContainer" unique_id=1182600204]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_o42k1")
@@ -378,7 +423,7 @@ theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294,
 theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
 theme_override_fonts/font = ExtResource("12_k7bxt")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/normal = ExtResource("11_tph6o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
@@ -404,7 +449,6 @@ offset_bottom = 26.333334
 text = "Features"
 
 [node name="Key Bindings" type="Panel" parent="TabBar" unique_id=2079893899]
-visible = false
 show_behind_parent = true
 layout_mode = 0
 offset_top = 37.333332
@@ -429,45 +473,55 @@ size_flags_vertical = 3
 [node name="KeyField" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=918133011 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_iii5v")
+default_mapping = SubResource("InputEventKey_5tbmt")
 
 [node name="KeyField2" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1235221604 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_xyjnm")
+default_mapping = SubResource("InputEventKey_tph6o")
 
 [node name="KeyField3" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1818451434 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_enj72")
+default_mapping = SubResource("InputEventMouseButton_5tbmt")
 text_overide = "Place Object"
 
 [node name="KeyField4" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=719618898 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_5ra0u")
+default_mapping = SubResource("InputEventMouseButton_tph6o")
 text_overide = "Add Point"
 
 [node name="usetool" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1132438760 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_7iooe")
+default_mapping = SubResource("InputEventMouseButton_oe7jg")
 text_overide = "Use Tool"
 
 [node name="KeyField5" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1893389068 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_wsyli")
+default_mapping = SubResource("InputEventKey_oe7jg")
 
 [node name="KeyField6" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1810880806 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_qe05g")
+default_mapping = SubResource("InputEventKey_7ok8v")
 
 [node name="KeyField7" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1924652074 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_3d8ot")
+default_mapping = SubResource("InputEventKey_cxrm8")
 
 [node name="KeyField8" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1632042048 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_766pi")
+default_mapping = SubResource("InputEventKey_5jo6s")
 
 [node name="KeyField9" parent="TabBar/Key Bindings/ScrollContainer/VBoxContainer" unique_id=1253448772 instance=ExtResource("17_yvpkn")]
 layout_mode = 2
 input = SubResource("InputEventAction_c6byp")
+default_mapping = SubResource("InputEventKey_pcost")
 
 [node name="Editor Layout" type="Panel" parent="TabBar" unique_id=1937945081]
 visible = false
@@ -494,14 +548,14 @@ theme_override_colors/font_hover_color = Color(0.9841185, 0.2582049, 0.21997294,
 theme_override_colors/font_hover_pressed_color = Color(0, 0.45882353, 0.6117647, 1)
 theme_override_fonts/font = ExtResource("12_k7bxt")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_e0y8d")
+theme_override_styles/normal = ExtResource("11_tph6o")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fdp2d")
 theme_override_styles/hover = SubResource("StyleBoxFlat_c6byp")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iii5v")
 text = "Edit Custom Layout"
 script = ExtResource("9_aynej")
 scene = null
-path = "res://layout_creator.tscn"
+path = "res://UI/Screens/layout_creator.tscn"
 use_packed = false
 
 [node name="back" type="Button" parent="." unique_id=898030819]
@@ -524,5 +578,6 @@ use_packed = false
 [connection signal="pressed" from="TabBar/Visuals/VBoxContainer/setting1" to="." method="_on_setting1_pressed"]
 [connection signal="item_selected" from="TabBar/Visuals/VBoxContainer/setting2" to="TabBar/Visuals/VBoxContainer/setting2" method="_on_setting2_item_selected"]
 [connection signal="pressed" from="TabBar/Visuals/VBoxContainer/setting2/custom" to="TabBar/Visuals/VBoxContainer/setting2/custom" method="_on_custom_pressed"]
+[connection signal="pressed" from="TabBar/Visuals/VBoxContainer/setting2/custom/ok" to="TabBar/Visuals/VBoxContainer/setting2/custom" method="_on_ok_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="back" to="back" method="_on_back_pressed"]
